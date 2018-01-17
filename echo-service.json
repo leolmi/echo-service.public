@@ -1,0 +1,5 @@
+{
+  "storePath":"./server/store",
+  "logPath":"./server/log",
+  "port": 9001
+}

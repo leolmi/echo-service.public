@@ -1,0 +1,64 @@
+# echo-service
+DEVELOPER SERVER
+This server can contains more scenarios.
+Every scenario can contains connections, queries, documents and custom elements.
+
+
+#start
+
+- start server + client:
+
+```sh
+$ npm start
+```
+
+- start only server:
+```sh
+$ npm run server
+```
+
+
+#defaults
+
+- *IP*
+  you can set enviroment variable
+    ```sh
+    ECHO_IP = XXXX
+    ```
+
+- *PORT*
+  default port is 9001, you can change it in file:
+    ```sh
+     echo-service.json
+    ```
+    or setting enviroment variable
+    ```sh
+    ECHO_PORT = XXXX
+    ```
+
+- *STORE*
+  default location:
+    ```sh
+     {PROJECT-FOLDER}/server/store
+    ```
+    you can change it in:
+    ```sh
+     echo-service.json
+    ```
+    using property **storePath**
+    or setting enviroment variable
+    ```sh
+    ECHO_STORE = XXXX
+    ```
+
+#API
+
+API are explained in json format running server and typing in browser:
+```sh
+http://localhost:9001/api
+```
+or in client:
+```sh
+http://localhost:9001/#/help/api
+```
+
