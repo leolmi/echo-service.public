@@ -77,5 +77,5 @@ http://localhost:9001/#/help/api
 ```
 
 
-# in case of:
-    - oracledb node library compilation problems see [this](https://github.com/leolmi/echo-service.public/tree/master/assets/oracledb/README.md)
+# notes:
+in case of oracledb node library compilation problems see [this](https://github.com/leolmi/echo-service.public/tree/master/assets/oracledb/README.md)
