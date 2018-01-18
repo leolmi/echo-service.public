@@ -6,6 +6,12 @@ This server can contains more scenarios.
 Every scenario can contains connections, queries, documents and custom elements.
 
 
+####install
+```sh
+$ npm install
+```
+*see notes at the end of this document*
+
 #start
 
 - start server + client:
@@ -53,6 +59,12 @@ $ npm run server
     ECHO_STORE = XXXX
     ```
 
+#providers
+available providers:
+- SQL server
+- MySQL
+- Oracle
+
 #API
 
 API are explained in json format running server and typing in browser:
@@ -64,3 +76,6 @@ or in client:
 http://localhost:9001/#/help/api
 ```
 
+
+#in case of:
+    - oracledb node library compilation problems see [this](./assets/oracledb/README.md)
