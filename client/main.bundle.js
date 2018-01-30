@@ -25,7 +25,7 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_cover_cover_component__ = __webpack_require__("../../../../../src/app/pages/cover/cover.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_dashboard_dashboard_component__ = __webpack_require__("../../../../../src/app/pages/dashboard/dashboard.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_scenario_scenario_component__ = __webpack_require__("../../../../../src/app/pages/scenario/scenario.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_documents_documents_component__ = __webpack_require__("../../../../../src/app/pages/documents/documents.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_connections_connections_component__ = __webpack_require__("../../../../../src/app/pages/connections/connections.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_queries_queries_component__ = __webpack_require__("../../../../../src/app/pages/queries/queries.component.ts");
@@ -61,7 +61,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var routes = [
     { path: '', redirectTo: '/cover', pathMatch: 'full' },
     { path: 'cover', component: __WEBPACK_IMPORTED_MODULE_2__pages_cover_cover_component__["a" /* CoverComponent */] },
-    { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_3__pages_dashboard_dashboard_component__["a" /* DashboardComponent */] },
+    { path: 'scenario', component: __WEBPACK_IMPORTED_MODULE_3__pages_scenario_scenario_component__["a" /* ScenarioComponent */] },
     { path: 'documents/:id', component: __WEBPACK_IMPORTED_MODULE_4__pages_documents_documents_component__["a" /* DocumentsComponent */] },
     { path: 'connections/:id', component: __WEBPACK_IMPORTED_MODULE_5__pages_connections_connections_component__["a" /* ConnectionsComponent */], canDeactivate: [__WEBPACK_IMPORTED_MODULE_12__components_browser_browser_component__["b" /* CanDeactivateEditor */]] },
     { path: 'queries/:id', component: __WEBPACK_IMPORTED_MODULE_6__pages_queries_queries_component__["a" /* QueriesComponent */], canDeactivate: [__WEBPACK_IMPORTED_MODULE_12__components_browser_browser_component__["b" /* CanDeactivateEditor */]] },
@@ -321,7 +321,7 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_monitor_monitor_component__ = __webpack_require__("../../../../../src/app/components/monitor/monitor.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__directives_lock_scroll_directive__ = __webpack_require__("../../../../../src/app/directives/lock-scroll.directive.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__directives_auto_scroll_directive__ = __webpack_require__("../../../../../src/app/directives/auto-scroll.directive.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_dashboard_dashboard_component__ = __webpack_require__("../../../../../src/app/pages/dashboard/dashboard.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_scenario_scenario_component__ = __webpack_require__("../../../../../src/app/pages/scenario/scenario.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_cover_cover_component__ = __webpack_require__("../../../../../src/app/pages/cover/cover.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_nocontent_nocontent_component__ = __webpack_require__("../../../../../src/app/pages/nocontent/nocontent.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_documents_documents_component__ = __webpack_require__("../../../../../src/app/pages/documents/documents.component.ts");
@@ -334,7 +334,7 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__pages_slow_query_slow_query_component__ = __webpack_require__("../../../../../src/app/pages/slow-query/slow-query.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_log_log_component__ = __webpack_require__("../../../../../src/app/pages/log/log.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_help_pages_api_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/api-help.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__pages_help_pages_dashboard_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/dashboard-help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__pages_help_pages_scenario_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/scenario-help.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__pages_help_pages_documents_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/documents-help.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__pages_help_pages_connections_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/connections-help.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_help_pages_queries_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/queries-help.component.ts");
@@ -421,7 +421,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_33__directives_lock_scroll_directive__["a" /* LockScrollDirective */],
                 __WEBPACK_IMPORTED_MODULE_34__directives_auto_scroll_directive__["a" /* AutoScrollDirective */],
                 __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_35__pages_dashboard_dashboard_component__["a" /* DashboardComponent */],
+                __WEBPACK_IMPORTED_MODULE_35__pages_scenario_scenario_component__["a" /* ScenarioComponent */],
                 __WEBPACK_IMPORTED_MODULE_36__pages_cover_cover_component__["a" /* CoverComponent */],
                 __WEBPACK_IMPORTED_MODULE_20__components_browser_browser_component__["a" /* BrowserComponent */],
                 __WEBPACK_IMPORTED_MODULE_37__pages_nocontent_nocontent_component__["a" /* NoContentComponent */],
@@ -441,7 +441,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_30__components_cart_cart_component__["a" /* CartComponent */],
                 __WEBPACK_IMPORTED_MODULE_44__pages_help_help_component__["a" /* HelpComponent */],
                 __WEBPACK_IMPORTED_MODULE_47__pages_help_pages_api_help_component__["a" /* ApiHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_48__pages_help_pages_dashboard_help_component__["a" /* DashboardHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_48__pages_help_pages_scenario_help_component__["a" /* ScenarioHelpComponent */],
                 __WEBPACK_IMPORTED_MODULE_50__pages_help_pages_connections_help_component__["a" /* ConnectionsHelpComponent */],
                 __WEBPACK_IMPORTED_MODULE_51__pages_help_pages_queries_help_component__["a" /* QueriesHelpComponent */],
                 __WEBPACK_IMPORTED_MODULE_53__pages_help_pages_custom_help_component__["a" /* CustomHelpComponent */],
@@ -505,7 +505,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_28__components_parameter_editor_parameter_editor_component__["a" /* ParameterEditorComponent */],
                 __WEBPACK_IMPORTED_MODULE_29__components_value_editor_value_editor_component__["a" /* ValueEditorComponent */],
                 __WEBPACK_IMPORTED_MODULE_47__pages_help_pages_api_help_component__["a" /* ApiHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_48__pages_help_pages_dashboard_help_component__["a" /* DashboardHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_48__pages_help_pages_scenario_help_component__["a" /* ScenarioHelpComponent */],
                 __WEBPACK_IMPORTED_MODULE_50__pages_help_pages_connections_help_component__["a" /* ConnectionsHelpComponent */],
                 __WEBPACK_IMPORTED_MODULE_51__pages_help_pages_queries_help_component__["a" /* QueriesHelpComponent */],
                 __WEBPACK_IMPORTED_MODULE_53__pages_help_pages_custom_help_component__["a" /* CustomHelpComponent */],
@@ -751,7 +751,7 @@ var CartComponent = (function () {
         var self = this;
         router.events.subscribe(function (event) {
             if (event instanceof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* NavigationEnd */]) {
-                self.canPush = (self.u.parseUrlId(event.url) === '/dashboard');
+                self.canPush = (self.u.parseUrlId(event.url) === '/scenario');
             }
         });
     }
@@ -1794,7 +1794,7 @@ var CoverComponent = (function () {
     };
     CoverComponent.prototype.go = function () {
         if (!(this.app || {})['loading']) {
-            var route = (this.app || {})['error'] ? '/settings' : '/dashboard';
+            var route = (this.app || {})['error'] ? '/settings' : '/scenario';
             this.router.navigate([route]);
         }
     };
@@ -2113,245 +2113,10 @@ var CustomComponent = (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/pages/dashboard/dashboard.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".dashboard-item .mat-chip {\r\n  max-width: 300px;\r\n  font-variant: small-caps; }\r\n.dashboard-item .count {\r\n  float: right; }\r\n\r\n.scenario-editor {\r\n  max-width: 500px;\r\n  margin-bottom: 40px; }\r\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/pages/dashboard/dashboard.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"page-container layout-fill\">\n  <input class=\"hidden\" type=\"file\" #upload (change)=\"onFileChange($event)\">\n  <div class=\"dashboard-toolbox toolbox float-left echo-scrollbar\">\n    <mat-nav-list>\n      <mat-list-item *ngFor=\"let s of scenarios\" (click)=\"select(s)\" [ngClass]=\"{'accent':s._current, 'selected':s===current}\">\n        <mat-icon *ngIf=\"s._current\" aria-label=\"current scenario\" color=\"warn\">star</mat-icon>\n        <mat-icon *ngIf=\"!s.folder\" aria-label=\"new scenario\" color=\"warn\">new_releases</mat-icon>\n        {{s.name}}\n        <mat-icon *ngIf=\"s.auth\" aria-label=\"auth scenario\" class=\"on-right\">security</mat-icon>\n      </mat-list-item>\n    </mat-nav-list>\n  </div>\n  <div class=\"page-editor echo-scrollbar\" flex>\n    <app-page-header [options]=\"header\"></app-page-header>\n    <div class=\"page-cards scenario-editor\" *ngIf=\"current && (current._current || !current.folder)\">\n      <mat-card>\n        <div layout-col>\n          <div layout-row>\n            <mat-form-field layout-70>\n              <input matInput [(ngModel)]=\"current.name\" placeholder=\"Name\">\n            </mat-form-field>\n            <mat-form-field layout-30>\n              <input matInput [(ngModel)]=\"current.folder\" placeholder=\"Folder\" disabled>\n            </mat-form-field>\n          </div>\n          <mat-slide-toggle [(ngModel)]=\"current.auth\" disabled>Auth</mat-slide-toggle>\n        </div>\n      </mat-card>\n    </div>\n    <mat-chip-list *ngIf=\"current\" class=\"mat-chip-list-stacked dashboard-item\">\n      <mat-chip *ngFor=\"let i of items\" selected=\"true\" [color]=\"current._current ? 'warn' : 'accent'\">\n        {{i.name}}<span class=\"count\">{{i.count}}</span>\n      </mat-chip>\n    </mat-chip-list>\n    <div *ngIf=\"current && !current.folder\" class=\"grey-text\">Set as current to save it</div>\n    <pre *ngIf=\"user.settings.debug\" class=\"debug-pre\">{{current_str||''}}</pre>\n  </div>\n</div>\n\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/pages/dashboard/dashboard.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_animations__ = __webpack_require__("../../../../../src/app/app.animations.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_interaction_service__ = __webpack_require__("../../../../../src/app/services/interaction.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_utils_service__ = __webpack_require__("../../../../../src/app/services/utils.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_user_settings_service__ = __webpack_require__("../../../../../src/app/services/user-settings.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_cart_service__ = __webpack_require__("../../../../../src/app/services/cart.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_lodash__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-var DashboardComponent = (function () {
-    function DashboardComponent(interaction, app, u, user, cartS) {
-        var _this = this;
-        this.interaction = interaction;
-        this.app = app;
-        this.u = u;
-        this.user = user;
-        this.cartS = cartS;
-        this.uploading = false;
-        this.header = {};
-        this.scenarios = null;
-        this.current = null;
-        this.current_str = '';
-        this.items = [];
-        var self = this;
-        self.header = {
-            title: function () { return (self.current || {}).name; },
-            buttons: [{
-                    icon: 'star',
-                    tooltip: 'Set as the current scenario',
-                    color: 'warn',
-                    visible: function () { return !!self.current && !(self.current || {})._current; },
-                    action: function (e) { return self.apply(self.current); }
-                }, {
-                    icon: 'save',
-                    tooltip: 'save changes',
-                    visible: function () { return !!self.current && (self.current || {})._current; },
-                    action: function (e) { return self.update(self.current); }
-                }, {
-                    icon: 'refresh',
-                    tooltip: 'refresh',
-                    disabled: function () { return self.uploading; },
-                    action: function (e) { return self.refresh(); }
-                }, {
-                    icon: 'add_circle_outline',
-                    tooltip: 'Create new scenario',
-                    action: function () {
-                        var scenario = {
-                            name: _this.u.getNewName(_this.scenarios, 'New Scenario'),
-                            errors: [],
-                            auth: false
-                        };
-                        _this.scenarios.push(scenario);
-                        _this.select(scenario);
-                    }
-                }, {
-                    divider: true
-                }, {
-                    icon: 'cloud_upload',
-                    tooltip: 'upload scenario',
-                    visible: function () { return !!self.current; },
-                    disabled: function () { return self.uploading; },
-                    action: function (e) { return self.uploadInput.nativeElement.click(); }
-                }, {
-                    icon: 'file_download',
-                    tooltip: 'download scenario',
-                    visible: function () { return !!self.current; },
-                    action: function (e) { return self.interaction.download(self.current.folder); }
-                }]
-        };
-        self.interaction.events.subscribe(function (e) {
-            if (e.type === 'push') {
-                self.refresh();
-            }
-        });
-    }
-    DashboardComponent.prototype.refresh = function () {
-        var self = this;
-        self.interaction.getScenarios().subscribe(function (data) {
-            self.scenarios = data;
-            var cur = self.current ?
-                __WEBPACK_IMPORTED_MODULE_7_lodash___default.a.find(data, function (s) { return s.folder === self.current.folder; }) :
-                __WEBPACK_IMPORTED_MODULE_7_lodash___default.a.find(data, function (s) { return s._current; });
-            self.select(cur);
-        }, function (err) {
-            self.u.error(err);
-        });
-    };
-    DashboardComponent.prototype.apply = function (scenario) {
-        var self = this;
-        self.current = null;
-        self.app.apply(scenario, function () {
-            self.refresh();
-            self.u.snack('Scenario successfully changed!');
-        });
-    };
-    DashboardComponent.prototype.update = function (scenario) {
-        var self = this;
-        self.current = null;
-        self.app.update(scenario, function () {
-            self.refresh();
-            self.u.snack('Scenario successfully updated!');
-        });
-    };
-    DashboardComponent.prototype.select = function (scenario) {
-        var _this = this;
-        this.current = scenario;
-        this.cartS.scenario = scenario;
-        this.current_str = JSON.stringify(scenario, null, 2);
-        this.items = [];
-        __WEBPACK_IMPORTED_MODULE_7_lodash___default.a.keys(this.current || {}).forEach(function (pn) {
-            if (__WEBPACK_IMPORTED_MODULE_7_lodash___default.a.isArray(_this.current[pn]) && _this.current[pn].length) {
-                _this.items.push({ name: pn, count: _this.current[pn].length });
-            }
-        });
-    };
-    DashboardComponent.prototype.clearFile = function () {
-        this.uploadInput.nativeElement.value = '';
-        this.uploading = false;
-    };
-    DashboardComponent.prototype.onFileChange = function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        if (e.target.files && e.target.files.length > 0) {
-            var self_1 = this;
-            var file = e.target.files[0];
-            if (!/(.*).zip/i.test(file.name)) {
-                self_1.clearFile();
-                self_1.u.error('Scenario must be a zip file!');
-            }
-            else {
-                self_1.uploading = true;
-                var data = new FormData();
-                data.append('file', file);
-                self_1.interaction.upload(data, function () {
-                    self_1.clearFile();
-                    self_1.refresh();
-                });
-            }
-        }
-    };
-    DashboardComponent.prototype.ngOnInit = function () {
-        this.cartS.scenario = null;
-        this.refresh();
-    };
-    DashboardComponent.prototype.ngOnDestroy = function () {
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('upload'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
-    ], DashboardComponent.prototype, "uploadInput", void 0);
-    DashboardComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-dashboard',
-            template: __webpack_require__("../../../../../src/app/pages/dashboard/dashboard.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/pages/dashboard/dashboard.component.css")],
-            animations: [__WEBPACK_IMPORTED_MODULE_1__app_animations__["a" /* fadeAnimation */]]
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_interaction_service__["a" /* InteractionService */],
-            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_4__services_utils_service__["a" /* UtilsService */],
-            __WEBPACK_IMPORTED_MODULE_5__services_user_settings_service__["a" /* UserSettingsService */],
-            __WEBPACK_IMPORTED_MODULE_6__services_cart_service__["a" /* CartService */]])
-    ], DashboardComponent);
-    return DashboardComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "../../../../../src/app/pages/documents/documents.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".page-editor .document-area {\r\n  width: calc(100% - 40px);\r\n  height: calc(100% - 10px);\r\n  left: 20px;\r\n  resize: none;\r\n  background-color: #333;\r\n  color: #aaa;\r\n  border: none;\r\n  outline: none; }\r\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
 /***/ "../../../../../src/app/pages/documents/documents.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page-container layout-fill\">\n  <app-browser></app-browser>\n  <div class=\"page-editor echo-scrollbar\" flex>\n    <app-page-header [options]=\"header\"></app-page-header>\n    <app-new-element></app-new-element>\n    <textarea *ngIf=\"!!(browser||{}).current\" class=\"echo-scrollbar document-area\" [(ngModel)]=\"(browser||{}).current_str\" layout-fill></textarea>\n  </div>\n</div>\n"
+module.exports = "<div class=\"page-container layout-fill\">\n  <app-browser></app-browser>\n  <div class=\"page-editor echo-scrollbar\" flex>\n    <app-page-header [options]=\"header\"></app-page-header>\n    <app-new-element></app-new-element>\n    <textarea *ngIf=\"!!(browser||{}).current\" class=\"echo-scrollbar text-editor\" [(ngModel)]=\"(browser||{}).current_str\" layout-fill></textarea>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2441,8 +2206,7 @@ var DocumentsComponent = (function () {
     DocumentsComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-documents',
-            template: __webpack_require__("../../../../../src/app/pages/documents/documents.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/pages/documents/documents.component.css")]
+            template: __webpack_require__("../../../../../src/app/pages/documents/documents.component.html")
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_browser_service__["a" /* BrowserService */],
             __WEBPACK_IMPORTED_MODULE_2__services_interaction_service__["a" /* InteractionService */],
@@ -2459,7 +2223,7 @@ var DocumentsComponent = (function () {
 /***/ "../../../../../src/app/pages/help/help.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page-container help-viewer layout-fill\">\n  <div class=\"dashboard-toolbox toolbox float-left echo-scrollbar\">\n    <div class=\"toolbox-header\">\n      <input placeholder=\"search...\" [(ngModel)]=\"searchTerm\" (change)=\"refresh()\">\n      <button *ngIf=\"searchTerm\" class=\"clear-button\" mat-icon-button (click)=\"clearSearch()\">\n        <mat-icon aria-label=\"clear button\">close</mat-icon>\n      </button>\n    </div>\n    <div class=\"toolbox-items echo-scrollbar\">\n      <mat-nav-list>\n        <mat-list-item *ngFor=\"let i of helpItems\" (click)=\"select(i)\"\n                       [ngClass]=\"{'accent':i === current}\">\n          <span class=\"help-item-name\">{{i.caption || i.tooltip}}</span>\n        </mat-list-item>\n      </mat-nav-list>\n    </div>\n  </div>\n  <div class=\"page-editor echo-scrollbar\" flex>\n    <app-page-header [options]=\"header\"></app-page-header>\n    <app-help-browser [map]=\"cmpRef.instance.map\" (goTo)=\"goto($event)\"></app-help-browser>\n    <div id=\"__top__\" #target></div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"page-container help-viewer layout-fill\">\n  <div class=\"scenario-toolbox toolbox float-left echo-scrollbar\">\n    <div class=\"toolbox-header\">\n      <input placeholder=\"search...\" [(ngModel)]=\"searchTerm\" (change)=\"refresh()\">\n      <button *ngIf=\"searchTerm\" class=\"clear-button\" mat-icon-button (click)=\"clearSearch()\">\n        <mat-icon aria-label=\"clear button\">close</mat-icon>\n      </button>\n    </div>\n    <div class=\"toolbox-items echo-scrollbar\">\n      <mat-nav-list>\n        <mat-list-item *ngFor=\"let i of helpItems\" (click)=\"select(i)\"\n                       [ngClass]=\"{'accent':i === current}\">\n          <span class=\"help-item-name\">{{i.caption || i.tooltip}}</span>\n        </mat-list-item>\n      </mat-nav-list>\n    </div>\n  </div>\n  <div class=\"page-editor echo-scrollbar\" flex>\n    <app-page-header [options]=\"header\"></app-page-header>\n    <app-help-browser [map]=\"cmpRef.instance.map\" (goTo)=\"goto($event)\"></app-help-browser>\n    <div id=\"__top__\" #target></div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2800,72 +2564,6 @@ var CustomHelpComponent = (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/pages/help/pages/dashboard-help.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"help-dashboard\">\n  <p>Lo scenario corrente si presenta con l'elenco degli elementi in rosso, e nella lista degli scenari disponibili\n    appare con una stella che ne precede il nome.</p>\n  <img src=\"./assets/help/scenarios2.png\">\n  <p>Solo per questo scenario (corrente) è possibile modificare il nome e salvare tale modifica</p>\n  <img src=\"./assets/help/scenarios1.png\">\n  <p>nella sezione appare (non modificabile) il nome del folder sul server dove risiede lo scenario:</p>\n  <p code>&#123;SERVER-PROJECT&#125;/api/scenario/data/&#123;FODER-SCENARIO&#125;</p>\n  <p>Gli altri scenari, una volta selezionati, mostrano i propri elementi elencati e enumerati, evidenziati:</p>\n  <img src=\"./assets/help/scenarios3.png\">\n</div>\n<div id=\"help-dashboard-actions\">\n  <p>Azioni previste dall'editor:</p>\n  <img src=\"./assets/help/scenarios0.png\">\n  <p>\n    <button mat-icon-button color=\"warn\">\n      <mat-icon>star</mat-icon>\n    </button>\n    Imposta lo scenario selezionato come corrente (visibile per tutti gli scenari tranne il corrente).\n  </p>\n  <p>\n    <button mat-icon-button>\n      <mat-icon>save</mat-icon>\n    </button>\n    Salva le modifiche allo scenario (visibile solo per lo scenario corrente).\n  </p>\n  <p>\n    <button mat-icon-button>\n      <mat-icon>refresh</mat-icon>\n    </button>\n    Aggiorna l'elenco degli scenari.\n  </p>\n  <p>\n    <button mat-icon-button>\n      <mat-icon>add_circle_outline</mat-icon>\n    </button>\n    Aggiunge un nuovo scenario.\n  </p>\n  <p>\n    <button mat-icon-button>\n      <mat-icon>cloud_upload</mat-icon>\n    </button>\n    Permette di inviare uno scenario (xxx.zip file) al server che lo aggiunge all'elenco di quelli già presenti.\n  </p>\n  <p>\n    <button mat-icon-button>\n      <mat-icon>file_download</mat-icon>\n    </button>\n    Scarica lo scenario selezionato sotto forma di un unico file compresso.\n  </p>\n</div>\n<div divider></div>\n<div faq id=\"help-dashboard-apply\">\n  <h1>Applicare uno scenario</h1>\n  <ol>\n    <li>\n      Selezionare lo scenario desiderato nell'elenco e premere\n      <button color=\"warn\" mat-icon-button>\n        <mat-icon>star</mat-icon>\n      </button>.\n    </li>\n  </ol>\n</div>\n<div faq id=\"help-dashboard-creation\">\n  <h1>Creare un nuovo scenario</h1>\n  <ol>\n    <li>\n      Utilizzare la funzionalità\n      <button mat-icon-button>\n        <mat-icon>add_circle_outline</mat-icon>\n      </button>\n      per generare un nuovo scenario temporaneo.\n    </li>\n    <li>\n      Riempire il campo del nome e applicare lo scenario per rendere definitiva la generazione attraverso la funzione:\n      <button color=\"warn\" mat-icon-button>\n        <mat-icon>star</mat-icon>\n      </button>\n    </li>\n  </ol>\n</div>\n<div faq id=\"help-dashboard-delete\">\n  <h1>Eliminare uno scenario</h1>\n  <p>Non è prevista l'eliminazione dall'editor, per farlo è sufficiente localizzare la cartella dove risiede lo scenario sul server:</p>\n  <p code>&#123;SERVER-PROJECT&#125;/api/scenario/data/&#123;FODER-SCENARIO&#125;</p>\n  <p>ed eliminarla (o spostarla). In questo modo lo scenario non sarà più distribuito dal server.</p>\n</div>\n<div faq id=\"help-dashboard-share\">\n  <h1>Condividere uno scenario</h1>\n  <ol>\n    <li>Scaricare uno scenario selezionandolo e usando la funzionalità\n      <button mat-icon-button>\n        <mat-icon>file_download</mat-icon>\n      </button>\n    </li>\n    <li>Consegnare il file compresso ottenuto al destinatario</li>\n    <li>Sul pc target avviare echo-service ed utilizzare la funzionalità\n      <button mat-icon-button>\n        <mat-icon>cloud_upload</mat-icon>\n      </button>\n      per importare lo scenario\n    </li>\n  </ol>\n</div>\n<div faq id=\"help-dashboard-share-objects\">\n  <h1>Passare oggetti da uno scenario ad un altro</h1>\n  <ol>\n    <li>Applicare lo scenario da cui si intende prelevare elementi</li>\n    <li>Per ogni elemento che si intende condividere, selezionarlo ed usare la funzione\n      <button mat-icon-button>\n        <mat-icon>add_shopping_cart</mat-icon>\n      </button>\n      per aggiungerlo all'elenco\n    </li>\n    <li>Tornare alla pagina degli scenari e selezionare adesso quello destinatario degli oggetti appena scelti</li>\n    <li>Attivare l'elenco degli oggetti selezionati con il pulsante\n      <button mat-icon-button color=\"warn\">\n        <mat-icon>shopping_cart</mat-icon>\n      </button>\n      che dovrebbe mostrare in alto a destra il numero di elementi presenti in elenco\n    </li>\n    <li>Nell'elenco apparso sulla sinistra selezionare tutti o parte degli oggetti presenti, quindi usare il pulsante\n      <button mat-icon-button>\n        <mat-icon>forward</mat-icon>\n      </button>\n      per aggiungerli allo scenario selezionato.\n    </li>\n  </ol>\n</div>\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/pages/help/pages/dashboard-help.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardHelpComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var DashboardHelpComponent = (function () {
-    function DashboardHelpComponent() {
-        this.map = [{
-                id: 'help-dashboard',
-                desc: 'Scenari'
-            }, {
-                id: 'help-dashboard-actions',
-                desc: 'Azioni possibili'
-            }, {
-                title: 'faqs'
-            }, {
-                id: 'help-dashboard-apply',
-                desc: 'Applicare uno scenario'
-            }, {
-                id: 'help-dashboard-creation',
-                desc: 'Creare un nuovo scenario'
-            }, {
-                id: 'help-dashboard-delete',
-                desc: 'Eliminare uno scenario'
-            }, {
-                id: 'help-dashboard-share',
-                desc: 'Condividere uno scenario'
-            }, {
-                id: 'help-dashboard-share-objects',
-                desc: 'Passare oggetti da uno scenario ad un altro'
-            }];
-    }
-    DashboardHelpComponent.prototype.ngOnInit = function () {
-    };
-    DashboardHelpComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-dashboard-help',
-            template: __webpack_require__("../../../../../src/app/pages/help/pages/dashboard-help.component.html")
-        }),
-        __metadata("design:paramtypes", [])
-    ], DashboardHelpComponent);
-    return DashboardHelpComponent;
-}());
-
-
-
-/***/ }),
-
 /***/ "../../../../../src/app/pages/help/pages/documents-help.component.html":
 /***/ (function(module, exports) {
 
@@ -3012,6 +2710,72 @@ var QueriesHelpComponent = (function () {
         __metadata("design:paramtypes", [])
     ], QueriesHelpComponent);
     return QueriesHelpComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/help/pages/scenario-help.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"help-scenario\">\n  <p>Lo scenario corrente si presenta con l'elenco degli elementi in rosso, e nella lista degli scenari disponibili\n    appare con una stella che ne precede il nome.</p>\n  <img src=\"./assets/help/scenarios2.png\">\n  <p>Solo per questo scenario (corrente) è possibile modificare il nome e salvare tale modifica</p>\n  <img src=\"./assets/help/scenarios1.png\">\n  <p>nella sezione appare (non modificabile) il nome del folder sul server dove risiede lo scenario:</p>\n  <p code>&#123;SERVER-PROJECT&#125;/api/scenario/data/&#123;FODER-SCENARIO&#125;</p>\n  <p>Sotto l'elenco degli oggetti disponibili e solo per lo scenario corrente, appare l'editor delle opzioni custom:</p>\n  <img src=\"./assets/help/scenarios4.png\">\n  <p>la stringa rappresenta un testo json che sarà salvato come oggetto nel file dello scenario nella property settings.</p>\n  <p>Gli altri scenari, una volta selezionati, mostrano i propri elementi elencati e enumerati, evidenziati:</p>\n  <img src=\"./assets/help/scenarios3.png\">\n</div>\n<div id=\"help-scenario-actions\">\n  <p>Azioni previste dall'editor:</p>\n  <img src=\"./assets/help/scenarios0.png\">\n  <p>\n    <button mat-icon-button color=\"warn\">\n      <mat-icon>star</mat-icon>\n    </button>\n    Imposta lo scenario selezionato come corrente (visibile per tutti gli scenari tranne il corrente).\n  </p>\n  <p>\n    <button mat-icon-button>\n      <mat-icon>save</mat-icon>\n    </button>\n    Salva le modifiche allo scenario (visibile solo per lo scenario corrente).\n  </p>\n  <p>\n    <button mat-icon-button>\n      <mat-icon>refresh</mat-icon>\n    </button>\n    Aggiorna l'elenco degli scenari.\n  </p>\n  <p>\n    <button mat-icon-button>\n      <mat-icon>add_circle_outline</mat-icon>\n    </button>\n    Aggiunge un nuovo scenario.\n  </p>\n  <p>\n    <button mat-icon-button>\n      <mat-icon>cloud_upload</mat-icon>\n    </button>\n    Permette di inviare uno scenario (xxx.zip file) al server che lo aggiunge all'elenco di quelli già presenti.\n  </p>\n  <p>\n    <button mat-icon-button>\n      <mat-icon>file_download</mat-icon>\n    </button>\n    Scarica lo scenario selezionato sotto forma di un unico file compresso.\n  </p>\n</div>\n<div divider></div>\n<div faq id=\"help-scenario-apply\">\n  <h1>Applicare uno scenario</h1>\n  <ol>\n    <li>\n      Selezionare lo scenario desiderato nell'elenco e premere\n      <button color=\"warn\" mat-icon-button>\n        <mat-icon>star</mat-icon>\n      </button>.\n    </li>\n  </ol>\n</div>\n<div faq id=\"help-scenario-creation\">\n  <h1>Creare un nuovo scenario</h1>\n  <ol>\n    <li>\n      Utilizzare la funzionalità\n      <button mat-icon-button>\n        <mat-icon>add_circle_outline</mat-icon>\n      </button>\n      per generare un nuovo scenario temporaneo.\n    </li>\n    <li>\n      Riempire il campo del nome e applicare lo scenario per rendere definitiva la generazione attraverso la funzione:\n      <button color=\"warn\" mat-icon-button>\n        <mat-icon>star</mat-icon>\n      </button>\n    </li>\n  </ol>\n</div>\n<div faq id=\"help-scenario-delete\">\n  <h1>Eliminare uno scenario</h1>\n  <p>Non è prevista l'eliminazione dall'editor, per farlo è sufficiente localizzare la cartella dove risiede lo scenario sul server:</p>\n  <p code>&#123;SERVER-PROJECT&#125;/api/scenario/data/&#123;FODER-SCENARIO&#125;</p>\n  <p>ed eliminarla (o spostarla). In questo modo lo scenario non sarà più distribuito dal server.</p>\n</div>\n<div faq id=\"help-scenario-share\">\n  <h1>Condividere uno scenario</h1>\n  <ol>\n    <li>Scaricare uno scenario selezionandolo e usando la funzionalità\n      <button mat-icon-button>\n        <mat-icon>file_download</mat-icon>\n      </button>\n    </li>\n    <li>Consegnare il file compresso ottenuto al destinatario</li>\n    <li>Sul pc target avviare echo-service ed utilizzare la funzionalità\n      <button mat-icon-button>\n        <mat-icon>cloud_upload</mat-icon>\n      </button>\n      per importare lo scenario\n    </li>\n  </ol>\n</div>\n<div faq id=\"help-scenario-share-objects\">\n  <h1>Passare oggetti da uno scenario ad un altro</h1>\n  <ol>\n    <li>Applicare lo scenario da cui si intende prelevare elementi</li>\n    <li>Per ogni elemento che si intende condividere, selezionarlo ed usare la funzione\n      <button mat-icon-button>\n        <mat-icon>add_shopping_cart</mat-icon>\n      </button>\n      per aggiungerlo all'elenco\n    </li>\n    <li>Tornare alla pagina degli scenari e selezionare adesso quello destinatario degli oggetti appena scelti</li>\n    <li>Attivare l'elenco degli oggetti selezionati con il pulsante\n      <button mat-icon-button color=\"warn\">\n        <mat-icon>shopping_cart</mat-icon>\n      </button>\n      che dovrebbe mostrare in alto a destra il numero di elementi presenti in elenco\n    </li>\n    <li>Nell'elenco apparso sulla sinistra selezionare tutti o parte degli oggetti presenti, quindi usare il pulsante\n      <button mat-icon-button>\n        <mat-icon>forward</mat-icon>\n      </button>\n      per aggiungerli allo scenario selezionato.\n    </li>\n  </ol>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/help/pages/scenario-help.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ScenarioHelpComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ScenarioHelpComponent = (function () {
+    function ScenarioHelpComponent() {
+        this.map = [{
+                id: 'help-scenario',
+                desc: 'Scenari'
+            }, {
+                id: 'help-scenario-actions',
+                desc: 'Azioni possibili'
+            }, {
+                title: 'faqs'
+            }, {
+                id: 'help-scenario-apply',
+                desc: 'Applicare uno scenario'
+            }, {
+                id: 'help-scenario-creation',
+                desc: 'Creare un nuovo scenario'
+            }, {
+                id: 'help-scenario-delete',
+                desc: 'Eliminare uno scenario'
+            }, {
+                id: 'help-scenario-share',
+                desc: 'Condividere uno scenario'
+            }, {
+                id: 'help-scenario-share-objects',
+                desc: 'Passare oggetti da uno scenario ad un altro'
+            }];
+    }
+    ScenarioHelpComponent.prototype.ngOnInit = function () {
+    };
+    ScenarioHelpComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-scenario-help',
+            template: __webpack_require__("../../../../../src/app/pages/help/pages/scenario-help.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], ScenarioHelpComponent);
+    return ScenarioHelpComponent;
 }());
 
 
@@ -3623,6 +3387,239 @@ var QueriesComponent = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/pages/scenario/scenario.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".scenario-item .mat-chip {\r\n  max-width: 300px;\r\n  font-variant: small-caps; }\r\n.scenario-item .count {\r\n  float: right; }\r\n\r\n.scenario-editor {\r\n  max-width: 500px;\r\n  margin-bottom: 40px; }\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/scenario/scenario.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"page-container layout-fill\">\n  <input class=\"hidden\" type=\"file\" #upload (change)=\"onFileChange($event)\">\n  <div class=\"scenario-toolbox toolbox float-left echo-scrollbar\">\n    <mat-nav-list>\n      <mat-list-item *ngFor=\"let s of scenarios\" (click)=\"select(s)\" [ngClass]=\"{'accent':s._current, 'selected':s===current}\">\n        <mat-icon *ngIf=\"s._current\" aria-label=\"current scenario\" color=\"warn\">star</mat-icon>\n        <mat-icon *ngIf=\"!s.folder\" aria-label=\"new scenario\" color=\"warn\">new_releases</mat-icon>\n        {{s.name}}\n        <mat-icon *ngIf=\"s.auth\" aria-label=\"auth scenario\" class=\"on-right\">security</mat-icon>\n      </mat-list-item>\n    </mat-nav-list>\n  </div>\n  <div class=\"page-editor echo-scrollbar\" flex>\n    <app-page-header [options]=\"header\"></app-page-header>\n    <div class=\"page-cards scenario-editor\" *ngIf=\"current && (current._current || !current.folder)\">\n      <mat-card>\n        <div layout-col>\n          <div layout-row>\n            <mat-form-field layout-70>\n              <input matInput [(ngModel)]=\"current.name\" placeholder=\"Name\">\n            </mat-form-field>\n            <mat-form-field layout-30>\n              <input matInput [(ngModel)]=\"current.folder\" placeholder=\"Folder\" disabled>\n            </mat-form-field>\n          </div>\n          <mat-slide-toggle [(ngModel)]=\"current.auth\" disabled>Auth</mat-slide-toggle>\n        </div>\n      </mat-card>\n    </div>\n    <mat-chip-list *ngIf=\"current\" class=\"mat-chip-list-stacked scenario-item\">\n      <mat-chip *ngFor=\"let i of items\" selected=\"true\" [color]=\"current._current ? 'warn' : 'accent'\">\n        {{i.name}}<span class=\"count\">{{i.count}}</span>\n      </mat-chip>\n    </mat-chip-list>\n    <div class=\"page-cards scenario-editor\" *ngIf=\"(current||{})._current\">\n      <span>Scenario Custom Options</span>\n      <mat-card>\n        <textarea class=\"echo-scrollbar text-editor code-color\" [(ngModel)]=\"currentSettings\" (blur)=\"updateSettings()\" placeholder=\"json options...\" matTextareaAutosize layout-fill></textarea>\n      </mat-card>\n    </div>\n    <div *ngIf=\"current && !current.folder\" class=\"grey-text\">Set as current to save it</div>\n    <pre *ngIf=\"user.settings.debug\" class=\"debug-pre\">{{current_str||''}}</pre>\n  </div>\n</div>\n\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/scenario/scenario.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ScenarioComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_animations__ = __webpack_require__("../../../../../src/app/app.animations.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_interaction_service__ = __webpack_require__("../../../../../src/app/services/interaction.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_utils_service__ = __webpack_require__("../../../../../src/app/services/utils.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_user_settings_service__ = __webpack_require__("../../../../../src/app/services/user-settings.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_cart_service__ = __webpack_require__("../../../../../src/app/services/cart.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_lodash__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+var ScenarioComponent = (function () {
+    function ScenarioComponent(interaction, app, u, user, cartS) {
+        var _this = this;
+        this.interaction = interaction;
+        this.app = app;
+        this.u = u;
+        this.user = user;
+        this.cartS = cartS;
+        this.uploading = false;
+        this.header = {};
+        this.scenarios = null;
+        this.current = null;
+        this.current_str = '';
+        this.items = [];
+        this.currentSettings = '';
+        var self = this;
+        self.header = {
+            title: function () { return (self.current || {}).name; },
+            buttons: [{
+                    icon: 'star',
+                    tooltip: 'Set as the current scenario',
+                    color: 'warn',
+                    visible: function () { return !!self.current && !(self.current || {})._current; },
+                    action: function (e) { return self.apply(self.current); }
+                }, {
+                    icon: 'save',
+                    tooltip: 'save changes',
+                    visible: function () { return !!self.current && (self.current || {})._current; },
+                    action: function (e) { return self.update(self.current); }
+                }, {
+                    icon: 'refresh',
+                    tooltip: 'refresh',
+                    disabled: function () { return self.uploading; },
+                    action: function (e) { return self.refresh(); }
+                }, {
+                    icon: 'add_circle_outline',
+                    tooltip: 'Create new scenario',
+                    action: function () {
+                        var scenario = {
+                            name: _this.u.getNewName(_this.scenarios, 'New Scenario'),
+                            errors: [],
+                            auth: false
+                        };
+                        _this.scenarios.push(scenario);
+                        _this.select(scenario);
+                    }
+                }, {
+                    divider: true
+                }, {
+                    icon: 'cloud_upload',
+                    tooltip: 'upload scenario',
+                    visible: function () { return !!self.current; },
+                    disabled: function () { return self.uploading; },
+                    action: function (e) { return self.uploadInput.nativeElement.click(); }
+                }, {
+                    icon: 'file_download',
+                    tooltip: 'download scenario',
+                    visible: function () { return !!self.current; },
+                    action: function (e) { return self.interaction.download(self.current.folder); }
+                }]
+        };
+        self.interaction.events.subscribe(function (e) {
+            if (e.type === 'push') {
+                self.refresh();
+            }
+        });
+    }
+    ScenarioComponent.prototype._reset = function () {
+        var self = this;
+        self.current = null;
+        self.currentSettings = '';
+    };
+    ScenarioComponent.prototype.refresh = function () {
+        var self = this;
+        self.interaction.getScenarios().subscribe(function (data) {
+            self.scenarios = data;
+            var cur = self.current ?
+                __WEBPACK_IMPORTED_MODULE_7_lodash___default.a.find(data, function (s) { return s.folder === self.current.folder; }) :
+                __WEBPACK_IMPORTED_MODULE_7_lodash___default.a.find(data, function (s) { return s._current; });
+            self.select(cur);
+        }, function (err) {
+            self.u.error(err);
+        });
+    };
+    ScenarioComponent.prototype.apply = function (scenario) {
+        var self = this;
+        self._reset();
+        self.app.apply(scenario, function () {
+            self.refresh();
+            self.u.snack('Scenario successfully changed!');
+        });
+    };
+    ScenarioComponent.prototype.update = function (scenario) {
+        var self = this;
+        self._reset();
+        self.app.update(scenario, function () {
+            self.refresh();
+            self.u.snack('Scenario successfully updated!');
+        });
+    };
+    ScenarioComponent.prototype.select = function (scenario) {
+        var _this = this;
+        this.current = scenario;
+        this.currentSettings = JSON.stringify((scenario || {}).settings || {}, null, 2);
+        this.cartS.scenario = scenario;
+        this.current_str = JSON.stringify(scenario, null, 2);
+        this.items = [];
+        __WEBPACK_IMPORTED_MODULE_7_lodash___default.a.keys(this.current || {}).forEach(function (pn) {
+            if (__WEBPACK_IMPORTED_MODULE_7_lodash___default.a.isArray(_this.current[pn]) && _this.current[pn].length) {
+                _this.items.push({ name: pn, count: _this.current[pn].length });
+            }
+        });
+    };
+    ScenarioComponent.prototype.updateSettings = function () {
+        try {
+            this.current.settings = JSON.parse(this.currentSettings);
+            this.currentSettings = JSON.stringify(this.current.settings, null, 2);
+        }
+        catch (err) {
+            console.error(err);
+        }
+    };
+    ScenarioComponent.prototype.clearFile = function () {
+        this.uploadInput.nativeElement.value = '';
+        this.uploading = false;
+    };
+    ScenarioComponent.prototype.onFileChange = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (e.target.files && e.target.files.length > 0) {
+            var self_1 = this;
+            var file = e.target.files[0];
+            if (!/(.*).zip/i.test(file.name)) {
+                self_1.clearFile();
+                self_1.u.error('Scenario must be a zip file!');
+            }
+            else {
+                self_1.uploading = true;
+                var data = new FormData();
+                data.append('file', file);
+                self_1.interaction.upload(data, function () {
+                    self_1.clearFile();
+                    self_1.refresh();
+                });
+            }
+        }
+    };
+    ScenarioComponent.prototype.ngOnInit = function () {
+        this.cartS.scenario = null;
+        this.refresh();
+    };
+    ScenarioComponent.prototype.ngOnDestroy = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('upload'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
+    ], ScenarioComponent.prototype, "uploadInput", void 0);
+    ScenarioComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-scenario',
+            template: __webpack_require__("../../../../../src/app/pages/scenario/scenario.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/pages/scenario/scenario.component.css")],
+            animations: [__WEBPACK_IMPORTED_MODULE_1__app_animations__["a" /* fadeAnimation */]]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_interaction_service__["a" /* InteractionService */],
+            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_4__services_utils_service__["a" /* UtilsService */],
+            __WEBPACK_IMPORTED_MODULE_5__services_user_settings_service__["a" /* UserSettingsService */],
+            __WEBPACK_IMPORTED_MODULE_6__services_cart_service__["a" /* CartService */]])
+    ], ScenarioComponent);
+    return ScenarioComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/pages/settings/settings.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4014,7 +4011,7 @@ var AppPagesService = (function () {
         this.pages = [
             {
                 caption: 'Scenarios',
-                type: 'dashboard',
+                type: 'scenario',
                 icon: 'work',
                 'default': true,
                 left: true,

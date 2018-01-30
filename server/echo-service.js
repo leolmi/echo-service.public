@@ -960,6 +960,7 @@ function _current(cb) {
   io.onFile(current_json, function(file){
     const current = {};
     if (file) {
+      // carica il file se estiste
       io.loadSingleFile(file, function(err, info) {
         if (err) console.error(err);
         _.extend(current, info||{});
@@ -969,6 +970,7 @@ function _current(cb) {
         });
       });
     } else {
+      // crea un nuovo file se non esiste
       _validateInfo(current);
       fs.writeFile(current_json, JSON.stringify(current, null, 2));
       cb(current);
@@ -992,13 +994,19 @@ exports.docs = function(req, res) {
   }, options);
 };
 
+function _getTags(doc) {
+  var t = (doc || {}).tags || [];
+  if (_.isString(t)) t = t.split(',');
+  return _.isArray(t) ? t : [];
+}
+
 // Restituisce l'elenco dei tags sui documenti
 exports.tags = function(req, res) {
   _getAllDocuments(function(err, docs){
     if (err) console.error(err);
     const tags = [];
     (docs||[]).forEach(function(d){
-
+      tags.push.apply(tags, _getTags(d));
     });
     u.ok(res, tags);
   });
@@ -1028,6 +1036,24 @@ exports.info = function(req, res) {
 exports.checkInfo = function(req, cb) {
   cb(null, { auth: false });
 };
+
+/**
+ * Le impostazioni di scenario sono contenuti che vengono aggiunti al file di scenario
+ */
+exports.settings = function(req, res) {
+  const sts = req.body;
+  if (!sts) return u.error('Undefined scenario settings.');
+  _current(function (current) {
+    current.scenario.settings = sts;
+    const fp = path.join(io.storePath, current.scenario.folder, SCENARIO_JSON);
+    io.saveSingleFile(fp, current.scenario, function (err) {
+      err ? u.error(res, err) : u.ok(res);
+    });
+  });
+};
+
+
+
 
 function _getElement(info, cb) {
   if (_.isString(info)) info = {id:info};
@@ -1961,8 +1987,11 @@ module.exports = function(req, res) {
         _result(res, call, o);
       });
     });
-  }, function(json){
-    return json._type === 'custom' && rgx.test(json.paths);
+  }, {
+    full: true,
+    filter: function(json){
+      return json._type === 'custom' && rgx.test(json.paths);
+    }
   });
 };
 
@@ -2275,7 +2304,7 @@ module.exports = router;
 /* 31 */
 /***/ (function(module, exports) {
 
-module.exports = [{"description":"Scenari","baseRoute":"api/scenario","routes":[{"verb":"get","route":"api/scenario","description":"Elenco degli scenari disponibili","response":{"type":"object","object":{"folder":{"type":"string","description":"Nome del folder server dove risiedono i file dello scenario"},"name":{"type":"string","description":"Nome dello scenario"},"auth":{"type":"boolean","description":"Identifica uno scenario con la sicurezza attiva"},"{type}":{"type":"array","description":"Per ogni tipo di documento esiste un array che ne enumera gli identificativi"}}}},{"verb":"get","route":"api/scenario/current","description":"Info dello scenario corrente","response":{"type":"object","object":{"folder":{"type":"string","description":"Nome del folder server dove risiedono i file dello scenario"},"name":{"type":"string","description":"Nome dello scenario"},"auth":{"type":"boolean","description":"Identifica uno scenario con la sicurezza attiva"},"{type}":{"type":"array","description":"Per ogni tipo di documento esiste un array che ne enumera gli identificativi"}}}},{"verb":"get","route":"api/scenario/info/:name","description":"Info dello scenario","body":{"name":{"type":"string","description":"Folder dello scenario richiesto"}},"response":{"type":"object","object":{"folder":{"type":"string","description":"Nome del folder server dove risiedono i file dello scenario"},"name":{"type":"string","description":"Nome dello scenario"},"auth":{"type":"boolean","description":"Identifica uno scenario con la sicurezza attiva"},"{type}":{"type":"array","description":"Per ogni tipo di documento esiste un array che ne enumera gli identificativi"}}}},{"verb":"get","route":"api/scenario/download/:folder","description":"Download scenario","body":{"folder":{"type":"string","description":"Nome del folder dello scenario da scaricare"}},"response":{"type":"file","description":"File compresso dello scenario ({FOLDER-NAME}.zip)"}},{"verb":"post","route":"api/scenario/push","description":"Inserisce documenti in uno scenario","auth":true,"body":{"source":{"type":"array","description":"elenco dei documenti da inserire nello scenario"},"target":{"type":"object","description":"info di scenario target (deve avere almeno la property folder)"}},"response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"post","route":"api/scenario/apply","description":"Applica uno scenario","body":"Se passato il folder applica lo scenario, altrimenti, se è un oggetto, ne crea uno nuovo","response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"post","route":"api/scenario/update","description":"Applica le modifiche allo scenario","body":"Scenario con le modifiche apportate","response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"post","route":"api/scenario/upload","description":"Carica uno scenario sul server","body":"File compresso con i documenti dello scenario (xxx.zip)","response":"Niente se ha successo, altrimenti l'errore rilevato"}]},{"description":"Documenti","baseRoute":"api/scenario","routes":[{"verb":"get","route":"api/scenario/documents/:type*?","description":"Elenco dei documenti dello scenario corrente","body":{"type":{"type":"string","description":"Se definito filtra i documenti per tipologia restituendo il contenuto integralmente"}},"response":{"type":"array","object":{"id":{"type":"string","description":"Identificativo del documento"},"name":{"type":"string","description":"Nome del documento"},"title":{"type":"string","description":"Titolo del documento"},"description":{"type":"string","description":"Descrizione del documento"},"modifiedAt":{"type":"date","description":"Data dell'ultima modifica"},"modifiedBy":{"type":"date","description":"Autore dell'ultima modifica"},"_id":{"type":"string","description":"Identificativo del documento (interno)"},"_type":{"type":"string","description":"Tipologia del documento (interno)"},"_tid":{"type":"string","description":"Identificativo con tipo del documento (interno)"}}}},{"verb":"get","route":"api/scenario/tags","description":"Elenco dei tag sui documenti dello scenario corrente","response":{"type":"array","description":"Elenco dei tag"}},{"verb":"get","route":"api/scenario/document/:id/:type*?","description":"Il singolo documento per id e (opzionale) tipo","body":{"id":{"type":"string","description":"Identificativo del documento"},"type":{"type":"string","description":"(opzionale) Tipologia del documento"}},"response":{"type":"object","description":"Contenuto del documento in formato json"}},{"verb":"post","route":"api/scenario/save","description":"Salva un documento","auth":true,"body":"Documento da salvare","response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"delete","route":"api/scenario/:id/:type*?","description":"Elimina un documento","auth":true,"body":{"id":{"type":"string","description":"Identificativo del documento"},"type":{"type":"string","description":"(opzionale) Tipologia del documento"}},"response":"Niente se ha successo, altrimenti l'errore rilevato"}]},{"description":"Dati","baseRoute":"api/data","routes":[{"verb":"get","route":"api/data/providers","description":"Elenco dei providers disponibili","response":{"type":"array","object":{"active":{"type":"bool","description":"Descrive lo stato di attività della connessione"},"enabled":{"type":"bool","description":"Se vero è possibile utilizzare questo provider"},"library":{"type":"string","description":"Nome della libreria"},"name":{"type":"string","description":"Nome del provider"},"code":{"type":"string","description":"Codifica del nome"},"instance":{"type":"object","description":"logic"},"defaultPort":{"type":"number","description":"Porta predefinita"}}}},{"verb":"get","route":"api/data/schema/:id","auth":true,"description":"Schema relativo alla connessione indicata","body":{"id":{"type":"string","description":"Identificativo della connessione"}},"response":{"type":"object","description":"ANSI standard information_schema"}},{"verb":"get","route":"api/data/system","auth":true,"description":"Elenco dei parametri di sistema","response":{"type":"array","object":{"name":{"type":"string","description":"Nome del parametro"},"id":{"type":"string","description":"Identificativo"},"value":{"type":"any","description":"Valore del parametro di sistema"},"dataType":{"type":"string","description":"Tipo dato"}}}},{"verb":"post","route":"api/data/execute","auth":true,"description":"Esecuzione di una query","body":{"id":{"type":"string","description":"Identificativo della query da eseguire"},"parameters":{"type":"array","description":"Elenco dei parametri per l'esecuzione"}},"response":{"type":"object","object":{"rows":{"type":"array","description":"Elenco dei records"},"columns":{"type":"array","description":"Schema dati"},"sql":{"type":"string","description":"SQL eseguito dal provider"},"query":{"type":"object","description":"Documento query eseguita"}}}},{"verb":"post","route":"api/data/test/conn","description":"Test della connessione","body":"Documento connection da eseguire","response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"post","route":"api/data/test/exec","description":"Test della query","body":"Documento query da eseguire","response":{"type":"object","object":{"rows":{"type":"array","description":"Elenco dei records"},"columns":{"type":"array","description":"Schema dati"},"sql":{"type":"string","description":"SQL eseguito dal provider"},"query":{"type":"object","description":"Documento query eseguita"}}}}]},{"description":"Utenti","baseRoute":"api/user","routes":[{"verb":"get","route":"api/user","description":"Elenco degli utenti (solo per ruoli 'admin')","response":{"type":"array","description":"Elenco degli utenti"}},{"verb":"get","route":"api/user/me","description":"Info sull'utente correntemente loggato","response":{"type":"object","description":"Utente corrente"}},{"verb":"get","route":"api/user/:id","description":"Info sull'utente","body":{"id":{"type":"string","description":"Identificativo dell'utente"}},"response":{"type":"string","description":"Profilo dell'utente"}},{"verb":"post","route":"api/user","description":"Crea un nuovo utente (solo per ruoli 'admin')","body":{"name":{"type":"string","description":"Nome dell'utente"},"password":{"type":"string","description":"Password dell'utente"}},"response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"delete","route":"api/user/:id","description":"Elimina un utente (solo per ruoli 'admin')","body":{"id":{"type":"string","description":"Identificativo dell'utente"}},"response":"Niente se ha successo, altrimenti l'errore rilevato"}]},{"description":"Auth","baseRoute":"auth","routes":[{"verb":"post","route":"auth/local","description":"Autenticazione","response":{"type":"object","description":"Restituisce un oggetto contenente il token se autenticato altrimenti l'errore relativo"}}]},{"description":"LOG","baseRoute":"api/log","routes":[{"verb":"get","route":"api/log","description":"Elenco delle righe di log inserite dall'avvio del servizio nel periodo definito nella configurazione","response":{"type":"array","description":"Elenco delle righe di log"}}]},{"description":"API","baseRoute":"api","routes":[{"verb":"get","route":"api","description":"Elenco delle api di echo-service","response":{"type":"object","description":"Questo documento!"}}]}]
+module.exports = [{"description":"Scenari","baseRoute":"api/scenario","routes":[{"verb":"get","route":"api/scenario","description":"Elenco degli scenari disponibili","response":{"type":"object","object":{"folder":{"type":"string","description":"Nome del folder server dove risiedono i file dello scenario"},"name":{"type":"string","description":"Nome dello scenario"},"auth":{"type":"boolean","description":"Identifica uno scenario con la sicurezza attiva"},"{type}":{"type":"array","description":"Per ogni tipo di documento esiste un array che ne enumera gli identificativi"}}}},{"verb":"get","route":"api/scenario/current","description":"Info dello scenario corrente","response":{"type":"object","object":{"folder":{"type":"string","description":"Nome del folder server dove risiedono i file dello scenario"},"name":{"type":"string","description":"Nome dello scenario"},"auth":{"type":"boolean","description":"Identifica uno scenario con la sicurezza attiva"},"{type}":{"type":"array","description":"Per ogni tipo di documento esiste un array che ne enumera gli identificativi"}}}},{"verb":"get","route":"api/scenario/info/:name","description":"Info dello scenario","body":{"name":{"type":"string","description":"Folder dello scenario richiesto"}},"response":{"type":"object","object":{"folder":{"type":"string","description":"Nome del folder server dove risiedono i file dello scenario"},"name":{"type":"string","description":"Nome dello scenario"},"auth":{"type":"boolean","description":"Identifica uno scenario con la sicurezza attiva"},"{type}":{"type":"array","description":"Per ogni tipo di documento esiste un array che ne enumera gli identificativi"}}}},{"verb":"get","route":"api/scenario/download/:folder","description":"Download scenario","body":{"folder":{"type":"string","description":"Nome del folder dello scenario da scaricare"}},"response":{"type":"file","description":"File compresso dello scenario ({FOLDER-NAME}.zip)"}},{"verb":"post","route":"api/scenario/push","description":"Inserisce documenti in uno scenario","auth":true,"body":{"source":{"type":"array","description":"elenco dei documenti da inserire nello scenario"},"target":{"type":"object","description":"info di scenario target (deve avere almeno la property folder)"}},"response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"post","route":"api/scenario/apply","description":"Applica uno scenario","body":"Se passato il folder applica lo scenario, altrimenti, se è un oggetto, ne crea uno nuovo","response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"post","route":"api/scenario/update","description":"Applica le modifiche allo scenario","body":"Scenario con le modifiche apportate","response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"post","route":"api/scenario/settings","description":"Applica le modifiche alle impostazioni dello scenario","body":"Impostazioni con le modifiche apportate","response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"post","route":"api/scenario/upload","description":"Carica uno scenario sul server","body":"File compresso con i documenti dello scenario (xxx.zip)","response":"Niente se ha successo, altrimenti l'errore rilevato"}]},{"description":"Documenti","baseRoute":"api/scenario","routes":[{"verb":"get","route":"api/scenario/documents/:type*?","description":"Elenco dei documenti dello scenario corrente","body":{"type":{"type":"string","description":"Se definito filtra i documenti per tipologia restituendo il contenuto integralmente"}},"response":{"type":"array","object":{"id":{"type":"string","description":"Identificativo del documento"},"name":{"type":"string","description":"Nome del documento"},"title":{"type":"string","description":"Titolo del documento"},"description":{"type":"string","description":"Descrizione del documento"},"modifiedAt":{"type":"date","description":"Data dell'ultima modifica"},"modifiedBy":{"type":"date","description":"Autore dell'ultima modifica"},"_id":{"type":"string","description":"Identificativo del documento (interno)"},"_type":{"type":"string","description":"Tipologia del documento (interno)"},"_tid":{"type":"string","description":"Identificativo con tipo del documento (interno)"}}}},{"verb":"get","route":"api/scenario/tags","description":"Elenco dei tag sui documenti dello scenario corrente","response":{"type":"array","description":"Elenco dei tag"}},{"verb":"get","route":"api/scenario/document/:id/:type*?","description":"Il singolo documento per id e (opzionale) tipo","body":{"id":{"type":"string","description":"Identificativo del documento"},"type":{"type":"string","description":"(opzionale) Tipologia del documento"}},"response":{"type":"object","description":"Contenuto del documento in formato json"}},{"verb":"post","route":"api/scenario/save","description":"Salva un documento","auth":true,"body":"Documento da salvare","response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"delete","route":"api/scenario/:id/:type*?","description":"Elimina un documento","auth":true,"body":{"id":{"type":"string","description":"Identificativo del documento"},"type":{"type":"string","description":"(opzionale) Tipologia del documento"}},"response":"Niente se ha successo, altrimenti l'errore rilevato"}]},{"description":"Dati","baseRoute":"api/data","routes":[{"verb":"get","route":"api/data/providers","description":"Elenco dei providers disponibili","response":{"type":"array","object":{"active":{"type":"bool","description":"Descrive lo stato di attività della connessione"},"enabled":{"type":"bool","description":"Se vero è possibile utilizzare questo provider"},"library":{"type":"string","description":"Nome della libreria"},"name":{"type":"string","description":"Nome del provider"},"code":{"type":"string","description":"Codifica del nome"},"instance":{"type":"object","description":"logic"},"defaultPort":{"type":"number","description":"Porta predefinita"}}}},{"verb":"get","route":"api/data/schema/:id","auth":true,"description":"Schema relativo alla connessione indicata","body":{"id":{"type":"string","description":"Identificativo della connessione"}},"response":{"type":"object","description":"ANSI standard information_schema"}},{"verb":"get","route":"api/data/system","auth":true,"description":"Elenco dei parametri di sistema","response":{"type":"array","object":{"name":{"type":"string","description":"Nome del parametro"},"id":{"type":"string","description":"Identificativo"},"value":{"type":"any","description":"Valore del parametro di sistema"},"dataType":{"type":"string","description":"Tipo dato"}}}},{"verb":"post","route":"api/data/execute","auth":true,"description":"Esecuzione di una query","body":{"id":{"type":"string","description":"Identificativo della query da eseguire"},"parameters":{"type":"array","description":"Elenco dei parametri per l'esecuzione"}},"response":{"type":"object","object":{"rows":{"type":"array","description":"Elenco dei records"},"columns":{"type":"array","description":"Schema dati"},"sql":{"type":"string","description":"SQL eseguito dal provider"},"query":{"type":"object","description":"Documento query eseguita"}}}},{"verb":"post","route":"api/data/test/conn","description":"Test della connessione","body":"Documento connection da eseguire","response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"post","route":"api/data/test/exec","description":"Test della query","body":"Documento query da eseguire","response":{"type":"object","object":{"rows":{"type":"array","description":"Elenco dei records"},"columns":{"type":"array","description":"Schema dati"},"sql":{"type":"string","description":"SQL eseguito dal provider"},"query":{"type":"object","description":"Documento query eseguita"}}}}]},{"description":"Utenti","baseRoute":"api/user","routes":[{"verb":"get","route":"api/user","description":"Elenco degli utenti (solo per ruoli 'admin')","response":{"type":"array","description":"Elenco degli utenti"}},{"verb":"get","route":"api/user/me","description":"Info sull'utente correntemente loggato","response":{"type":"object","description":"Utente corrente"}},{"verb":"get","route":"api/user/:id","description":"Info sull'utente","body":{"id":{"type":"string","description":"Identificativo dell'utente"}},"response":{"type":"string","description":"Profilo dell'utente"}},{"verb":"post","route":"api/user","description":"Crea un nuovo utente (solo per ruoli 'admin')","body":{"name":{"type":"string","description":"Nome dell'utente"},"password":{"type":"string","description":"Password dell'utente"}},"response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"delete","route":"api/user/:id","description":"Elimina un utente (solo per ruoli 'admin')","body":{"id":{"type":"string","description":"Identificativo dell'utente"}},"response":"Niente se ha successo, altrimenti l'errore rilevato"}]},{"description":"Auth","baseRoute":"auth","routes":[{"verb":"post","route":"auth/local","description":"Autenticazione","response":{"type":"object","description":"Restituisce un oggetto contenente il token se autenticato altrimenti l'errore relativo"}}]},{"description":"LOG","baseRoute":"api/log","routes":[{"verb":"get","route":"api/log","description":"Elenco delle righe di log inserite dall'avvio del servizio nel periodo definito nella configurazione","response":{"type":"array","description":"Elenco delle righe di log"}}]},{"description":"API","baseRoute":"api","routes":[{"verb":"get","route":"api","description":"Elenco delle api di echo-service","response":{"type":"object","description":"Questo documento!"}}]}]
 
 /***/ }),
 /* 32 */
@@ -2314,6 +2343,8 @@ router.post('/apply', controller.apply);
 router.post('/update', controller.update);
 // salva i documenti nello scenario
 router.post('/push', auth.needAuthentication(controller.checkWrite), controller.push);
+// salva le info di scenario
+router.post('/settings', auth.hasRole('admin'), controller.settings);
 // carica uno scenario
 router.post('/upload', controller.upload);
 
@@ -2764,16 +2795,17 @@ function _calcResult(req, res, doc, exparams) {
     });
     if (exp) exp.value = rp.value;
   });
-  _checkSystemParameters(req, parameters);
-  // console.log('Parameters for evaluation: ', parameters);
-  _checkQueryType(doc, function(){
-    const parser = new QueryParser(doc.query);
-    // console.log('QUERY: parser', parser);
-    const sqlstr = parser.eval(parameters);
-    // console.log('SQL: %s', sqlstr);
-    _retrieveData(doc, sqlstr, function (err, data) {
-      if (err) return Log.error(err, res);
-      return u.ok(res, data);
+  _checkSystemParameters(req, parameters, function() {
+    // console.log('Parameters for evaluation: ', parameters);
+    _checkQueryType(doc, function(){
+      const parser = new QueryParser(doc.query);
+      // console.log('QUERY: parser', parser);
+      const sqlstr = parser.eval(parameters);
+      // console.log('SQL: %s', sqlstr);
+      _retrieveData(doc, sqlstr, function (err, data) {
+        if (err) return Log.error(err, res);
+        return u.ok(res, data);
+      });
     });
   });
 }
@@ -2785,11 +2817,13 @@ exports.execute = function(req, res) {
   if (!id) return u.error(res, 'Undefined query document!');
   if (id === SYS_PARAM_KEY) {
     const result = { rows: [{}], columns: [], query:info };
-    _systemParameters(req).forEach(function(sp){
-      result.rows[0][sp.name] = sp.value;
-      result.columns.push({name:sp.name, type:sp.dataType});
+    _systemParameters(req, function(params){
+      params.forEach(function(sp){
+        result.rows[0][sp.name] = sp.value;
+        result.columns.push({name:sp.name, type:sp.dataType});
+      });
+      u.ok(res, result);
     });
-    u.ok(res, result);
   } else {
     Scenario.getElement(info, function (err, doc) {
       if (err) return u.error(res, err);
@@ -2803,28 +2837,52 @@ exports.test = function(req, res) {
   _calcResult(req, res, req.body);
 };
 
-function _checkSystemParameters(context, parameters) {
-  const sysparams = _systemParameters(context);
-  (parameters || []).forEach(function (p) {
-    if ((p.lookup || {}).id === SYS_PARAM_KEY) {
-      const sysp = _.find(sysparams, function (sp) {
-        return sp.name === p.lookup.fieldKey;
-      });
-      p.value = (sysp || {}).value;
-    }
+function _checkSystemParameters(context, parameters, cb) {
+  _systemParameters(context, function(sysparams){
+    (parameters || []).forEach(function (p) {
+      if ((p.lookup || {}).id === SYS_PARAM_KEY) {
+        const sysp = _.find(sysparams, function (sp) {
+          return sp.name === p.lookup.fieldKey;
+        });
+        p.value = (sysp || {}).value;
+      }
+    });
+    cb();
   });
 }
 
-function _systemParameters(context) {
-  return [
-    {name: 'Now', id: 'system_now', value: new Date(), dataType: 'date'},
-    {name: 'User', id: 'system_user', value: (context || {}).user || 'echo', dataType: 'string'}
-  ];
+function _calc(exp) {
+  const f = new Function('return ' + exp);
+  try {
+    return f();
+  } catch (err) {
+    return err;
+  }
+}
+
+function _systemParameters(context, cb) {
+  Scenario.current(function(current){
+    const params = [
+      {name: 'Now', id: 'system_now', value: new Date(), dataType: 'date'},
+      {name: 'User', id: 'system_user', value: (context || {}).user || 'echo', dataType: 'string'}
+    ];
+    // i parametri di sistema possono essere customizzati nel file di scenario
+    (((current.scenario||{}).settings||{}).parameters||[]).forEach(function(p){
+      if (!_.find(params, function(xp) { return xp.name === p.name || xp.id === p.id; })) {
+        const rp = _.clone(p);
+        if (_.isString(rp.value) && _.startsWith(rp.value, '=')) rp.value = _calc(rp.value.slice(1));
+        params.push(rp);
+      }
+    });
+    cb(params);
+  });
 }
 exports.systemParameters = _systemParameters;
 
 exports.system = function(req, res) {
-  u.ok(res, _systemParameters(req));
+  _systemParameters(req, function(params){
+    u.ok(res, params);
+  });
 };
 
 
@@ -3550,7 +3608,7 @@ exports.retrieveData = function(connection, query, SQL, esc, cb) {
     Log.insert({
       message: u.str('[%s] - Query "%s" execution n°%s ends on %s:%s (%s records)',
         config.provider, query.name, esc, config.host, config.database, (recordset||[]).length),
-      data: result,
+      data: recordset,
       elapsed: elapsed,
       schema: columns
     });
