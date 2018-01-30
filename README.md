@@ -6,13 +6,13 @@ This server can contains more scenarios.
 Every scenario can contains connections, queries, documents and custom elements.
 
 
-####install
+#### install
 ```sh
 $ npm install
 ```
 *see notes at the end of this document*
 
-#start
+# start
 
 - start server + client:
 
@@ -26,7 +26,7 @@ $ npm run server
 ```
 
 
-#defaults
+# defaults
 
 - *IP*
   you can set enviroment variable
@@ -59,13 +59,13 @@ $ npm run server
     ECHO_STORE = XXXX
     ```
 
-#providers
+# providers
 available providers:
 - SQL server
 - MySQL
 - Oracle
 
-#API
+# API
 
 API are explained in json format running server and typing in browser:
 ```sh
@@ -77,5 +77,5 @@ http://localhost:9001/#/help/api
 ```
 
 
-#in case of:
-    - oracledb node library compilation problems see [this](./assets/oracledb/README.md)
+# notes:
+in case of oracledb node library compilation problems see [this](https://github.com/leolmi/echo-service.public/tree/master/assets/oracledb/README.md)
