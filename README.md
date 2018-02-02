@@ -31,10 +31,11 @@ $ npm install
 - install service and start it (run once)
 
     ```sh
-    $ node winsrv [--port=XXXX] [--store=XXXXXXXXXX]
+    $ node winsrv [--name=XXXXXXX] [--port=XXXX] [--store=XXXXXXXXXX]
     ```
     options (optionals):
     ```sh
+        --name,-n           service name (default="Echo Service")
         --port,-p           define service port
         --store,-s          define store path
         --uninstall,-u      uninstall service

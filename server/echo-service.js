@@ -597,6 +597,20 @@ const root = path.normalize(__dirname + '/../../..');
 const sts_path = path.normalize(root + '/echo-service.json');
 const sts = fs.existsSync(sts_path) ? u.use('../echo-service.json') : {};
 
+function _checkDefaults(s) {
+  _.keys(s).forEach(function(pn){
+    s[pn] = s[pn]||s['default_'+pn];
+  });
+}
+
+function _checkPath(p) {
+  return p ? path.normalize(p) : p;
+}
+
+function _checkValues(s) {
+  s.port = parseInt(s.port||9001);
+  s.tokenExpiration = parseInt(s.tokenExpiration||5);
+}
 
 // Export the config object
 // ==============================================
@@ -607,7 +621,7 @@ const settings = {
   // Server ip
   ip: process.env.ECHO_IP,
   // Server port
-  port: process.env.ECHO_PORT || 9001,
+  port: process.env.ECHO_PORT,
   // Secret for session, you will want to change this and make it an environment variable
   secrets: {
     session: 'echo-service-secret'
@@ -622,9 +636,9 @@ const settings = {
   // Path del client
   clientPath: '',
   // Store path for scenarios
-  logPath: process.env.ECHO_LOG,
+  logPath: _checkPath(process.env.ECHO_LOG),
   // Store path for scenarios
-  storePath: process.env.ECHO_STORE,
+  storePath: _checkPath(process.env.ECHO_STORE),
   // Reporting path
   reportingPath: '',
   // Token expires in minutes
@@ -633,7 +647,16 @@ const settings = {
   userRoles: ['guest', 'user', 'admin']
 };
 
-module.exports = _.extend(settings, sts);
+// extends on json settings
+_.extend(settings, sts);
+
+// check defaults
+_checkDefaults(settings);
+// check values
+_checkValues(settings);
+
+
+module.exports = settings;
 
 /* WEBPACK VAR INJECTION */}.call(exports, "server\\config\\environment"))
 

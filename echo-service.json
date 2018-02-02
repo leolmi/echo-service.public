@@ -1,5 +1,5 @@
 {
-  "storePath":"./server/store",
-  "logPath":"./server/log",
-  "port": 9001
+  "default_storePath":"./store",
+  "default_logPath":"./log",
+  "default_port": 9001
 }

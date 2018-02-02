@@ -1,6 +1,6 @@
 {
   "name": "echo-service",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "echo-service",
   "main": "server/echo-service.js",
   "author": {

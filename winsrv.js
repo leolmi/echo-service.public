@@ -1,7 +1,6 @@
 const Service = require('node-windows').Service;
 const path = require('path');
 const _ = require('lodash');
-const NAME = 'Echo Service';
 
 function _param(prefix) {
   if (!_.isArray(prefix)) prefix = [prefix];
@@ -21,6 +20,7 @@ function _has(name) {
 const UNINSTALL = _has(['--uninstall','-u']);
 const PORT = _param(['--port=','-p=']);
 const STORE = _param(['--store=', '-s=']);
+const NAME = _param(['--name=', '-n=']) || 'Echo Service';
 const OPTIONS = {
   name: NAME,
   description: 'Echo service Spike development backend',
@@ -34,7 +34,7 @@ const OPTIONS = {
 if (PORT) {
   OPTIONS.env.push({
     name: 'ECHO_PORT',
-    value: parseInt(PORT)
+    value: PORT
   })
 }
 if (STORE) {
@@ -50,7 +50,7 @@ const svc = new Service(OPTIONS);
 // process is available as a service.
 svc.on('install',function(){
   svc.start();
-  console.log('%s intalled.', NAME, OPTIONS);
+  console.log('%s intalled.', NAME);
 });
 
 svc.on('uninstall',function(){
