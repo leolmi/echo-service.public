@@ -16,14 +16,36 @@ $ npm install
 
 - start server + client:
 
-```sh
-$ npm start
-```
+    ```sh
+    $ npm start
+    ```
 
 - start only server:
-```sh
-$ npm run server
-```
+
+    ```sh
+    $ npm run server
+    ```
+
+#start as service (windows)
+
+- install service and start it (run once)
+
+    ```sh
+    $ node winsrv [--port=XXXX] [--store=XXXXXXXXXX]
+    ```
+    options (optionals):
+    ```sh
+        --port,-p           define service port
+        --store,-s          define store path
+        --uninstall,-u      uninstall service
+    ```
+
+- uninstall service
+
+    ```sh
+    $ node winsrv -u
+    ```
+
 
 
 # defaults

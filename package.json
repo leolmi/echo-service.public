@@ -31,6 +31,7 @@
     "morgan": "~1.0.0",
     "mssql": "^2.3.2",
     "mysql": "^2.10.2",
+    "node-windows": "^0.1.14",
     "oracledb": "~1.13.1",
     "passport": "~0.2.0",
     "passport-local": "~0.1.6",
