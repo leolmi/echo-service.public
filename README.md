@@ -26,29 +26,6 @@ $ npm install
     $ npm run server
     ```
 
-#start as service (windows)
-
-- install service and start it (run once)
-
-    ```sh
-    $ node winsrv [--name=XXXXXXX] [--port=XXXX] [--store=XXXXXXXXXX]
-    ```
-    options (optionals):
-    ```sh
-        --name,-n           service name (default="Echo Service")
-        --port,-p           define service port
-        --store,-s          define store path
-        --uninstall,-u      uninstall service
-    ```
-
-- uninstall service
-
-    ```sh
-    $ node winsrv -u
-    ```
-
-
-
 # defaults
 
 - *IP*
