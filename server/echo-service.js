@@ -3857,6 +3857,7 @@ exports.schema = function(connection, cb) {
   };
   const conn = mysql.createConnection(config);
   const seq = u.compose();
+  if (!connection.database) console.warn('Unspecified database in connection, schema will be empty!');
   helper.schemaParts.forEach(function (prm) {
     seq.use(function(next){
       getSchemaPart(conn, prm, schema, function (err) {
@@ -4064,10 +4065,11 @@ exports.TESTSQL = 'SELECT 1 AS NUMBER';
 exports.information_schema = {
   SQL_TABLECOLUMNS: "SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '{{DATABASE}}' AND TABLE_NAME = '{{TABLENAME}}'",
   SQL_TABLES: "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = '{{DATABASE}}'",
+  SQL_VIEWS: "SELECT * FROM INFORMATION_SCHEMA.VIEWS WHERE TABLE_SCHEMA = '{{DATABASE}}'",
   SQL_COLUMNS: "SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '{{DATABASE}}'",
-  SQL_ROUTINES: "SELECT * FROM INFORMATION_SCHEMA.ROUTINES WHERE TABLE_SCHEMA = '{{DATABASE}}'",
-  SQL_ROUTINE_COLUMNS: "SELECT * FROM INFORMATION_SCHEMA.ROUTINE_COLUMNS WHERE TABLE_SCHEMA = '{{DATABASE}}'",
-  SQL_PARAMETERS: "SELECT * FROM INFORMATION_SCHEMA.PARAMETERS WHERE TABLE_SCHEMA = '{{DATABASE}}'",
+  SQL_ROUTINES: "SELECT * FROM INFORMATION_SCHEMA.ROUTINES WHERE ROUTINE_SCHEMA = '{{DATABASE}}'",
+  SQL_ROUTINE_COLUMNS: "SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '{{DATABASE}}'",
+  SQL_PARAMETERS: "SELECT * FROM INFORMATION_SCHEMA.PARAMETERS WHERE SPECIFIC_SCHEMA = '{{DATABASE}}'",
   SQL_RELATIONS: [
     "SELECT KCU1.CONSTRAINT_NAME AS FK_CONSTRAINT_NAME",
     ", KCU1.TABLE_CATALOG AS FK_TABLE_CATALOG",
@@ -4095,6 +4097,7 @@ exports.information_schema = {
 };
 exports.schemaParts = [
   {sql: this.information_schema.SQL_TABLES, pn: 'tables'},
+  {sql: this.information_schema.SQL_VIEWS, pn: 'views'},
   {sql: this.information_schema.SQL_COLUMNS, pn: 'columns'},
   {sql: this.information_schema.SQL_ROUTINES, pn: 'routines'},
   {sql: this.information_schema.SQL_ROUTINE_COLUMNS, pn: 'routineColumns'},
