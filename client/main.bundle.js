@@ -29,14 +29,15 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_documents_documents_component__ = __webpack_require__("../../../../../src/app/pages/documents/documents.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_connections_connections_component__ = __webpack_require__("../../../../../src/app/pages/connections/connections.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_queries_queries_component__ = __webpack_require__("../../../../../src/app/pages/queries/queries.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_previews_previews_component__ = __webpack_require__("../../../../../src/app/pages/previews/previews.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_custom_custom_component__ = __webpack_require__("../../../../../src/app/pages/custom/custom.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_nocontent_nocontent_component__ = __webpack_require__("../../../../../src/app/pages/nocontent/nocontent.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_settings_settings_component__ = __webpack_require__("../../../../../src/app/pages/settings/settings.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_help_help_component__ = __webpack_require__("../../../../../src/app/pages/help/help.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_browser_browser_component__ = __webpack_require__("../../../../../src/app/components/browser/browser.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_slow_query_slow_query_component__ = __webpack_require__("../../../../../src/app/pages/slow-query/slow-query.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_log_log_component__ = __webpack_require__("../../../../../src/app/pages/log/log.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_walkingdata_walkingdata_component__ = __webpack_require__("../../../../../src/app/pages/walkingdata/walkingdata.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_previews_previews_component__ = __webpack_require__("../../../../../src/app/pages/previews/previews.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_custom_custom_component__ = __webpack_require__("../../../../../src/app/pages/custom/custom.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_nocontent_nocontent_component__ = __webpack_require__("../../../../../src/app/pages/nocontent/nocontent.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_settings_settings_component__ = __webpack_require__("../../../../../src/app/pages/settings/settings.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_help_help_component__ = __webpack_require__("../../../../../src/app/pages/help/help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_browser_browser_component__ = __webpack_require__("../../../../../src/app/components/browser/browser.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_slow_query_slow_query_component__ = __webpack_require__("../../../../../src/app/pages/slow-query/slow-query.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_log_log_component__ = __webpack_require__("../../../../../src/app/pages/log/log.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -58,20 +59,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var routes = [
     { path: '', redirectTo: '/cover', pathMatch: 'full' },
     { path: 'cover', component: __WEBPACK_IMPORTED_MODULE_2__pages_cover_cover_component__["a" /* CoverComponent */] },
     { path: 'scenario', component: __WEBPACK_IMPORTED_MODULE_3__pages_scenario_scenario_component__["a" /* ScenarioComponent */] },
     { path: 'documents/:id', component: __WEBPACK_IMPORTED_MODULE_4__pages_documents_documents_component__["a" /* DocumentsComponent */] },
-    { path: 'connections/:id', component: __WEBPACK_IMPORTED_MODULE_5__pages_connections_connections_component__["a" /* ConnectionsComponent */], canDeactivate: [__WEBPACK_IMPORTED_MODULE_12__components_browser_browser_component__["b" /* CanDeactivateEditor */]] },
-    { path: 'queries/:id', component: __WEBPACK_IMPORTED_MODULE_6__pages_queries_queries_component__["a" /* QueriesComponent */], canDeactivate: [__WEBPACK_IMPORTED_MODULE_12__components_browser_browser_component__["b" /* CanDeactivateEditor */]] },
-    { path: 'previews/:id', component: __WEBPACK_IMPORTED_MODULE_7__pages_previews_previews_component__["a" /* PreviewsComponent */] },
-    { path: 'custom/:id', component: __WEBPACK_IMPORTED_MODULE_8__pages_custom_custom_component__["a" /* CustomComponent */], canDeactivate: [__WEBPACK_IMPORTED_MODULE_12__components_browser_browser_component__["b" /* CanDeactivateEditor */]] },
-    { path: 'slowquery', component: __WEBPACK_IMPORTED_MODULE_13__pages_slow_query_slow_query_component__["a" /* SlowQueryComponent */] },
-    { path: 'log', component: __WEBPACK_IMPORTED_MODULE_14__pages_log_log_component__["a" /* LogComponent */] },
-    { path: 'help/:id', component: __WEBPACK_IMPORTED_MODULE_11__pages_help_help_component__["a" /* HelpComponent */] },
-    { path: 'settings', component: __WEBPACK_IMPORTED_MODULE_10__pages_settings_settings_component__["a" /* SettingsComponent */] },
-    { path: '**', component: __WEBPACK_IMPORTED_MODULE_9__pages_nocontent_nocontent_component__["a" /* NoContentComponent */] }
+    { path: 'connections/:id', component: __WEBPACK_IMPORTED_MODULE_5__pages_connections_connections_component__["a" /* ConnectionsComponent */], canDeactivate: [__WEBPACK_IMPORTED_MODULE_13__components_browser_browser_component__["b" /* CanDeactivateEditor */]] },
+    { path: 'queries/:id', component: __WEBPACK_IMPORTED_MODULE_6__pages_queries_queries_component__["a" /* QueriesComponent */], canDeactivate: [__WEBPACK_IMPORTED_MODULE_13__components_browser_browser_component__["b" /* CanDeactivateEditor */]] },
+    { path: 'walkingdata/:id', component: __WEBPACK_IMPORTED_MODULE_7__pages_walkingdata_walkingdata_component__["a" /* WalkingdataComponent */], canDeactivate: [__WEBPACK_IMPORTED_MODULE_13__components_browser_browser_component__["b" /* CanDeactivateEditor */]] },
+    { path: 'previews/:id', component: __WEBPACK_IMPORTED_MODULE_8__pages_previews_previews_component__["a" /* PreviewsComponent */] },
+    { path: 'custom/:id', component: __WEBPACK_IMPORTED_MODULE_9__pages_custom_custom_component__["a" /* CustomComponent */], canDeactivate: [__WEBPACK_IMPORTED_MODULE_13__components_browser_browser_component__["b" /* CanDeactivateEditor */]] },
+    { path: 'slowquery', component: __WEBPACK_IMPORTED_MODULE_14__pages_slow_query_slow_query_component__["a" /* SlowQueryComponent */] },
+    { path: 'log', component: __WEBPACK_IMPORTED_MODULE_15__pages_log_log_component__["a" /* LogComponent */] },
+    { path: 'help/:id', component: __WEBPACK_IMPORTED_MODULE_12__pages_help_help_component__["a" /* HelpComponent */] },
+    { path: 'settings', component: __WEBPACK_IMPORTED_MODULE_11__pages_settings_settings_component__["a" /* SettingsComponent */] },
+    { path: '**', component: __WEBPACK_IMPORTED_MODULE_10__pages_nocontent_nocontent_component__["a" /* NoContentComponent */] }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
@@ -80,7 +83,7 @@ var AppRoutingModule = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forRoot(routes, { useHash: true })],
             exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]],
-            providers: [__WEBPACK_IMPORTED_MODULE_12__components_browser_browser_component__["b" /* CanDeactivateEditor */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_13__components_browser_browser_component__["b" /* CanDeactivateEditor */]]
         })
     ], AppRoutingModule);
     return AppRoutingModule;
@@ -306,42 +309,54 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__services_cart_service__ = __webpack_require__("../../../../../src/app/services/cart.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__services_dialogs_service__ = __webpack_require__("../../../../../src/app/services/dialogs.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_log_service__ = __webpack_require__("../../../../../src/app/services/log.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_browser_browser_component__ = __webpack_require__("../../../../../src/app/components/browser/browser.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_page_header_page_header_component__ = __webpack_require__("../../../../../src/app/components/page-header/page-header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_debug_pre_debug_pre_component__ = __webpack_require__("../../../../../src/app/components/debug-pre/debug-pre.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_new_element_new_element_component__ = __webpack_require__("../../../../../src/app/components/new-element/new-element.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_schema_browser_schema_browser_component__ = __webpack_require__("../../../../../src/app/components/schema-browser/schema-browser.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/components/confirm-dialog/confirm-dialog.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_object_viewer_object_viewer_component__ = __webpack_require__("../../../../../src/app/components/object-viewer/object-viewer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_help_browser_help_browser_component__ = __webpack_require__("../../../../../src/app/components/help-browser/help-browser.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_parameter_editor_parameter_editor_component__ = __webpack_require__("../../../../../src/app/components/parameter-editor/parameter-editor.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_value_editor_value_editor_component__ = __webpack_require__("../../../../../src/app/components/value-editor/value-editor.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_cart_cart_component__ = __webpack_require__("../../../../../src/app/components/cart/cart.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_api_tester_api_tester_component__ = __webpack_require__("../../../../../src/app/components/api-tester/api-tester.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_monitor_monitor_component__ = __webpack_require__("../../../../../src/app/components/monitor/monitor.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__directives_lock_scroll_directive__ = __webpack_require__("../../../../../src/app/directives/lock-scroll.directive.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__directives_auto_scroll_directive__ = __webpack_require__("../../../../../src/app/directives/auto-scroll.directive.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_scenario_scenario_component__ = __webpack_require__("../../../../../src/app/pages/scenario/scenario.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_cover_cover_component__ = __webpack_require__("../../../../../src/app/pages/cover/cover.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_nocontent_nocontent_component__ = __webpack_require__("../../../../../src/app/pages/nocontent/nocontent.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_documents_documents_component__ = __webpack_require__("../../../../../src/app/pages/documents/documents.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_custom_custom_component__ = __webpack_require__("../../../../../src/app/pages/custom/custom.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_queries_queries_component__ = __webpack_require__("../../../../../src/app/pages/queries/queries.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__pages_connections_connections_component__ = __webpack_require__("../../../../../src/app/pages/connections/connections.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__pages_previews_previews_component__ = __webpack_require__("../../../../../src/app/pages/previews/previews.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__pages_settings_settings_component__ = __webpack_require__("../../../../../src/app/pages/settings/settings.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__pages_help_help_component__ = __webpack_require__("../../../../../src/app/pages/help/help.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__pages_slow_query_slow_query_component__ = __webpack_require__("../../../../../src/app/pages/slow-query/slow-query.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_log_log_component__ = __webpack_require__("../../../../../src/app/pages/log/log.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_help_pages_api_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/api-help.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__pages_help_pages_scenario_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/scenario-help.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__pages_help_pages_documents_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/documents-help.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__pages_help_pages_connections_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/connections-help.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_help_pages_queries_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/queries-help.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__pages_help_pages_previews_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/previews-help.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__pages_help_pages_custom_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/custom-help.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__pages_help_pages_slowquery_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/slowquery-help.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__components_fields_browser_fields_browser_component__ = __webpack_require__("../../../../../src/app/components/fields-browser/fields-browser.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_walkingdata_service__ = __webpack_require__("../../../../../src/app/services/walkingdata.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_walkingedit_service__ = __webpack_require__("../../../../../src/app/services/walkingedit.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_browser_browser_component__ = __webpack_require__("../../../../../src/app/components/browser/browser.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_page_header_page_header_component__ = __webpack_require__("../../../../../src/app/components/page-header/page-header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_debug_pre_debug_pre_component__ = __webpack_require__("../../../../../src/app/components/debug-pre/debug-pre.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_new_element_new_element_component__ = __webpack_require__("../../../../../src/app/components/new-element/new-element.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_schema_browser_schema_browser_component__ = __webpack_require__("../../../../../src/app/components/schema-browser/schema-browser.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/components/confirm-dialog/confirm-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_object_viewer_object_viewer_component__ = __webpack_require__("../../../../../src/app/components/object-viewer/object-viewer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_help_browser_help_browser_component__ = __webpack_require__("../../../../../src/app/components/help-browser/help-browser.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_labelled_labelled_component__ = __webpack_require__("../../../../../src/app/components/labelled/labelled.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_parameter_editor_parameter_editor_component__ = __webpack_require__("../../../../../src/app/components/parameter-editor/parameter-editor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_value_editor_value_editor_component__ = __webpack_require__("../../../../../src/app/components/value-editor/value-editor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_cart_cart_component__ = __webpack_require__("../../../../../src/app/components/cart/cart.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_api_tester_api_tester_component__ = __webpack_require__("../../../../../src/app/components/api-tester/api-tester.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_monitor_monitor_component__ = __webpack_require__("../../../../../src/app/components/monitor/monitor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_fields_browser_fields_browser_component__ = __webpack_require__("../../../../../src/app/components/fields-browser/fields-browser.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_walkingdata_target_walkingdata_target_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-target/walkingdata-target.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_walkingdata_stage_walkingdata_stage_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-stage/walkingdata-stage.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-editors/walkingdata-editors.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_source_editor_walkingdata_source_editor_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-source-editor/walkingdata-source-editor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_walkingdata_target_editor_walkingdata_target_editor_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-target-editor/walkingdata-target-editor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_walkingdata_script_editor_walkingdata_script_editor_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-script-editor/walkingdata-script-editor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__directives_lock_scroll_directive__ = __webpack_require__("../../../../../src/app/directives/lock-scroll.directive.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__directives_auto_scroll_directive__ = __webpack_require__("../../../../../src/app/directives/auto-scroll.directive.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__directives_dragdrop_directive__ = __webpack_require__("../../../../../src/app/directives/dragdrop.directive.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_scenario_scenario_component__ = __webpack_require__("../../../../../src/app/pages/scenario/scenario.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_cover_cover_component__ = __webpack_require__("../../../../../src/app/pages/cover/cover.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__pages_nocontent_nocontent_component__ = __webpack_require__("../../../../../src/app/pages/nocontent/nocontent.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__pages_documents_documents_component__ = __webpack_require__("../../../../../src/app/pages/documents/documents.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__pages_custom_custom_component__ = __webpack_require__("../../../../../src/app/pages/custom/custom.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_queries_queries_component__ = __webpack_require__("../../../../../src/app/pages/queries/queries.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__pages_connections_connections_component__ = __webpack_require__("../../../../../src/app/pages/connections/connections.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__pages_previews_previews_component__ = __webpack_require__("../../../../../src/app/pages/previews/previews.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__pages_settings_settings_component__ = __webpack_require__("../../../../../src/app/pages/settings/settings.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__pages_help_help_component__ = __webpack_require__("../../../../../src/app/pages/help/help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__pages_slow_query_slow_query_component__ = __webpack_require__("../../../../../src/app/pages/slow-query/slow-query.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__pages_log_log_component__ = __webpack_require__("../../../../../src/app/pages/log/log.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__pages_walkingdata_walkingdata_component__ = __webpack_require__("../../../../../src/app/pages/walkingdata/walkingdata.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__pages_help_pages_api_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/api-help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__pages_help_pages_scenario_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/scenario-help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__pages_help_pages_documents_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/documents-help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__pages_help_pages_connections_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/connections-help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__pages_help_pages_queries_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/queries-help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__pages_help_pages_previews_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/previews-help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__pages_help_pages_custom_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/custom-help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__pages_help_pages_slowquery_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/slowquery-help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__pages_help_pages_walkingdata_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/walkingdata-help.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -373,7 +388,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 // COMPONENTS
+
+
+
+
+
+
+
+
 
 
 
@@ -390,7 +415,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 // DIRECTIVES
 
 
+
 // PAGES
+
 
 
 
@@ -420,44 +447,73 @@ var AppModule = (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_33__directives_lock_scroll_directive__["a" /* LockScrollDirective */],
-                __WEBPACK_IMPORTED_MODULE_34__directives_auto_scroll_directive__["a" /* AutoScrollDirective */],
+                __WEBPACK_IMPORTED_MODULE_43__directives_lock_scroll_directive__["a" /* LockScrollDirective */],
+                __WEBPACK_IMPORTED_MODULE_44__directives_auto_scroll_directive__["a" /* AutoScrollDirective */],
                 __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_35__pages_scenario_scenario_component__["a" /* ScenarioComponent */],
-                __WEBPACK_IMPORTED_MODULE_36__pages_cover_cover_component__["a" /* CoverComponent */],
-                __WEBPACK_IMPORTED_MODULE_20__components_browser_browser_component__["a" /* BrowserComponent */],
-                __WEBPACK_IMPORTED_MODULE_37__pages_nocontent_nocontent_component__["a" /* NoContentComponent */],
-                __WEBPACK_IMPORTED_MODULE_38__pages_documents_documents_component__["a" /* DocumentsComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__pages_custom_custom_component__["a" /* CustomComponent */],
-                __WEBPACK_IMPORTED_MODULE_40__pages_queries_queries_component__["a" /* QueriesComponent */],
-                __WEBPACK_IMPORTED_MODULE_41__pages_connections_connections_component__["a" /* ConnectionsComponent */],
-                __WEBPACK_IMPORTED_MODULE_42__pages_previews_previews_component__["a" /* PreviewsComponent */],
-                __WEBPACK_IMPORTED_MODULE_21__components_page_header_page_header_component__["a" /* PageHeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_22__components_debug_pre_debug_pre_component__["a" /* DebugPreComponent */],
-                __WEBPACK_IMPORTED_MODULE_43__pages_settings_settings_component__["a" /* SettingsComponent */],
-                __WEBPACK_IMPORTED_MODULE_23__components_new_element_new_element_component__["a" /* NewElementComponent */],
-                __WEBPACK_IMPORTED_MODULE_24__components_schema_browser_schema_browser_component__["a" /* SchemaBrowserComponent */],
-                __WEBPACK_IMPORTED_MODULE_25__components_confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_28__components_parameter_editor_parameter_editor_component__["a" /* ParameterEditorComponent */],
-                __WEBPACK_IMPORTED_MODULE_29__components_value_editor_value_editor_component__["a" /* ValueEditorComponent */],
-                __WEBPACK_IMPORTED_MODULE_30__components_cart_cart_component__["a" /* CartComponent */],
-                __WEBPACK_IMPORTED_MODULE_44__pages_help_help_component__["a" /* HelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_47__pages_help_pages_api_help_component__["a" /* ApiHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_48__pages_help_pages_scenario_help_component__["a" /* ScenarioHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_50__pages_help_pages_connections_help_component__["a" /* ConnectionsHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_51__pages_help_pages_queries_help_component__["a" /* QueriesHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_53__pages_help_pages_custom_help_component__["a" /* CustomHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_49__pages_help_pages_documents_help_component__["a" /* DocumentsHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_52__pages_help_pages_previews_help_component__["a" /* PreviewsHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_54__pages_help_pages_slowquery_help_component__["a" /* SlowqueryHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_26__components_object_viewer_object_viewer_component__["a" /* ObjectViewerComponent */],
-                __WEBPACK_IMPORTED_MODULE_27__components_help_browser_help_browser_component__["a" /* HelpBrowserComponent */],
-                __WEBPACK_IMPORTED_MODULE_45__pages_slow_query_slow_query_component__["a" /* SlowQueryComponent */],
-                __WEBPACK_IMPORTED_MODULE_31__components_api_tester_api_tester_component__["a" /* ApiTesterComponent */],
-                __WEBPACK_IMPORTED_MODULE_32__components_monitor_monitor_component__["a" /* MonitorComponent */],
-                __WEBPACK_IMPORTED_MODULE_46__pages_log_log_component__["a" /* LogComponent */],
-                __WEBPACK_IMPORTED_MODULE_34__directives_auto_scroll_directive__["a" /* AutoScrollDirective */],
-                __WEBPACK_IMPORTED_MODULE_55__components_fields_browser_fields_browser_component__["a" /* FieldsBrowserComponent */]
+                __WEBPACK_IMPORTED_MODULE_46__pages_scenario_scenario_component__["a" /* ScenarioComponent */],
+                __WEBPACK_IMPORTED_MODULE_47__pages_cover_cover_component__["a" /* CoverComponent */],
+                __WEBPACK_IMPORTED_MODULE_22__components_browser_browser_component__["a" /* BrowserComponent */],
+                __WEBPACK_IMPORTED_MODULE_48__pages_nocontent_nocontent_component__["a" /* NoContentComponent */],
+                __WEBPACK_IMPORTED_MODULE_49__pages_documents_documents_component__["a" /* DocumentsComponent */],
+                __WEBPACK_IMPORTED_MODULE_50__pages_custom_custom_component__["a" /* CustomComponent */],
+                __WEBPACK_IMPORTED_MODULE_51__pages_queries_queries_component__["a" /* QueriesComponent */],
+                __WEBPACK_IMPORTED_MODULE_52__pages_connections_connections_component__["a" /* ConnectionsComponent */],
+                __WEBPACK_IMPORTED_MODULE_53__pages_previews_previews_component__["a" /* PreviewsComponent */],
+                __WEBPACK_IMPORTED_MODULE_23__components_page_header_page_header_component__["a" /* PageHeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_24__components_debug_pre_debug_pre_component__["a" /* DebugPreComponent */],
+                __WEBPACK_IMPORTED_MODULE_54__pages_settings_settings_component__["a" /* SettingsComponent */],
+                __WEBPACK_IMPORTED_MODULE_25__components_new_element_new_element_component__["a" /* NewElementComponent */],
+                __WEBPACK_IMPORTED_MODULE_26__components_schema_browser_schema_browser_component__["a" /* SchemaBrowserComponent */],
+                __WEBPACK_IMPORTED_MODULE_27__components_confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_31__components_parameter_editor_parameter_editor_component__["a" /* ParameterEditorComponent */],
+                __WEBPACK_IMPORTED_MODULE_32__components_value_editor_value_editor_component__["a" /* ValueEditorComponent */],
+                __WEBPACK_IMPORTED_MODULE_33__components_cart_cart_component__["a" /* CartComponent */],
+                __WEBPACK_IMPORTED_MODULE_55__pages_help_help_component__["a" /* HelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_59__pages_help_pages_api_help_component__["a" /* ApiHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_60__pages_help_pages_scenario_help_component__["a" /* ScenarioHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_62__pages_help_pages_connections_help_component__["a" /* ConnectionsHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_63__pages_help_pages_queries_help_component__["a" /* QueriesHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_65__pages_help_pages_custom_help_component__["a" /* CustomHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_61__pages_help_pages_documents_help_component__["a" /* DocumentsHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_64__pages_help_pages_previews_help_component__["a" /* PreviewsHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_66__pages_help_pages_slowquery_help_component__["a" /* SlowqueryHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_67__pages_help_pages_walkingdata_help_component__["a" /* WalkingdataHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_28__components_object_viewer_object_viewer_component__["a" /* ObjectViewerComponent */],
+                __WEBPACK_IMPORTED_MODULE_29__components_help_browser_help_browser_component__["a" /* HelpBrowserComponent */],
+                __WEBPACK_IMPORTED_MODULE_56__pages_slow_query_slow_query_component__["a" /* SlowQueryComponent */],
+                __WEBPACK_IMPORTED_MODULE_34__components_api_tester_api_tester_component__["a" /* ApiTesterComponent */],
+                __WEBPACK_IMPORTED_MODULE_35__components_monitor_monitor_component__["a" /* MonitorComponent */],
+                __WEBPACK_IMPORTED_MODULE_57__pages_log_log_component__["a" /* LogComponent */],
+                __WEBPACK_IMPORTED_MODULE_44__directives_auto_scroll_directive__["a" /* AutoScrollDirective */],
+                __WEBPACK_IMPORTED_MODULE_36__components_fields_browser_fields_browser_component__["a" /* FieldsBrowserComponent */],
+                __WEBPACK_IMPORTED_MODULE_58__pages_walkingdata_walkingdata_component__["a" /* WalkingdataComponent */],
+                __WEBPACK_IMPORTED_MODULE_38__components_walkingdata_stage_walkingdata_stage_component__["c" /* WalkingdataStageComponent */],
+                __WEBPACK_IMPORTED_MODULE_38__components_walkingdata_stage_walkingdata_stage_component__["b" /* WalkingdataHandlersComponent */],
+                __WEBPACK_IMPORTED_MODULE_58__pages_walkingdata_walkingdata_component__["b" /* WalkingdataTargetsComponent */],
+                __WEBPACK_IMPORTED_MODULE_38__components_walkingdata_stage_walkingdata_stage_component__["a" /* WalkingdataHandlerComponent */],
+                __WEBPACK_IMPORTED_MODULE_37__components_walkingdata_target_walkingdata_target_component__["a" /* WalkingdataTargetComponent */],
+                __WEBPACK_IMPORTED_MODULE_37__components_walkingdata_target_walkingdata_target_component__["b" /* WalkingdataTransformerComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_source_editor_walkingdata_source_editor_component__["a" /* WalkingdataSourceEditorComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["d" /* WalkingdataHandlerRulesComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["e" /* WalkingdataHandlerSchemaComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["f" /* WalkingdataHandlerSchemaFieldComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["b" /* WalkingdataHandlerFileSchemaComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["a" /* WalkingdataHandlerFileDefComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["c" /* WalkingdataHandlerQueryDefComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["g" /* WalkingdataHandlerTableDefComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["h" /* WalkingdataHandlerWebDefComponent */],
+                __WEBPACK_IMPORTED_MODULE_41__components_walkingdata_target_editor_walkingdata_target_editor_component__["a" /* WalkingdataTargetEditorComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["i" /* WalkingdataLineEditorFixedComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["j" /* WalkingdataLineEditorSeparatorComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["k" /* WalkingdataRuleFilenameComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["l" /* WalkingdataRuleFilterComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["o" /* WalkingdataRuleSectionComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["n" /* WalkingdataRulePostRenameComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["m" /* WalkingdataRulePostDeleteComponent */],
+                __WEBPACK_IMPORTED_MODULE_45__directives_dragdrop_directive__["a" /* DragdropDirective */],
+                __WEBPACK_IMPORTED_MODULE_30__components_labelled_labelled_component__["a" /* LabelledComponent */],
+                __WEBPACK_IMPORTED_MODULE_42__components_walkingdata_script_editor_walkingdata_script_editor_component__["a" /* WalkingdataScriptEditorComponent */],
+                __WEBPACK_IMPORTED_MODULE_42__components_walkingdata_script_editor_walkingdata_script_editor_component__["b" /* WalkingdataScriptEditorHelpComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -467,28 +523,31 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_3__angular_forms__["ReactiveFormsModule"],
                 __WEBPACK_IMPORTED_MODULE_7__app_routing_module__["a" /* AppRoutingModule */],
                 __WEBPACK_IMPORTED_MODULE_8_ngx_clipboard__["a" /* ClipboardModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material__["z" /* MatToolbarModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material__["k" /* MatIconModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["C" /* MatToolbarModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["l" /* MatIconModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_material__["b" /* MatButtonModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material__["A" /* MatTooltipModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material__["n" /* MatListModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material__["j" /* MatFormFieldModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material__["m" /* MatInputModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material__["s" /* MatSelectModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material__["r" /* MatProgressSpinnerModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material__["q" /* MatProgressBarModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["D" /* MatTooltipModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["o" /* MatListModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["k" /* MatFormFieldModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["n" /* MatInputModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["u" /* MatSelectModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["s" /* MatProgressSpinnerModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["r" /* MatProgressBarModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_material__["d" /* MatCardModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material__["w" /* MatSnackBarModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["y" /* MatSnackBarModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_material__["c" /* MatButtonToggleModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material__["u" /* MatSlideToggleModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material__["y" /* MatTableModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material__["p" /* MatPaginatorModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material__["x" /* MatSortModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material__["o" /* MatMenuModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material__["g" /* MatDialogModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material__["e" /* MatChipsModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material__["t" /* MatSidenavModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_material__["i" /* MatExpansionModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["w" /* MatSlideToggleModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["A" /* MatTableModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["q" /* MatPaginatorModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["z" /* MatSortModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["p" /* MatMenuModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["h" /* MatDialogModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["f" /* MatChipsModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["v" /* MatSidenavModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["j" /* MatExpansionModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["B" /* MatTabsModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["e" /* MatCheckboxModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["t" /* MatRadioModule */],
                 __WEBPACK_IMPORTED_MODULE_10_ng2_codemirror__["CodemirrorModule"],
                 __WEBPACK_IMPORTED_MODULE_9__nicky_lenaers_ngx_scroll_to__["a" /* ScrollToModule */].forRoot()
             ],
@@ -501,26 +560,33 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_15__services_schema_cache_service__["a" /* SchemaCacheService */],
                 __WEBPACK_IMPORTED_MODULE_12__services_interaction_service__["a" /* InteractionService */],
                 __WEBPACK_IMPORTED_MODULE_18__services_dialogs_service__["a" /* DialogsService */],
-                __WEBPACK_IMPORTED_MODULE_19__services_log_service__["a" /* LogService */]
+                __WEBPACK_IMPORTED_MODULE_19__services_log_service__["a" /* LogService */],
+                __WEBPACK_IMPORTED_MODULE_20__services_walkingdata_service__["a" /* WalkingdataService */],
+                __WEBPACK_IMPORTED_MODULE_21__services_walkingedit_service__["a" /* WalkingeditService */]
             ],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_25__components_confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_28__components_parameter_editor_parameter_editor_component__["a" /* ParameterEditorComponent */],
-                __WEBPACK_IMPORTED_MODULE_29__components_value_editor_value_editor_component__["a" /* ValueEditorComponent */],
-                __WEBPACK_IMPORTED_MODULE_47__pages_help_pages_api_help_component__["a" /* ApiHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_48__pages_help_pages_scenario_help_component__["a" /* ScenarioHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_50__pages_help_pages_connections_help_component__["a" /* ConnectionsHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_51__pages_help_pages_queries_help_component__["a" /* QueriesHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_53__pages_help_pages_custom_help_component__["a" /* CustomHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_49__pages_help_pages_documents_help_component__["a" /* DocumentsHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_52__pages_help_pages_previews_help_component__["a" /* PreviewsHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_54__pages_help_pages_slowquery_help_component__["a" /* SlowqueryHelpComponent */]
+                __WEBPACK_IMPORTED_MODULE_27__components_confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_31__components_parameter_editor_parameter_editor_component__["a" /* ParameterEditorComponent */],
+                __WEBPACK_IMPORTED_MODULE_32__components_value_editor_value_editor_component__["a" /* ValueEditorComponent */],
+                __WEBPACK_IMPORTED_MODULE_59__pages_help_pages_api_help_component__["a" /* ApiHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_60__pages_help_pages_scenario_help_component__["a" /* ScenarioHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_62__pages_help_pages_connections_help_component__["a" /* ConnectionsHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_63__pages_help_pages_queries_help_component__["a" /* QueriesHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_65__pages_help_pages_custom_help_component__["a" /* CustomHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_61__pages_help_pages_documents_help_component__["a" /* DocumentsHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_64__pages_help_pages_previews_help_component__["a" /* PreviewsHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_66__pages_help_pages_slowquery_help_component__["a" /* SlowqueryHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_67__pages_help_pages_walkingdata_help_component__["a" /* WalkingdataHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_38__components_walkingdata_stage_walkingdata_stage_component__["b" /* WalkingdataHandlersComponent */],
+                __WEBPACK_IMPORTED_MODULE_58__pages_walkingdata_walkingdata_component__["b" /* WalkingdataTargetsComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_source_editor_walkingdata_source_editor_component__["a" /* WalkingdataSourceEditorComponent */],
+                __WEBPACK_IMPORTED_MODULE_41__components_walkingdata_target_editor_walkingdata_target_editor_component__["a" /* WalkingdataTargetEditorComponent */]
             ],
             bootstrap: [
                 __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]
             ]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__angular_material__["l" /* MatIconRegistry */], __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["c" /* DomSanitizer */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__angular_material__["m" /* MatIconRegistry */], __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["c" /* DomSanitizer */]])
     ], AppModule);
     return AppModule;
 }());
@@ -608,7 +674,7 @@ var ApiTesterComponent = (function () {
 /***/ "../../../../../src/app/components/browser/browser.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"toolbox float-left page-items-browser\">\n  <div class=\"toolbox-header\">\n    <input placeholder=\"search...\" [(ngModel)]=\"searchTerm\" (change)=\"refresh()\">\n    <button class=\"clear-button\" mat-icon-button (click)=\"clear()\" [disabled]=\"!searchTerm\">\n      <mat-icon aria-label=\"clear button\">close</mat-icon>\n    </button>\n    <div class=\"search-state\">{{searchState}}</div>\n  </div>\n  <div class=\"toolbox-items echo-scrollbar\">\n    <mat-spinner *ngIf=\"browser.idle\"></mat-spinner>\n    <mat-nav-list *ngIf=\"!browser.idle\">\n      <mat-list-item *ngFor=\"let d of documents\" (click)=\"browser.navigate(d)\" [ngClass]=\"{'accent':(browser.current||{})._id === d._id}\">\n        <mat-icon *ngIf=\"browser.options.icon\" [ngClass]=\"{'warn-color':!!d._new}\"\n                  aria-label=\"current scenario\">{{browser.options.icon}}</mat-icon>\n        <span class=\"browser-item-content\">{{d[browser.options.namePrp]||d._id}}<span class=\"new-element\" *ngIf=\"d._new\"> (new)</span></span>\n        <div *ngIf=\"browser.options.description\" class=\"browser-item-description\">{{browser.options.description(d)}}</div>\n      </mat-list-item>\n    </mat-nav-list>\n  </div>\n</div>\n"
+module.exports = "<div class=\"toolbox float-left page-items-browser\">\n  <div class=\"toolbox-header\">\n    <input placeholder=\"search...\" [(ngModel)]=\"searchTerm\" (change)=\"refresh()\">\n    <button class=\"clear-button\" mat-icon-button (click)=\"clear()\" [disabled]=\"!searchTerm\">\n      <mat-icon aria-label=\"clear button\">close</mat-icon>\n    </button>\n    <div class=\"search-state\">{{searchState}}</div>\n  </div>\n  <div class=\"toolbox-items echo-scrollbar\">\n    <mat-spinner *ngIf=\"browser.idle\"></mat-spinner>\n    <mat-nav-list *ngIf=\"!browser.idle\">\n      <mat-list-item *ngFor=\"let d of documents\" (click)=\"browser.navigate(d)\" [ngClass]=\"{'accent':(browser.current||{})._id === d._id}\">\n        <mat-icon *ngIf=\"browser.options.icon\" [ngClass]=\"{'warn-color':!!d._new}\"\n                  aria-label=\"element icon\">{{browser.options.icon}}</mat-icon>\n        <span class=\"browser-item-content\">{{d[browser.options.namePrp]||d._id}}<span class=\"new-element\" *ngIf=\"d._new\"> (new)</span></span>\n        <div *ngIf=\"browser.options.description\" class=\"browser-item-description\">{{browser.options.description(d)}}</div>\n      </mat-list-item>\n    </mat-nav-list>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -724,7 +790,7 @@ var CanDeactivateEditor = (function () {
 /***/ "../../../../../src/app/components/cart/cart.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div layout-right>\n  <button mat-icon-button (click)=\"cartS.toggleSelection()\" matTooltip=\"toggle selection\" [disabled]=\"!cartS.items.length\">\n    <mat-icon aria-label=\"cart button\">done_all</mat-icon>\n  </button>\n  <button mat-icon-button (click)=\"cartS.removeSelection()\" matTooltip=\"remove selected\" [disabled]=\"!cartS.selection().length\">\n    <mat-icon aria-label=\"cart button\">delete_forever</mat-icon>\n  </button>\n  <button mat-icon-button (click)=\"cartS.clear()\" matTooltip=\"clear cart\" [disabled]=\"!cartS.items.length\">\n    <mat-icon aria-label=\"cart button\">delete_sweep</mat-icon>\n  </button>\n</div>\n<div class=\"cart-items-container echo-scrollbar\">\n  <div class=\"cart-type\" *ngFor=\"let i of cartS.items\">\n    <div class=\"cart-header\">{{i.type}}</div>\n    <mat-nav-list>\n      <mat-list-item *ngFor=\"let o of i.items\" (click)=\"toggleCartElement(o)\" [ngClass]=\"{'accent':o.selected}\">\n        <mat-icon aria-label=\"type icon\">{{i.icon}}</mat-icon>\n        {{o.name || o.title || o._id}}\n      </mat-list-item>\n    </mat-nav-list>\n  </div>\n</div>\n<button *ngIf=\"canPush && cartS.selection().length\" class=\"push-button\" mat-fab (click)=\"cartS.push()\"\n        matTooltip=\"Add selected alements\">\n  <mat-icon aria-label=\"cart button\">forward</mat-icon>\n</button>\n"
+module.exports = "<div layout-right>\n  <button mat-icon-button (click)=\"cartS.toggleSelection()\" matTooltip=\"toggle selection\" [disabled]=\"!cartS.items.length\">\n    <mat-icon aria-label=\"cart button\">done_all</mat-icon>\n  </button>\n  <button mat-icon-button (click)=\"cartS.removeSelection()\" matTooltip=\"remove selected\" [disabled]=\"!cartS.selection().length\">\n    <mat-icon aria-label=\"cart button\">delete_sweep</mat-icon>\n  </button>\n  <button mat-icon-button (click)=\"cartS.clear()\" matTooltip=\"clear cart\" [disabled]=\"!cartS.items.length\">\n    <mat-icon aria-label=\"cart button\">delete_forever</mat-icon>\n  </button>\n</div>\n<div class=\"cart-items-container echo-scrollbar\">\n  <div class=\"cart-type\" *ngFor=\"let i of cartS.items\">\n    <div class=\"cart-header\">{{i.type}}</div>\n    <mat-nav-list>\n      <mat-list-item *ngFor=\"let o of i.items\" (click)=\"toggleCartElement(o)\" [ngClass]=\"{'accent':o.selected}\">\n        <mat-icon aria-label=\"type icon\">{{i.icon}}</mat-icon>\n        {{o.name || o.title || o._id}}\n      </mat-list-item>\n    </mat-nav-list>\n  </div>\n</div>\n<button *ngIf=\"canPush && cartS.selection().length\" class=\"push-button\" mat-fab (click)=\"cartS.push()\"\n        matTooltip=\"Add selected alements\">\n  <mat-icon aria-label=\"cart button\">forward</mat-icon>\n</button>\n"
 
 /***/ }),
 
@@ -827,7 +893,7 @@ var ConfirmDialogComponent = (function () {
             template: __webpack_require__("../../../../../src/app/components/confirm-dialog/confirm-dialog.component.html")
         }),
         __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["h" /* MatDialogRef */], Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["i" /* MatDialogRef */], Object])
     ], ConfirmDialogComponent);
     return ConfirmDialogComponent;
 }());
@@ -989,6 +1055,56 @@ var HelpBrowserComponent = (function () {
         __metadata("design:paramtypes", [])
     ], HelpBrowserComponent);
     return HelpBrowserComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/labelled/labelled.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"labelled\" layout-col>\r\n  <div *ngIf=\"idle\" class=\"loader\">loading</div>\r\n  <span label>{{caption}}</span>\r\n  <div layout-row>\r\n    <ng-content flex></ng-content>\r\n  </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/labelled/labelled.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LabelledComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var LabelledComponent = (function () {
+    function LabelledComponent() {
+    }
+    LabelledComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('caption'),
+        __metadata("design:type", Object)
+    ], LabelledComponent.prototype, "caption", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('idle'),
+        __metadata("design:type", Object)
+    ], LabelledComponent.prototype, "idle", void 0);
+    LabelledComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'labelled',
+            template: __webpack_require__("../../../../../src/app/components/labelled/labelled.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], LabelledComponent);
+    return LabelledComponent;
 }());
 
 
@@ -1330,6 +1446,9 @@ var ParameterEditorComponent = (function () {
             self.checkSystem();
         });
     };
+    ParameterEditorComponent.prototype.ngOnDestroy = function () {
+        (this.data.parameter || {}).icon = this.u.getParameterIcon(this.data.parameter);
+    };
     ParameterEditorComponent.prototype.close = function (p) {
         this.dialogRef.close(p);
     };
@@ -1346,7 +1465,7 @@ var ParameterEditorComponent = (function () {
             template: __webpack_require__("../../../../../src/app/components/parameter-editor/parameter-editor.component.html")
         }),
         __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["h" /* MatDialogRef */], Object, __WEBPACK_IMPORTED_MODULE_2__services_interaction_service__["a" /* InteractionService */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["i" /* MatDialogRef */], Object, __WEBPACK_IMPORTED_MODULE_2__services_interaction_service__["a" /* InteractionService */],
             __WEBPACK_IMPORTED_MODULE_3__services_utils_service__["a" /* UtilsService */]])
     ], ParameterEditorComponent);
     return ParameterEditorComponent;
@@ -1543,12 +1662,1542 @@ var ValueEditorComponent = (function () {
             template: __webpack_require__("../../../../../src/app/components/value-editor/value-editor.component.html")
         }),
         __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["h" /* MatDialogRef */], Object, __WEBPACK_IMPORTED_MODULE_2__services_utils_service__["a" /* UtilsService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["i" /* MatDialogRef */], Object, __WEBPACK_IMPORTED_MODULE_2__services_utils_service__["a" /* UtilsService */]])
     ], ValueEditorComponent);
     return ValueEditorComponent;
 }());
 
 
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-editors/walkingdata-editors.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WalkingdataHandlerFileDefComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return WalkingdataHandlerQueryDefComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return WalkingdataHandlerTableDefComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return WalkingdataHandlerWebDefComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return WalkingdataHandlerRulesComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return WalkingdataHandlerSchemaFieldComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return WalkingdataHandlerSchemaComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return WalkingdataHandlerFileSchemaComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return WalkingdataLineEditorFixedComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return WalkingdataLineEditorSeparatorComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return WalkingdataRuleFilenameComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return WalkingdataRuleFilterComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return WalkingdataRuleSectionComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return WalkingdataRulePostRenameComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return WalkingdataRulePostDeleteComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__ = __webpack_require__("../../../../../src/app/services/walkingdata.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_utils_service__ = __webpack_require__("../../../../../src/app/services/utils.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_browser_service__ = __webpack_require__("../../../../../src/app/services/browser.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_interaction_service__ = __webpack_require__("../../../../../src/app/services/interaction.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_schema_cache_service__ = __webpack_require__("../../../../../src/app/services/schema-cache.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_lodash__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var WalkingdataHandlerFileDefComponent = (function () {
+    function WalkingdataHandlerFileDefComponent(walking, interaction, u) {
+        this.walking = walking;
+        this.interaction = interaction;
+        this.u = u;
+        this.lines = [];
+        this.error = null;
+        this.file = null;
+        this.uploading = false;
+    }
+    WalkingdataHandlerFileDefComponent.prototype.onFileChange = function (e) {
+        var self = this;
+        if (e.target.files && e.target.files.length > 0) {
+            self.walking.loadFile(self.handler, e.target.files[0]);
+        }
+    };
+    WalkingdataHandlerFileDefComponent.prototype.ngOnInit = function () {
+    };
+    WalkingdataHandlerFileDefComponent.prototype.upload = function (e) {
+        var self = this;
+        if (!self.uploading) {
+            self.uploading = true;
+            self.interaction.uploadFile(self.handler._file, function (err) {
+                self.uploading = false;
+            });
+        }
+    };
+    WalkingdataHandlerFileDefComponent.prototype.invokeClick = function (e) {
+        var event = new MouseEvent('click', { bubbles: true });
+        this.fileInput.nativeElement.dispatchEvent(event);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('handler'),
+        __metadata("design:type", Object)
+    ], WalkingdataHandlerFileDefComponent.prototype, "handler", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('fileInput'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
+    ], WalkingdataHandlerFileDefComponent.prototype, "fileInput", void 0);
+    WalkingdataHandlerFileDefComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-wd-handler-file-definition',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-editors/wd-handler-file-definition.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */],
+            __WEBPACK_IMPORTED_MODULE_4__services_interaction_service__["a" /* InteractionService */],
+            __WEBPACK_IMPORTED_MODULE_2__services_utils_service__["a" /* UtilsService */]])
+    ], WalkingdataHandlerFileDefComponent);
+    return WalkingdataHandlerFileDefComponent;
+}());
+
+var WalkingdataHandlerQueryDefComponent = (function () {
+    function WalkingdataHandlerQueryDefComponent(walking, interaction, browser) {
+        this.walking = walking;
+        this.interaction = interaction;
+        this.browser = browser;
+        this.queries = [];
+    }
+    WalkingdataHandlerQueryDefComponent.prototype.parseSchema = function (query) {
+        return __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.map(query.columns, function (c) {
+            return {
+                name: c.name,
+                type: c.type
+            };
+        });
+    };
+    WalkingdataHandlerQueryDefComponent.prototype.setSchema = function () {
+        var self = this;
+        if (self.handler.query) {
+            var query = __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.find(self.queries, function (q) { return q._id === self.handler.query; });
+            self.interaction.getDocument(query)
+                .subscribe(function (q) {
+                self.walking.loadSchema(self.handler, self.parseSchema(q));
+                self.handler.name = q.name;
+            }, function (err) {
+                console.error(err);
+            });
+        }
+    };
+    WalkingdataHandlerQueryDefComponent.prototype.ngOnInit = function () {
+        var self = this;
+        self.queries = __WEBPACK_IMPORTED_MODULE_6_lodash___default()(self.browser._documents)
+            .filter(function (d) { return d._type === self.interaction.types.queries; })
+            .value();
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('handler'),
+        __metadata("design:type", Object)
+    ], WalkingdataHandlerQueryDefComponent.prototype, "handler", void 0);
+    WalkingdataHandlerQueryDefComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-wd-handler-query-definition',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-editors/wd-handler-query-definition.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */],
+            __WEBPACK_IMPORTED_MODULE_4__services_interaction_service__["a" /* InteractionService */],
+            __WEBPACK_IMPORTED_MODULE_3__services_browser_service__["a" /* BrowserService */]])
+    ], WalkingdataHandlerQueryDefComponent);
+    return WalkingdataHandlerQueryDefComponent;
+}());
+
+var WalkingdataHandlerTableDefComponent = (function () {
+    function WalkingdataHandlerTableDefComponent(walking, interaction, browser, cache) {
+        this.walking = walking;
+        this.interaction = interaction;
+        this.browser = browser;
+        this.cache = cache;
+        this.connections = [];
+        this.schema = null;
+        this.options = {};
+    }
+    WalkingdataHandlerTableDefComponent.prototype.parseSchema = function (table) {
+        var self = this;
+        var cols = __WEBPACK_IMPORTED_MODULE_6_lodash___default()((self.schema || {}).columns || [])
+            .filter(function (c) { return c.TABLE_NAME === table.TABLE_NAME && c.TABLE_CATALOG === table.TABLE_CATALOG && c.TABLE_SCHEMA === table.TABLE_SCHEMA; })
+            .value();
+        return __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.map(cols, function (c) {
+            return {
+                name: c.COLUMN_NAME,
+                type: c.DATA_TYPE
+            };
+        });
+    };
+    WalkingdataHandlerTableDefComponent.prototype.loadSchema = function () {
+        var self = this;
+        if (self.handler.connection) {
+            self.cache.getSchema(self.handler.connection)
+                .then(function (schema) { return self.schema = schema; });
+        }
+    };
+    WalkingdataHandlerTableDefComponent.prototype.ngOnInit = function () {
+        var self = this;
+        self.connections = __WEBPACK_IMPORTED_MODULE_6_lodash___default()(self.browser._documents)
+            .filter(function (d) { return d._type === self.interaction.types.connections; })
+            .value();
+        self.loadSchema();
+        self.options.editable = self.handler.target && self.walking.isType(self.handler, ['newtable']);
+    };
+    WalkingdataHandlerTableDefComponent.prototype.ngOnDestroy = function () {
+        var self = this;
+        if (self.options.editable) {
+            self.handler.name = self.handler.tableName;
+        }
+    };
+    WalkingdataHandlerTableDefComponent.prototype.setSchema = function () {
+        var self = this;
+        var table = __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.find((self.schema || {}).tables || [], function (t) { return t.TABLE_NAME === self.handler.tableName; });
+        self.walking.loadSchema(self.handler, self.parseSchema(table));
+        self.handler.name = self.handler.tableName;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('handler'),
+        __metadata("design:type", Object)
+    ], WalkingdataHandlerTableDefComponent.prototype, "handler", void 0);
+    WalkingdataHandlerTableDefComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-wd-handler-table-definition',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-editors/wd-handler-table-definition.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */],
+            __WEBPACK_IMPORTED_MODULE_4__services_interaction_service__["a" /* InteractionService */],
+            __WEBPACK_IMPORTED_MODULE_3__services_browser_service__["a" /* BrowserService */],
+            __WEBPACK_IMPORTED_MODULE_5__services_schema_cache_service__["a" /* SchemaCacheService */]])
+    ], WalkingdataHandlerTableDefComponent);
+    return WalkingdataHandlerTableDefComponent;
+}());
+
+var WalkingdataHandlerWebDefComponent = (function () {
+    function WalkingdataHandlerWebDefComponent(walking) {
+        this.walking = walking;
+    }
+    WalkingdataHandlerWebDefComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('handler'),
+        __metadata("design:type", Object)
+    ], WalkingdataHandlerWebDefComponent.prototype, "handler", void 0);
+    WalkingdataHandlerWebDefComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-wd-handler-web-definition',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-editors/wd-handler-web-definition.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */]])
+    ], WalkingdataHandlerWebDefComponent);
+    return WalkingdataHandlerWebDefComponent;
+}());
+
+var WalkingdataHandlerRulesComponent = (function () {
+    function WalkingdataHandlerRulesComponent(walking) {
+        this.walking = walking;
+        this.rules = [];
+    }
+    WalkingdataHandlerRulesComponent.prototype.ngOnInit = function () {
+        var self = this;
+        self.rules = __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.filter(self.walking.rules, function (r) {
+            return (!r.targets || r.targets.indexOf(self.handler.type) > -1) &&
+                (!r.contexts || r.contexts.indexOf(self.handler.mode) > -1);
+        });
+    };
+    WalkingdataHandlerRulesComponent.prototype.addRule = function (rule) {
+        this.walking.addRule(this.handler, rule);
+    };
+    WalkingdataHandlerRulesComponent.prototype.removeRule = function (rule) {
+        __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.pull(this.handler.rules, rule);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('handler'),
+        __metadata("design:type", Object)
+    ], WalkingdataHandlerRulesComponent.prototype, "handler", void 0);
+    WalkingdataHandlerRulesComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-wd-handler-rules',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-editors/wd-handler-rules.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */]])
+    ], WalkingdataHandlerRulesComponent);
+    return WalkingdataHandlerRulesComponent;
+}());
+
+var WalkingdataHandlerSchemaFieldComponent = (function () {
+    function WalkingdataHandlerSchemaFieldComponent(walking) {
+        this.walking = walking;
+        this.options = {};
+        this.index = 0;
+        this.aligns = ['left', 'right'];
+        this.types = [];
+    }
+    WalkingdataHandlerSchemaFieldComponent.prototype.isType = function (types) {
+        return (types.indexOf(this.handler.type) > -1);
+    };
+    WalkingdataHandlerSchemaFieldComponent.prototype.ngOnInit = function () {
+        var isfixed = (this.handler.textMode === 'fixed');
+        this.types = this.walking.types;
+        this.index = this.handler.schema.indexOf(this.field) + 1;
+        this.options.editable = this.isType(['newfile', 'newtable', 'file']) || this.handler.target;
+        this.options.len = this.isType(['newfile', 'file']) && isfixed;
+        this.options.align = this.isType(['newfile', 'file']) && this.handler.target && isfixed;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('handler'),
+        __metadata("design:type", Object)
+    ], WalkingdataHandlerSchemaFieldComponent.prototype, "handler", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('field'),
+        __metadata("design:type", Object)
+    ], WalkingdataHandlerSchemaFieldComponent.prototype, "field", void 0);
+    WalkingdataHandlerSchemaFieldComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-wd-handler-schema-field',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-editors/wd-handler-schema-field.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */]])
+    ], WalkingdataHandlerSchemaFieldComponent);
+    return WalkingdataHandlerSchemaFieldComponent;
+}());
+
+var WalkingdataHandlerSchemaComponent = (function () {
+    function WalkingdataHandlerSchemaComponent(walking, u) {
+        this.walking = walking;
+        this.u = u;
+        this.options = {};
+    }
+    WalkingdataHandlerSchemaComponent.prototype.ngOnInit = function () {
+        this.options.editable = this.walking.isType(this.handler, ['newfile', 'newtable', 'file']) || this.handler.target;
+    };
+    WalkingdataHandlerSchemaComponent.prototype.select = function (field) {
+        this.handler._field = field;
+    };
+    WalkingdataHandlerSchemaComponent.prototype.add = function () {
+        var nf = this.walking.getNewField(this.handler);
+        this.handler.schema.push(nf);
+        this.handler._field = nf;
+    };
+    WalkingdataHandlerSchemaComponent.prototype.remove = function () {
+        __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.pull(this.handler.schema, this.handler._field);
+        this.handler._field = null;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('handler'),
+        __metadata("design:type", Object)
+    ], WalkingdataHandlerSchemaComponent.prototype, "handler", void 0);
+    WalkingdataHandlerSchemaComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-wd-handler-schema',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-editors/wd-handler-schema.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */],
+            __WEBPACK_IMPORTED_MODULE_2__services_utils_service__["a" /* UtilsService */]])
+    ], WalkingdataHandlerSchemaComponent);
+    return WalkingdataHandlerSchemaComponent;
+}());
+
+var WalkingdataHandlerFileSchemaComponent = (function () {
+    function WalkingdataHandlerFileSchemaComponent(walking) {
+        this.walking = walking;
+        this.options = {};
+    }
+    WalkingdataHandlerFileSchemaComponent.prototype.ngOnInit = function () {
+        this.options.editable = this.walking.isType(this.handler, ['file']);
+        this.options.lineeditor = this.handler.source && this.walking.isType(this.handler, ['file']);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('handler'),
+        __metadata("design:type", Object)
+    ], WalkingdataHandlerFileSchemaComponent.prototype, "handler", void 0);
+    WalkingdataHandlerFileSchemaComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-wd-handler-file-schema',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-editors/wd-handler-file-schema.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */]])
+    ], WalkingdataHandlerFileSchemaComponent);
+    return WalkingdataHandlerFileSchemaComponent;
+}());
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// LINE EDITORS
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+var WalkingdataLineEditorFixedComponent = (function () {
+    function WalkingdataLineEditorFixedComponent(walking, u) {
+        this.walking = walking;
+        this.u = u;
+        this.o = {
+            preline2: { text: '', n: 0 },
+            preline1: { text: '', n: 0 },
+            postline1: { text: '', n: 0 },
+            postline2: { text: '', n: 0 },
+            ready: false
+        };
+    }
+    WalkingdataLineEditorFixedComponent.prototype.getParts = function (h) {
+        var self = this;
+        var i = h.start;
+        if (i < 0) {
+            i = 0;
+        }
+        var line = (h.lines || [])[i] || '';
+        var linedata = {
+            titles: h.headers ? h.lines[0] || '' : line,
+            values: line
+        };
+        var parts = [];
+        (h.schema || []).forEach(function (c, i) {
+            var len = c.length || 1;
+            if (len < 1) {
+                len = 1;
+            }
+            var txt = linedata.titles.substr(0, len);
+            var val = linedata.values.substr(0, len);
+            parts.push({
+                title: txt,
+                text: val,
+                type: self.u.decodeType(val, h),
+                index: i
+            });
+            linedata.titles = linedata.titles.slice(len);
+            linedata.values = linedata.values.slice(len);
+        });
+        if (linedata.titles.length) {
+            parts.push({
+                title: linedata.titles,
+                text: linedata.values,
+                type: self.u.decodeType(linedata.values, h),
+                index: parts.length
+            });
+        }
+        (__WEBPACK_IMPORTED_MODULE_6_lodash___default.a.last(parts) || {}).last = true;
+        return parts;
+    };
+    WalkingdataLineEditorFixedComponent.prototype.readLines = function () {
+        var self = this;
+        self.walking.readLines(self.handler, self.o, self);
+    };
+    WalkingdataLineEditorFixedComponent.prototype.regen = function () {
+        var self = this;
+        var txt = self.walking.getSelectedText() || '';
+        if (txt.length > 0 && txt.length < 100) {
+            var f = {
+                name: self.u.getNewName(self.handler.schema, 'New Field'),
+                type: 'string',
+                length: txt.length,
+                align: 'left'
+            };
+            self.walking.checkField(f);
+            self.handler.schema.push(f);
+            this.readLines();
+        }
+    };
+    WalkingdataLineEditorFixedComponent.prototype.prev = function () {
+        this.handler.start--;
+        this.readLines();
+    };
+    WalkingdataLineEditorFixedComponent.prototype.next = function () {
+        this.handler.start++;
+        this.readLines();
+    };
+    WalkingdataLineEditorFixedComponent.prototype.ngOnInit = function () {
+        this.handler.schema = this.handler.schema || [];
+        this.readLines();
+    };
+    WalkingdataLineEditorFixedComponent.prototype.select = function (part) {
+        if ((this.handler.schema || []).length > part.index) {
+            this.handler._field = this.handler.schema[part.index];
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('handler'),
+        __metadata("design:type", Object)
+    ], WalkingdataLineEditorFixedComponent.prototype, "handler", void 0);
+    WalkingdataLineEditorFixedComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-wd-lineeditor-fixed',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-editors/wd-lineeditor.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */],
+            __WEBPACK_IMPORTED_MODULE_2__services_utils_service__["a" /* UtilsService */]])
+    ], WalkingdataLineEditorFixedComponent);
+    return WalkingdataLineEditorFixedComponent;
+}());
+
+var WalkingdataLineEditorSeparatorComponent = (function () {
+    function WalkingdataLineEditorSeparatorComponent(walking, u) {
+        this.walking = walking;
+        this.u = u;
+        this.o = {
+            preline2: { text: '', n: 0 },
+            preline1: { text: '', n: 0 },
+            postline1: { text: '', n: 0 },
+            postline2: { text: '', n: 0 },
+            ready: false
+        };
+    }
+    WalkingdataLineEditorSeparatorComponent.prototype.getParts = function (h, separators) {
+        if (separators === void 0) { separators = false; }
+        var _split = function (sep, v) {
+            // TODO: deve tener conto dei campi testo!! (delimitati da ")
+            // const testsrgx = /(["'])(?:(?=(\\?))\2.)*?\1/g;
+            return v.split(sep);
+        };
+        var self = this;
+        var i = h.start;
+        if (i < 0) {
+            i = 0;
+        }
+        var line = (h.lines || [])[i] || '';
+        var parts = [];
+        var linedata = {
+            titles: _split(h.separator, h.headers ? h.lines[0] || '' : line),
+            values: _split(h.separator, line)
+        };
+        linedata.titles.forEach(function (p, i) {
+            if (parts.length && separators) {
+                parts.push({ text: h.separator, separator: true });
+            }
+            parts.push({
+                title: p,
+                text: linedata.values[i],
+                type: self.u.decodeType(p, h),
+                index: i
+            });
+        });
+        (__WEBPACK_IMPORTED_MODULE_6_lodash___default.a.last(parts) || {}).last = true;
+        return parts;
+    };
+    WalkingdataLineEditorSeparatorComponent.prototype.readLines = function () {
+        var self = this;
+        self.walking.readLines(self.handler, self.o, self);
+        if (self.o.ready && !(this.handler.schema || []).length) {
+            this.regen();
+        }
+    };
+    WalkingdataLineEditorSeparatorComponent.prototype.regen = function () {
+        var self = this;
+        self.handler.schema.splice(0);
+        self.getParts(self.handler).forEach(function (p) {
+            var f = {
+                name: p.title || '',
+                type: p.type || 'string'
+            };
+            self.walking.checkField(f);
+            self.handler.schema.push(f);
+        });
+    };
+    WalkingdataLineEditorSeparatorComponent.prototype.prev = function () {
+        this.handler.start--;
+        this.readLines();
+    };
+    WalkingdataLineEditorSeparatorComponent.prototype.next = function () {
+        this.handler.start++;
+        this.readLines();
+    };
+    WalkingdataLineEditorSeparatorComponent.prototype.ngOnInit = function () {
+        this.handler.schema = this.handler.schema || [];
+        this.readLines();
+    };
+    WalkingdataLineEditorSeparatorComponent.prototype.select = function (part) {
+        if ((this.handler.schema || []).length > part.index) {
+            this.handler._field = this.handler.schema[part.index];
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('handler'),
+        __metadata("design:type", Object)
+    ], WalkingdataLineEditorSeparatorComponent.prototype, "handler", void 0);
+    WalkingdataLineEditorSeparatorComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-wd-lineeditor-separator',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-editors/wd-lineeditor.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */],
+            __WEBPACK_IMPORTED_MODULE_2__services_utils_service__["a" /* UtilsService */]])
+    ], WalkingdataLineEditorSeparatorComponent);
+    return WalkingdataLineEditorSeparatorComponent;
+}());
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// RULES
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+var WalkingdataRuleFilenameComponent = (function () {
+    function WalkingdataRuleFilenameComponent(walking) {
+        this.walking = walking;
+    }
+    WalkingdataRuleFilenameComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('rule'),
+        __metadata("design:type", Object)
+    ], WalkingdataRuleFilenameComponent.prototype, "rule", void 0);
+    WalkingdataRuleFilenameComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-wd-rule-filename',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-editors/wd-rule-filename.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */]])
+    ], WalkingdataRuleFilenameComponent);
+    return WalkingdataRuleFilenameComponent;
+}());
+
+var WalkingdataRuleFilterComponent = (function () {
+    function WalkingdataRuleFilterComponent(walking) {
+        this.walking = walking;
+    }
+    WalkingdataRuleFilterComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('rule'),
+        __metadata("design:type", Object)
+    ], WalkingdataRuleFilterComponent.prototype, "rule", void 0);
+    WalkingdataRuleFilterComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-wd-rule-filter',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-editors/wd-rule-filter.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */]])
+    ], WalkingdataRuleFilterComponent);
+    return WalkingdataRuleFilterComponent;
+}());
+
+var WalkingdataRuleSectionComponent = (function () {
+    function WalkingdataRuleSectionComponent(walking) {
+        this.walking = walking;
+    }
+    WalkingdataRuleSectionComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('rule'),
+        __metadata("design:type", Object)
+    ], WalkingdataRuleSectionComponent.prototype, "rule", void 0);
+    WalkingdataRuleSectionComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-wd-rule-section',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-editors/wd-rule-section.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */]])
+    ], WalkingdataRuleSectionComponent);
+    return WalkingdataRuleSectionComponent;
+}());
+
+var WalkingdataRulePostRenameComponent = (function () {
+    function WalkingdataRulePostRenameComponent(walking) {
+        this.walking = walking;
+    }
+    WalkingdataRulePostRenameComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('rule'),
+        __metadata("design:type", Object)
+    ], WalkingdataRulePostRenameComponent.prototype, "rule", void 0);
+    WalkingdataRulePostRenameComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-wd-rule-post-rename',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-editors/wd-rule-post-rename.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */]])
+    ], WalkingdataRulePostRenameComponent);
+    return WalkingdataRulePostRenameComponent;
+}());
+
+var WalkingdataRulePostDeleteComponent = (function () {
+    function WalkingdataRulePostDeleteComponent(walking) {
+        this.walking = walking;
+    }
+    WalkingdataRulePostDeleteComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('rule'),
+        __metadata("design:type", Object)
+    ], WalkingdataRulePostDeleteComponent.prototype, "rule", void 0);
+    WalkingdataRulePostDeleteComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-wd-rule-post-delete',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-editors/wd-rule-post-delete.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */]])
+    ], WalkingdataRulePostDeleteComponent);
+    return WalkingdataRulePostDeleteComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-editors/wd-handler-file-definition.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"source-file-definition wd-editor\" layout-col>\r\n  <div class=\"loader\" *ngIf=\"uploading\">\r\n    <mat-spinner class=\"central\" diameter=\"100\"></mat-spinner>\r\n  </div>\r\n  <div [ngClass]=\"{'blur':uploading}\" layout-col>\r\n    <labelled *ngIf=\"handler.source\" caption=\"File path\">\r\n      <input wd-editor-input [(ngModel)]=\"handler.name\" placeholder=\"path\" flex>\r\n      <button mat-icon-button (click)=\"invokeClick($event)\" matTooltip=\"search for a file/folder\">\r\n        <mat-icon>more_horiz</mat-icon>\r\n      </button>\r\n      <button mat-icon-button (click)=\"upload($event)\" matTooltip=\"upload file\" *ngIf=\"!handler.virtual\" [disabled]=\"!handler._file\">\r\n        <mat-icon>backup</mat-icon>\r\n      </button>\r\n      <input type=\"file\" id=\"file-input\" (change)=\"onFileChange($event)\" #fileInput>\r\n    </labelled>\r\n    <labelled *ngIf=\"handler.target\" caption=\"File path\">\r\n      <input wd-editor-input [(ngModel)]=\"handler.name\" placeholder=\"path\" flex>\r\n    </labelled>\r\n    <labelled caption=\"Text mode\">\r\n      <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"handler.textMode\" layout-col>\r\n        <mat-radio-button *ngFor=\"let tt of walking.textTypes\" [value]=\"tt.name\">{{tt.desc}}</mat-radio-button>\r\n      </mat-radio-group>\r\n    </labelled>\r\n    <!-- CONTROLS ON TEXT-TYPE -->\r\n    <div layout-col [ngSwitch]=\"handler.textMode\">\r\n      <mat-checkbox *ngSwitchCase=\"'separator'\" [(ngModel)]=\"handler.headers\">Column names on first (not empty) row</mat-checkbox>\r\n      <mat-checkbox *ngSwitchCase=\"'fixed'\" [(ngModel)]=\"handler.headers\">Column names on first (not empty) row</mat-checkbox>\r\n      <labelled *ngSwitchCase=\"'json'\" caption=\"Path for rows property\">\r\n        <input wd-editor-input [(ngModel)]=\"handler.jsonpath\" placeholder=\"rows path\" flex>\r\n      </labelled>\r\n      <div layout-row>\r\n        <labelled *ngSwitchCase=\"'separator'\" caption=\"Separator\" flex>\r\n          <input wd-editor-input [(ngModel)]=\"handler.separator\" placeholder=\"separator\" flex>\r\n        </labelled>\r\n        <labelled *ngSwitchCase=\"'separator'\" caption=\"Text Delimiter\" flex>\r\n          <input wd-editor-input [(ngModel)]=\"handler.textDelimiter\" placeholder=\"text delimiter\" flex>\r\n        </labelled>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-editors/wd-handler-file-schema.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"handler-file-schema wd-editor\" layout-col flex>\r\n  <ng-container [ngSwitch]=\"handler.textMode\" *ngIf=\"options.editable\">\r\n    <app-wd-lineeditor-fixed *ngSwitchCase=\"'fixed'\" [handler]=\"handler\"></app-wd-lineeditor-fixed>\r\n    <app-wd-lineeditor-separator *ngSwitchCase=\"'separator'\" [handler]=\"handler\"></app-wd-lineeditor-separator>\r\n  </ng-container>\r\n  <app-wd-handler-schema [handler]=\"handler\" layout-col flex></app-wd-handler-schema>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-editors/wd-handler-query-definition.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"source-query-definition wd-editor\" layout-col>\r\n  <div layout-row>\r\n    <mat-form-field flex>\r\n      <mat-select placeholder=\"Query\" [(ngModel)]=\"handler.query\" (change)=\"setSchema()\">\r\n        <mat-option *ngFor=\"let q of queries\" [value]=\"q._id\">{{ q.name }}</mat-option>\r\n      </mat-select>\r\n    </mat-form-field>\r\n  </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-editors/wd-handler-rules.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"handler-rules-editor wd-editor\" layout-col>\r\n  <div layout-row>\r\n    <span flex></span>\r\n    <button mat-icon-button [matMenuTriggerFor]=\"menu\" [disabled]=\"!rules.length\">\r\n      <mat-icon>add</mat-icon>\r\n    </button>\r\n    <mat-menu #menu=\"matMenu\">\r\n      <button *ngFor=\"let r of rules\" (click)=\"addRule(r)\" mat-menu-item>\r\n        <mat-icon>{{r.icon}}</mat-icon>\r\n        <span>{{r.caption}}</span>\r\n      </button>\r\n    </mat-menu>\r\n  </div>\r\n  <div *ngIf=\"!(handler.rules||[]).length\" layout-row>\r\n    <div class=\"grey-text text-center wd-padding-4\" flex>no rules</div>\r\n  </div>\r\n  <div *ngIf=\"(handler.rules||[]).length\">\r\n    <div *ngFor=\"let r of handler.rules\" [ngSwitch]=\"r.type\" class=\"handler-rule\">\r\n      <div class=\"header\" layout-row>\r\n        <span flex>{{r.caption}}</span>\r\n        <button mat-icon-button (click)=\"removeRule(r)\">\r\n          <mat-icon>close</mat-icon>\r\n        </button>\r\n      </div>\r\n      <app-wd-rule-filter *ngSwitchCase=\"'filter'\" [rule]=\"r\"></app-wd-rule-filter>\r\n      <app-wd-rule-filename *ngSwitchCase=\"'filename'\" [rule]=\"r\"></app-wd-rule-filename>\r\n      <app-wd-rule-section *ngSwitchCase=\"'section'\" [rule]=\"r\"></app-wd-rule-section>\r\n      <app-wd-rule-post-rename *ngSwitchCase=\"'post_rename'\" [rule]=\"r\"></app-wd-rule-post-rename>\r\n      <app-wd-rule-post-delete *ngSwitchCase=\"'post_delete'\" [rule]=\"r\"></app-wd-rule-post-delete>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-editors/wd-handler-schema-field.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf=\"options.editable\" class=\"schema-field\" [ngClass]=\"{'selected':field===handler._field}\" wd-editor-row layout-row>\r\n  <input wd-editor-input [(ngModel)]=\"field.name\" placeholder=\"name\" flex>\r\n  <select wd-editor-input [(ngModel)]=\"field.typecode\" placeholder=\"type\">\r\n    <option *ngFor=\"let t of types\" value=\"{{t}}\">{{t}}</option>\r\n  </select>\r\n  <!-- LENGTH: per campi a lunghezza fissa (scrittura/lettura) -->\r\n  <input type=\"number\" min=\"1\" *ngIf=\"options.len\" wd-editor-input [(ngModel)]=\"field.length\" placeholder=\"length\">\r\n  <!-- ALIGN: per campi a lunghezza fissa in (scrittura) -->\r\n  <select *ngIf=\"options.align\" wd-editor-input [(ngModel)]=\"field.align\">\r\n    <option *ngFor=\"let a of aligns\" value=\"{{a}}\">{{a}}</option>\r\n  </select>\r\n</div>\r\n<div *ngIf=\"!options.editable\" class=\"schema-field\" [ngClass]=\"{'selected':field===handler._field}\" layout-row>\r\n  <div class=\"field-num\">{{index}}</div>\r\n  <div class=\"field-name\" flex>{{field.name}}</div>\r\n  <div class=\"field-type\">{{field.typecode||field.type}}<span class=\"field-real-type\" *ngIf=\"field.typecode&&field.typecode!==field.type\">({{field.type}})</span></div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-editors/wd-handler-schema.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"handler-schema\" layout-col flex>\r\n  <div class=\"header\" layout-row>\r\n    <span flex>{{(handler.schema||[]).length}} fields</span>\r\n    <button *ngIf=\"options.editable\" mat-icon-button (click)=\"add()\">\r\n      <mat-icon>add</mat-icon>\r\n    </button>\r\n    <button *ngIf=\"options.editable\" mat-icon-button color=\"warn\" (click)=\"remove()\" [disabled]=\"!handler._field\">\r\n      <mat-icon>delete</mat-icon>\r\n    </button>\r\n  </div>\r\n  <div class=\"echo-scrollbar\" flex>\r\n    <div class=\"fields-collection echo-scrollable\">\r\n      <app-wd-handler-schema-field [handler]=\"handler\" *ngFor=\"let f of handler.schema||[]\"\r\n                                   (click)=\"select(f)\" [field]=\"f\"></app-wd-handler-schema-field>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-editors/wd-handler-table-definition.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"source-table-definition wd-editor\" layout-col>\r\n  <labelled caption=\"Connection\">\r\n    <select wd-editor-input [(ngModel)]=\"handler.connection\" (change)=\"loadSchema()\" placeholder=\"connection\" flex>\r\n      <option *ngFor=\"let c of connections\" [value]=\"c._id\">{{ c.name }}</option>\r\n    </select>\r\n  </labelled>\r\n\r\n  <labelled *ngIf=\"!options.editable\" caption=\"Table Name\">\r\n    <select wd-editor-input [(ngModel)]=\"handler.tableName\" (change)=\"setSchema()\" placeholder=\"tablename\" flex>\r\n      <option *ngFor=\"let t of (schema||{}).tables||[]\" [value]=\"t.TABLE_NAME\">{{ t.TABLE_NAME }}</option>\r\n    </select>\r\n  </labelled>\r\n\r\n  <labelled *ngIf=\"options.editable\" caption=\"Table Name\">\r\n    <input wd-editor-input [(ngModel)]=\"handler.tableName\" placeholder=\"tablename\" flex>\r\n  </labelled>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-editors/wd-handler-web-definition.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div>web request definition...</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-editors/wd-lineeditor.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"text-lines-browser echo-scrollbar\" *ngIf=\"o.ready\">\r\n  <div class=\"text-lines-container echo-scrollable-horizontal\">\r\n    <div class=\"text-line-container\">\r\n      <div class=\"text-line-num\">{{o.preline2.n}}</div>\r\n      <div class=\"text-line level2\">{{o.preline2.text}}</div>\r\n    </div>\r\n    <div class=\"text-line-container\">\r\n      <div class=\"text-line-num\">{{o.preline1.n}}</div>\r\n      <div class=\"text-line\">{{o.preline1.text}}</div>\r\n    </div>\r\n    <div class=\"text-line text-line-main\">\r\n      <div class=\"text-line-num\">{{handler.start}}</div>\r\n      <div class=\"line-part\" *ngFor=\"let p of o.parts;\" (click)=\"select(p)\"\r\n           [ngClass]=\"{'separator':p.separator, 'empty':!p.text, 'current':p.index === (handler.schema || []).indexOf(handler._field)}\">{{p.text||'.'}}</div>\r\n    </div>\r\n    <div class=\"text-line-container\">\r\n      <div class=\"text-line-num\">{{o.postline1.n}}</div>\r\n      <div class=\"text-line\">{{o.postline1.text}}</div>\r\n    </div>\r\n    <div class=\"text-line-container\">\r\n      <div class=\"text-line-num\">{{o.postline2.n}}</div>\r\n      <div class=\"text-line level2\">{{o.postline2.text}}</div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"toolbar\" layout-row>\r\n  <span flex></span>\r\n  <button mat-icon-button matTooltip=\"scroll up\" (click)=\"prev()\">\r\n    <mat-icon>expand_less</mat-icon>\r\n  </button>\r\n  <button mat-icon-button matTooltip=\"scroll down\" (click)=\"next()\">\r\n    <mat-icon>expand_more</mat-icon>\r\n  </button>\r\n  <button mat-icon-button matTooltip=\"regenerate columns\" (click)=\"regen()\">\r\n    <mat-icon>flash_on</mat-icon>\r\n  </button>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-editors/wd-rule-filename.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div layout-row>\r\n  <input class=\"wd-editor-code\" wd-editor-input [(ngModel)]=\"rule.filter\" placeholder=\"filter\" flex>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-editors/wd-rule-filter.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div layout-row>\r\n  <input class=\"wd-editor-code\" wd-editor-input [(ngModel)]=\"rule.filter\" placeholder=\"filter\" flex>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-editors/wd-rule-post-delete.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div layout-row>\r\n  <p>delete file on end of operation</p>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-editors/wd-rule-post-rename.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div layout-row>\r\n  <input class=\"wd-editor-code\" wd-editor-input [(ngModel)]=\"rule.filter\" placeholder=\"rename with\" flex>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-editors/wd-rule-section.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div layout-row>\r\n  <input class=\"wd-editor-code\" wd-editor-input [(ngModel)]=\"rule.filter\" placeholder=\"sections filter\" flex>\r\n</div>\r\n<div layout-row>\r\n  <input class=\"wd-editor-code\" wd-editor-input [(ngModel)]=\"rule.section\" placeholder=\"section\" flex>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-script-editor/walkingdata-script-editor.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"walkingdata-script-editor mat-elevation-z10\" [ngClass]=\"{'opened':opened}\" layout-row>\n  <div class=\"script-editor-tools left-tools\">\n    <div *ngIf=\"editorOptions.title\" class=\"title\">{{editorOptions.title}}</div>\n    <div *ngIf=\"editorOptions.description\" class=\"description\">{{editorOptions.description}}</div>\n  </div>\n  <codemirror #scripteditor [(ngModel)]=\"editorOptions.script\" [config]=\"scriptConfig\" flex></codemirror>\n  <div class=\"script-editor-tools right-tools\" layout-col>\n    <nav mat-tab-nav-bar>\n      <a mat-tab-link *ngFor=\"let tab of tabs\" [active]=\"tab===currentTab\" (click)=\"openTab(tab)\">{{tab.title}}</a>\n    </nav>\n    <div *ngIf=\"currentTab.fields\" class=\"tool-body echo-scrollbar\" layout-col flex>\n      <div class=\"echo-scrollable\">\n        <div class=\"field-row\" *ngFor=\"let f of editorOptions.fields||[]\" [ngClass]=\"{'divider accent-color':f.divider}\" layout-row>\n          <mat-icon *ngIf=\"!f.divider\" class=\"as-button\" aria-label=\"add button\" (click)=\"onInsertField(f)\">add_circle_outline</mat-icon>\n          <mat-icon *ngIf=\"f.icon && !f.divider\" aria-label=\"field icon\">{{f.icon}}</mat-icon>\n          <span class=\"title\">{{f.name}}</span>\n        </div>\n      </div>\n    </div>\n    <div *ngIf=\"currentTab.database\" class=\"tool-body echo-scrollbar\" layout-col flex>\n      <app-schema-browser (insert)=\"onInsert($event.value)\"></app-schema-browser>\n    </div>\n    <div *ngIf=\"currentTab.help\" class=\"tool-body echo-scrollbar\" layout-col flex>\n      <app-script-editor-help [key]=\"editorOptions.helpKey\"></app-script-editor-help>\n    </div>\n    <div class=\"toolbar\">\n      <button mat-icon-button matTooltip=\"close editor\" (click)=\"apply()\">\n        <mat-icon>close</mat-icon>\n      </button>\n    </div>\n  </div>\n</div>\n<div class=\"walkingdata-script-editor-backdrop\" *ngIf=\"opened\" (click)=\"apply()\"></div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-script-editor/walkingdata-script-editor.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WalkingdataScriptEditorComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return WalkingdataScriptEditorHelpComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_schema_cache_service__ = __webpack_require__("../../../../../src/app/services/schema-cache.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_walkingedit_service__ = __webpack_require__("../../../../../src/app/services/walkingedit.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_lodash__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var WalkingdataScriptEditorComponent = (function () {
+    function WalkingdataScriptEditorComponent(schema, editing) {
+        this.schema = schema;
+        this.editing = editing;
+        this.options = {};
+        this.editorOptions = {};
+        this.tabs = [];
+        this.currentTab = {};
+        this.opened = false;
+        this.scriptConfig = {
+            lineNumbers: true,
+            mode: 'javascript',
+            theme: 'blackboard',
+            height: '280px'
+        };
+        var self = this;
+        self.scriptConfig.extraKeys = {
+            Esc: function (cm) { return self.apply(); }
+        };
+    }
+    WalkingdataScriptEditorComponent.prototype.ngOnInit = function () {
+        var self = this;
+        self.opened = false;
+        self.editing.scriptEditor.show = function (o) {
+            self.editorOptions = o;
+            self.init();
+            self.opened = true;
+            setTimeout(function () {
+                var doc = self.scripteditor.instance.doc;
+                var li = doc.lastLine();
+                var ll = doc.getLine(li);
+                self.scripteditor.instance.setCursor({
+                    line: li,
+                    ch: ll.length
+                });
+                self.scripteditor.instance.focus();
+            }, 250);
+        };
+        // TODO: cerca .CodeMirror-vscrollbar e ci aggiunge la classe echo-scrollbar
+    };
+    WalkingdataScriptEditorComponent.prototype.init = function () {
+        var self = this;
+        var fieldsTab = {
+            title: 'Fields & Params',
+            fields: true,
+            icon: 'view_list'
+        };
+        self.tabs.splice(0);
+        self.tabs.push(fieldsTab);
+        if (self.editorOptions.connection) {
+            self.schema.connection(self.editorOptions.connection);
+            self.tabs.push({
+                title: 'Database',
+                database: true,
+                icon: 'view_agenda'
+            });
+        }
+        if (self.editorOptions.functions) {
+            self.tabs.push({
+                title: 'Functions',
+                functions: true,
+                icon: 'functions'
+            });
+        }
+        self.tabs.push({
+            title: 'Help',
+            help: true,
+            icon: 'help'
+        });
+        this.currentTab = fieldsTab;
+    };
+    WalkingdataScriptEditorComponent.prototype.apply = function () {
+        if (__WEBPACK_IMPORTED_MODULE_3_lodash___default.a.isFunction(this.editorOptions.apply)) {
+            this.editorOptions.apply();
+        }
+        this.close();
+    };
+    WalkingdataScriptEditorComponent.prototype.close = function () {
+        this.opened = false;
+        this.tabs.splice(0);
+        this.editorOptions = {};
+    };
+    WalkingdataScriptEditorComponent.prototype.openTab = function (tab) {
+        this.currentTab = tab;
+    };
+    WalkingdataScriptEditorComponent.prototype.onInsert = function (v) {
+        if (!this.scripteditor) {
+            return;
+        }
+        var doc = this.scripteditor.instance.getDoc();
+        doc.replaceSelection(v);
+        this.scripteditor.instance.focus();
+    };
+    WalkingdataScriptEditorComponent.prototype.onInsertField = function (field) {
+        this.onInsert('{' + (field || {})._name + '}');
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('scripteditor'),
+        __metadata("design:type", Object)
+    ], WalkingdataScriptEditorComponent.prototype, "scripteditor", void 0);
+    WalkingdataScriptEditorComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-walkingdata-script-editor',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-script-editor/walkingdata-script-editor.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_schema_cache_service__["a" /* SchemaCacheService */],
+            __WEBPACK_IMPORTED_MODULE_2__services_walkingedit_service__["a" /* WalkingeditService */]])
+    ], WalkingdataScriptEditorComponent);
+    return WalkingdataScriptEditorComponent;
+}());
+
+var WalkingdataScriptEditorHelpComponent = (function () {
+    function WalkingdataScriptEditorHelpComponent() {
+    }
+    WalkingdataScriptEditorHelpComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('key'),
+        __metadata("design:type", String)
+    ], WalkingdataScriptEditorHelpComponent.prototype, "key", void 0);
+    WalkingdataScriptEditorHelpComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-script-editor-help',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-script-editor/wd-script-editor-help.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], WalkingdataScriptEditorHelpComponent);
+    return WalkingdataScriptEditorHelpComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-script-editor/wd-script-editor-help.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<ng-container [ngSwitch]=\"key\">\r\n  <div *ngSwitchCase=\"'expression'\">\r\n    <h1>Espressioni JS style</h1>\r\n    <p>todo....</p>\r\n  </div>\r\n  <div *ngSwitchCase=\"'lookup'\">\r\n    <h1>Clausola where SQL style</h1>\r\n    <p>todo....</p>\r\n  </div>\r\n  <div *ngSwitchCase=\"'lookup-advanced'\">\r\n    <h1>Script SQL</h1>\r\n    <p>todo....</p>\r\n  </div>\r\n</ng-container>\r\n\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-source-editor/walkingdata-source-editor.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"walkingdata-source-editor wd-editor\" mat-dialog-content layout-col>\n  <nav mat-tab-nav-bar>\n    <a mat-tab-link *ngFor=\"let tab of tabs\" [active]=\"tab===currentTab\" (click)=\"openTab(tab)\">{{tab.title}}</a>\n  </nav>\n  <div *ngIf=\"currentTab.definition\" class=\"echo-scrollbar\" [ngSwitch]=\"source.type\" layout-col flex>\n    <app-wd-handler-file-definition *ngSwitchCase=\"'file'\" [handler]=\"source\"></app-wd-handler-file-definition>\n    <app-wd-handler-file-definition *ngSwitchCase=\"'newfile'\" [handler]=\"source\"></app-wd-handler-file-definition>\n    <app-wd-handler-query-definition *ngSwitchCase=\"'query'\" [handler]=\"source\"></app-wd-handler-query-definition>\n    <app-wd-handler-table-definition *ngSwitchCase=\"'table'\" [handler]=\"source\"></app-wd-handler-table-definition>\n    <app-wd-handler-web-definition *ngSwitchCase=\"'web'\" [handler]=\"source\"></app-wd-handler-web-definition>\n  </div>\n  <div *ngIf=\"currentTab.schema\" class=\"echo-scrollbar\" [ngSwitch]=\"source.type\" layout-col flex>\n    <app-wd-handler-file-schema *ngSwitchCase=\"'file'\" [handler]=\"source\" layout-col flex></app-wd-handler-file-schema>\n    <app-wd-handler-file-schema *ngSwitchCase=\"'newfile'\" [handler]=\"source\" layout-col flex></app-wd-handler-file-schema>\n    <app-wd-handler-schema *ngSwitchDefault [handler]=\"source\" layout-col flex></app-wd-handler-schema>\n  </div>\n  <div *ngIf=\"currentTab.rules\" class=\"echo-scrollbar\" [ngSwitch]=\"source.type\" layout-col flex>\n    <app-wd-handler-rules [handler]=\"source\"></app-wd-handler-rules>\n  </div>\n</div>\n<div mat-dialog-actions>\n  <button mat-raised-button color=\"accent\" (click)=\"close()\">DONE</button>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-source-editor/walkingdata-source-editor.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WalkingdataSourceEditorComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_walkingdata_service__ = __webpack_require__("../../../../../src/app/services/walkingdata.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+var WalkingdataSourceEditorComponent = (function () {
+    function WalkingdataSourceEditorComponent(dialogRef, data, walking) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.walking = walking;
+        this.source = {};
+        this.tabs = [{
+                title: 'DEFINITION',
+                definition: true
+            }, {
+                title: 'SCHEMA',
+                schema: true
+            }, {
+                title: 'RULES',
+                rules: true
+            }];
+        this.currentTab = null;
+    }
+    WalkingdataSourceEditorComponent.prototype.ngOnInit = function () {
+        var self = this;
+        self.currentTab = self.tabs[0];
+        self.source = self.data.source || self.walking.currentSource;
+        self.walking.checkHandler(self.source);
+    };
+    WalkingdataSourceEditorComponent.prototype.ngOnDestroy = function () {
+        this.walking.checkHandler(this.source);
+    };
+    WalkingdataSourceEditorComponent.prototype.openTab = function (tab) {
+        this.currentTab = tab;
+    };
+    WalkingdataSourceEditorComponent.prototype.close = function () {
+        this.dialogRef.close();
+    };
+    WalkingdataSourceEditorComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-walkingdata-source-editor',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-source-editor/walkingdata-source-editor.component.html")
+        }),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["i" /* MatDialogRef */], Object, __WEBPACK_IMPORTED_MODULE_2__services_walkingdata_service__["a" /* WalkingdataService */]])
+    ], WalkingdataSourceEditorComponent);
+    return WalkingdataSourceEditorComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-stage/walkingdata-handler.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"walkingdata-handler\" [ngClass]=\"{'current primary-background-color':walking.currentSource===source, 'grey-text':!(source.targets||[]).length}\">\r\n  <mat-icon>{{source.icon}}</mat-icon>\r\n  <p class=\"source-name\">{{source.name||('New '+source.type+' source')}}</p>\r\n  <div *ngIf=\"(source.targets||[]).length\" class=\"badge\">{{source.targets.length}}</div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-stage/walkingdata-handlers.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"handlers-chooser walkingdata-chooser\" mat-dialog-content>\r\n  <h1>sources</h1>\r\n  <div class=\"handlers-chooser-buttons\">\r\n    <button mat-icon-button class=\"handler-button\" *ngFor=\"let s of walking.sources\"\r\n            color=\"{{selected===s?'warn':''}}\" (click)=\"select(s)\">\r\n      <mat-icon aria-label=\"source button\" [ngClass]=\"{'mat-fab':s===selected}\">{{s.icon}}</mat-icon>\r\n    </button>\r\n  </div>\r\n  <div class=\"handler-button-title\" *ngIf=\"selected\">{{selected.title}}</div>\r\n  <div class=\"text-center grey-text\" *ngIf=\"selected\">{{selected.desc}}</div>\r\n  <button class=\"delete-button\" mat-icon-button color=\"warn\" (click)=\"deleteStage()\" matTooltip=\"Delete stage\">\r\n    <mat-icon aria-label=\"delete button\">delete</mat-icon>\r\n  </button>\r\n  <p class=\"text-center grey-text\" *ngIf=\"selected\">click again to select this</p>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-stage/walkingdata-stage.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"walkingdata-stage\" dragdrop (filesChangeEmiter)=\"onFilesChange($event)\" (click)=\"open($event)\">\n  <div class=\"stage-name\">stage {{(index+1)}}</div>\n  <p class=\"stage-hint text-center grey-text\">click here to add new data source</p>\n  <app-walkingdata-handler *ngFor=\"let s of stage.sources\" (click)=\"selectSource($event, s)\" [source]=\"s\"></app-walkingdata-handler>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-stage/walkingdata-stage.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return WalkingdataHandlersComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WalkingdataHandlerComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return WalkingdataStageComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__ = __webpack_require__("../../../../../src/app/services/walkingdata.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_walkingedit_service__ = __webpack_require__("../../../../../src/app/services/walkingedit.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_utils_service__ = __webpack_require__("../../../../../src/app/services/utils.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_browser_service__ = __webpack_require__("../../../../../src/app/services/browser.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_lodash__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+
+
+
+var WalkingdataHandlersComponent = (function () {
+    function WalkingdataHandlersComponent(dialogRef, data, walking) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.walking = walking;
+        this.selected = null;
+        this.selected = this.walking.sources[0];
+    }
+    WalkingdataHandlersComponent.prototype.select = function (btn) {
+        if (this.selected === btn) {
+            this.dialogRef.close(this.selected);
+        }
+        else {
+            this.selected = btn;
+        }
+    };
+    WalkingdataHandlersComponent.prototype.deleteStage = function () {
+        this.dialogRef.close('delete');
+    };
+    WalkingdataHandlersComponent.prototype.ngOnInit = function () {
+    };
+    WalkingdataHandlersComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-walkingdata-handlers',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-stage/walkingdata-handlers.component.html")
+        }),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_3__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_material__["i" /* MatDialogRef */], Object, __WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */]])
+    ], WalkingdataHandlersComponent);
+    return WalkingdataHandlersComponent;
+}());
+
+var WalkingdataHandlerComponent = (function () {
+    function WalkingdataHandlerComponent(walking) {
+        this.walking = walking;
+    }
+    WalkingdataHandlerComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('source'),
+        __metadata("design:type", Object)
+    ], WalkingdataHandlerComponent.prototype, "source", void 0);
+    WalkingdataHandlerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-walkingdata-handler',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-stage/walkingdata-handler.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */]])
+    ], WalkingdataHandlerComponent);
+    return WalkingdataHandlerComponent;
+}());
+
+var WalkingdataStageComponent = (function () {
+    function WalkingdataStageComponent(walking, editing, u, dialog, browser) {
+        this.walking = walking;
+        this.editing = editing;
+        this.u = u;
+        this.dialog = dialog;
+        this.browser = browser;
+    }
+    WalkingdataStageComponent.prototype.ngOnInit = function () {
+    };
+    WalkingdataStageComponent.prototype.onFilesChange = function (files) {
+        var self = this;
+        if ((files || []).length > 0) {
+            self.stage.sources = self.stage.sources || [];
+            var source = __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.find(self.walking.sources, function (src) { return src.type === 'file'; });
+            var s = self.walking.getNewSource(source);
+            self.walking.loadFile(s, files[0]);
+            self.stage.sources.push(s);
+            self.editing.editSource(s);
+        }
+    };
+    WalkingdataStageComponent.prototype.open = function (e) {
+        var self = this;
+        var dlg = self.dialog.open(WalkingdataHandlersComponent, {
+            width: '500px',
+            data: {}
+        });
+        dlg.afterClosed().subscribe(function (source) {
+            if (__WEBPACK_IMPORTED_MODULE_6_lodash___default.a.isObject(source)) {
+                self.stage.sources = self.stage.sources || [];
+                var s = self.walking.getNewSource(source);
+                self.stage.sources.push(s);
+                self.editing.editSource(s);
+            }
+            else if (__WEBPACK_IMPORTED_MODULE_6_lodash___default.a.isString(source)) {
+                switch (source) {
+                    case 'delete':
+                        var onclear_1 = self.browser.current.stages.length < 2;
+                        self.u.confirm({
+                            message: onclear_1 ? 'All sources will be deleted, do you want to continue?' :
+                                'Stage and all its sources will be deleted, do you want to continue?',
+                            ok: 'Yes',
+                            cancel: 'No'
+                        }, function (data) {
+                            if (data.resp === 'ok') {
+                                if (self.walking.currentSource && self.stage.sources.indexOf(self.walking.currentSource) > -1) {
+                                    self.walking.reset();
+                                }
+                                if (onclear_1) {
+                                    self.stage.sources.splice(0);
+                                }
+                                else {
+                                    __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.pull(self.browser.current.stages, self.stage);
+                                }
+                            }
+                        });
+                        break;
+                }
+            }
+        });
+    };
+    WalkingdataStageComponent.prototype.selectSource = function (e, source) {
+        e.stopPropagation();
+        this.walking.currentSource = source;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('stage'),
+        __metadata("design:type", Object)
+    ], WalkingdataStageComponent.prototype, "stage", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('index'),
+        __metadata("design:type", Number)
+    ], WalkingdataStageComponent.prototype, "index", void 0);
+    WalkingdataStageComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-walkingdata-stage',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-stage/walkingdata-stage.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */],
+            __WEBPACK_IMPORTED_MODULE_2__services_walkingedit_service__["a" /* WalkingeditService */],
+            __WEBPACK_IMPORTED_MODULE_4__services_utils_service__["a" /* UtilsService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["g" /* MatDialog */],
+            __WEBPACK_IMPORTED_MODULE_5__services_browser_service__["a" /* BrowserService */]])
+    ], WalkingdataStageComponent);
+    return WalkingdataStageComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-target-editor/walkingdata-target-editor.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"walkingdata-target-editor wd-editor\" mat-dialog-content layout-col>\n  <nav mat-tab-nav-bar>\n    <a mat-tab-link *ngFor=\"let tab of tabs\" [active]=\"tab===currentTab\" (click)=\"openTab(tab)\">{{tab.title}}</a>\n  </nav>\n  <div *ngIf=\"currentTab.definition\" class=\"echo-scrollbar\" [ngSwitch]=\"target.type\" layout-col flex>\n    <app-wd-handler-table-definition *ngSwitchCase=\"'table'\" [handler]=\"target\"></app-wd-handler-table-definition>\n    <app-wd-handler-table-definition *ngSwitchCase=\"'newtable'\" [handler]=\"target\"></app-wd-handler-table-definition>\n    <app-wd-handler-file-definition *ngSwitchCase=\"'newfile'\" [handler]=\"target\"></app-wd-handler-file-definition>\n  </div>\n  <div *ngIf=\"currentTab.schema\" class=\"echo-scrollbar\" [ngSwitch]=\"target.type\" layout-col flex>\n    <app-wd-handler-file-schema *ngSwitchCase=\"'newfile'\" [handler]=\"target\" layout-col flex></app-wd-handler-file-schema>\n    <app-wd-handler-schema *ngSwitchDefault [handler]=\"target\" layout-col flex></app-wd-handler-schema>\n  </div>\n  <div *ngIf=\"currentTab.rules\" class=\"echo-scrollbar\" [ngSwitch]=\"target.type\" layout-col flex>\n    <app-wd-handler-rules [handler]=\"target\"></app-wd-handler-rules>\n  </div>\n</div>\n<div mat-dialog-actions>\n  <button mat-raised-button color=\"accent\" (click)=\"close()\">DONE</button>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-target-editor/walkingdata-target-editor.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WalkingdataTargetEditorComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_walkingdata_service__ = __webpack_require__("../../../../../src/app/services/walkingdata.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+var WalkingdataTargetEditorComponent = (function () {
+    function WalkingdataTargetEditorComponent(dialogRef, data, walking) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.walking = walking;
+        this.target = {};
+        this.tabs = [{
+                title: 'DEFINITION',
+                definition: true
+            }, {
+                title: 'SCHEMA',
+                schema: true
+            }, {
+                title: 'RULES',
+                rules: true
+            }];
+        this.currentTab = null;
+    }
+    WalkingdataTargetEditorComponent.prototype.ngOnInit = function () {
+        var self = this;
+        this.currentTab = self.tabs[0];
+        self.target = self.data.target || self.walking.currentTarget;
+        this.walking.checkHandler(self.target);
+    };
+    WalkingdataTargetEditorComponent.prototype.openTab = function (tab) {
+        this.currentTab = tab;
+    };
+    WalkingdataTargetEditorComponent.prototype.close = function () {
+        this.dialogRef.close();
+    };
+    WalkingdataTargetEditorComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-walkingdata-target-editor',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-target-editor/walkingdata-target-editor.component.html")
+        }),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["i" /* MatDialogRef */], Object, __WEBPACK_IMPORTED_MODULE_2__services_walkingdata_service__["a" /* WalkingdataService */]])
+    ], WalkingdataTargetEditorComponent);
+    return WalkingdataTargetEditorComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-target/walkingdata-target.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"walkingdata-target\">\n  <div class=\"header\" layout-row>\n    <mat-icon>{{walking.currentSource.icon}}</mat-icon>\n    <mat-icon>trending_flat</mat-icon>\n    <mat-icon>{{target.icon}}</mat-icon>\n    <p flex>{{target.name||('New '+target.type+' target')}}</p>\n    <button mat-icon-button matTooltip=\"advanced editor active\" (click)=\"toggleAdvanced()\">\n      <mat-icon aria-label=\"advanced editor active\" [ngClass]=\"{'accent-color':target._editor!==false}\">\n        {{target._editor===false?'cast':'cast_connected'}}\n      </mat-icon>\n    </button>\n    <div class=\"divider-vertical\"></div>\n    <button mat-icon-button matTooltip=\"edit target\" (click)=\"editTarget()\">\n      <mat-icon aria-label=\"edit handler\">edit</mat-icon>\n    </button>\n    <button mat-icon-button color=\"warn\" matTooltip=\"delete target\" (click)=\"deleteTarget()\">\n      <mat-icon aria-label=\"left button\">delete</mat-icon>\n    </button>\n    <div class=\"divider-vertical\"></div>\n    <button mat-icon-button matTooltip=\"expand/collapse\"\n            [ngClass]=\"{'collapsed':target._collapsed}\" (click)=\"toggle()\">\n      <mat-icon aria-label=\"toggle state\">expand_more</mat-icon>\n    </button>\n  </div>\n  <div class=\"binding-area wd-editor\" *ngIf=\"!target._collapsed\">\n    <div class=\"field-binding\" *ngFor=\"let b of target.schema\" layout-row>\n      <div class=\"field\" layout-row>\n        <mat-icon aria-label=\"field state\">{{b.icon||'fiber_manual_record'}}</mat-icon>\n        <div class=\"field-name\">{{b.name}}</div>\n      </div>\n      <app-walkingdata-transformer [field]=\"b\" [target]=\"target\" flex></app-walkingdata-transformer>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-target/walkingdata-target.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return WalkingdataTransformerComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WalkingdataTargetComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_walkingdata_service__ = __webpack_require__("../../../../../src/app/services/walkingdata.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_walkingedit_service__ = __webpack_require__("../../../../../src/app/services/walkingedit.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_utils_service__ = __webpack_require__("../../../../../src/app/services/utils.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_browser_service__ = __webpack_require__("../../../../../src/app/services/browser.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_schema_cache_service__ = __webpack_require__("../../../../../src/app/services/schema-cache.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_interaction_service__ = __webpack_require__("../../../../../src/app/services/interaction.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_lodash__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+var WalkingdataTransformerComponent = (function () {
+    function WalkingdataTransformerComponent(walking, editing, app, u, interaction, browser, cache) {
+        this.walking = walking;
+        this.editing = editing;
+        this.app = app;
+        this.u = u;
+        this.interaction = interaction;
+        this.browser = browser;
+        this.cache = cache;
+        this.transformerMenu = [{
+                caption: 'Expression',
+                code: 'expression',
+                icon: 'settings_ethernet'
+            }, {
+                caption: 'Lookup',
+                code: 'lookup',
+                advanced: false,
+                icon: 'link'
+            }, {
+                caption: 'Lookup Advanced',
+                code: 'lookup',
+                advanced: true,
+                icon: 'link'
+            }];
+        this.connections = [];
+        this.schema = null;
+        this.table = null;
+    }
+    WalkingdataTransformerComponent.prototype.ngOnInit = function () {
+        var self = this;
+        self.walking.checkTransformer(self.field.transformer);
+        self.connections = __WEBPACK_IMPORTED_MODULE_8_lodash___default()(self.browser._documents)
+            .filter(function (d) { return d._type === self.interaction.types.connections; })
+            .value();
+        self.loadSchema();
+    };
+    WalkingdataTransformerComponent.prototype.loadTable = function () {
+        var self = this;
+        self.table = {};
+        if (!self.field.transformer.lookup.advanced && (self.field.transformer.lookup || {}).tableName) {
+            self.table.columns = __WEBPACK_IMPORTED_MODULE_8_lodash___default.a.filter(self.schema.columns, function (c) { return c.TABLE_NAME === self.field.transformer.lookup.tableName; });
+            self.table.name = self.field.transformer.lookup.tableName;
+        }
+    };
+    WalkingdataTransformerComponent.prototype.loadField = function () {
+        var self = this;
+        if ((self.field.transformer.lookup || {}).fieldMatch && self.table) {
+            var col = __WEBPACK_IMPORTED_MODULE_8_lodash___default.a.find(self.table.columns, function (c) { return c.COLUMN_NAME === self.field.transformer.lookup.fieldMatch; });
+            if (col) {
+                self.field.transformer.lookup.fieldType = col.DATA_TYPE;
+            }
+        }
+    };
+    WalkingdataTransformerComponent.prototype.loadSchema = function () {
+        var self = this;
+        if ((self.field.transformer.lookup || {}).connection) {
+            self.cache.getSchema(self.field.transformer.lookup.connection)
+                .then(function (schema) {
+                self.schema = schema;
+                self.loadTable();
+            });
+        }
+    };
+    WalkingdataTransformerComponent.prototype.execVoice = function (v) {
+        if (v.code) {
+            this.walking.setTransformerMode(this.field.transformer, v);
+        }
+    };
+    WalkingdataTransformerComponent.prototype.isChecked = function (v) {
+        return v.code === this.field.transformer.mode &&
+            (this.field.transformer.mode !== 'lookup' || v.advanced === (this.field.transformer.lookup || {}).advanced);
+    };
+    WalkingdataTransformerComponent.prototype.include = function (items, cll, typedef) {
+        if ((cll || []).length) {
+            items.push(typedef);
+            cll.forEach(function (i) { return i._name = typedef.type + ':' + i.name; });
+            items.push.apply(items, cll);
+        }
+    };
+    WalkingdataTransformerComponent.prototype.editTransformer = function () {
+        var self = this;
+        if ((self.target || {})._editor === false) {
+            return;
+        }
+        var advanced = self.field.transformer.lookup.advanced;
+        var items = [];
+        self.include(items, self.walking.currentSource.schema, { name: 'Fields', divider: true, type: 'f' });
+        self.include(items, self.browser.current.parameters, { name: 'Parameters', divider: true, type: 'p' });
+        var options = {
+            fields: items,
+            apply: function () { }
+        };
+        var targetdesc = 'Target field: {name}\n\nexpected type: {typecode}';
+        switch (self.field.transformer.mode) {
+            case 'lookup':
+                var info = advanced ? self.field : {
+                    name: self.field.transformer.lookup.fieldMatch,
+                    typecode: self.field.transformer.lookup.fieldType
+                };
+                options.helpKey = advanced ? 'lookup-advanced' : 'lookup';
+                options.title = advanced ? 'Lookup script' : 'Lookup filter';
+                options.description = self.u.format(targetdesc, info);
+                options.script = self.field.transformer.lookup.filter;
+                options.connection = self.field.transformer.lookup.connection;
+                options.apply = function () { return self.field.transformer.lookup.filter = options.script; };
+                break;
+            default:
+                options.helpKey = 'expression';
+                options.title = 'Transformer expression';
+                options.functions = (this.app.info.walking || {}).functions || [];
+                options.description = self.u.format(targetdesc, self.field);
+                options.script = self.field.transformer.expression;
+                options.apply = function () { return self.field.transformer.expression = options.script; };
+                break;
+        }
+        self.editing.scriptEditor.show(options);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('target'),
+        __metadata("design:type", Object)
+    ], WalkingdataTransformerComponent.prototype, "target", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('field'),
+        __metadata("design:type", Object)
+    ], WalkingdataTransformerComponent.prototype, "field", void 0);
+    WalkingdataTransformerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-walkingdata-transformer',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-target/walkingdata-transformer.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_walkingdata_service__["a" /* WalkingdataService */],
+            __WEBPACK_IMPORTED_MODULE_3__services_walkingedit_service__["a" /* WalkingeditService */],
+            __WEBPACK_IMPORTED_MODULE_1__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_4__services_utils_service__["a" /* UtilsService */],
+            __WEBPACK_IMPORTED_MODULE_7__services_interaction_service__["a" /* InteractionService */],
+            __WEBPACK_IMPORTED_MODULE_5__services_browser_service__["a" /* BrowserService */],
+            __WEBPACK_IMPORTED_MODULE_6__services_schema_cache_service__["a" /* SchemaCacheService */]])
+    ], WalkingdataTransformerComponent);
+    return WalkingdataTransformerComponent;
+}());
+
+var WalkingdataTargetComponent = (function () {
+    function WalkingdataTargetComponent(walking, editing, u) {
+        this.walking = walking;
+        this.editing = editing;
+        this.u = u;
+    }
+    WalkingdataTargetComponent.prototype.ngOnInit = function () {
+        this.walking.checkHandler(this.target);
+    };
+    WalkingdataTargetComponent.prototype.toggle = function () {
+        this.target._collapsed = !this.target._collapsed;
+    };
+    WalkingdataTargetComponent.prototype.deleteTarget = function () {
+        var self = this;
+        self.u.confirm({
+            message: 'Do you want to delete this target?',
+            ok: 'Yes',
+            cancel: 'No'
+        }, function (data) {
+            if (data.resp === 'ok') {
+                __WEBPACK_IMPORTED_MODULE_8_lodash___default.a.pull(self.walking.currentSource.targets, self.target);
+            }
+        });
+    };
+    WalkingdataTargetComponent.prototype.editTarget = function () {
+        this.editing.editTarget(this.target);
+    };
+    WalkingdataTargetComponent.prototype.toggleAdvanced = function () {
+        this.target._editor = __WEBPACK_IMPORTED_MODULE_8_lodash___default.a.isBoolean(this.target._editor) ? !this.target._editor : false;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('target'),
+        __metadata("design:type", Object)
+    ], WalkingdataTargetComponent.prototype, "target", void 0);
+    WalkingdataTargetComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-walkingdata-target',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-target/walkingdata-target.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_walkingdata_service__["a" /* WalkingdataService */],
+            __WEBPACK_IMPORTED_MODULE_3__services_walkingedit_service__["a" /* WalkingeditService */],
+            __WEBPACK_IMPORTED_MODULE_4__services_utils_service__["a" /* UtilsService */]])
+    ], WalkingdataTargetComponent);
+    return WalkingdataTargetComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-target/walkingdata-transformer.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"transformer\">\r\n  <div class=\"equal\">=</div>\r\n  <textarea class=\"echo-scrollbar text-editor\" [(ngModel)]=\"field.transformer.expression\"\r\n            *ngIf=\"!field.transformer.mode || field.transformer.mode==='expression'\" (focus)=\"editTransformer()\"\r\n            placeholder=\"expression...\" matTextareaAutosize layout-fill></textarea>\r\n  <div *ngIf=\"field.transformer.mode==='lookup'\">\r\n    <div class=\"lookup-params\" layout-row>\r\n      <labelled caption=\"Connection\" flex>\r\n        <select wd-editor-input [(ngModel)]=\"field.transformer.lookup.connection\" (change)=\"loadSchema()\" placeholder=\"connection\" flex>\r\n          <option *ngFor=\"let c of connections\" [value]=\"c._id\">{{ c.name }}</option>\r\n        </select>\r\n      </labelled>\r\n      <labelled *ngIf=\"!field.transformer.lookup.advanced\" caption=\"Table Name\" flex>\r\n        <select wd-editor-input [(ngModel)]=\"field.transformer.lookup.tableName\" (change)=\"loadTable()\" placeholder=\"tablename\" flex>\r\n          <option *ngFor=\"let t of (schema||{}).tables||[]\" [value]=\"t.TABLE_NAME\">{{ t.TABLE_NAME }}</option>\r\n        </select>\r\n      </labelled>\r\n      <labelled *ngIf=\"!field.transformer.lookup.advanced\" caption=\"Source Field\" flex>\r\n        <select wd-editor-input [(ngModel)]=\"field.transformer.lookup.fieldName\" placeholder=\"source field\" flex>\r\n          <option *ngFor=\"let c of (table||{}).columns||[]\" [value]=\"c.COLUMN_NAME\">{{ c.COLUMN_NAME }}</option>\r\n        </select>\r\n      </labelled>\r\n    </div>\r\n    <div class=\"lookup-params\" *ngIf=\"!field.transformer.lookup.advanced\" layout-row>\r\n      <labelled caption=\"Match Field\" flex>\r\n        <select wd-editor-input [(ngModel)]=\"field.transformer.lookup.fieldMatch\" (change)=\"loadField()\" placeholder=\"match field\" flex>\r\n          <option *ngFor=\"let c of (table||{}).columns||[]\" [value]=\"c.COLUMN_NAME\">{{ c.COLUMN_NAME }}</option>\r\n        </select>\r\n      </labelled>\r\n      <div class=\"lookup-equal\">=</div>\r\n      <textarea class=\"echo-scrollbar text-editor\" [(ngModel)]=\"field.transformer.lookup.filter\"\r\n                (focus)=\"editTransformer()\" placeholder=\"script\" matTextareaAutosize flex></textarea>\r\n    </div>\r\n    <textarea *ngIf=\"field.transformer.lookup.advanced\" class=\"echo-scrollbar text-editor\"\r\n              [(ngModel)]=\"field.transformer.lookup.filter\" (focus)=\"editTransformer()\"\r\n              placeholder=\"script\" matTextareaAutosize layout-fill></textarea>\r\n  </div>\r\n  <button mat-icon-button class=\"transformer-menu\" matTooltip=\"trasformations menu\" [matMenuTriggerFor]=\"menu\">\r\n    <mat-icon>menu</mat-icon>\r\n  </button>\r\n  <mat-menu #menu=\"matMenu\">\r\n    <button mat-menu-item *ngFor=\"let v of transformerMenu\" (click)=\"execVoice(v)\" [ngClass]=\"{'checked':isChecked(v)}\">\r\n      <mat-icon>{{v.icon}}</mat-icon>\r\n      <span>{{v.caption}}</span>\r\n    </button>\r\n  </mat-menu>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1589,6 +3238,102 @@ var AutoScrollDirective = (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]])
     ], AutoScrollDirective);
     return AutoScrollDirective;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/directives/dragdrop.directive.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DragdropDirective; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_lodash__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var DragdropDirective = (function () {
+    function DragdropDirective() {
+        this.extensions = [];
+        this.filesChangeEmiter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.background = 'transparent';
+    }
+    DragdropDirective.prototype.state = function (s) {
+        this.background = s ? '#7b1fa224' : 'transparent';
+    };
+    DragdropDirective.prototype.ext = function (filename) {
+        var spl = filename.split('.');
+        return spl[spl.length - 1];
+    };
+    DragdropDirective.prototype.onDragOver = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.state('active');
+    };
+    DragdropDirective.prototype.onDragLeave = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.state();
+    };
+    DragdropDirective.prototype.onDrop = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var self = this;
+        self.state();
+        var filtered = (self.extensions || []).length > 0;
+        var files = __WEBPACK_IMPORTED_MODULE_1_lodash___default()(e.dataTransfer.files)
+            .filter(function (f) { return !filtered || self.extensions.indexOf(self.ext(f.name)) > -1; })
+            .value();
+        self.filesChangeEmiter.emit(files);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+        __metadata("design:type", Array)
+    ], DragdropDirective.prototype, "extensions", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"])
+    ], DragdropDirective.prototype, "filesChangeEmiter", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostBinding"])('style.background'),
+        __metadata("design:type", Object)
+    ], DragdropDirective.prototype, "background", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('dragover', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], DragdropDirective.prototype, "onDragOver", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('dragleave', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], DragdropDirective.prototype, "onDragLeave", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('drop', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], DragdropDirective.prototype, "onDrop", null);
+    DragdropDirective = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Directive"])({
+            selector: '[dragdrop]'
+        }),
+        __metadata("design:paramtypes", [])
+    ], DragdropDirective);
+    return DragdropDirective;
 }());
 
 
@@ -2893,6 +4638,52 @@ var SlowqueryHelpComponent = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/pages/help/pages/walkingdata-help.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"help-walkingdata\">\r\n  <p>todo ....</p>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/help/pages/walkingdata-help.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WalkingdataHelpComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var WalkingdataHelpComponent = (function () {
+    function WalkingdataHelpComponent() {
+        this.map = [{
+                id: 'help-walkingdata',
+                desc: 'Walking-data'
+            }];
+    }
+    WalkingdataHelpComponent.prototype.ngOnInit = function () {
+    };
+    WalkingdataHelpComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-walkingdata-help',
+            template: __webpack_require__("../../../../../src/app/pages/help/pages/walkingdata-help.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], WalkingdataHelpComponent);
+    return WalkingdataHelpComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/pages/log/log.component.html":
 /***/ (function(module, exports) {
 
@@ -3129,7 +4920,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".schema {\r\n  font-family: monospace;\r\n  position: relative; }\r\n  .schema .index {\r\n    width: 40px;\r\n    opacity: .3;\r\n    font-size: .8em;\r\n    margin-left: -20px; }\r\n  .schema .name {\r\n    width: 30%; }\r\n  .schema .type,\r\n  .schema .length {\r\n    width: 10%; }\r\n  .schema .mat-list-item {\r\n    border-bottom: #555 1px solid; }\r\n\r\n.executed-code {\r\n  font-size: .9em;\r\n  opacity: .7;\r\n  color: gold; }\r\n\r\n.result-table {\r\n  width: 100%;\r\n  min-width: 848px;\r\n  height: auto;\r\n  overflow-x: auto; }\r\n  .result-table .table-container {\r\n    overflow: auto; }\r\n    .result-table .table-container table {\r\n      border-collapse: collapse;\r\n      width: 100%; }\r\n    .result-table .table-container td, .result-table .table-container th {\r\n      border: 1px solid rgba(200, 200, 200, 0.05);\r\n      text-align: left;\r\n      padding: 8px;\r\n      min-width: 120px;\r\n      max-width: 400px;\r\n      overflow: hidden;\r\n      white-space: pre-wrap;\r\n      text-overflow: ellipsis; }\r\n    .result-table .table-container tr:nth-child(even) {\r\n      background-color: rgba(1, 1, 1, 0.1); }\r\n  .result-table .table-navigator {\r\n    line-height: 40px;\r\n    height: 40px; }\r\n\r\n.query-editor > .error {\r\n  padding: 10px;\r\n  background-color: #7b000017; }\r\n.query-editor .play-button {\r\n  position: absolute;\r\n  right: 270px;\r\n  bottom: 5px;\r\n  opacity: .4;\r\n  z-index: 10; }\r\n  .query-editor .play-button:not([disabled]):hover {\r\n    opacity: 1; }\r\n.query-editor .query-editor-container {\r\n  position: relative; }\r\n  .query-editor .query-editor-container app-schema-browser,\r\n  .query-editor .query-editor-container app-fields-browser {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n    height: 100%;\r\n    border-left: #333 4px solid;\r\n    z-index: 10;\r\n    background-color: #242424; }\r\n.query-editor .query-editor-parameters {\r\n  width: 848px; }\r\n  .query-editor .query-editor-parameters * {\r\n    line-height: 40px; }\r\n  .query-editor .query-editor-parameters .query-parameter {\r\n    height: 40px;\r\n    position: relative;\r\n    padding: 0 110px 0 10px;\r\n    margin-bottom: 4px; }\r\n    .query-editor .query-editor-parameters .query-parameter .query-parameter-toolbar {\r\n      position: absolute;\r\n      right: 0;\r\n      top: 0;\r\n      height: 40px;\r\n      padding: 0 10px; }\r\n    .query-editor .query-editor-parameters .query-parameter .value {\r\n      opacity: .3; }\r\n    .query-editor .query-editor-parameters .query-parameter .type {\r\n      opacity: .3;\r\n      display: inline-block;\r\n      right: 130px;\r\n      position: absolute; }\r\n.query-editor .toolbar-editor-button .editor-button {\r\n  background-color: transparent;\r\n  box-shadow: none; }\r\n.query-editor .on-left {\r\n  float: left;\r\n  padding: 0 20px; }\r\n\r\n.prp .prp-name {\r\n  font-size: .8em;\r\n  opacity: .5;\r\n  font-variant: small-caps;\r\n  min-width: 200px;\r\n  display: inline-block; }\r\n.prp .prp-value {\r\n  color: gold; }\r\n", ""]);
+exports.push([module.i, ".schema {\r\n  font-family: monospace;\r\n  position: relative; }\r\n  .schema .index {\r\n    width: 40px;\r\n    opacity: .3;\r\n    font-size: .8em;\r\n    margin-left: -20px; }\r\n  .schema .name {\r\n    width: 30%; }\r\n  .schema .type,\r\n  .schema .length {\r\n    width: 10%; }\r\n  .schema .mat-list-item {\r\n    border-bottom: #555 1px solid; }\r\n\r\n.executed-code {\r\n  font-size: .9em;\r\n  opacity: .7;\r\n  color: gold; }\r\n\r\n.result-table {\r\n  width: 100%;\r\n  min-width: 848px;\r\n  height: auto;\r\n  overflow-x: auto; }\r\n  .result-table .table-container {\r\n    overflow: auto; }\r\n    .result-table .table-container table {\r\n      border-collapse: collapse;\r\n      width: 100%; }\r\n    .result-table .table-container td, .result-table .table-container th {\r\n      border: 1px solid rgba(200, 200, 200, 0.05);\r\n      text-align: left;\r\n      padding: 8px;\r\n      min-width: 120px;\r\n      max-width: 400px;\r\n      overflow: hidden;\r\n      white-space: pre-wrap;\r\n      text-overflow: ellipsis; }\r\n    .result-table .table-container tr:nth-child(even) {\r\n      background-color: rgba(1, 1, 1, 0.1); }\r\n  .result-table .table-navigator {\r\n    line-height: 40px;\r\n    height: 40px; }\r\n\r\n.query-editor > .error {\r\n  padding: 10px;\r\n  background-color: #7b000017; }\r\n.query-editor .play-button {\r\n  position: absolute;\r\n  right: 270px;\r\n  bottom: 5px;\r\n  opacity: .4;\r\n  z-index: 10; }\r\n  .query-editor .play-button:not([disabled]):hover {\r\n    opacity: 1; }\r\n.query-editor .query-editor-container {\r\n  position: relative; }\r\n  .query-editor .query-editor-container app-schema-browser,\r\n  .query-editor .query-editor-container app-fields-browser {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n    height: 100%;\r\n    border-left: #333 4px solid;\r\n    z-index: 10;\r\n    background-color: #242424; }\r\n.query-editor .toolbar-editor-button .editor-button {\r\n  background-color: transparent;\r\n  box-shadow: none; }\r\n.query-editor .on-left {\r\n  float: left;\r\n  padding: 0 20px; }\r\n\r\n.prp .prp-name {\r\n  font-size: .8em;\r\n  opacity: .5;\r\n  font-variant: small-caps;\r\n  min-width: 200px;\r\n  display: inline-block; }\r\n.prp .prp-value {\r\n  color: gold; }\r\n", ""]);
 
 // exports
 
@@ -3142,7 +4933,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/queries/queries.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page-container layout-fill\">\n  <app-browser></app-browser>\n  <div class=\"page-editor echo-scrollbar\" flex>\n    <app-page-header [options]=\"header\"></app-page-header>\n    <app-new-element *ngIf=\"ready\"></app-new-element>\n    <div class=\"page-cards query-editor\" *ngIf=\"browser.current\">\n      <!-- HEADER -->\n      <mat-card>\n        <mat-card-header>\n          <mat-card-title></mat-card-title>\n          <mat-slide-toggle class=\"top-right\" [(ngModel)]=\"browser.current.active\">Active</mat-slide-toggle>\n        </mat-card-header>\n        <mat-card-content>\n          <div layout-col>\n            <div layout-row>\n              <mat-form-field layout-70>\n                <input matInput [(ngModel)]=\"browser.current.name\" placeholder=\"Name\">\n              </mat-form-field>\n              <mat-form-field layout-30>\n                <mat-select placeholder=\"Connection\" [(ngModel)]=\"browser.current.connection\" (change)=\"checkConnection()\">\n                  <mat-option *ngFor=\"let c of connections\" [value]=\"c._id\">\n                    {{ c.name }}\n                  </mat-option>\n                </mat-select>\n              </mat-form-field>\n            </div>\n            <mat-form-field>\n              <textarea matInput [(ngModel)]=\"browser.current.info\" rows=\"1\" matTextareaAutosize placeholder=\"Description\"></textarea>\n            </mat-form-field>\n          </div>\n        </mat-card-content>\n        <mat-card-actions layout-right>\n          <span *ngIf=\"dataEntryActive\" class=\"accent-color on-left\">Active for data-entry</span>\n          <ng-container *ngIf=\"schema.paramStars.length\">\n            <button mat-icon-button matTooltip=\"Add a star parameter\" [matMenuTriggerFor]=\"menu\">\n              <mat-icon>stars</mat-icon>\n            </button>\n            <mat-menu #menu=\"matMenu\">\n              <button mat-menu-item *ngFor=\"let p of schema.paramStars\" (click)=\"insertStar(p)\">\n                <mat-icon>{{getParameterIcon(p)}}</mat-icon>\n                <span>{{p.name}}</span>\n              </button>\n              <mat-divider></mat-divider>\n              <button mat-menu-item (click)=\"clearStarParams()\">\n                <mat-icon>close</mat-icon>\n                <span>Delete list</span>\n              </button>\n            </mat-menu>\n          </ng-container>\n          <button mat-raised-button color=\"{{dataEntryActive?'accent':''}}\" (click)=\"toggleDataEntry()\">DATA ENTRY</button>\n          <button mat-raised-button color=\"accent\" (click)=\"newParameter()\">ADD PARAMETER</button>\n        </mat-card-actions>\n      </mat-card>\n      <!-- PARAMETERS -->\n      <span *ngIf=\"((browser.current||{}).parameters||[]).length\">Parameters</span>\n      <div class=\"query-editor-parameters\">\n        <div class=\"query-parameter mat-elevation-z4 dark-background\" *ngFor=\"let p of browser.current.parameters\" layout-row>\n          <mat-icon aria-label=\"parameter type\" [matTooltip]=\"p.type\">{{getParameterIcon(p)}}</mat-icon>\n          <span class=\"name\">{{p.name}}</span>\n          <span class=\"value\"> = {{p.value}}</span>\n          <span class=\"type\">{{p.dataType}}</span>\n          <div class=\"query-parameter-toolbar\">\n            <mat-icon class=\"as-button\" (click)=\"star(p)\" aria-label=\"command favorite\">{{isCloned(p) ? 'star' : 'star_border'}}</mat-icon>\n            <mat-icon class=\"as-button\" (click)=\"insert(p)\" aria-label=\"command insert\">play_for_work</mat-icon>\n            <mat-icon class=\"as-button\" (click)=\"edit(p)\" aria-label=\"command edit\">edit</mat-icon>\n            <mat-icon class=\"as-button\" (click)=\"remove(p)\" aria-label=\"command delete\" color=\"warn\">delete</mat-icon>\n          </div>\n        </div>\n      </div>\n      <!-- SQL EDITOR -->\n      <div class=\"toolbar-editor-button\">\n        <button mat-raised-button class=\"editor-button\" [ngClass]=\"{'active':browser.current._editor==='get'}\" (click)=\"setEditor()\">SQL</button>\n        <button mat-raised-button *ngIf=\"dataEntryActive\" class=\"editor-button\" [ngClass]=\"{'active':browser.current._editor==='add'}\" (click)=\"setEditor('add')\">ADD</button>\n        <button mat-raised-button *ngIf=\"dataEntryActive\" class=\"editor-button\" [ngClass]=\"{'active':browser.current._editor==='update'}\" (click)=\"setEditor('update')\">UPDATE</button>\n        <button mat-raised-button *ngIf=\"dataEntryActive\" class=\"editor-button\" [ngClass]=\"{'active':browser.current._editor==='delete'}\" (click)=\"setEditor('delete')\">DELETE</button>\n      </div>\n      <div class=\"mat-elevation-z4 dark-background query-editor-container\">\n        <div *ngIf=\"browser.current._editor==='get'\">\n          <codemirror #cmeditor [(ngModel)]=\"browser.current.query\" [config]=\"config\"></codemirror>\n          <app-schema-browser (insert)=\"onInsert($event)\"></app-schema-browser>\n        </div>\n        <div *ngIf=\"browser.current._editor==='add'\">\n          <codemirror #cmeditor_add [(ngModel)]=\"browser.current.dataentryOptions.add\" [config]=\"config\"></codemirror>\n          <app-fields-browser (insert)=\"onInsertField($event)\"></app-fields-browser>\n        </div>\n        <div *ngIf=\"browser.current._editor==='update'\">\n          <codemirror #cmeditor_upd [(ngModel)]=\"browser.current.dataentryOptions.update\" [config]=\"config\"></codemirror>\n          <app-fields-browser (insert)=\"onInsertField($event)\"></app-fields-browser>\n        </div>\n        <div *ngIf=\"browser.current._editor==='delete'\">\n          <codemirror #cmeditor_del [(ngModel)]=\"browser.current.dataentryOptions.delete\" [config]=\"config\"></codemirror>\n          <app-fields-browser (insert)=\"onInsertField($event)\"></app-fields-browser>\n        </div>\n        <button *ngIf=\"browser.current._editor==='get'\" class=\"play-button\" color=\"accent\" mat-icon-button\n                (click)=\"test()\" [disabled]=\"!(browser.current||{}).query\" matTooltip=\"run query\">\n          <mat-icon>play_circle_filled</mat-icon>\n        </button>\n        <button *ngIf=\"browser.current._editor!=='get'\" class=\"play-button\" color=\"accent\" mat-icon-button\n                (click)=\"generate()\" [disabled]=\"!(browser.current||{}).connection\" matTooltip=\"generate code\">\n          <mat-icon>flash_on</mat-icon>\n        </button>\n      </div>\n      <!-- ERRORS -->\n      <div *ngIf=\"error\" class=\"error\">{{error}}</div>\n      <!-- SCHEMA -->\n      <span>Schema ({{(browser.current.columns||[]).length}} columns)</span>\n      <mat-card>\n        <mat-card-content>\n          <mat-list class=\"schema\">\n            <mat-list-item *ngFor=\"let c of browser.current.columns; let i = index\">\n              <span class=\"index\">{{(i+1)}}</span>\n              <span class=\"name\">{{c.name}}</span>\n              <span class=\"type\">{{c.type}}</span>\n              <span class=\"length\">{{c.length}}</span>\n              <span class=\"attr\">\n                {{c.nullable?'nullable,':''}}\n                {{c.caseSensitive?'caseSensitive,':''}}\n                {{c.identity?'identity,':''}}\n                {{c.readOnly?'readOnly,':''}}\n              </span>\n            </mat-list-item>\n          </mat-list>\n        </mat-card-content>\n      </mat-card>\n      <!-- STAT -->\n      <span *ngIf=\"!!result\">Stat</span>\n      <mat-card *ngIf=\"!!result\">\n        <div class=\"prp\"><span class=\"prp-name\">Elapsed</span><span class=\"prp-value\">{{result.stat.elapsed}}</span></div>\n        <div class=\"prp\"><span class=\"prp-name\">Records Count</span><span class=\"prp-value\">{{result.stat.rowCount}}</span></div>\n        <div class=\"prp\"><span class=\"prp-name\">Columns Count</span><span class=\"prp-value\">{{result.stat.colCount}}</span></div>\n      </mat-card>\n      <!-- EXECUTED SQL -->\n      <span *ngIf=\"!!(result||{}).sql\">Executed SQL</span>\n      <mat-card *ngIf=\"!!(result||{}).sql\">\n        <button mat-icon-button class=\"top-right\" ngxClipboard [cbContent]=\"result.sql\" matTooltip=\"Copy to clipboard\">\n          <mat-icon aria-label=\"copy button\">content_copy</mat-icon>\n        </button>\n        <pre class=\"executed-code\">{{(result||{}).sql}}</pre>\n      </mat-card>\n      <!-- RESULTS -->\n      <span *ngIf=\"!!(result||{}).rows\">Results ({{((result||{}).rows||[]).length}} records)</span>\n      <div *ngIf=\"(result||{}).rows\" class=\"result-table page-editor-card mat-elevation-z4\">\n        <div class=\"table-container echo-scrollbar\">\n          <table>\n            <tbody>\n            <tr><th *ngFor=\"let c of browser.current.columns\">{{c.name}}</th></tr>\n            <tr *ngFor=\"let r of result.view.rows\">\n              <td *ngFor=\"let c of browser.current.columns\">{{r[c.name]}}</td>\n            </tr>\n            </tbody>\n          </table>\n        </div>\n        <div class=\"table-navigator\" layout-row layout-right>\n          <button mat-icon-button matTooltip=\"prev page\" (click)=\"navigate(true)\" [disabled]=\"!result.view.prevEnabled\">\n            <mat-icon aria-label=\"left button\">navigate_before</mat-icon>\n          </button>\n          <div class=\"table-navigator-state\">{{result.view.state}}</div>\n          <button mat-icon-button matTooltip=\"next page\" (click)=\"navigate()\" [disabled]=\"!result.view.nextEnabled\">\n            <mat-icon aria-label=\"right button\">navigate_next</mat-icon>\n          </button>\n        </div>\n      </div>\n    </div>\n    <app-debug-pre></app-debug-pre>\n  </div>\n</div>\n\n"
+module.exports = "<div class=\"page-container layout-fill\">\n  <app-browser></app-browser>\n  <div class=\"page-editor echo-scrollbar\" flex>\n    <app-page-header [options]=\"header\"></app-page-header>\n    <app-new-element *ngIf=\"ready\"></app-new-element>\n    <div class=\"page-cards query-editor\" *ngIf=\"browser.current\">\n      <!-- HEADER -->\n      <mat-card>\n        <mat-card-header>\n          <mat-card-title></mat-card-title>\n          <mat-slide-toggle class=\"top-right\" [(ngModel)]=\"browser.current.active\">Active</mat-slide-toggle>\n        </mat-card-header>\n        <mat-card-content>\n          <div layout-col>\n            <div layout-row>\n              <mat-form-field layout-70>\n                <input matInput [(ngModel)]=\"browser.current.name\" placeholder=\"Name\">\n              </mat-form-field>\n              <mat-form-field layout-30>\n                <mat-select placeholder=\"Connection\" [(ngModel)]=\"browser.current.connection\" (change)=\"checkConnection()\">\n                  <mat-option *ngFor=\"let c of connections\" [value]=\"c._id\">\n                    {{ c.name }}\n                  </mat-option>\n                </mat-select>\n              </mat-form-field>\n            </div>\n            <mat-form-field>\n              <textarea matInput [(ngModel)]=\"browser.current.info\" rows=\"1\" matTextareaAutosize placeholder=\"Description\"></textarea>\n            </mat-form-field>\n          </div>\n        </mat-card-content>\n        <mat-card-actions layout-right>\n          <span *ngIf=\"dataEntryActive\" class=\"accent-color on-left\">Active for data-entry</span>\n          <ng-container *ngIf=\"schema.paramStars.length\">\n            <button mat-icon-button matTooltip=\"Add a star parameter\" [matMenuTriggerFor]=\"menu\">\n              <mat-icon>stars</mat-icon>\n            </button>\n            <mat-menu #menu=\"matMenu\">\n              <button mat-menu-item *ngFor=\"let p of schema.paramStars\" (click)=\"insertStar(p)\">\n                <mat-icon>{{getParameterIcon(p)}}</mat-icon>\n                <span>{{p.name}}</span>\n              </button>\n              <mat-divider></mat-divider>\n              <button mat-menu-item (click)=\"clearStarParams()\">\n                <mat-icon>close</mat-icon>\n                <span>Delete list</span>\n              </button>\n            </mat-menu>\n          </ng-container>\n          <button mat-raised-button color=\"{{dataEntryActive?'accent':''}}\" (click)=\"toggleDataEntry()\">DATA ENTRY</button>\n          <button mat-raised-button color=\"accent\" (click)=\"newParameter()\">ADD PARAMETER</button>\n        </mat-card-actions>\n      </mat-card>\n      <!-- PARAMETERS -->\n      <span *ngIf=\"((browser.current||{}).parameters||[]).length\">Parameters</span>\n      <div class=\"page-editor-parameters\">\n        <div class=\"page-parameter mat-elevation-z4 dark-background\" *ngFor=\"let p of browser.current.parameters\" layout-row>\n          <mat-icon aria-label=\"parameter type\" [matTooltip]=\"p.type\">{{getParameterIcon(p)}}</mat-icon>\n          <span class=\"name\">{{p.name}}</span>\n          <span class=\"value\"> = {{p.value}}</span>\n          <span class=\"type\">{{p.dataType}}</span>\n          <div class=\"page-parameter-toolbar\">\n            <mat-icon class=\"as-button\" (click)=\"star(p)\" aria-label=\"command favorite\">{{isCloned(p) ? 'star' : 'star_border'}}</mat-icon>\n            <mat-icon class=\"as-button\" (click)=\"insert(p)\" aria-label=\"command insert\">play_for_work</mat-icon>\n            <mat-icon class=\"as-button\" (click)=\"edit(p)\" aria-label=\"command edit\">edit</mat-icon>\n            <mat-icon class=\"as-button\" (click)=\"remove(p)\" aria-label=\"command delete\" color=\"warn\">delete</mat-icon>\n          </div>\n        </div>\n      </div>\n      <!-- SQL EDITOR -->\n      <div class=\"toolbar-editor-button\">\n        <button mat-raised-button class=\"editor-button\" [ngClass]=\"{'active':browser.current._editor==='get'}\" (click)=\"setEditor()\">SQL</button>\n        <button mat-raised-button *ngIf=\"dataEntryActive\" class=\"editor-button\" [ngClass]=\"{'active':browser.current._editor==='add'}\" (click)=\"setEditor('add')\">ADD</button>\n        <button mat-raised-button *ngIf=\"dataEntryActive\" class=\"editor-button\" [ngClass]=\"{'active':browser.current._editor==='update'}\" (click)=\"setEditor('update')\">UPDATE</button>\n        <button mat-raised-button *ngIf=\"dataEntryActive\" class=\"editor-button\" [ngClass]=\"{'active':browser.current._editor==='delete'}\" (click)=\"setEditor('delete')\">DELETE</button>\n      </div>\n      <div class=\"mat-elevation-z4 dark-background query-editor-container\">\n        <div *ngIf=\"browser.current._editor==='get'\">\n          <codemirror #cmeditor [(ngModel)]=\"browser.current.query\" [config]=\"config\"></codemirror>\n          <app-schema-browser (insert)=\"onInsert($event)\"></app-schema-browser>\n        </div>\n        <div *ngIf=\"browser.current._editor==='add'\">\n          <codemirror #cmeditor_add [(ngModel)]=\"browser.current.dataentryOptions.add\" [config]=\"config\"></codemirror>\n          <app-fields-browser (insert)=\"onInsertField($event)\"></app-fields-browser>\n        </div>\n        <div *ngIf=\"browser.current._editor==='update'\">\n          <codemirror #cmeditor_upd [(ngModel)]=\"browser.current.dataentryOptions.update\" [config]=\"config\"></codemirror>\n          <app-fields-browser (insert)=\"onInsertField($event)\"></app-fields-browser>\n        </div>\n        <div *ngIf=\"browser.current._editor==='delete'\">\n          <codemirror #cmeditor_del [(ngModel)]=\"browser.current.dataentryOptions.delete\" [config]=\"config\"></codemirror>\n          <app-fields-browser (insert)=\"onInsertField($event)\"></app-fields-browser>\n        </div>\n        <button *ngIf=\"browser.current._editor==='get'\" class=\"play-button\" color=\"accent\" mat-icon-button\n                (click)=\"test()\" [disabled]=\"!(browser.current||{}).query\" matTooltip=\"run query\">\n          <mat-icon>play_circle_filled</mat-icon>\n        </button>\n        <button *ngIf=\"browser.current._editor!=='get'\" class=\"play-button\" color=\"accent\" mat-icon-button\n                (click)=\"generate()\" [disabled]=\"!(browser.current||{}).connection\" matTooltip=\"generate code\">\n          <mat-icon>flash_on</mat-icon>\n        </button>\n      </div>\n      <!-- ERRORS -->\n      <div *ngIf=\"error\" class=\"error\">{{error}}</div>\n      <!-- SCHEMA -->\n      <span>Schema ({{(browser.current.columns||[]).length}} columns)</span>\n      <mat-card>\n        <mat-card-content>\n          <mat-list class=\"schema\">\n            <mat-list-item *ngFor=\"let c of browser.current.columns; let i = index\">\n              <span class=\"index\">{{(i+1)}}</span>\n              <span class=\"name\">{{c.name}}</span>\n              <span class=\"type\">{{c.type}}</span>\n              <span class=\"length\">{{c.length}}</span>\n              <span class=\"attr\">\n                {{c.nullable?'nullable,':''}}\n                {{c.caseSensitive?'caseSensitive,':''}}\n                {{c.identity?'identity,':''}}\n                {{c.readOnly?'readOnly,':''}}\n              </span>\n            </mat-list-item>\n          </mat-list>\n        </mat-card-content>\n      </mat-card>\n      <!-- STAT -->\n      <span *ngIf=\"!!result\">Stat</span>\n      <mat-card *ngIf=\"!!result\">\n        <div class=\"prp\"><span class=\"prp-name\">Elapsed</span><span class=\"prp-value\">{{result.stat.elapsed}}</span></div>\n        <div class=\"prp\"><span class=\"prp-name\">Records Count</span><span class=\"prp-value\">{{result.stat.rowCount}}</span></div>\n        <div class=\"prp\"><span class=\"prp-name\">Columns Count</span><span class=\"prp-value\">{{result.stat.colCount}}</span></div>\n      </mat-card>\n      <!-- EXECUTED SQL -->\n      <span *ngIf=\"!!(result||{}).sql\">Executed SQL</span>\n      <mat-card *ngIf=\"!!(result||{}).sql\">\n        <button mat-icon-button class=\"top-right\" ngxClipboard [cbContent]=\"result.sql\" matTooltip=\"Copy to clipboard\">\n          <mat-icon aria-label=\"copy button\">content_copy</mat-icon>\n        </button>\n        <pre class=\"executed-code\">{{(result||{}).sql}}</pre>\n      </mat-card>\n      <!-- RESULTS -->\n      <span *ngIf=\"!!(result||{}).rows\">Results ({{((result||{}).rows||[]).length}} records)</span>\n      <div *ngIf=\"(result||{}).rows\" class=\"result-table page-editor-card mat-elevation-z4\">\n        <div class=\"table-container echo-scrollbar\">\n          <table>\n            <tbody>\n              <tr><th *ngFor=\"let c of browser.current.columns\">{{c.name}}</th></tr>\n              <tr *ngFor=\"let r of result.view.rows\">\n                <td *ngFor=\"let c of browser.current.columns\">{{r[c.name]}}</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n        <div class=\"table-navigator\" layout-row layout-right>\n          <button mat-icon-button matTooltip=\"prev page\" (click)=\"navigate(true)\" [disabled]=\"!result.view.prevEnabled\">\n            <mat-icon aria-label=\"left button\">navigate_before</mat-icon>\n          </button>\n          <div class=\"table-navigator-state\">{{result.view.state}}</div>\n          <button mat-icon-button matTooltip=\"next page\" (click)=\"navigate()\" [disabled]=\"!result.view.nextEnabled\">\n            <mat-icon aria-label=\"right button\">navigate_next</mat-icon>\n          </button>\n        </div>\n      </div>\n    </div>\n    <app-debug-pre></app-debug-pre>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -3274,15 +5065,6 @@ var QueriesComponent = (function () {
                 }]
         };
     }
-    QueriesComponent_1 = QueriesComponent;
-    QueriesComponent._getParameterIcon = function (p) {
-        switch ((p || {}).type) {
-            case 'lookup': return 'group_work';
-            case 'list': return 'format_list_bulleted';
-            case 'system': return 'settings';
-            default: return 'radio_button_checked';
-        }
-    };
     QueriesComponent.prototype.test = function () {
         var self = this;
         if (self.idle) {
@@ -3384,7 +5166,7 @@ var QueriesComponent = (function () {
         editor.instance.focus();
     };
     QueriesComponent.prototype.getParameterIcon = function (p) {
-        return QueriesComponent_1._getParameterIcon(p);
+        return this.u.getParameterIcon(p);
     };
     QueriesComponent.prototype.newParameter = function () {
         var name = this.u.getNewName(this.browser.current.parameters, 'New Parameter');
@@ -3490,7 +5272,7 @@ var QueriesComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('cmeditor_del'),
         __metadata("design:type", Object)
     ], QueriesComponent.prototype, "cmeditor_del", void 0);
-    QueriesComponent = QueriesComponent_1 = __decorate([
+    QueriesComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-queries',
             template: __webpack_require__("../../../../../src/app/pages/queries/queries.component.html"),
@@ -3504,7 +5286,6 @@ var QueriesComponent = (function () {
             __WEBPACK_IMPORTED_MODULE_6__services_dialogs_service__["a" /* DialogsService */]])
     ], QueriesComponent);
     return QueriesComponent;
-    var QueriesComponent_1;
 }());
 
 /**
@@ -3783,7 +5564,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".app-settings {\r\n  /*padding-top: 50px;*/ }\r\n  .app-settings > .mat-card {\r\n    width: 600px;\r\n    margin: 50px auto; }\r\n", ""]);
+exports.push([module.i, ".app-settings {\r\n  /*padding-top: 50px;*/ }\r\n  .app-settings > mat-card {\r\n    width: 600px;\r\n    margin: 50px auto; }\r\n  .app-settings .settings-properties > * {\r\n    margin-top: 10px; }\r\n  .app-settings .settings-properties .title {\r\n    opacity: .5; }\r\n  .app-settings .settings-properties .value {\r\n    font-family: monospace; }\r\n", ""]);
 
 // exports
 
@@ -3796,7 +5577,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/settings/settings.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-settings page-cards\">\n  <mat-card>\n    <mat-card-header>\n      <mat-card-title>SETTINGS</mat-card-title>\n    </mat-card-header>\n    <mat-card-content>\n      <div layout-col>\n        <mat-form-field>\n          <input matInput [(ngModel)]=\"user.settings.host\" placeholder=\"Server host\">\n        </mat-form-field>\n        <mat-slide-toggle [(ngModel)]=\"user.settings.debug\">Debug mode</mat-slide-toggle>\n      </div>\n      <div layout-col>\n        <mat-slide-toggle (ngModel)=\"app.info.logServer\" disabled>Server log</mat-slide-toggle>\n        <div><span>Mode:</span> {{app.info.mode}}</div>\n        <div><span>Store:</span> {{app.info.store}}</div>\n      </div>\n    </mat-card-content>\n    <mat-card-actions layout-right>\n      <button mat-button (click)=\"update()\">SAVE</button>\n    </mat-card-actions>\n  </mat-card>\n</div>\n"
+module.exports = "<div class=\"app-settings page-cards\">\n  <mat-card>\n    <mat-card-header>\n      <mat-card-title>SETTINGS</mat-card-title>\n    </mat-card-header>\n    <mat-card-content>\n      <div layout-col>\n        <mat-form-field>\n          <input matInput [(ngModel)]=\"user.settings.host\" placeholder=\"Server host\">\n        </mat-form-field>\n        <mat-slide-toggle [(ngModel)]=\"user.settings.debug\">Debug mode</mat-slide-toggle>\n      </div>\n      <div class=\"settings-properties\" layout-col>\n        <mat-slide-toggle (ngModel)=\"app.info.logServer\" disabled>Server log</mat-slide-toggle>\n        <div><span class=\"title\">Mode:</span> {{app.info.mode}}</div>\n        <div><span class=\"title\">Store:</span> {{app.info.store}}</div>\n      </div>\n    </mat-card-content>\n    <mat-card-actions layout-right>\n      <button mat-raised-button color=\"accent\" (click)=\"update()\">SAVE</button>\n    </mat-card-actions>\n  </mat-card>\n</div>\n"
 
 /***/ }),
 
@@ -4142,6 +5923,247 @@ var SlowQueryComponent = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/pages/walkingdata/walkingdata-targets.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"handlers-chooser walkingdata-chooser\" mat-dialog-content>\r\n  <h1>targets</h1>\r\n  <div class=\"handlers-chooser-buttons\">\r\n    <button mat-icon-button class=\"handler-button\" *ngFor=\"let t of walking.targets\"\r\n            color=\"{{selected===t?'warn':''}}\" (click)=\"select(t)\">\r\n      <mat-icon aria-label=\"handler button\" [ngClass]=\"{'mat-fab':t===selected}\">{{t.icon}}</mat-icon>\r\n    </button>\r\n  </div>\r\n  <div class=\"handler-button-title\" *ngIf=\"selected\">{{selected.title}}</div>\r\n  <div class=\"text-center grey-text\" *ngIf=\"selected\">{{selected.desc}}</div>\r\n  <p class=\"text-center grey-text\" *ngIf=\"selected\">click again to select this</p>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/walkingdata/walkingdata.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"page-container walking-data layout-fill\">\n  <app-browser></app-browser>\n  <div class=\"page-editor echo-scrollbar\" flex>\n    <app-page-header [options]=\"header\"></app-page-header>\n    <app-new-element *ngIf=\"ready\"></app-new-element>\n    <div class=\"page-cards walking-editor\" *ngIf=\"browser.current\">\n      <!-- HEADER -->\n      <mat-card>\n        <mat-card-header>\n          <mat-card-title></mat-card-title>\n          <mat-slide-toggle class=\"top-right\" [(ngModel)]=\"browser.current.active\">Active</mat-slide-toggle>\n        </mat-card-header>\n        <mat-card-content>\n          <div layout-col>\n            <div layout-row>\n              <mat-form-field layout-70>\n                <input matInput [(ngModel)]=\"browser.current.name\" placeholder=\"Name\">\n              </mat-form-field>\n            </div>\n            <mat-form-field>\n              <textarea matInput [(ngModel)]=\"browser.current.info\" rows=\"1\" matTextareaAutosize placeholder=\"Description\"></textarea>\n            </mat-form-field>\n          </div>\n          <mat-progress-spinner class=\"walking-spinner\" *ngIf=\"walking.idle\" diameter=\"40\"\n                                color=\"accent\" mode=\"indeterminate\"></mat-progress-spinner>\n        </mat-card-content>\n        <mat-card-actions layout-right>\n          <button mat-raised-button color=\"warn\" *ngIf=\"walking.current === browser.current._id && !walking.idle\"\n                  (click)=\"clearLog()\">CLEAR LOG</button>\n          <button mat-raised-button color=\"accent\" (click)=\"newStage()\">ADD STAGE</button>\n          <button mat-raised-button color=\"accent\" (click)=\"newParameter()\">ADD PARAMETER</button>\n        </mat-card-actions>\n      </mat-card>\n      <!-- PARAMETERS -->\n      <span *ngIf=\"((browser.current||{}).parameters||[]).length\">Parameters</span>\n      <div class=\"page-editor-parameters\">\n        <div class=\"page-parameter mat-elevation-z4 dark-background\" *ngFor=\"let p of browser.current.parameters\" layout-row>\n          <mat-icon aria-label=\"parameter type\" [matTooltip]=\"p.type\">{{p.icon}}</mat-icon>\n          <span class=\"name\">{{p.name}}</span>\n          <span class=\"value\"> = {{p.value}}</span>\n          <span class=\"type\">{{p.dataType}}</span>\n          <div class=\"page-parameter-toolbar\">\n            <mat-icon class=\"as-button\" (click)=\"edit(p)\" aria-label=\"command edit\">edit</mat-icon>\n            <mat-icon class=\"as-button\" (click)=\"remove(p)\" aria-label=\"command delete\" color=\"warn\">delete</mat-icon>\n          </div>\n        </div>\n      </div>\n      <!-- LOG -->\n      <div class=\"walking-log\" *ngIf=\"walking.current === browser.current._id\">\n        <ng-container *ngFor=\"let i of walking.items\">\n          <div class=\"log-item has-details\" [ngClass]=\"'log-item-type-'+i.type.toLowerCase()\" *ngIf=\"!!i.time_str\" tabindex=\"-1\">[{{i.time_str}} {{(i.type||'').toUpperCase()}}] {{i.message}}</div>\n          <div class=\"log-item log-item-string\" *ngIf=\"!i.time_str\">{{i}}</div>\n        </ng-container>\n      </div>\n      <!-- EDITOR -->\n      <ng-container *ngIf=\"!walking.idle && walking.current !== browser.current._id\">\n        <span>Stages</span>\n        <!-- PLAN -->\n        <app-walkingdata-stage *ngFor=\"let stage of browser.current.stages; let i = index\" [stage]=\"stage\" [index]=\"i\"></app-walkingdata-stage>\n        <!-- SOURCE EDITOR -->\n        <mat-card *ngIf=\"walking.currentSource\">\n          <div class=\"handler-toolbar\" layout-row>\n            <mat-icon matTooltip=\"{{walking.currentSource.type}}\">{{walking.currentSource.icon}}</mat-icon>\n            <div flex>{{walking.currentSource.name||'undefined'}}</div>\n            <button mat-icon-button matTooltip=\"edit source\" (click)=\"editSource()\">\n              <mat-icon aria-label=\"edit handler\">edit</mat-icon>\n            </button>\n            <button mat-icon-button color=\"warn\" matTooltip=\"delete source\" (click)=\"deleteSource()\">\n              <mat-icon aria-label=\"left button\">delete</mat-icon>\n            </button>\n            <div class=\"divider-vertical\"></div>\n            <button mat-icon-button matTooltip=\"add new target\" (click)=\"addSourceTarget()\">\n              <mat-icon aria-label=\"add target\">add_circle_outline</mat-icon>\n            </button>\n          </div>\n          <div class=\"handler-editor\">\n            <div *ngIf=\"!(walking.currentSource.targets||[]).length\" class=\"no-targets text-center\" layout-col>\n              <div class=\"grey-text\">no targets!</div>\n              <div class=\"as-link\" (click)=\"addSourceTarget()\">add new target</div>\n            </div>\n            <app-walkingdata-target *ngFor=\"let target of (walking.currentSource.targets||[])\" [target]=\"target\"></app-walkingdata-target>\n          </div>\n        </mat-card>\n      </ng-container>\n    </div>\n    <app-walkingdata-script-editor></app-walkingdata-script-editor>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/pages/walkingdata/walkingdata.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return WalkingdataTargetsComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WalkingdataComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_browser_service__ = __webpack_require__("../../../../../src/app/services/browser.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_interaction_service__ = __webpack_require__("../../../../../src/app/services/interaction.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_cart_service__ = __webpack_require__("../../../../../src/app/services/cart.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_utils_service__ = __webpack_require__("../../../../../src/app/services/utils.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_walkingdata_service__ = __webpack_require__("../../../../../src/app/services/walkingdata.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_walkingedit_service__ = __webpack_require__("../../../../../src/app/services/walkingedit.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_dialogs_service__ = __webpack_require__("../../../../../src/app/services/dialogs.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_lodash__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+
+
+
+
+
+
+var WalkingdataTargetsComponent = (function () {
+    function WalkingdataTargetsComponent(dialogRef, data, walking) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.walking = walking;
+        this.selected = null;
+        this.selected = this.walking.targets[0];
+    }
+    WalkingdataTargetsComponent.prototype.select = function (btn) {
+        if (this.selected === btn) {
+            this.dialogRef.close(this.selected);
+        }
+        else {
+            this.selected = btn;
+        }
+    };
+    WalkingdataTargetsComponent.prototype.ngOnInit = function () {
+    };
+    WalkingdataTargetsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-walkingdata-targets',
+            template: __webpack_require__("../../../../../src/app/pages/walkingdata/walkingdata-targets.component.html")
+        }),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["i" /* MatDialogRef */], Object, __WEBPACK_IMPORTED_MODULE_6__services_walkingdata_service__["a" /* WalkingdataService */]])
+    ], WalkingdataTargetsComponent);
+    return WalkingdataTargetsComponent;
+}());
+
+var WalkingdataComponent = (function () {
+    function WalkingdataComponent(browser, interaction, cart, walking, editing, dialog, u, dialogs) {
+        this.browser = browser;
+        this.interaction = interaction;
+        this.cart = cart;
+        this.walking = walking;
+        this.editing = editing;
+        this.dialog = dialog;
+        this.u = u;
+        this.dialogs = dialogs;
+        this.header = {};
+        this.ready = false;
+        var self = this;
+        self.browser.register({
+            type: self.interaction.types.walkingdata,
+            onSelect: function () {
+                self.walking.reset();
+                if (!self.browser.current) {
+                    return;
+                }
+                self.browser.current.stages = self.browser.current.stages || [];
+            },
+            onLoaded: function (docs) {
+                // on loaded
+            },
+            template: {
+                name: 'New Walking-data',
+                info: '',
+                stages: [{
+                        sources: []
+                    }],
+                parameters: [],
+                active: true
+            }
+        });
+        self.header = {
+            title: function () { return (self.browser.currentInfo || {}).name; },
+            isNew: function () { return (self.browser.current || {})._new; },
+            buttons: [{
+                    icon: 'play_arrow',
+                    tooltip: 'launch this walking-data',
+                    visible: function () { return !!self.browser.current && !self.walking.idle; },
+                    action: function () { return self.walking.run({
+                        walking: self.browser.current,
+                        parameters: []
+                    }); }
+                }, {
+                    icon: 'stop',
+                    tooltip: 'stop this walking-data',
+                    color: 'warn',
+                    visible: function () { return !!self.browser.current && self.walking.current === self.browser.current._id && self.walking.idle; },
+                    action: function () { return self.walking.stop(); }
+                }, {
+                    divider: true
+                }, {
+                    icon: 'add_circle_outline',
+                    tooltip: 'Add a new walking-data',
+                    visible: function () { return !!self.browser.current; },
+                    action: function () { return self.browser.newElement(); }
+                }, {
+                    icon: 'save',
+                    tooltip: 'Save modifies',
+                    visible: function () { return !!self.browser.current; },
+                    action: function () { return self.browser.save('Walking-data successfully updated!'); }
+                }, {
+                    icon: 'add_shopping_cart',
+                    tooltip: 'Add to cart',
+                    visible: function () { return !!self.browser.current; },
+                    disabled: function () { return cart.contains(self.browser.current); },
+                    action: function () { return cart.add(self.browser.current); }
+                }, {
+                    icon: 'delete',
+                    tooltip: 'Remove walking-data',
+                    color: 'warn',
+                    visible: function () { return !!self.browser.current; },
+                    action: function () { return self.browser.delete('Delete current walking-data?'); }
+                }]
+        };
+    }
+    WalkingdataComponent.prototype.ngOnInit = function () {
+        this.ready = true;
+    };
+    WalkingdataComponent.prototype.ngOnDestroy = function () {
+    };
+    WalkingdataComponent.prototype.newParameter = function () {
+        var name = this.u.getNewName(this.browser.current.parameters, 'New Parameter');
+        var np = this.u.getNewParameter(name);
+        this.browser.current.parameters.push(np);
+    };
+    WalkingdataComponent.prototype.edit = function (p) {
+        this.dialogs.editParameter(p);
+    };
+    WalkingdataComponent.prototype.remove = function (p) {
+        __WEBPACK_IMPORTED_MODULE_9_lodash___default.a.pull(this.browser.current.parameters, p);
+    };
+    WalkingdataComponent.prototype.clearLog = function () {
+        this.walking.clear();
+    };
+    WalkingdataComponent.prototype.deleteSource = function () {
+        var self = this;
+        var stage = __WEBPACK_IMPORTED_MODULE_9_lodash___default.a.find(self.browser.current.stages, function (s) { return !!__WEBPACK_IMPORTED_MODULE_9_lodash___default.a.find(s.sources, function (h) { return h === self.walking.currentSource; }); });
+        self.u.confirm({
+            message: 'Do you want to delete the source?',
+            ok: 'Yes',
+            cancel: 'No'
+        }, function (data) {
+            if (data.resp === 'ok') {
+                __WEBPACK_IMPORTED_MODULE_9_lodash___default.a.pull(stage.sources, self.walking.currentSource);
+                self.walking.reset();
+            }
+        });
+    };
+    WalkingdataComponent.prototype.editSource = function () {
+        this.editing.editSource();
+    };
+    WalkingdataComponent.prototype.addSourceTarget = function () {
+        var self = this;
+        var dlg = self.dialog.open(WalkingdataTargetsComponent, {
+            width: '500px',
+            data: {}
+        });
+        dlg.afterClosed().subscribe(function (target) {
+            if (__WEBPACK_IMPORTED_MODULE_9_lodash___default.a.isObject(target)) {
+                var source = self.walking.currentSource;
+                source.targets = source.targets || [];
+                var s = self.walking.isType(target, ['newfile', 'newtable']) ? source : null;
+                var t = self.walking.getNewTarget(target, s);
+                source.targets.push(t);
+                self.editing.editTarget(t);
+            }
+        });
+    };
+    WalkingdataComponent.prototype.newStage = function () {
+        var self = this;
+        self.browser.current.stages.push({
+            sources: []
+        });
+    };
+    WalkingdataComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-walking',
+            template: __webpack_require__("../../../../../src/app/pages/walkingdata/walkingdata.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_browser_service__["a" /* BrowserService */],
+            __WEBPACK_IMPORTED_MODULE_3__services_interaction_service__["a" /* InteractionService */],
+            __WEBPACK_IMPORTED_MODULE_4__services_cart_service__["a" /* CartService */],
+            __WEBPACK_IMPORTED_MODULE_6__services_walkingdata_service__["a" /* WalkingdataService */],
+            __WEBPACK_IMPORTED_MODULE_7__services_walkingedit_service__["a" /* WalkingeditService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialog */],
+            __WEBPACK_IMPORTED_MODULE_5__services_utils_service__["a" /* UtilsService */],
+            __WEBPACK_IMPORTED_MODULE_8__services_dialogs_service__["a" /* DialogsService */]])
+    ], WalkingdataComponent);
+    return WalkingdataComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/services/app-pages.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4209,7 +6231,8 @@ var AppPagesService = (function () {
                 type: 'walkingdata',
                 path: '/*',
                 icon: 'swap_vertical_circle',
-                hidden: true
+                help: true
+                // hidden: true
             },
             {
                 tooltip: 'previews',
@@ -4693,6 +6716,7 @@ var DialogsService = (function () {
         this.dialog = dialog;
     }
     DialogsService.prototype.editParameter = function (p) {
+        var _this = this;
         var self = this;
         var pe = self.dialog.open(__WEBPACK_IMPORTED_MODULE_2__components_parameter_editor_parameter_editor_component__["a" /* ParameterEditorComponent */], {
             width: '500px',
@@ -4700,7 +6724,10 @@ var DialogsService = (function () {
                 parameter: self.u.clone(p)
             }
         });
-        pe.afterClosed().subscribe(function (op) { return __WEBPACK_IMPORTED_MODULE_5_lodash___default.a.extend(p, op || {}); });
+        pe.afterClosed().subscribe(function (op) {
+            __WEBPACK_IMPORTED_MODULE_5_lodash___default.a.extend(p, op || {});
+            p.icon = _this.u.getParameterIcon(p);
+        });
     };
     DialogsService.prototype.editValue = function (v) {
         var self = this;
@@ -4713,7 +6740,7 @@ var DialogsService = (function () {
     DialogsService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__utils_service__["a" /* UtilsService */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_material__["f" /* MatDialog */]])
+            __WEBPACK_IMPORTED_MODULE_4__angular_material__["g" /* MatDialog */]])
     ], DialogsService);
     return DialogsService;
 }());
@@ -4765,7 +6792,8 @@ var InteractionService = (function () {
             connections: 'connections',
             queries: 'queries',
             documents: 'documents',
-            previews: 'previews'
+            previews: 'previews',
+            walkingdata: 'walkingdata'
         };
         this.events = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
     }
@@ -4781,10 +6809,10 @@ var InteractionService = (function () {
         };
     };
     InteractionService.prototype.login = function () {
-        // TODO
+        // TODO: login x scenari in sicurezza
     };
     InteractionService.prototype.logout = function () {
-        // TODO
+        // TODO: logout x scenari in sicurezza
     };
     InteractionService.prototype.getInfo = function () {
         return this.http.get(this.user.getUrl('api/scenario/current'));
@@ -4844,6 +6872,18 @@ var InteractionService = (function () {
     InteractionService.prototype.deleteNotUsedPreviews = function () {
         console.log('TODO');
     };
+    InteractionService.prototype.walk = function (o, cb) {
+        this.http.post(this.user.getUrl('api/data/walking/run'), o)
+            .subscribe(function (r) { return cb(); }, InteractionService_1._err());
+    };
+    InteractionService.prototype.stopWalk = function (cb) {
+        this.http.post(this.user.getUrl('api/data/walking/stop'), {})
+            .subscribe(function (r) { return cb(); }, InteractionService_1._err());
+    };
+    InteractionService.prototype.getWalkingState = function (cb) {
+        this.http.get(this.user.getUrl('api/data/walking/state'))
+            .subscribe(function (s) { return cb(null, s); }, InteractionService_1._err(cb));
+    };
     InteractionService.prototype.push = function (docs, scenario) {
         var self = this;
         self.http.post(self.user.getUrl('api/scenario/push'), { source: docs, target: scenario })
@@ -4876,6 +6916,14 @@ var InteractionService = (function () {
         self.http.post(self.user.getUrl('api/scenario/upload'), data)
             .subscribe(function (r) {
             self.u.snack('Scenario uploaded!');
+            cb();
+        }, InteractionService_1._err(cb));
+    };
+    InteractionService.prototype.uploadFile = function (data, cb) {
+        var self = this;
+        self.http.post(self.user.getUrl('api/walking/upload'), data)
+            .subscribe(function (r) {
+            self.u.snack('File uploaded!');
             cb();
         }, InteractionService_1._err(cb));
     };
@@ -5405,7 +7453,6 @@ var SchemaCacheService = (function () {
         this.connection(this.cnnId);
     };
     SchemaCacheService.prototype.connection = function (cnnId) {
-        // TODO imposta la connessione corrente
         var self = this;
         if (self.cnnId === cnnId) {
             return;
@@ -5424,6 +7471,7 @@ var SchemaCacheService = (function () {
                 self.error = null;
                 self.checkSchema(schema);
                 self.idle = false;
+                self.helper.provider = schema['provider'];
                 self.events.emit(new SchemaCacheEvent());
             }, function (err) {
                 console.error(err);
@@ -5538,6 +7586,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+var TYPES = {
+    string: 'string',
+    number: 'number',
+    date: 'date',
+    boolean: 'bool',
+    object: 'object'
+};
 var UtilsService = (function () {
     function UtilsService(dialog, snackBar) {
         this.dialog = dialog;
@@ -5595,6 +7650,15 @@ var UtilsService = (function () {
     };
     UtilsService.prototype._enc = function (v) {
         return (v + '');
+    };
+    UtilsService.prototype.format = function (str, o) {
+        if (o === void 0) { o = {}; }
+        str = str || '';
+        __WEBPACK_IMPORTED_MODULE_3_lodash___default.a.keys(o).forEach(function (pn) {
+            var rgx = new RegExp('{' + pn + '}', 'g');
+            str = str.replace(rgx, o[pn] || '');
+        });
+        return str;
     };
     UtilsService.prototype.getUrlParams = function (o) {
         var self = this;
@@ -5691,7 +7755,7 @@ var UtilsService = (function () {
             case 'newdecimal':
             case 'currency':
             case 'money':
-                return 'number';
+                return TYPES.number;
             case 'date':
             case 'time':
             case 'time2':
@@ -5704,7 +7768,7 @@ var UtilsService = (function () {
             case 'interval':
             case 'smalldatetime':
             case 'datetimeoffset':
-                return 'date';
+                return TYPES.date;
             case 'string':
             case 'var_string':
             case 'character':
@@ -5715,13 +7779,67 @@ var UtilsService = (function () {
             case 'text':
             case 'xml':
             case 'json':
-                return 'string';
+                return TYPES.string;
             case 'bit':
             case 'bool':
             case 'boolean':
-                return 'bool';
+                return TYPES.boolean;
             default:
-                return 'object';
+                return TYPES.object;
+        }
+    };
+    UtilsService.prototype._isText = function (v, o) {
+        if (o.textSeparator) {
+            var txt_rgx = new RegExp('^' + o.textSeparator + '.*' + o.textSeparator + '$', 'g');
+            return txt_rgx.test(v || '');
+        }
+    };
+    UtilsService.prototype._isNumeric = function (v) {
+        var fl = parseFloat(v) + '';
+        var fl_rgx = new RegExp('^' + fl.split('.')[0] + '\\.0+$', 'g');
+        return (fl === (v || '') + '' || fl_rgx.test(v || ''));
+    };
+    UtilsService.prototype._isDate = function (v) {
+        // TODO: auto riconoscimento di stringhe = date
+        return false;
+    };
+    UtilsService.prototype._isBoolean = function (v) {
+        // TODO: auto riconoscimento di stringhe = bool
+        return (v === 'true' || v === 'false');
+    };
+    UtilsService.prototype.decodeType = function (v, o) {
+        if (v) {
+            if (this._isText(v, o)) {
+                return TYPES.string;
+            }
+            if (this._isNumeric(v)) {
+                return TYPES.number;
+            }
+            if (this._isDate(v)) {
+                return TYPES.date;
+            }
+            if (this._isBoolean(v)) {
+                return TYPES.boolean;
+            }
+        }
+        return TYPES.string;
+    };
+    UtilsService.prototype.getTypeIcon = function (type) {
+        switch (this.getDataType(type)) {
+            case TYPES.string: return 'font_download';
+            case TYPES.boolean: return 'check_box';
+            case TYPES.date: return 'event';
+            case TYPES.number: return 'looks_two';
+            case TYPES.object:
+            default: return 'texture';
+        }
+    };
+    UtilsService.prototype.getParameterIcon = function (p) {
+        switch ((p || {}).type) {
+            case 'lookup': return 'group_work';
+            case 'list': return 'format_list_bulleted';
+            case 'system': return 'settings';
+            default: return 'radio_button_checked';
         }
     };
     UtilsService.prototype.confirm = function (o, cb) {
@@ -5737,12 +7855,16 @@ var UtilsService = (function () {
         });
     };
     UtilsService.prototype.error = function (err) {
+        if (!err) {
+            return;
+        }
         console.error(err);
         this.err = this.getErrorMessage(err);
     };
     UtilsService.prototype.getNewParameter = function (name) {
         return {
             _id: this.guid(),
+            icon: this.getParameterIcon(),
             name: name || 'New Parameter',
             description: '',
             type: 'normal',
@@ -5767,11 +7889,538 @@ var UtilsService = (function () {
     };
     UtilsService = UtilsService_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["f" /* MatDialog */],
-            __WEBPACK_IMPORTED_MODULE_1__angular_material__["v" /* MatSnackBar */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialog */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_material__["x" /* MatSnackBar */]])
     ], UtilsService);
     return UtilsService;
     var UtilsService_1;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/walkingdata.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WalkingdataService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__interaction_service__ = __webpack_require__("../../../../../src/app/services/interaction.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_settings_service__ = __webpack_require__("../../../../../src/app/services/user-settings.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_service__ = __webpack_require__("../../../../../src/app/services/utils.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_socket_io_client__ = __webpack_require__("../../../../socket.io-client/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_socket_io_client__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_lodash__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var TARGETS = [{
+        icon: 'grid_on',
+        type: 'table',
+        title: 'Database table',
+        desc: 'Choose an existing database table'
+    }, {
+        icon: 'view_comfy',
+        type: 'newtable',
+        virtual: true,
+        title: 'New database table',
+        desc: 'Define a database table'
+    }, {
+        icon: 'insert_drive_file',
+        type: 'newfile',
+        virtual: true,
+        title: 'file',
+        desc: 'Define a file target'
+    }];
+var SOURCES = [{
+        icon: 'description',
+        type: 'file',
+        title: 'Existent file',
+        desc: 'Select an existent file'
+    }, {
+        icon: 'insert_drive_file',
+        type: 'newfile',
+        virtual: true,
+        title: 'Virtual file',
+        desc: 'Define a file structure instead of an existing one'
+    }, {
+        icon: 'grid_on',
+        type: 'table',
+        title: 'Database table',
+        desc: 'Choose a database table'
+    }, {
+        icon: 'file_download',
+        type: 'query',
+        title: 'Database query',
+        desc: 'Choose or define a database query'
+    }, {
+        icon: 'language',
+        type: 'web',
+        title: 'Generic url request',
+        desc: 'Define a request to an url to obtain data'
+    }];
+var RULES = [{
+        caption: 'Row text filter (rgx)',
+        type: 'filter',
+        icon: 'filter_list',
+        contexts: ['source']
+    }, {
+        caption: 'File name filter (rgx)',
+        type: 'filename',
+        icon: 'check_box',
+        targets: ['file'],
+        contexts: ['source']
+    }, {
+        caption: 'Text section hunter',
+        type: 'section',
+        icon: 'receipt',
+        targets: ['file'],
+        contexts: ['source']
+    }, {
+        caption: 'Post execution rename',
+        type: 'post_rename',
+        icon: 'border_color',
+        targets: ['file'],
+        contexts: ['source']
+    }, {
+        caption: 'Post execution delete',
+        type: 'post_delete',
+        icon: 'delete',
+        targets: ['file'],
+        contexts: ['source']
+    }];
+var DATATYPES = ['string', 'number', 'date', 'bool', 'object'];
+var DEFAULTS = {
+    textMode: 'separator',
+    textDelimiter: '"',
+    separator: ';',
+    mode: {
+        target: 'target',
+        source: 'source'
+    }
+};
+var TEXTTYPES = {
+    xml: 'xml',
+    json: 'json',
+    fixed: 'fixed',
+    separator: 'separator'
+};
+var WalkingdataService = (function () {
+    function WalkingdataService(user, interaction, u) {
+        this.user = user;
+        this.interaction = interaction;
+        this.u = u;
+        this._socket = null;
+        this.idle = false;
+        this.current = null;
+        this.currentSource = null;
+        this.currentTarget = null;
+        this.items = [];
+        this.targets = TARGETS;
+        this.sources = SOURCES;
+        this.rules = RULES;
+        this.types = DATATYPES;
+        this.defaults = DEFAULTS;
+        this.textTypes = [{
+                name: TEXTTYPES.xml,
+                desc: 'Xml file',
+                check: function (h) {
+                    if (h.text50.trim()[0] === '<') {
+                        h.textMode = TEXTTYPES.xml;
+                        return true;
+                    }
+                }
+            }, {
+                name: TEXTTYPES.json,
+                desc: 'Json text file',
+                check: function (h) {
+                    if (['[', '{'].indexOf(h.text50.trim()[0]) > -1) {
+                        h.textMode = TEXTTYPES.json;
+                        return true;
+                    }
+                }
+            }, {
+                name: TEXTTYPES.fixed,
+                desc: 'Fields of fixed length',
+                check: function (h) {
+                    var resp = {};
+                    var num = 0;
+                    (h.lines || []).forEach(function (line) {
+                        if ((line || '').length) {
+                            resp[line.length] = resp[line.length] || 0;
+                            resp[line.length]++;
+                            num++;
+                        }
+                    });
+                    // ritorna vero se le righe valide sono più di 2 e almeno la metà hanno la stessa lunghezza
+                    if (num > 2 && !!__WEBPACK_IMPORTED_MODULE_5_lodash___default.a.find(__WEBPACK_IMPORTED_MODULE_5_lodash___default.a.keys(resp), function (k) { return resp[k] >= (num / 2); })) {
+                        h.textMode = TEXTTYPES.fixed;
+                        return true;
+                    }
+                }
+            }, {
+                name: TEXTTYPES.separator,
+                desc: 'Fields delimited by specific separators',
+                check: function (h) {
+                    var rgx = /([,;|\t])/g;
+                    var num = 0;
+                    var resp = {};
+                    (h.lines || []).forEach(function (line) {
+                        if ((line || '').length) {
+                            var lnresp_1 = {};
+                            (line.match(rgx) || []).forEach(function (m) {
+                                lnresp_1[m] = lnresp_1[m] || 0;
+                                lnresp_1[m]++;
+                            });
+                            var maxc_1 = { c: '', n: 0 };
+                            __WEBPACK_IMPORTED_MODULE_5_lodash___default.a.keys(lnresp_1).forEach(function (k) {
+                                if (lnresp_1[k] > maxc_1.n) {
+                                    maxc_1.n = lnresp_1[k];
+                                    maxc_1.c = k;
+                                }
+                            });
+                            if (maxc_1.n) {
+                                resp[maxc_1.c] = resp[maxc_1.c] || 0;
+                                resp[maxc_1.c]++;
+                            }
+                            num++;
+                        }
+                    });
+                    // ritorna vero se le righe valide sono più di 2 e almeno la metà utilizzano lo stesso separatore
+                    if (num > 2) {
+                        var sep = __WEBPACK_IMPORTED_MODULE_5_lodash___default.a.find(__WEBPACK_IMPORTED_MODULE_5_lodash___default.a.keys(resp), function (k) { return resp[k] >= (num / 2); });
+                        if (sep) {
+                            h.separator = sep;
+                            h.textMode = TEXTTYPES.separator;
+                            return true;
+                        }
+                    }
+                }
+            }];
+        this.connect();
+    }
+    WalkingdataService.prototype.checkState = function () {
+        var self = this;
+        var started = __WEBPACK_IMPORTED_MODULE_5_lodash___default.a.find(self.items, function (i) { return i.type === 'start'; });
+        var ended = __WEBPACK_IMPORTED_MODULE_5_lodash___default.a.find(self.items, function (i) { return i.type === 'end'; });
+        self.current = self.current || (started || {}).message;
+        self.idle = !!started && !ended;
+    };
+    WalkingdataService.prototype.connect = function () {
+        var self = this;
+        if (!self._socket) {
+            self.interaction.getWalkingState(function (err, states) {
+                if (err) {
+                    console.error(err);
+                }
+                var url = self.user.settings['host'];
+                self.items.push.apply(self.items, states);
+                self._socket = __WEBPACK_IMPORTED_MODULE_4_socket_io_client__(url);
+                self._socket.on('walkingdata', function (state) {
+                    self.items.push(state);
+                    self.checkState();
+                });
+                self._socket.on('error', console.error);
+                self.checkState();
+            });
+        }
+    };
+    WalkingdataService.prototype.disconnect = function () {
+        if (!!this._socket) {
+            this._socket.disconnect();
+            this._socket = null;
+        }
+    };
+    WalkingdataService.prototype.reset = function () {
+        this.currentTarget = null;
+        this.currentSource = null;
+    };
+    WalkingdataService.prototype.run = function (o) {
+        var self = this;
+        if (self.idle) {
+            return;
+        }
+        // TODO: popup parametri ....
+        self.current = o.walking._id;
+        self.items.splice(0);
+        self.interaction.walk(o, function (err) {
+            if (err) {
+                self.u.error(err);
+            }
+            else {
+                self.idle = true;
+            }
+        });
+    };
+    WalkingdataService.prototype.stop = function () {
+        var self = this;
+        self.interaction.stopWalk(function (err) {
+            if (err) {
+                self.u.error(err);
+            }
+            else {
+                self.idle = false;
+            }
+        });
+    };
+    WalkingdataService.prototype.clear = function () {
+        var self = this;
+        if (self.idle) {
+            return;
+        }
+        self.current = null;
+        self.items.splice(0);
+    };
+    WalkingdataService.prototype.getNewTarget = function (target, source) {
+        var self = this;
+        var T = self.u.clone(target);
+        T.mode = DEFAULTS.mode.target;
+        T.target = true;
+        T.separator = DEFAULTS.separator;
+        T.textDelimiter = DEFAULTS.textDelimiter;
+        T.start = 0;
+        T.textMode = DEFAULTS.textMode;
+        T.schema = [];
+        if (source) {
+            (source.schema || []).forEach(function (sf) {
+                var tf = self.getNewField(target, sf);
+                T.schema.push(tf);
+            });
+        }
+        return T;
+    };
+    WalkingdataService.prototype.getNewSource = function (source) {
+        var self = this;
+        var S = self.u.clone(source);
+        S.mode = DEFAULTS.mode.source;
+        S.source = true;
+        S.start = 0;
+        S.textMode = DEFAULTS.textMode;
+        S.separator = DEFAULTS.separator;
+        S.textDelimiter = DEFAULTS.textDelimiter;
+        S.targets = [];
+        return S;
+    };
+    WalkingdataService.prototype.getNewField = function (handler, sf) {
+        var self = this;
+        var f = {
+            name: self.u.getNewName(handler.schema, (sf || {}).name || 'New Field'),
+            type: (sf || {}).type || 'string',
+            typecode: (sf || {}).typecode || 'string',
+            transformer: {
+                expression: ((sf || {}).name ? '{f:' + sf.name + '}' : '')
+            }
+        };
+        self.checkField(f);
+        return f;
+    };
+    WalkingdataService.prototype.loadFile = function (handler, file) {
+        var self = this;
+        var reader = new FileReader();
+        handler.error = null;
+        if (file) {
+            handler._file = file;
+            reader.onload = function () {
+                console.log('FILE: ', handler._file);
+                handler.path = handler._file.name;
+                handler.name = handler._file.name;
+                handler.lines = [];
+                // prime 20 righe
+                var text = '' + (reader.result || '');
+                var rows = text.split('\n');
+                var i = 0;
+                while (handler.lines.length < 20 && i < rows.length) {
+                    var row = (rows[i++] || '').replace(/\r/g, '');
+                    if (row) {
+                        handler.lines.push(row);
+                    }
+                }
+                handler.text50 = ((text.substr(0, 500) || '') + '').trim();
+                self.decodeText(handler);
+            };
+            reader.onerror = function (err) {
+                handler.error = self.u.getErrorMessage(err);
+                console.error(err);
+            };
+            reader.readAsText(handler._file);
+        }
+    };
+    WalkingdataService.prototype.addRule = function (handler, rule) {
+        handler.rules = handler.rules || [];
+        handler.rules.push(__WEBPACK_IMPORTED_MODULE_5_lodash___default.a.clone(rule));
+    };
+    WalkingdataService.prototype.checkTransformer = function (t) {
+        t.mode = t.mode || 'expression';
+        t.lookup = t.lookup || {};
+        if (!__WEBPACK_IMPORTED_MODULE_5_lodash___default.a.isBoolean(t.lookup.advanced)) {
+            t.lookup.advanced = false;
+        }
+    };
+    WalkingdataService.prototype.checkField = function (f) {
+        var self = this;
+        f.align = f.align || 'left';
+        f.typecode = f.typecode || self.u.getDataType(f.type);
+        f.transformer = f.transformer || {};
+        f.icon = self.u.getTypeIcon(f.typecode || f.type);
+        self.checkTransformer(f.transformer);
+    };
+    WalkingdataService.prototype.checkHandler = function (h) {
+        var self = this;
+        (h.schema || []).forEach(function (c) { return self.checkField(c); });
+        h.textMode = h.textMode || DEFAULTS.textMode;
+        h.textDelimiter = h.textDelimiter || DEFAULTS.textDelimiter;
+        h.separator = h.separator || DEFAULTS.separator;
+        h.start = h.start || 0;
+    };
+    WalkingdataService.prototype.isType = function (handler, types) {
+        return (types.indexOf(handler.type) > -1);
+    };
+    WalkingdataService.prototype.ngOnDestroy = function () {
+        this.disconnect();
+        this.items.splice(0);
+    };
+    WalkingdataService.prototype.decodeText = function (h) {
+        if (!h.text50) {
+            return console.warn('No available text on handler:', h);
+        }
+        var tt = __WEBPACK_IMPORTED_MODULE_5_lodash___default.a.find(this.textTypes, function (type) { return type.check(h); });
+        if (!tt) {
+            return console.warn('Unrecognized text for handler:', h);
+        }
+    };
+    WalkingdataService.prototype.readLines = function (h, o, owner) {
+        o.ready = false;
+        if (h.start < 0) {
+            h.start = 0;
+        }
+        if ((h.lines || []).length) {
+            if (h.start > (h.lines || []).length - 1) {
+                h.start = (h.lines || []).length - 1;
+            }
+            o.parts = owner.getParts(h, true);
+            o.preline2.n = (h.start > 1) ? h.start - 2 : '';
+            o.preline1.n = (h.start > 0) ? h.start - 1 : '';
+            o.postline1.n = (h.start < h.lines.length - 1) ? h.start + 1 : '';
+            o.postline2.n = (h.start < h.lines.length - 2) ? h.start + 2 : '';
+            o.preline2.text = (h.start > 1) ? h.lines[h.start - 2] : '';
+            o.preline1.text = (h.start > 0) ? h.lines[h.start - 1] : '';
+            o.postline1.text = (h.start < h.lines.length - 1) ? h.lines[h.start + 1] : '';
+            o.postline2.text = (h.start < h.lines.length - 2) ? h.lines[h.start + 2] : '';
+            o.ready = true;
+        }
+        else {
+            h.start = 0;
+        }
+    };
+    WalkingdataService.prototype.getSelectedText = function () {
+        if (__WEBPACK_IMPORTED_MODULE_5_lodash___default.a.isFunction(window.getSelection)) {
+            return window.getSelection().toString();
+        }
+        else if (__WEBPACK_IMPORTED_MODULE_5_lodash___default.a.isFunction(document.getSelection)) {
+            return document.getSelection().toString();
+        }
+        else if (__WEBPACK_IMPORTED_MODULE_5_lodash___default.a.isFunction((document['selection'] || {}).createRange)) {
+            return document['selection'].createRange().text;
+        }
+        return '';
+    };
+    WalkingdataService.prototype.setTransformerMode = function (transformer, v) {
+        transformer.mode = v.code;
+        transformer.lookup = transformer.lookup || {};
+        transformer.lookup.advanced = !!v.advanced;
+    };
+    WalkingdataService.prototype.loadSchema = function (h, schema) {
+        var self = this;
+        h.schema = h.schema || [];
+        h.schema = __WEBPACK_IMPORTED_MODULE_5_lodash___default.a.map(schema || [], function (c) {
+            var f = __WEBPACK_IMPORTED_MODULE_5_lodash___default.a.clone(c);
+            self.checkField(f);
+            return f;
+        });
+    };
+    WalkingdataService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__user_settings_service__["a" /* UserSettingsService */],
+            __WEBPACK_IMPORTED_MODULE_1__interaction_service__["a" /* InteractionService */],
+            __WEBPACK_IMPORTED_MODULE_3__utils_service__["a" /* UtilsService */]])
+    ], WalkingdataService);
+    return WalkingdataService;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/walkingedit.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WalkingeditService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__walkingdata_service__ = __webpack_require__("../../../../../src/app/services/walkingdata.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_walkingdata_source_editor_walkingdata_source_editor_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-source-editor/walkingdata-source-editor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_walkingdata_target_editor_walkingdata_target_editor_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-target-editor/walkingdata-target-editor.component.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var WalkingeditService = (function () {
+    function WalkingeditService(walking, dialog) {
+        this.walking = walking;
+        this.dialog = dialog;
+        this.scriptEditor = {
+            show: function () { }
+        };
+    }
+    WalkingeditService.prototype.editSource = function (source) {
+        if (source) {
+            this.walking.currentSource = source;
+        }
+        this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__components_walkingdata_source_editor_walkingdata_source_editor_component__["a" /* WalkingdataSourceEditorComponent */], {
+            width: '800px',
+            data: {}
+        });
+    };
+    WalkingeditService.prototype.editTarget = function (target) {
+        if (target) {
+            this.walking.currentTarget = target;
+        }
+        this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__components_walkingdata_target_editor_walkingdata_target_editor_component__["a" /* WalkingdataTargetEditorComponent */], {
+            width: '800px',
+            data: {}
+        });
+    };
+    WalkingeditService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__walkingdata_service__["a" /* WalkingdataService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_material__["g" /* MatDialog */]])
+    ], WalkingeditService);
+    return WalkingeditService;
 }());
 
 

@@ -2841,6 +2841,7 @@ exports.schema = function(req, res) {
       if (err) return u.error(res, err);
       provider.schema(conn, function (err, schema) {
         if (err) return u.error(res, err);
+        schema.provider = conn.provider;
         return u.ok(res, schema);
       });
     });
