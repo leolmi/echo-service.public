@@ -311,52 +311,55 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_log_service__ = __webpack_require__("../../../../../src/app/services/log.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_walkingdata_service__ = __webpack_require__("../../../../../src/app/services/walkingdata.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_walkingedit_service__ = __webpack_require__("../../../../../src/app/services/walkingedit.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_browser_browser_component__ = __webpack_require__("../../../../../src/app/components/browser/browser.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_page_header_page_header_component__ = __webpack_require__("../../../../../src/app/components/page-header/page-header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_debug_pre_debug_pre_component__ = __webpack_require__("../../../../../src/app/components/debug-pre/debug-pre.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_new_element_new_element_component__ = __webpack_require__("../../../../../src/app/components/new-element/new-element.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_schema_browser_schema_browser_component__ = __webpack_require__("../../../../../src/app/components/schema-browser/schema-browser.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/components/confirm-dialog/confirm-dialog.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_object_viewer_object_viewer_component__ = __webpack_require__("../../../../../src/app/components/object-viewer/object-viewer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_help_browser_help_browser_component__ = __webpack_require__("../../../../../src/app/components/help-browser/help-browser.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_labelled_labelled_component__ = __webpack_require__("../../../../../src/app/components/labelled/labelled.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_parameter_editor_parameter_editor_component__ = __webpack_require__("../../../../../src/app/components/parameter-editor/parameter-editor.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_value_editor_value_editor_component__ = __webpack_require__("../../../../../src/app/components/value-editor/value-editor.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_cart_cart_component__ = __webpack_require__("../../../../../src/app/components/cart/cart.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_api_tester_api_tester_component__ = __webpack_require__("../../../../../src/app/components/api-tester/api-tester.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_monitor_monitor_component__ = __webpack_require__("../../../../../src/app/components/monitor/monitor.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_fields_browser_fields_browser_component__ = __webpack_require__("../../../../../src/app/components/fields-browser/fields-browser.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_walkingdata_target_walkingdata_target_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-target/walkingdata-target.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_walkingdata_stage_walkingdata_stage_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-stage/walkingdata-stage.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-editors/walkingdata-editors.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_source_editor_walkingdata_source_editor_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-source-editor/walkingdata-source-editor.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_walkingdata_target_editor_walkingdata_target_editor_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-target-editor/walkingdata-target-editor.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_walkingdata_script_editor_walkingdata_script_editor_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-script-editor/walkingdata-script-editor.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__directives_lock_scroll_directive__ = __webpack_require__("../../../../../src/app/directives/lock-scroll.directive.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__directives_auto_scroll_directive__ = __webpack_require__("../../../../../src/app/directives/auto-scroll.directive.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__directives_dragdrop_directive__ = __webpack_require__("../../../../../src/app/directives/dragdrop.directive.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__pages_scenario_scenario_component__ = __webpack_require__("../../../../../src/app/pages/scenario/scenario.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__pages_cover_cover_component__ = __webpack_require__("../../../../../src/app/pages/cover/cover.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__pages_nocontent_nocontent_component__ = __webpack_require__("../../../../../src/app/pages/nocontent/nocontent.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__pages_documents_documents_component__ = __webpack_require__("../../../../../src/app/pages/documents/documents.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__pages_custom_custom_component__ = __webpack_require__("../../../../../src/app/pages/custom/custom.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_queries_queries_component__ = __webpack_require__("../../../../../src/app/pages/queries/queries.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__pages_connections_connections_component__ = __webpack_require__("../../../../../src/app/pages/connections/connections.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__pages_previews_previews_component__ = __webpack_require__("../../../../../src/app/pages/previews/previews.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__pages_settings_settings_component__ = __webpack_require__("../../../../../src/app/pages/settings/settings.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__pages_help_help_component__ = __webpack_require__("../../../../../src/app/pages/help/help.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__pages_slow_query_slow_query_component__ = __webpack_require__("../../../../../src/app/pages/slow-query/slow-query.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__pages_log_log_component__ = __webpack_require__("../../../../../src/app/pages/log/log.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__pages_walkingdata_walkingdata_component__ = __webpack_require__("../../../../../src/app/pages/walkingdata/walkingdata.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__pages_help_pages_api_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/api-help.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__pages_help_pages_scenario_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/scenario-help.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__pages_help_pages_documents_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/documents-help.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__pages_help_pages_connections_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/connections-help.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__pages_help_pages_queries_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/queries-help.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__pages_help_pages_previews_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/previews-help.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__pages_help_pages_custom_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/custom-help.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__pages_help_pages_slowquery_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/slowquery-help.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__pages_help_pages_walkingdata_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/walkingdata-help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_walkingdata_warnings_service__ = __webpack_require__("../../../../../src/app/services/walkingdata-warnings.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_browser_browser_component__ = __webpack_require__("../../../../../src/app/components/browser/browser.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_page_header_page_header_component__ = __webpack_require__("../../../../../src/app/components/page-header/page-header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_debug_pre_debug_pre_component__ = __webpack_require__("../../../../../src/app/components/debug-pre/debug-pre.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_new_element_new_element_component__ = __webpack_require__("../../../../../src/app/components/new-element/new-element.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_schema_browser_schema_browser_component__ = __webpack_require__("../../../../../src/app/components/schema-browser/schema-browser.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_confirm_dialog_confirm_dialog_component__ = __webpack_require__("../../../../../src/app/components/confirm-dialog/confirm-dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_object_viewer_object_viewer_component__ = __webpack_require__("../../../../../src/app/components/object-viewer/object-viewer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_help_browser_help_browser_component__ = __webpack_require__("../../../../../src/app/components/help-browser/help-browser.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_labelled_labelled_component__ = __webpack_require__("../../../../../src/app/components/labelled/labelled.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__components_parameter_editor_parameter_editor_component__ = __webpack_require__("../../../../../src/app/components/parameter-editor/parameter-editor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__components_value_editor_value_editor_component__ = __webpack_require__("../../../../../src/app/components/value-editor/value-editor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__components_cart_cart_component__ = __webpack_require__("../../../../../src/app/components/cart/cart.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_api_tester_api_tester_component__ = __webpack_require__("../../../../../src/app/components/api-tester/api-tester.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__components_monitor_monitor_component__ = __webpack_require__("../../../../../src/app/components/monitor/monitor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__components_fields_browser_fields_browser_component__ = __webpack_require__("../../../../../src/app/components/fields-browser/fields-browser.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__components_walkingdata_target_walkingdata_target_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-target/walkingdata-target.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_stage_walkingdata_stage_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-stage/walkingdata-stage.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_editors_walkingdata_editors_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-editors/walkingdata-editors.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__components_walkingdata_source_editor_walkingdata_source_editor_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-source-editor/walkingdata-source-editor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__components_walkingdata_target_editor_walkingdata_target_editor_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-target-editor/walkingdata-target-editor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__components_walkingdata_script_editor_walkingdata_script_editor_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-script-editor/walkingdata-script-editor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__components_warnings_editor_warnings_editor_component__ = __webpack_require__("../../../../../src/app/components/warnings-editor/warnings-editor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__directives_lock_scroll_directive__ = __webpack_require__("../../../../../src/app/directives/lock-scroll.directive.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__directives_auto_scroll_directive__ = __webpack_require__("../../../../../src/app/directives/auto-scroll.directive.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__directives_dragdrop_directive__ = __webpack_require__("../../../../../src/app/directives/dragdrop.directive.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__pages_scenario_scenario_component__ = __webpack_require__("../../../../../src/app/pages/scenario/scenario.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__pages_cover_cover_component__ = __webpack_require__("../../../../../src/app/pages/cover/cover.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__pages_nocontent_nocontent_component__ = __webpack_require__("../../../../../src/app/pages/nocontent/nocontent.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__pages_documents_documents_component__ = __webpack_require__("../../../../../src/app/pages/documents/documents.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__pages_custom_custom_component__ = __webpack_require__("../../../../../src/app/pages/custom/custom.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__pages_queries_queries_component__ = __webpack_require__("../../../../../src/app/pages/queries/queries.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__pages_connections_connections_component__ = __webpack_require__("../../../../../src/app/pages/connections/connections.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__pages_previews_previews_component__ = __webpack_require__("../../../../../src/app/pages/previews/previews.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__pages_settings_settings_component__ = __webpack_require__("../../../../../src/app/pages/settings/settings.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__pages_help_help_component__ = __webpack_require__("../../../../../src/app/pages/help/help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__pages_slow_query_slow_query_component__ = __webpack_require__("../../../../../src/app/pages/slow-query/slow-query.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__pages_log_log_component__ = __webpack_require__("../../../../../src/app/pages/log/log.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_60__pages_walkingdata_walkingdata_component__ = __webpack_require__("../../../../../src/app/pages/walkingdata/walkingdata.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_61__pages_help_pages_api_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/api-help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_62__pages_help_pages_scenario_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/scenario-help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_63__pages_help_pages_documents_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/documents-help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_64__pages_help_pages_connections_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/connections-help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_65__pages_help_pages_queries_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/queries-help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_66__pages_help_pages_previews_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/previews-help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_67__pages_help_pages_custom_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/custom-help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_68__pages_help_pages_slowquery_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/slowquery-help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_69__pages_help_pages_walkingdata_help_component__ = __webpack_require__("../../../../../src/app/pages/help/pages/walkingdata-help.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_70__components_parameter_values_parameter_values_component__ = __webpack_require__("../../../../../src/app/components/parameter-values/parameter-values.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -390,7 +393,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 // COMPONENTS
+
 
 
 
@@ -440,6 +445,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AppModule = (function () {
     function AppModule(matIconRegistry, domSanitizer) {
         // matIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('./assets/mdi.svg'));
@@ -447,73 +453,78 @@ var AppModule = (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_43__directives_lock_scroll_directive__["a" /* LockScrollDirective */],
-                __WEBPACK_IMPORTED_MODULE_44__directives_auto_scroll_directive__["a" /* AutoScrollDirective */],
+                __WEBPACK_IMPORTED_MODULE_45__directives_lock_scroll_directive__["a" /* LockScrollDirective */],
+                __WEBPACK_IMPORTED_MODULE_46__directives_auto_scroll_directive__["a" /* AutoScrollDirective */],
                 __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_46__pages_scenario_scenario_component__["a" /* ScenarioComponent */],
-                __WEBPACK_IMPORTED_MODULE_47__pages_cover_cover_component__["a" /* CoverComponent */],
-                __WEBPACK_IMPORTED_MODULE_22__components_browser_browser_component__["a" /* BrowserComponent */],
-                __WEBPACK_IMPORTED_MODULE_48__pages_nocontent_nocontent_component__["a" /* NoContentComponent */],
-                __WEBPACK_IMPORTED_MODULE_49__pages_documents_documents_component__["a" /* DocumentsComponent */],
-                __WEBPACK_IMPORTED_MODULE_50__pages_custom_custom_component__["a" /* CustomComponent */],
-                __WEBPACK_IMPORTED_MODULE_51__pages_queries_queries_component__["a" /* QueriesComponent */],
-                __WEBPACK_IMPORTED_MODULE_52__pages_connections_connections_component__["a" /* ConnectionsComponent */],
-                __WEBPACK_IMPORTED_MODULE_53__pages_previews_previews_component__["a" /* PreviewsComponent */],
-                __WEBPACK_IMPORTED_MODULE_23__components_page_header_page_header_component__["a" /* PageHeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_24__components_debug_pre_debug_pre_component__["a" /* DebugPreComponent */],
-                __WEBPACK_IMPORTED_MODULE_54__pages_settings_settings_component__["a" /* SettingsComponent */],
-                __WEBPACK_IMPORTED_MODULE_25__components_new_element_new_element_component__["a" /* NewElementComponent */],
-                __WEBPACK_IMPORTED_MODULE_26__components_schema_browser_schema_browser_component__["a" /* SchemaBrowserComponent */],
-                __WEBPACK_IMPORTED_MODULE_27__components_confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_31__components_parameter_editor_parameter_editor_component__["a" /* ParameterEditorComponent */],
-                __WEBPACK_IMPORTED_MODULE_32__components_value_editor_value_editor_component__["a" /* ValueEditorComponent */],
-                __WEBPACK_IMPORTED_MODULE_33__components_cart_cart_component__["a" /* CartComponent */],
-                __WEBPACK_IMPORTED_MODULE_55__pages_help_help_component__["a" /* HelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_59__pages_help_pages_api_help_component__["a" /* ApiHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_60__pages_help_pages_scenario_help_component__["a" /* ScenarioHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_62__pages_help_pages_connections_help_component__["a" /* ConnectionsHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_63__pages_help_pages_queries_help_component__["a" /* QueriesHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_65__pages_help_pages_custom_help_component__["a" /* CustomHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_61__pages_help_pages_documents_help_component__["a" /* DocumentsHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_64__pages_help_pages_previews_help_component__["a" /* PreviewsHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_66__pages_help_pages_slowquery_help_component__["a" /* SlowqueryHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_67__pages_help_pages_walkingdata_help_component__["a" /* WalkingdataHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_28__components_object_viewer_object_viewer_component__["a" /* ObjectViewerComponent */],
-                __WEBPACK_IMPORTED_MODULE_29__components_help_browser_help_browser_component__["a" /* HelpBrowserComponent */],
-                __WEBPACK_IMPORTED_MODULE_56__pages_slow_query_slow_query_component__["a" /* SlowQueryComponent */],
-                __WEBPACK_IMPORTED_MODULE_34__components_api_tester_api_tester_component__["a" /* ApiTesterComponent */],
-                __WEBPACK_IMPORTED_MODULE_35__components_monitor_monitor_component__["a" /* MonitorComponent */],
-                __WEBPACK_IMPORTED_MODULE_57__pages_log_log_component__["a" /* LogComponent */],
-                __WEBPACK_IMPORTED_MODULE_44__directives_auto_scroll_directive__["a" /* AutoScrollDirective */],
-                __WEBPACK_IMPORTED_MODULE_36__components_fields_browser_fields_browser_component__["a" /* FieldsBrowserComponent */],
-                __WEBPACK_IMPORTED_MODULE_58__pages_walkingdata_walkingdata_component__["a" /* WalkingdataComponent */],
-                __WEBPACK_IMPORTED_MODULE_38__components_walkingdata_stage_walkingdata_stage_component__["c" /* WalkingdataStageComponent */],
-                __WEBPACK_IMPORTED_MODULE_38__components_walkingdata_stage_walkingdata_stage_component__["b" /* WalkingdataHandlersComponent */],
-                __WEBPACK_IMPORTED_MODULE_58__pages_walkingdata_walkingdata_component__["b" /* WalkingdataTargetsComponent */],
-                __WEBPACK_IMPORTED_MODULE_38__components_walkingdata_stage_walkingdata_stage_component__["a" /* WalkingdataHandlerComponent */],
-                __WEBPACK_IMPORTED_MODULE_37__components_walkingdata_target_walkingdata_target_component__["a" /* WalkingdataTargetComponent */],
-                __WEBPACK_IMPORTED_MODULE_37__components_walkingdata_target_walkingdata_target_component__["b" /* WalkingdataTransformerComponent */],
-                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_source_editor_walkingdata_source_editor_component__["a" /* WalkingdataSourceEditorComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["d" /* WalkingdataHandlerRulesComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["e" /* WalkingdataHandlerSchemaComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["f" /* WalkingdataHandlerSchemaFieldComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["b" /* WalkingdataHandlerFileSchemaComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["a" /* WalkingdataHandlerFileDefComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["c" /* WalkingdataHandlerQueryDefComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["g" /* WalkingdataHandlerTableDefComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["h" /* WalkingdataHandlerWebDefComponent */],
-                __WEBPACK_IMPORTED_MODULE_41__components_walkingdata_target_editor_walkingdata_target_editor_component__["a" /* WalkingdataTargetEditorComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["i" /* WalkingdataLineEditorFixedComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["j" /* WalkingdataLineEditorSeparatorComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["k" /* WalkingdataRuleFilenameComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["l" /* WalkingdataRuleFilterComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["o" /* WalkingdataRuleSectionComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["n" /* WalkingdataRulePostRenameComponent */],
-                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_editors_walkingdata_editors_component__["m" /* WalkingdataRulePostDeleteComponent */],
-                __WEBPACK_IMPORTED_MODULE_45__directives_dragdrop_directive__["a" /* DragdropDirective */],
-                __WEBPACK_IMPORTED_MODULE_30__components_labelled_labelled_component__["a" /* LabelledComponent */],
-                __WEBPACK_IMPORTED_MODULE_42__components_walkingdata_script_editor_walkingdata_script_editor_component__["a" /* WalkingdataScriptEditorComponent */],
-                __WEBPACK_IMPORTED_MODULE_42__components_walkingdata_script_editor_walkingdata_script_editor_component__["b" /* WalkingdataScriptEditorHelpComponent */]
+                __WEBPACK_IMPORTED_MODULE_48__pages_scenario_scenario_component__["a" /* ScenarioComponent */],
+                __WEBPACK_IMPORTED_MODULE_49__pages_cover_cover_component__["a" /* CoverComponent */],
+                __WEBPACK_IMPORTED_MODULE_23__components_browser_browser_component__["a" /* BrowserComponent */],
+                __WEBPACK_IMPORTED_MODULE_50__pages_nocontent_nocontent_component__["a" /* NoContentComponent */],
+                __WEBPACK_IMPORTED_MODULE_51__pages_documents_documents_component__["a" /* DocumentsComponent */],
+                __WEBPACK_IMPORTED_MODULE_52__pages_custom_custom_component__["a" /* CustomComponent */],
+                __WEBPACK_IMPORTED_MODULE_53__pages_queries_queries_component__["a" /* QueriesComponent */],
+                __WEBPACK_IMPORTED_MODULE_54__pages_connections_connections_component__["a" /* ConnectionsComponent */],
+                __WEBPACK_IMPORTED_MODULE_55__pages_previews_previews_component__["a" /* PreviewsComponent */],
+                __WEBPACK_IMPORTED_MODULE_24__components_page_header_page_header_component__["a" /* PageHeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_25__components_debug_pre_debug_pre_component__["a" /* DebugPreComponent */],
+                __WEBPACK_IMPORTED_MODULE_56__pages_settings_settings_component__["a" /* SettingsComponent */],
+                __WEBPACK_IMPORTED_MODULE_26__components_new_element_new_element_component__["a" /* NewElementComponent */],
+                __WEBPACK_IMPORTED_MODULE_27__components_schema_browser_schema_browser_component__["a" /* SchemaBrowserComponent */],
+                __WEBPACK_IMPORTED_MODULE_28__components_confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_32__components_parameter_editor_parameter_editor_component__["a" /* ParameterEditorComponent */],
+                __WEBPACK_IMPORTED_MODULE_70__components_parameter_values_parameter_values_component__["a" /* ParameterValuesComponent */],
+                __WEBPACK_IMPORTED_MODULE_33__components_value_editor_value_editor_component__["a" /* ValueEditorComponent */],
+                __WEBPACK_IMPORTED_MODULE_34__components_cart_cart_component__["a" /* CartComponent */],
+                __WEBPACK_IMPORTED_MODULE_57__pages_help_help_component__["a" /* HelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_61__pages_help_pages_api_help_component__["a" /* ApiHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_62__pages_help_pages_scenario_help_component__["a" /* ScenarioHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_64__pages_help_pages_connections_help_component__["a" /* ConnectionsHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_65__pages_help_pages_queries_help_component__["a" /* QueriesHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_67__pages_help_pages_custom_help_component__["a" /* CustomHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_63__pages_help_pages_documents_help_component__["a" /* DocumentsHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_66__pages_help_pages_previews_help_component__["a" /* PreviewsHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_68__pages_help_pages_slowquery_help_component__["a" /* SlowqueryHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_69__pages_help_pages_walkingdata_help_component__["a" /* WalkingdataHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_29__components_object_viewer_object_viewer_component__["a" /* ObjectViewerComponent */],
+                __WEBPACK_IMPORTED_MODULE_30__components_help_browser_help_browser_component__["a" /* HelpBrowserComponent */],
+                __WEBPACK_IMPORTED_MODULE_58__pages_slow_query_slow_query_component__["a" /* SlowQueryComponent */],
+                __WEBPACK_IMPORTED_MODULE_35__components_api_tester_api_tester_component__["a" /* ApiTesterComponent */],
+                __WEBPACK_IMPORTED_MODULE_36__components_monitor_monitor_component__["a" /* MonitorComponent */],
+                __WEBPACK_IMPORTED_MODULE_59__pages_log_log_component__["a" /* LogComponent */],
+                __WEBPACK_IMPORTED_MODULE_46__directives_auto_scroll_directive__["a" /* AutoScrollDirective */],
+                __WEBPACK_IMPORTED_MODULE_37__components_fields_browser_fields_browser_component__["a" /* FieldsBrowserComponent */],
+                __WEBPACK_IMPORTED_MODULE_60__pages_walkingdata_walkingdata_component__["a" /* WalkingdataComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_stage_walkingdata_stage_component__["c" /* WalkingdataStageComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_stage_walkingdata_stage_component__["b" /* WalkingdataHandlersComponent */],
+                __WEBPACK_IMPORTED_MODULE_60__pages_walkingdata_walkingdata_component__["b" /* WalkingdataTargetsComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_stage_walkingdata_stage_component__["a" /* WalkingdataHandlerComponent */],
+                __WEBPACK_IMPORTED_MODULE_38__components_walkingdata_target_walkingdata_target_component__["a" /* WalkingdataTargetComponent */],
+                __WEBPACK_IMPORTED_MODULE_38__components_walkingdata_target_walkingdata_target_component__["b" /* WalkingdataTransformerComponent */],
+                __WEBPACK_IMPORTED_MODULE_41__components_walkingdata_source_editor_walkingdata_source_editor_component__["a" /* WalkingdataSourceEditorComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_editors_walkingdata_editors_component__["e" /* WalkingdataHandlerRulesComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_editors_walkingdata_editors_component__["f" /* WalkingdataHandlerSchemaComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_editors_walkingdata_editors_component__["g" /* WalkingdataHandlerSchemaFieldComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_editors_walkingdata_editors_component__["b" /* WalkingdataHandlerFileSchemaComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_editors_walkingdata_editors_component__["a" /* WalkingdataHandlerFileDefComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_editors_walkingdata_editors_component__["d" /* WalkingdataHandlerQueryDefComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_editors_walkingdata_editors_component__["h" /* WalkingdataHandlerTableDefComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_editors_walkingdata_editors_component__["i" /* WalkingdataHandlerWebDefComponent */],
+                __WEBPACK_IMPORTED_MODULE_42__components_walkingdata_target_editor_walkingdata_target_editor_component__["a" /* WalkingdataTargetEditorComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_editors_walkingdata_editors_component__["j" /* WalkingdataLineEditorFixedComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_editors_walkingdata_editors_component__["k" /* WalkingdataLineEditorSeparatorComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_editors_walkingdata_editors_component__["o" /* WalkingdataRuleHelpViewerComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_editors_walkingdata_editors_component__["m" /* WalkingdataRuleFilenameComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_editors_walkingdata_editors_component__["n" /* WalkingdataRuleFilterComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_editors_walkingdata_editors_component__["r" /* WalkingdataRuleSectionComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_editors_walkingdata_editors_component__["q" /* WalkingdataRulePostRenameComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_editors_walkingdata_editors_component__["p" /* WalkingdataRulePostDeleteComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_editors_walkingdata_editors_component__["l" /* WalkingdataRuleCheckExistsComponent */],
+                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_editors_walkingdata_editors_component__["c" /* WalkingdataHandlerMoverComponent */],
+                __WEBPACK_IMPORTED_MODULE_47__directives_dragdrop_directive__["a" /* DragdropDirective */],
+                __WEBPACK_IMPORTED_MODULE_31__components_labelled_labelled_component__["a" /* LabelledComponent */],
+                __WEBPACK_IMPORTED_MODULE_43__components_walkingdata_script_editor_walkingdata_script_editor_component__["a" /* WalkingdataScriptEditorComponent */],
+                __WEBPACK_IMPORTED_MODULE_43__components_walkingdata_script_editor_walkingdata_script_editor_component__["b" /* WalkingdataScriptEditorHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_44__components_warnings_editor_warnings_editor_component__["a" /* WarningsEditorComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -562,25 +573,27 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_18__services_dialogs_service__["a" /* DialogsService */],
                 __WEBPACK_IMPORTED_MODULE_19__services_log_service__["a" /* LogService */],
                 __WEBPACK_IMPORTED_MODULE_20__services_walkingdata_service__["a" /* WalkingdataService */],
-                __WEBPACK_IMPORTED_MODULE_21__services_walkingedit_service__["a" /* WalkingeditService */]
+                __WEBPACK_IMPORTED_MODULE_21__services_walkingedit_service__["a" /* WalkingeditService */],
+                __WEBPACK_IMPORTED_MODULE_22__services_walkingdata_warnings_service__["a" /* WalkingdataWarningsService */]
             ],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_27__components_confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */],
-                __WEBPACK_IMPORTED_MODULE_31__components_parameter_editor_parameter_editor_component__["a" /* ParameterEditorComponent */],
-                __WEBPACK_IMPORTED_MODULE_32__components_value_editor_value_editor_component__["a" /* ValueEditorComponent */],
-                __WEBPACK_IMPORTED_MODULE_59__pages_help_pages_api_help_component__["a" /* ApiHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_60__pages_help_pages_scenario_help_component__["a" /* ScenarioHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_62__pages_help_pages_connections_help_component__["a" /* ConnectionsHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_63__pages_help_pages_queries_help_component__["a" /* QueriesHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_65__pages_help_pages_custom_help_component__["a" /* CustomHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_61__pages_help_pages_documents_help_component__["a" /* DocumentsHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_64__pages_help_pages_previews_help_component__["a" /* PreviewsHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_66__pages_help_pages_slowquery_help_component__["a" /* SlowqueryHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_67__pages_help_pages_walkingdata_help_component__["a" /* WalkingdataHelpComponent */],
-                __WEBPACK_IMPORTED_MODULE_38__components_walkingdata_stage_walkingdata_stage_component__["b" /* WalkingdataHandlersComponent */],
-                __WEBPACK_IMPORTED_MODULE_58__pages_walkingdata_walkingdata_component__["b" /* WalkingdataTargetsComponent */],
-                __WEBPACK_IMPORTED_MODULE_40__components_walkingdata_source_editor_walkingdata_source_editor_component__["a" /* WalkingdataSourceEditorComponent */],
-                __WEBPACK_IMPORTED_MODULE_41__components_walkingdata_target_editor_walkingdata_target_editor_component__["a" /* WalkingdataTargetEditorComponent */]
+                __WEBPACK_IMPORTED_MODULE_28__components_confirm_dialog_confirm_dialog_component__["a" /* ConfirmDialogComponent */],
+                __WEBPACK_IMPORTED_MODULE_32__components_parameter_editor_parameter_editor_component__["a" /* ParameterEditorComponent */],
+                __WEBPACK_IMPORTED_MODULE_70__components_parameter_values_parameter_values_component__["a" /* ParameterValuesComponent */],
+                __WEBPACK_IMPORTED_MODULE_33__components_value_editor_value_editor_component__["a" /* ValueEditorComponent */],
+                __WEBPACK_IMPORTED_MODULE_61__pages_help_pages_api_help_component__["a" /* ApiHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_62__pages_help_pages_scenario_help_component__["a" /* ScenarioHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_64__pages_help_pages_connections_help_component__["a" /* ConnectionsHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_65__pages_help_pages_queries_help_component__["a" /* QueriesHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_67__pages_help_pages_custom_help_component__["a" /* CustomHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_63__pages_help_pages_documents_help_component__["a" /* DocumentsHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_66__pages_help_pages_previews_help_component__["a" /* PreviewsHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_68__pages_help_pages_slowquery_help_component__["a" /* SlowqueryHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_69__pages_help_pages_walkingdata_help_component__["a" /* WalkingdataHelpComponent */],
+                __WEBPACK_IMPORTED_MODULE_39__components_walkingdata_stage_walkingdata_stage_component__["b" /* WalkingdataHandlersComponent */],
+                __WEBPACK_IMPORTED_MODULE_60__pages_walkingdata_walkingdata_component__["b" /* WalkingdataTargetsComponent */],
+                __WEBPACK_IMPORTED_MODULE_41__components_walkingdata_source_editor_walkingdata_source_editor_component__["a" /* WalkingdataSourceEditorComponent */],
+                __WEBPACK_IMPORTED_MODULE_42__components_walkingdata_target_editor_walkingdata_target_editor_component__["a" /* WalkingdataTargetEditorComponent */]
             ],
             bootstrap: [
                 __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]
@@ -1475,6 +1488,59 @@ var ParameterEditorComponent = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/parameter-values/parameter-values.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"parameter-editor\" mat-dialog-content layout-col>\n  <ng-container *ngFor=\"let p of data.parameters\" [ngSwitch]=\"p.dataType\">\n    <div *ngSwitchCase=\"'string'\" flex>{{p.name}} = <b>{{p.value}}</b> (string)</div>\n    <div *ngSwitchDefault flex>{{p.name}} = <b>{{p.value}}</b></div>\n    <!-- TODO: editor parameter values... -->\n  </ng-container>\n</div>\n<div mat-dialog-actions>\n  <button mat-button (click)=\"close()\">cancel</button>\n  <button mat-button cdkFocusInitial (click)=\"close(true)\">done</button>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/parameter-values/parameter-values.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ParameterValuesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+var ParameterValuesComponent = (function () {
+    function ParameterValuesComponent(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+    }
+    ParameterValuesComponent.prototype.ngOnInit = function () {
+    };
+    ParameterValuesComponent.prototype.close = function (resp) {
+        this.dialogRef.close(resp);
+    };
+    ParameterValuesComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-parameter-values',
+            template: __webpack_require__("../../../../../src/app/components/parameter-values/parameter-values.component.html")
+        }),
+        __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Inject"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["i" /* MatDialogRef */], Object])
+    ], ParameterValuesComponent);
+    return ParameterValuesComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/schema-browser/schema-browser.component.html":
 /***/ (function(module, exports) {
 
@@ -1676,20 +1742,23 @@ var ValueEditorComponent = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WalkingdataHandlerFileDefComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return WalkingdataHandlerQueryDefComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return WalkingdataHandlerTableDefComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return WalkingdataHandlerWebDefComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return WalkingdataHandlerRulesComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return WalkingdataHandlerSchemaFieldComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return WalkingdataHandlerSchemaComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return WalkingdataHandlerQueryDefComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return WalkingdataHandlerTableDefComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return WalkingdataHandlerWebDefComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return WalkingdataHandlerRulesComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return WalkingdataHandlerSchemaFieldComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return WalkingdataHandlerSchemaComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return WalkingdataHandlerFileSchemaComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return WalkingdataLineEditorFixedComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return WalkingdataLineEditorSeparatorComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return WalkingdataRuleFilenameComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return WalkingdataRuleFilterComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return WalkingdataRuleSectionComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return WalkingdataRulePostRenameComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return WalkingdataRulePostDeleteComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return WalkingdataLineEditorFixedComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return WalkingdataLineEditorSeparatorComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return WalkingdataRuleHelpViewerComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return WalkingdataRuleFilenameComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return WalkingdataRuleFilterComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return WalkingdataRuleSectionComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return WalkingdataRulePostRenameComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return WalkingdataRulePostDeleteComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return WalkingdataRuleCheckExistsComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return WalkingdataHandlerMoverComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__ = __webpack_require__("../../../../../src/app/services/walkingdata.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_utils_service__ = __webpack_require__("../../../../../src/app/services/utils.service.ts");
@@ -1715,9 +1784,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var WalkingdataHandlerFileDefComponent = (function () {
-    function WalkingdataHandlerFileDefComponent(walking, interaction, u) {
+    function WalkingdataHandlerFileDefComponent(walking, u) {
         this.walking = walking;
-        this.interaction = interaction;
         this.u = u;
         this.lines = [];
         this.error = null;
@@ -1727,19 +1795,19 @@ var WalkingdataHandlerFileDefComponent = (function () {
     WalkingdataHandlerFileDefComponent.prototype.onFileChange = function (e) {
         var self = this;
         if (e.target.files && e.target.files.length > 0) {
-            self.walking.loadFile(self.handler, e.target.files[0]);
+            if (self.handler.type === 'file') {
+                self.uploading = true;
+                self.walking.loadFile(self.handler, e.target.files[0], function () {
+                    self.uploading = false;
+                });
+            }
         }
     };
     WalkingdataHandlerFileDefComponent.prototype.ngOnInit = function () {
     };
-    WalkingdataHandlerFileDefComponent.prototype.upload = function (e) {
-        var self = this;
-        if (!self.uploading) {
-            self.uploading = true;
-            self.interaction.uploadFile(self.handler._file, function (err) {
-                self.uploading = false;
-            });
-        }
+    WalkingdataHandlerFileDefComponent.prototype.reload = function (e) {
+        // TODO: ricarica il file dal server
+        this.u.snack('Not implemented yet!');
     };
     WalkingdataHandlerFileDefComponent.prototype.invokeClick = function (e) {
         var event = new MouseEvent('click', { bubbles: true });
@@ -1759,7 +1827,6 @@ var WalkingdataHandlerFileDefComponent = (function () {
             template: __webpack_require__("../../../../../src/app/components/walkingdata-editors/wd-handler-file-definition.component.html")
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */],
-            __WEBPACK_IMPORTED_MODULE_4__services_interaction_service__["a" /* InteractionService */],
             __WEBPACK_IMPORTED_MODULE_2__services_utils_service__["a" /* UtilsService */]])
     ], WalkingdataHandlerFileDefComponent);
     return WalkingdataHandlerFileDefComponent;
@@ -1816,13 +1883,20 @@ var WalkingdataHandlerQueryDefComponent = (function () {
 }());
 
 var WalkingdataHandlerTableDefComponent = (function () {
-    function WalkingdataHandlerTableDefComponent(walking, interaction, browser, cache) {
+    function WalkingdataHandlerTableDefComponent(walking, u, interaction, browser, cache) {
         this.walking = walking;
+        this.u = u;
         this.interaction = interaction;
         this.browser = browser;
         this.cache = cache;
+        this.initializing = false;
+        this.canBulk = false;
         this.connections = [];
+        this.providers = [];
         this.schema = null;
+        this.connection = null;
+        this.provider = null;
+        this.error = null;
         this.options = {};
     }
     WalkingdataHandlerTableDefComponent.prototype.parseSchema = function (table) {
@@ -1837,19 +1911,44 @@ var WalkingdataHandlerTableDefComponent = (function () {
             };
         });
     };
-    WalkingdataHandlerTableDefComponent.prototype.loadSchema = function () {
+    WalkingdataHandlerTableDefComponent.prototype.onConnection = function () {
         var self = this;
         if (self.handler.connection) {
-            self.cache.getSchema(self.handler.connection)
-                .then(function (schema) { return self.schema = schema; });
+            self.cache.getSchema(self.handler.connection).then(function (schema) { return self.schema = schema; });
+            self.connection = __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.find(self.connections, function (c) { return c._id === self.handler.connection; });
+            self.provider = self.connection ? __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.find(self.providers || [], function (p) { return p.code === self.connection.provider; }) : null;
         }
     };
     WalkingdataHandlerTableDefComponent.prototype.ngOnInit = function () {
         var self = this;
-        self.connections = __WEBPACK_IMPORTED_MODULE_6_lodash___default()(self.browser._documents)
-            .filter(function (d) { return d._type === self.interaction.types.connections; })
-            .value();
-        self.loadSchema();
+        self.initializing = true;
+        self.canBulk = !!(self.handler || {}).target && self.walking.isBulkSource(self.walking.currentSource);
+        self.u.compose()
+            .use(function (next) {
+            self.interaction.getDocuments(self.interaction.types.connections)
+                .subscribe(function (connections) {
+                self.connections = connections;
+                next();
+            }, function (err) {
+                self.error = err;
+                next();
+            });
+        })
+            .use(function (next) {
+            self.interaction.getProviders().subscribe(function (providers) {
+                if (__WEBPACK_IMPORTED_MODULE_6_lodash___default.a.keys(providers || {}).length) {
+                    self.providers = __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.filter(__WEBPACK_IMPORTED_MODULE_6_lodash___default.a.map(__WEBPACK_IMPORTED_MODULE_6_lodash___default.a.keys(providers), function (k) { return providers[k]; }), function (p) { return p.active; });
+                }
+                next();
+            }, function (err) {
+                self.error = err;
+                next();
+            });
+        })
+            .run(function () {
+            self.onConnection();
+            self.initializing = false;
+        });
         self.options.editable = self.handler.target && self.walking.isType(self.handler, ['newtable']);
     };
     WalkingdataHandlerTableDefComponent.prototype.ngOnDestroy = function () {
@@ -1874,6 +1973,7 @@ var WalkingdataHandlerTableDefComponent = (function () {
             template: __webpack_require__("../../../../../src/app/components/walkingdata-editors/wd-handler-table-definition.component.html")
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */],
+            __WEBPACK_IMPORTED_MODULE_2__services_utils_service__["a" /* UtilsService */],
             __WEBPACK_IMPORTED_MODULE_4__services_interaction_service__["a" /* InteractionService */],
             __WEBPACK_IMPORTED_MODULE_3__services_browser_service__["a" /* BrowserService */],
             __WEBPACK_IMPORTED_MODULE_5__services_schema_cache_service__["a" /* SchemaCacheService */]])
@@ -1884,8 +1984,18 @@ var WalkingdataHandlerTableDefComponent = (function () {
 var WalkingdataHandlerWebDefComponent = (function () {
     function WalkingdataHandlerWebDefComponent(walking) {
         this.walking = walking;
+        this.methods = ['GET', 'POST'];
     }
     WalkingdataHandlerWebDefComponent.prototype.ngOnInit = function () {
+        this.handler.url = this.handler.url || 'http://';
+        this.handler.method = this.handler.method || 'GET';
+        if (!__WEBPACK_IMPORTED_MODULE_6_lodash___default.a.isBoolean(this.handler.auth)) {
+            this.handler.auth = false;
+        }
+        this.handler.authUser = this.handler.authUser || '';
+        this.handler.authPswd = this.handler.authPswd || '';
+        this.handler.params = this.handler.params || '';
+        this.handler.body = this.handler.body || '';
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('handler'),
@@ -2236,6 +2346,29 @@ var WalkingdataLineEditorSeparatorComponent = (function () {
 // RULES
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+var WalkingdataRuleHelpViewerComponent = (function () {
+    function WalkingdataRuleHelpViewerComponent() {
+        this.active = false;
+    }
+    WalkingdataRuleHelpViewerComponent.prototype.ngOnInit = function () {
+    };
+    WalkingdataRuleHelpViewerComponent.prototype.toggle = function () {
+        this.active = !this.active;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('rule'),
+        __metadata("design:type", Object)
+    ], WalkingdataRuleHelpViewerComponent.prototype, "rule", void 0);
+    WalkingdataRuleHelpViewerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-wd-rulehelp-viewer',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-editors/wd-rulehelp-viewer.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], WalkingdataRuleHelpViewerComponent);
+    return WalkingdataRuleHelpViewerComponent;
+}());
+
 var WalkingdataRuleFilenameComponent = (function () {
     function WalkingdataRuleFilenameComponent(walking) {
         this.walking = walking;
@@ -2336,6 +2469,104 @@ var WalkingdataRulePostDeleteComponent = (function () {
     return WalkingdataRulePostDeleteComponent;
 }());
 
+var WalkingdataRuleCheckExistsComponent = (function () {
+    function WalkingdataRuleCheckExistsComponent(walking) {
+        this.walking = walking;
+    }
+    WalkingdataRuleCheckExistsComponent.prototype.ngOnInit = function () {
+        this.rule = this.rule || {};
+        this.rule.filter = this.rule.filter || 'error';
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('rule'),
+        __metadata("design:type", Object)
+    ], WalkingdataRuleCheckExistsComponent.prototype, "rule", void 0);
+    WalkingdataRuleCheckExistsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-wd-rule-check-exists',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-editors/wd-rule-check-exists.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */]])
+    ], WalkingdataRuleCheckExistsComponent);
+    return WalkingdataRuleCheckExistsComponent;
+}());
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// HANDLER MOVER
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+var DIRECTION = {
+    up: 'up',
+    right: 'right',
+    down: 'down',
+    left: 'left'
+};
+var WalkingdataHandlerMoverComponent = (function () {
+    function WalkingdataHandlerMoverComponent(walking, browser) {
+        this.walking = walking;
+        this.browser = browser;
+        this.direction = DIRECTION;
+        this.locked = {
+            up: false,
+            left: false,
+            right: false,
+            down: false
+        };
+    }
+    WalkingdataHandlerMoverComponent.prototype.ngOnInit = function () {
+        var self = this;
+        self.walking.onSource.subscribe(function () { return self.refresh(); });
+    };
+    WalkingdataHandlerMoverComponent.prototype.refresh = function () {
+        this.locked.up = (this.browser.current.stages.indexOf(this.stage) === 0);
+        this.locked.left = (this.stage.sources.indexOf(this.walking.currentSource) === 0);
+        this.locked.right = (this.stage.sources.indexOf(this.walking.currentSource) === (this.stage.sources.length - 1));
+        this.locked.down = (this.browser.current.stages.indexOf(this.stage) === (this.browser.current.stages.length - 1));
+    };
+    WalkingdataHandlerMoverComponent.prototype.move = function (direction) {
+        var source_pos = this.stage.sources.indexOf(this.walking.currentSource);
+        var stage_pos = this.browser.current.stages.indexOf(this.stage);
+        var target_pos = -1;
+        var target_stage = this.stage;
+        switch (direction) {
+            case DIRECTION.up:
+                target_stage = this.browser.current.stages[stage_pos - 1];
+                break;
+            case DIRECTION.down:
+                target_stage = this.browser.current.stages[stage_pos + 1];
+                break;
+            case DIRECTION.left:
+                target_pos = source_pos - 1;
+                break;
+            case DIRECTION.right:
+                target_pos = source_pos + 1;
+                break;
+        }
+        if (target_stage) {
+            var source = this.stage.sources.splice(source_pos, 1)[0];
+            (target_pos < 0) ? target_stage.sources.push(source) : target_stage.sources.splice(target_pos, 0, source);
+            this.walking.setCurrentSource(this.browser.current, source);
+        }
+        else {
+            this.refresh();
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('stage'),
+        __metadata("design:type", Object)
+    ], WalkingdataHandlerMoverComponent.prototype, "stage", void 0);
+    WalkingdataHandlerMoverComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-wd-handler-mover',
+            template: __webpack_require__("../../../../../src/app/components/walkingdata-editors/wd-handler-mover.component.html")
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_walkingdata_service__["a" /* WalkingdataService */],
+            __WEBPACK_IMPORTED_MODULE_3__services_browser_service__["a" /* BrowserService */]])
+    ], WalkingdataHandlerMoverComponent);
+    return WalkingdataHandlerMoverComponent;
+}());
+
 
 
 /***/ }),
@@ -2343,7 +2574,7 @@ var WalkingdataRulePostDeleteComponent = (function () {
 /***/ "../../../../../src/app/components/walkingdata-editors/wd-handler-file-definition.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"source-file-definition wd-editor\" layout-col>\r\n  <div class=\"loader\" *ngIf=\"uploading\">\r\n    <mat-spinner class=\"central\" diameter=\"100\"></mat-spinner>\r\n  </div>\r\n  <div [ngClass]=\"{'blur':uploading}\" layout-col>\r\n    <labelled *ngIf=\"handler.source\" caption=\"File path\">\r\n      <input wd-editor-input [(ngModel)]=\"handler.name\" placeholder=\"path\" flex>\r\n      <button mat-icon-button (click)=\"invokeClick($event)\" matTooltip=\"search for a file/folder\">\r\n        <mat-icon>more_horiz</mat-icon>\r\n      </button>\r\n      <button mat-icon-button (click)=\"upload($event)\" matTooltip=\"upload file\" *ngIf=\"!handler.virtual\" [disabled]=\"!handler._file\">\r\n        <mat-icon>backup</mat-icon>\r\n      </button>\r\n      <input type=\"file\" id=\"file-input\" (change)=\"onFileChange($event)\" #fileInput>\r\n    </labelled>\r\n    <labelled *ngIf=\"handler.target\" caption=\"File path\">\r\n      <input wd-editor-input [(ngModel)]=\"handler.name\" placeholder=\"path\" flex>\r\n    </labelled>\r\n    <labelled caption=\"Text mode\">\r\n      <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"handler.textMode\" layout-col>\r\n        <mat-radio-button *ngFor=\"let tt of walking.textTypes\" [value]=\"tt.name\">{{tt.desc}}</mat-radio-button>\r\n      </mat-radio-group>\r\n    </labelled>\r\n    <!-- CONTROLS ON TEXT-TYPE -->\r\n    <div layout-col [ngSwitch]=\"handler.textMode\">\r\n      <mat-checkbox *ngSwitchCase=\"'separator'\" [(ngModel)]=\"handler.headers\">Column names on first (not empty) row</mat-checkbox>\r\n      <mat-checkbox *ngSwitchCase=\"'fixed'\" [(ngModel)]=\"handler.headers\">Column names on first (not empty) row</mat-checkbox>\r\n      <labelled *ngSwitchCase=\"'json'\" caption=\"Path for rows property\">\r\n        <input wd-editor-input [(ngModel)]=\"handler.jsonpath\" placeholder=\"rows path\" flex>\r\n      </labelled>\r\n      <div layout-row>\r\n        <labelled *ngSwitchCase=\"'separator'\" caption=\"Separator\" flex>\r\n          <input wd-editor-input [(ngModel)]=\"handler.separator\" placeholder=\"separator\" flex>\r\n        </labelled>\r\n        <labelled *ngSwitchCase=\"'separator'\" caption=\"Text Delimiter\" flex>\r\n          <input wd-editor-input [(ngModel)]=\"handler.textDelimiter\" placeholder=\"text delimiter\" flex>\r\n        </labelled>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"source-file-definition wd-editor\" layout-col>\r\n  <div class=\"loader\" *ngIf=\"uploading\">\r\n    <mat-spinner class=\"central\" diameter=\"100\"></mat-spinner>\r\n  </div>\r\n  <div [ngClass]=\"{'blur':uploading}\" layout-col>\r\n    <div class=\"highligth\" *ngIf=\"handler.type==='file'\">File will be uploaded on server</div>\r\n    <labelled *ngIf=\"handler.source\" caption=\"File path\">\r\n      <input wd-editor-input [(ngModel)]=\"handler.name\" placeholder=\"path\" flex>\r\n      <button *ngIf=\"handler.type === 'file'\" mat-icon-button (click)=\"invokeClick($event)\" matTooltip=\"search for a file/folder\">\r\n        <mat-icon>more_horiz</mat-icon>\r\n      </button>\r\n      <button mat-icon-button (click)=\"reload($event)\" matTooltip=\"reload file\" *ngIf=\"!handler.virtual\" [disabled]=\"!handler.path\">\r\n        <mat-icon>refresh</mat-icon>\r\n      </button>\r\n      <input type=\"file\" id=\"file-input\" (change)=\"onFileChange($event)\" #fileInput>\r\n    </labelled>\r\n    <div class=\"grey-text note\" *ngIf=\"handler.path\">{{handler.path}}</div>\r\n    <labelled *ngIf=\"handler.target\" caption=\"File path\">\r\n      <input wd-editor-input [(ngModel)]=\"handler.name\" placeholder=\"path\" flex>\r\n    </labelled>\r\n    <labelled caption=\"Text mode\">\r\n      <mat-radio-group class=\"example-radio-group\" [(ngModel)]=\"handler.textMode\" layout-col>\r\n        <mat-radio-button *ngFor=\"let tt of walking.textTypes\" [value]=\"tt.name\">{{tt.desc}}</mat-radio-button>\r\n      </mat-radio-group>\r\n    </labelled>\r\n    <!-- CONTROLS ON TEXT-TYPE -->\r\n    <div layout-col [ngSwitch]=\"handler.textMode\">\r\n      <mat-checkbox *ngSwitchCase=\"'separator'\" [(ngModel)]=\"handler.headers\">Column names on first (not empty) row</mat-checkbox>\r\n      <mat-checkbox *ngSwitchCase=\"'fixed'\" [(ngModel)]=\"handler.headers\">Column names on first (not empty) row</mat-checkbox>\r\n      <labelled *ngSwitchCase=\"'json'\" caption=\"Path for rows property\">\r\n        <input wd-editor-input [(ngModel)]=\"handler.jsonpath\" placeholder=\"rows path\" flex>\r\n      </labelled>\r\n      <div layout-row>\r\n        <labelled *ngSwitchCase=\"'separator'\" caption=\"Separator\" flex>\r\n          <input wd-editor-input [(ngModel)]=\"handler.separator\" placeholder=\"separator\" flex>\r\n        </labelled>\r\n        <labelled *ngSwitchCase=\"'separator'\" caption=\"Text Delimiter\" flex>\r\n          <input wd-editor-input [(ngModel)]=\"handler.textDelimiter\" placeholder=\"text delimiter\" flex>\r\n        </labelled>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2351,6 +2582,13 @@ module.exports = "<div class=\"source-file-definition wd-editor\" layout-col>\r\
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"handler-file-schema wd-editor\" layout-col flex>\r\n  <ng-container [ngSwitch]=\"handler.textMode\" *ngIf=\"options.editable\">\r\n    <app-wd-lineeditor-fixed *ngSwitchCase=\"'fixed'\" [handler]=\"handler\"></app-wd-lineeditor-fixed>\r\n    <app-wd-lineeditor-separator *ngSwitchCase=\"'separator'\" [handler]=\"handler\"></app-wd-lineeditor-separator>\r\n  </ng-container>\r\n  <app-wd-handler-schema [handler]=\"handler\" layout-col flex></app-wd-handler-schema>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-editors/wd-handler-mover.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"handler-mover\" *ngIf=\"!!stage && stage===walking.currentStage\" layout-col>\r\n  <div class=\"text-center\">\r\n    <button mat-icon-button (click)=\"move(direction.up)\" [disabled]=\"locked.up\">\r\n      <mat-icon>expand_less</mat-icon>\r\n    </button>\r\n  </div>\r\n  <div class=\"mover-horz\" layout-row>\r\n    <button mat-icon-button (click)=\"move(direction.left)\" [disabled]=\"locked.left\">\r\n      <mat-icon>chevron_left</mat-icon>\r\n    </button>\r\n    <mat-icon class=\"mover-center\">lens</mat-icon>\r\n    <button mat-icon-button class=\"on-right\" (click)=\"move(direction.right)\" [disabled]=\"locked.right\">\r\n      <mat-icon>chevron_right</mat-icon>\r\n    </button>\r\n  </div>\r\n  <div class=\"text-center\">\r\n    <button mat-icon-button (click)=\"move(direction.down)\" [disabled]=\"locked.down\">\r\n      <mat-icon>expand_more</mat-icon>\r\n    </button>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2364,7 +2602,7 @@ module.exports = "<div class=\"source-query-definition wd-editor\" layout-col>\r
 /***/ "../../../../../src/app/components/walkingdata-editors/wd-handler-rules.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"handler-rules-editor wd-editor\" layout-col>\r\n  <div layout-row>\r\n    <span flex></span>\r\n    <button mat-icon-button [matMenuTriggerFor]=\"menu\" [disabled]=\"!rules.length\">\r\n      <mat-icon>add</mat-icon>\r\n    </button>\r\n    <mat-menu #menu=\"matMenu\">\r\n      <button *ngFor=\"let r of rules\" (click)=\"addRule(r)\" mat-menu-item>\r\n        <mat-icon>{{r.icon}}</mat-icon>\r\n        <span>{{r.caption}}</span>\r\n      </button>\r\n    </mat-menu>\r\n  </div>\r\n  <div *ngIf=\"!(handler.rules||[]).length\" layout-row>\r\n    <div class=\"grey-text text-center wd-padding-4\" flex>no rules</div>\r\n  </div>\r\n  <div *ngIf=\"(handler.rules||[]).length\">\r\n    <div *ngFor=\"let r of handler.rules\" [ngSwitch]=\"r.type\" class=\"handler-rule\">\r\n      <div class=\"header\" layout-row>\r\n        <span flex>{{r.caption}}</span>\r\n        <button mat-icon-button (click)=\"removeRule(r)\">\r\n          <mat-icon>close</mat-icon>\r\n        </button>\r\n      </div>\r\n      <app-wd-rule-filter *ngSwitchCase=\"'filter'\" [rule]=\"r\"></app-wd-rule-filter>\r\n      <app-wd-rule-filename *ngSwitchCase=\"'filename'\" [rule]=\"r\"></app-wd-rule-filename>\r\n      <app-wd-rule-section *ngSwitchCase=\"'section'\" [rule]=\"r\"></app-wd-rule-section>\r\n      <app-wd-rule-post-rename *ngSwitchCase=\"'post_rename'\" [rule]=\"r\"></app-wd-rule-post-rename>\r\n      <app-wd-rule-post-delete *ngSwitchCase=\"'post_delete'\" [rule]=\"r\"></app-wd-rule-post-delete>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"handler-rules-editor wd-editor\" layout-col>\r\n  <div layout-row>\r\n    <span flex></span>\r\n    <button mat-icon-button [matMenuTriggerFor]=\"menu\" [disabled]=\"!rules.length\">\r\n      <mat-icon>add_circle_outline</mat-icon>\r\n    </button>\r\n    <mat-menu #menu=\"matMenu\">\r\n      <button *ngFor=\"let r of rules\" (click)=\"addRule(r)\" mat-menu-item>\r\n        <mat-icon>{{r.icon}}</mat-icon>\r\n        <span>{{r.caption}}</span>\r\n      </button>\r\n    </mat-menu>\r\n  </div>\r\n  <div *ngIf=\"!(handler.rules||[]).length\" layout-row>\r\n    <div class=\"grey-text text-center wd-padding-4\" flex>no rules</div>\r\n  </div>\r\n  <div *ngIf=\"(handler.rules||[]).length\">\r\n    <div *ngFor=\"let r of handler.rules\" [ngSwitch]=\"r.type\" class=\"handler-rule\">\r\n      <div class=\"header\" layout-row>\r\n        <span flex>{{r.caption}}</span>\r\n        <button mat-icon-button color=\"warn\" matTooltip=\"remove rule\" (click)=\"removeRule(r)\">\r\n          <mat-icon>delete</mat-icon>\r\n        </button>\r\n      </div>\r\n      <app-wd-rule-filter *ngSwitchCase=\"'filter'\" [rule]=\"r\"></app-wd-rule-filter>\r\n      <app-wd-rule-filter *ngSwitchCase=\"'filter_exp'\" [rule]=\"r\"></app-wd-rule-filter>\r\n      <app-wd-rule-filename *ngSwitchCase=\"'filename'\" [rule]=\"r\"></app-wd-rule-filename>\r\n      <app-wd-rule-section *ngSwitchCase=\"'section'\" [rule]=\"r\"></app-wd-rule-section>\r\n      <app-wd-rule-post-rename *ngSwitchCase=\"'post_rename'\" [rule]=\"r\"></app-wd-rule-post-rename>\r\n      <app-wd-rule-post-delete *ngSwitchCase=\"'post_delete'\" [rule]=\"r\"></app-wd-rule-post-delete>\r\n      <app-wd-rule-check-exists *ngSwitchCase=\"'check_exists'\" [rule]=\"r\"></app-wd-rule-check-exists>\r\n      <app-wd-rulehelp-viewer [rule]=\"r\"></app-wd-rulehelp-viewer>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2385,14 +2623,14 @@ module.exports = "<div class=\"handler-schema\" layout-col flex>\r\n  <div class
 /***/ "../../../../../src/app/components/walkingdata-editors/wd-handler-table-definition.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"source-table-definition wd-editor\" layout-col>\r\n  <labelled caption=\"Connection\">\r\n    <select wd-editor-input [(ngModel)]=\"handler.connection\" (change)=\"loadSchema()\" placeholder=\"connection\" flex>\r\n      <option *ngFor=\"let c of connections\" [value]=\"c._id\">{{ c.name }}</option>\r\n    </select>\r\n  </labelled>\r\n\r\n  <labelled *ngIf=\"!options.editable\" caption=\"Table Name\">\r\n    <select wd-editor-input [(ngModel)]=\"handler.tableName\" (change)=\"setSchema()\" placeholder=\"tablename\" flex>\r\n      <option *ngFor=\"let t of (schema||{}).tables||[]\" [value]=\"t.TABLE_NAME\">{{ t.TABLE_NAME }}</option>\r\n    </select>\r\n  </labelled>\r\n\r\n  <labelled *ngIf=\"options.editable\" caption=\"Table Name\">\r\n    <input wd-editor-input [(ngModel)]=\"handler.tableName\" placeholder=\"tablename\" flex>\r\n  </labelled>\r\n</div>\r\n"
+module.exports = "<div class=\"source-table-definition wd-editor\" layout-col>\r\n  <div class=\"loader\" *ngIf=\"initializing\">\r\n    <mat-spinner class=\"central\" diameter=\"100\"></mat-spinner>\r\n  </div>\r\n\r\n  <ng-container *ngIf=\"!initializing\" layout-col>\r\n    <labelled caption=\"Connection\">\r\n      <select wd-editor-input [(ngModel)]=\"handler.connection\" (change)=\"onConnection()\" placeholder=\"connection\" flex>\r\n        <option *ngFor=\"let c of connections\" [value]=\"c._id\">{{ c.name }}</option>\r\n      </select>\r\n    </labelled>\r\n\r\n    <labelled *ngIf=\"!options.editable\" caption=\"Table Name\">\r\n      <select wd-editor-input [(ngModel)]=\"handler.tableName\" (change)=\"setSchema()\" placeholder=\"tablename\" flex>\r\n        <option *ngFor=\"let t of (schema||{}).tables||[]\" [value]=\"t.TABLE_NAME\">{{ t.TABLE_NAME }}</option>\r\n      </select>\r\n    </labelled>\r\n\r\n    <labelled *ngIf=\"options.editable\" caption=\"Table Name\">\r\n      <input wd-editor-input [(ngModel)]=\"handler.tableName\" placeholder=\"tablename\" flex>\r\n    </labelled>\r\n\r\n    <div *ngIf=\"!!(provider||{}).bulk && canBulk\">\r\n      <br>\r\n      <mat-slide-toggle [(ngModel)]=\"handler.bulk\">Bulk insert</mat-slide-toggle>\r\n    </div>\r\n  </ng-container>\r\n</div>\r\n"
 
 /***/ }),
 
 /***/ "../../../../../src/app/components/walkingdata-editors/wd-handler-web-definition.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>web request definition...</div>\r\n"
+module.exports = "<div class=\"source-web-definition wd-editor\" layout-col>\r\n  <labelled caption=\"Url\">\r\n    <input wd-editor-input [(ngModel)]=\"handler.url\" placeholder=\"url\" flex>\r\n  </labelled>\r\n  <div>\r\n    <br><mat-slide-toggle [(ngModel)]=\"handler.auth\">Include bearer authentication</mat-slide-toggle>\r\n  </div>\r\n  <div *ngIf=\"handler.auth\" layout-row>\r\n    <labelled caption=\"user name\" flex>\r\n      <input wd-editor-input [(ngModel)]=\"handler.authUser\" placeholder=\"user name\" flex>\r\n    </labelled>\r\n    <labelled caption=\"password\" flex>\r\n      <input wd-editor-input [(ngModel)]=\"handler.authPswd\" placeholder=\"password\" flex>\r\n    </labelled>\r\n  </div>\r\n  <labelled caption=\"Method\">\r\n    <select wd-editor-input [(ngModel)]=\"handler.method\" placeholder=\"method\" flex>\r\n      <option *ngFor=\"let m of methods\" [value]=\"m\">{{ m }}</option>\r\n    </select>\r\n  </labelled>\r\n  <ng-container [ngSwitch]=\"handler.method\" layout-col>\r\n    <labelled *ngSwitchCase=\"'GET'\" caption=\"url params\" flex>\r\n      <input wd-editor-input [(ngModel)]=\"handler.params\" class=\"code-color\" placeholder=\"params\" flex>\r\n    </labelled>\r\n    <labelled *ngSwitchCase=\"'POST'\" caption=\"body\" flex>\r\n      <textarea class=\"echo-scrollbar text-editor code-color\" [(ngModel)]=\"handler.body\" placeholder=\"json body...\" matTextareaAutosize></textarea>\r\n    </labelled>\r\n  </ng-container>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2400,6 +2638,13 @@ module.exports = "<div>web request definition...</div>\r\n"
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"text-lines-browser echo-scrollbar\" *ngIf=\"o.ready\">\r\n  <div class=\"text-lines-container echo-scrollable-horizontal\">\r\n    <div class=\"text-line-container\">\r\n      <div class=\"text-line-num\">{{o.preline2.n}}</div>\r\n      <div class=\"text-line level2\">{{o.preline2.text}}</div>\r\n    </div>\r\n    <div class=\"text-line-container\">\r\n      <div class=\"text-line-num\">{{o.preline1.n}}</div>\r\n      <div class=\"text-line\">{{o.preline1.text}}</div>\r\n    </div>\r\n    <div class=\"text-line text-line-main\">\r\n      <div class=\"text-line-num\">{{handler.start}}</div>\r\n      <div class=\"line-part\" *ngFor=\"let p of o.parts;\" (click)=\"select(p)\"\r\n           [ngClass]=\"{'separator':p.separator, 'empty':!p.text, 'current':p.index === (handler.schema || []).indexOf(handler._field)}\">{{p.text||'.'}}</div>\r\n    </div>\r\n    <div class=\"text-line-container\">\r\n      <div class=\"text-line-num\">{{o.postline1.n}}</div>\r\n      <div class=\"text-line\">{{o.postline1.text}}</div>\r\n    </div>\r\n    <div class=\"text-line-container\">\r\n      <div class=\"text-line-num\">{{o.postline2.n}}</div>\r\n      <div class=\"text-line level2\">{{o.postline2.text}}</div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"toolbar\" layout-row>\r\n  <span flex></span>\r\n  <button mat-icon-button matTooltip=\"scroll up\" (click)=\"prev()\">\r\n    <mat-icon>expand_less</mat-icon>\r\n  </button>\r\n  <button mat-icon-button matTooltip=\"scroll down\" (click)=\"next()\">\r\n    <mat-icon>expand_more</mat-icon>\r\n  </button>\r\n  <button mat-icon-button matTooltip=\"regenerate columns\" (click)=\"regen()\">\r\n    <mat-icon>flash_on</mat-icon>\r\n  </button>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/walkingdata-editors/wd-rule-check-exists.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div layout-row>\r\n  <select wd-editor-input [(ngModel)]=\"rule.filter\" placeholder=\"policy...\" flex>\r\n    <option *ngFor=\"let p of walking.newPolicies\" [value]=\"p.code\">{{ p.desc }}</option>\r\n  </select>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2420,7 +2665,7 @@ module.exports = "<div layout-row>\r\n  <input class=\"wd-editor-code\" wd-edito
 /***/ "../../../../../src/app/components/walkingdata-editors/wd-rule-post-delete.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div layout-row>\r\n  <p>delete file on end of operation</p>\r\n</div>\r\n"
+module.exports = "<div layout-row>\r\n  <p code class=\"code-color\">delete file on end of operation</p>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2438,10 +2683,17 @@ module.exports = "<div layout-row>\r\n  <input class=\"wd-editor-code\" wd-edito
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/walkingdata-editors/wd-rulehelp-viewer.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"wd-rule-help\" *ngIf=\"rule.help\" layout-col>\r\n  <div class=\"rule-help-toolbar\" layout-row>\r\n    <button class=\"on-right\" matTooltip=\"toggle rule help\" [ngClass]=\"{'mat-accent':active}\" mat-icon-button (click)=\"toggle()\">\r\n      <mat-icon>help_outline</mat-icon>\r\n    </button>\r\n  </div>\r\n  <div class=\"help-content\" *ngIf=\"active\" [innerHTML]=\"rule.help\" flex></div>\r\n</div>\r\n"
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/walkingdata-script-editor/walkingdata-script-editor.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"walkingdata-script-editor mat-elevation-z10\" [ngClass]=\"{'opened':opened}\" layout-row>\n  <div class=\"script-editor-tools left-tools\">\n    <div *ngIf=\"editorOptions.title\" class=\"title\">{{editorOptions.title}}</div>\n    <div *ngIf=\"editorOptions.description\" class=\"description\">{{editorOptions.description}}</div>\n  </div>\n  <codemirror #scripteditor [(ngModel)]=\"editorOptions.script\" [config]=\"scriptConfig\" flex></codemirror>\n  <div class=\"script-editor-tools right-tools\" layout-col>\n    <nav mat-tab-nav-bar>\n      <a mat-tab-link *ngFor=\"let tab of tabs\" [active]=\"tab===currentTab\" (click)=\"openTab(tab)\">{{tab.title}}</a>\n    </nav>\n    <div *ngIf=\"currentTab.fields\" class=\"tool-body echo-scrollbar\" layout-col flex>\n      <div class=\"echo-scrollable\">\n        <div class=\"field-row\" *ngFor=\"let f of editorOptions.fields||[]\" [ngClass]=\"{'divider accent-color':f.divider}\" layout-row>\n          <mat-icon *ngIf=\"!f.divider\" class=\"as-button\" aria-label=\"add button\" (click)=\"onInsertField(f)\">add_circle_outline</mat-icon>\n          <mat-icon *ngIf=\"f.icon && !f.divider\" aria-label=\"field icon\">{{f.icon}}</mat-icon>\n          <span class=\"title\">{{f.name}}</span>\n        </div>\n      </div>\n    </div>\n    <div *ngIf=\"currentTab.database\" class=\"tool-body echo-scrollbar\" layout-col flex>\n      <app-schema-browser (insert)=\"onInsert($event.value)\"></app-schema-browser>\n    </div>\n    <div *ngIf=\"currentTab.help\" class=\"tool-body echo-scrollbar\" layout-col flex>\n      <app-script-editor-help [key]=\"editorOptions.helpKey\"></app-script-editor-help>\n    </div>\n    <div class=\"toolbar\">\n      <button mat-icon-button matTooltip=\"close editor\" (click)=\"apply()\">\n        <mat-icon>close</mat-icon>\n      </button>\n    </div>\n  </div>\n</div>\n<div class=\"walkingdata-script-editor-backdrop\" *ngIf=\"opened\" (click)=\"apply()\"></div>\n"
+module.exports = "<div class=\"walkingdata-script-editor mat-elevation-z10\" [ngClass]=\"{'opened':opened}\" layout-row>\n  <div class=\"script-editor-tools left-tools\">\n    <div *ngIf=\"editorOptions.title\" class=\"title\">{{editorOptions.title}}</div>\n    <div *ngIf=\"editorOptions.description\" class=\"description\">{{editorOptions.description}}</div>\n  </div>\n  <codemirror #scripteditor [(ngModel)]=\"editorOptions.script\" [config]=\"scriptConfig\" flex></codemirror>\n  <div class=\"script-editor-tools right-tools\" layout-col>\n    <nav mat-tab-nav-bar>\n      <a mat-tab-link *ngFor=\"let tab of tabs\" [active]=\"tab===currentTab\" (click)=\"openTab(tab)\">{{tab.title}}</a>\n    </nav>\n    <div *ngIf=\"currentTab.fields\" class=\"tool-body echo-scrollbar\" layout-col flex>\n      <div class=\"echo-scrollable\">\n        <div class=\"field-row\" *ngFor=\"let f of editorOptions.fields||[]\" [ngClass]=\"{'divider accent-color':f.divider}\" layout-row>\n          <mat-icon *ngIf=\"!f.divider\" class=\"as-button\" aria-label=\"add button\" (click)=\"onInsertField(f)\">add_circle_outline</mat-icon>\n          <mat-icon *ngIf=\"f.icon && !f.divider\" aria-label=\"field icon\">{{f.icon}}</mat-icon>\n          <span class=\"title\">{{f.name}}</span>\n        </div>\n      </div>\n    </div>\n    <div *ngIf=\"currentTab.database\" class=\"tool-body echo-scrollbar\" layout-col flex>\n      <app-schema-browser (insert)=\"onInsert($event.value)\"></app-schema-browser>\n    </div>\n    <div *ngIf=\"currentTab.help\" class=\"tool-body echo-scrollbar\" layout-col flex>\n      <app-script-editor-help [key]=\"editorOptions.helpKey\"></app-script-editor-help>\n    </div>\n    <div *ngIf=\"currentTab.functions\" class=\"tool-body echo-scrollbar\" layout-col flex>\n      <div class=\"echo-scrollable\">\n        <div class=\"field-row\" *ngFor=\"let f of editorOptions.functions||[]\" [ngClass]=\"{'divider accent-color':f.divider}\" layout-row>\n          <mat-icon *ngIf=\"!f.divider\" class=\"as-button\" aria-label=\"add button\" (click)=\"onInsertFunction(f)\">add_circle_outline</mat-icon>\n          <div layout-col>\n            <div class=\"title\">{{f.template}}</div>\n            <div class=\"description\">{{f.help.desc}}</div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"toolbar\">\n      <button mat-icon-button matTooltip=\"close editor\" (click)=\"apply()\">\n        <mat-icon>close</mat-icon>\n      </button>\n    </div>\n  </div>\n</div>\n<div class=\"walkingdata-script-editor-backdrop\" *ngIf=\"opened\" (click)=\"apply()\"></div>\n"
 
 /***/ }),
 
@@ -2480,6 +2732,7 @@ var WalkingdataScriptEditorComponent = (function () {
         this.opened = false;
         this.scriptConfig = {
             lineNumbers: true,
+            lineWrapping: true,
             mode: 'javascript',
             theme: 'blackboard',
             height: '280px'
@@ -2563,7 +2816,12 @@ var WalkingdataScriptEditorComponent = (function () {
         this.scripteditor.instance.focus();
     };
     WalkingdataScriptEditorComponent.prototype.onInsertField = function (field) {
-        this.onInsert('{' + (field || {})._name + '}');
+        var v = this.editorOptions.format(field || {});
+        this.onInsert(v);
+    };
+    WalkingdataScriptEditorComponent.prototype.onInsertFunction = function (func) {
+        var f = func.template || (func.name + '()');
+        this.onInsert(f);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('scripteditor'),
@@ -2614,7 +2872,7 @@ module.exports = "<ng-container [ngSwitch]=\"key\">\r\n  <div *ngSwitchCase=\"'e
 /***/ "../../../../../src/app/components/walkingdata-source-editor/walkingdata-source-editor.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"walkingdata-source-editor wd-editor\" mat-dialog-content layout-col>\n  <nav mat-tab-nav-bar>\n    <a mat-tab-link *ngFor=\"let tab of tabs\" [active]=\"tab===currentTab\" (click)=\"openTab(tab)\">{{tab.title}}</a>\n  </nav>\n  <div *ngIf=\"currentTab.definition\" class=\"echo-scrollbar\" [ngSwitch]=\"source.type\" layout-col flex>\n    <app-wd-handler-file-definition *ngSwitchCase=\"'file'\" [handler]=\"source\"></app-wd-handler-file-definition>\n    <app-wd-handler-file-definition *ngSwitchCase=\"'newfile'\" [handler]=\"source\"></app-wd-handler-file-definition>\n    <app-wd-handler-query-definition *ngSwitchCase=\"'query'\" [handler]=\"source\"></app-wd-handler-query-definition>\n    <app-wd-handler-table-definition *ngSwitchCase=\"'table'\" [handler]=\"source\"></app-wd-handler-table-definition>\n    <app-wd-handler-web-definition *ngSwitchCase=\"'web'\" [handler]=\"source\"></app-wd-handler-web-definition>\n  </div>\n  <div *ngIf=\"currentTab.schema\" class=\"echo-scrollbar\" [ngSwitch]=\"source.type\" layout-col flex>\n    <app-wd-handler-file-schema *ngSwitchCase=\"'file'\" [handler]=\"source\" layout-col flex></app-wd-handler-file-schema>\n    <app-wd-handler-file-schema *ngSwitchCase=\"'newfile'\" [handler]=\"source\" layout-col flex></app-wd-handler-file-schema>\n    <app-wd-handler-schema *ngSwitchDefault [handler]=\"source\" layout-col flex></app-wd-handler-schema>\n  </div>\n  <div *ngIf=\"currentTab.rules\" class=\"echo-scrollbar\" [ngSwitch]=\"source.type\" layout-col flex>\n    <app-wd-handler-rules [handler]=\"source\"></app-wd-handler-rules>\n  </div>\n</div>\n<div mat-dialog-actions>\n  <button mat-raised-button color=\"accent\" (click)=\"close()\">DONE</button>\n</div>\n"
+module.exports = "<div class=\"walkingdata-source-editor wd-editor\" mat-dialog-content layout-col>\n  <nav mat-tab-nav-bar>\n    <a mat-tab-link *ngFor=\"let tab of tabs\" [active]=\"tab===currentTab\" (click)=\"openTab(tab)\">\n      {{tab.title||(tab.getTitle?tab.getTitle():'OPTIONS')}}\n    </a>\n  </nav>\n  <div *ngIf=\"currentTab.definition\" class=\"echo-scrollbar\" [ngSwitch]=\"source.type\" layout-col flex>\n    <app-wd-handler-file-definition *ngSwitchCase=\"'file'\" [handler]=\"source\"></app-wd-handler-file-definition>\n    <app-wd-handler-file-definition *ngSwitchCase=\"'newfile'\" [handler]=\"source\"></app-wd-handler-file-definition>\n    <app-wd-handler-query-definition *ngSwitchCase=\"'query'\" [handler]=\"source\"></app-wd-handler-query-definition>\n    <app-wd-handler-table-definition *ngSwitchCase=\"'table'\" [handler]=\"source\"></app-wd-handler-table-definition>\n    <app-wd-handler-web-definition *ngSwitchCase=\"'web'\" [handler]=\"source\"></app-wd-handler-web-definition>\n  </div>\n  <div *ngIf=\"currentTab.schema\" class=\"echo-scrollbar\" [ngSwitch]=\"source.type\" layout-col flex>\n    <app-wd-handler-file-schema *ngSwitchCase=\"'file'\" [handler]=\"source\" layout-col flex></app-wd-handler-file-schema>\n    <app-wd-handler-file-schema *ngSwitchCase=\"'newfile'\" [handler]=\"source\" layout-col flex></app-wd-handler-file-schema>\n    <app-wd-handler-schema *ngSwitchDefault [handler]=\"source\" layout-col flex></app-wd-handler-schema>\n  </div>\n  <div *ngIf=\"currentTab.rules\" class=\"echo-scrollbar\" [ngSwitch]=\"source.type\" layout-col flex>\n    <app-wd-handler-rules [handler]=\"source\"></app-wd-handler-rules>\n  </div>\n</div>\n<div mat-dialog-actions>\n  <button mat-raised-button color=\"accent\" (click)=\"close()\" [disabled]=\"!validate()\">DONE</button>\n</div>\n"
 
 /***/ }),
 
@@ -2643,6 +2901,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 
 var WalkingdataSourceEditorComponent = (function () {
     function WalkingdataSourceEditorComponent(dialogRef, data, walking) {
+        var _this = this;
         this.dialogRef = dialogRef;
         this.data = data;
         this.walking = walking;
@@ -2654,7 +2913,10 @@ var WalkingdataSourceEditorComponent = (function () {
                 title: 'SCHEMA',
                 schema: true
             }, {
-                title: 'RULES',
+                getTitle: function () {
+                    var rc = (_this.source.rules || []).length;
+                    return 'RULES' + (rc ? ' (' + rc + ')' : '');
+                },
                 rules: true
             }];
         this.currentTab = null;
@@ -2670,6 +2932,10 @@ var WalkingdataSourceEditorComponent = (function () {
     };
     WalkingdataSourceEditorComponent.prototype.openTab = function (tab) {
         this.currentTab = tab;
+    };
+    WalkingdataSourceEditorComponent.prototype.validate = function () {
+        var self = this;
+        return self.walking.validate(self.source);
     };
     WalkingdataSourceEditorComponent.prototype.close = function () {
         this.dialogRef.close();
@@ -2706,7 +2972,7 @@ module.exports = "<div class=\"handlers-chooser walkingdata-chooser\" mat-dialog
 /***/ "../../../../../src/app/components/walkingdata-stage/walkingdata-stage.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"walkingdata-stage\" dragdrop (filesChangeEmiter)=\"onFilesChange($event)\" (click)=\"open($event)\">\n  <div class=\"stage-name\">stage {{(index+1)}}</div>\n  <p class=\"stage-hint text-center grey-text\">click here to add new data source</p>\n  <app-walkingdata-handler *ngFor=\"let s of stage.sources\" (click)=\"selectSource($event, s)\" [source]=\"s\"></app-walkingdata-handler>\n</div>\n"
+module.exports = "<div class=\"walkingdata-stage-container\">\n  <div class=\"walkingdata-stage\" dragdrop (filesChangeEmiter)=\"onFilesChange($event)\" (click)=\"open($event)\">\n    <div class=\"stage-name\">stage {{(index+1)}}</div>\n    <p class=\"stage-hint text-center grey-text\">click here to add new data source</p>\n    <p class=\"stage-hint stage-hint-2 text-center grey-text\">or drag and drop here a file</p>\n    <app-walkingdata-handler *ngFor=\"let s of stage.sources\" (click)=\"selectSource($event, s)\" [source]=\"s\"></app-walkingdata-handler>\n  </div>\n  <app-wd-handler-mover [stage]=\"stage\"></app-wd-handler-mover>\n</div>\n"
 
 /***/ }),
 
@@ -2803,18 +3069,22 @@ var WalkingdataStageComponent = (function () {
         this.u = u;
         this.dialog = dialog;
         this.browser = browser;
+        this.uploading = false;
     }
     WalkingdataStageComponent.prototype.ngOnInit = function () {
     };
     WalkingdataStageComponent.prototype.onFilesChange = function (files) {
         var self = this;
         if ((files || []).length > 0) {
+            self.uploading = true;
             self.stage.sources = self.stage.sources || [];
             var source = __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.find(self.walking.sources, function (src) { return src.type === 'file'; });
-            var s = self.walking.getNewSource(source);
-            self.walking.loadFile(s, files[0]);
-            self.stage.sources.push(s);
-            self.editing.editSource(s);
+            var s_1 = self.walking.getNewSource(source);
+            self.walking.loadFile(s_1, files[0], function () {
+                self.stage.sources.push(s_1);
+                self.uploading = false;
+                self.editing.editSource(s_1);
+            });
         }
     };
     WalkingdataStageComponent.prototype.open = function (e) {
@@ -2858,8 +3128,9 @@ var WalkingdataStageComponent = (function () {
         });
     };
     WalkingdataStageComponent.prototype.selectSource = function (e, source) {
+        var self = this;
         e.stopPropagation();
-        this.walking.currentSource = source;
+        self.walking.setCurrentSource(self.browser.current, source);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('stage'),
@@ -2890,7 +3161,7 @@ var WalkingdataStageComponent = (function () {
 /***/ "../../../../../src/app/components/walkingdata-target-editor/walkingdata-target-editor.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"walkingdata-target-editor wd-editor\" mat-dialog-content layout-col>\n  <nav mat-tab-nav-bar>\n    <a mat-tab-link *ngFor=\"let tab of tabs\" [active]=\"tab===currentTab\" (click)=\"openTab(tab)\">{{tab.title}}</a>\n  </nav>\n  <div *ngIf=\"currentTab.definition\" class=\"echo-scrollbar\" [ngSwitch]=\"target.type\" layout-col flex>\n    <app-wd-handler-table-definition *ngSwitchCase=\"'table'\" [handler]=\"target\"></app-wd-handler-table-definition>\n    <app-wd-handler-table-definition *ngSwitchCase=\"'newtable'\" [handler]=\"target\"></app-wd-handler-table-definition>\n    <app-wd-handler-file-definition *ngSwitchCase=\"'newfile'\" [handler]=\"target\"></app-wd-handler-file-definition>\n  </div>\n  <div *ngIf=\"currentTab.schema\" class=\"echo-scrollbar\" [ngSwitch]=\"target.type\" layout-col flex>\n    <app-wd-handler-file-schema *ngSwitchCase=\"'newfile'\" [handler]=\"target\" layout-col flex></app-wd-handler-file-schema>\n    <app-wd-handler-schema *ngSwitchDefault [handler]=\"target\" layout-col flex></app-wd-handler-schema>\n  </div>\n  <div *ngIf=\"currentTab.rules\" class=\"echo-scrollbar\" [ngSwitch]=\"target.type\" layout-col flex>\n    <app-wd-handler-rules [handler]=\"target\"></app-wd-handler-rules>\n  </div>\n</div>\n<div mat-dialog-actions>\n  <button mat-raised-button color=\"accent\" (click)=\"close()\">DONE</button>\n</div>\n"
+module.exports = "<div class=\"walkingdata-target-editor wd-editor\" mat-dialog-content layout-col>\n  <nav mat-tab-nav-bar>\n    <a mat-tab-link *ngFor=\"let tab of tabs\" [active]=\"tab===currentTab\" (click)=\"openTab(tab)\">\n      {{tab.title||(tab.getTitle?tab.getTitle():'OPTIONS')}}\n    </a>\n  </nav>\n  <div *ngIf=\"currentTab.definition\" class=\"echo-scrollbar\" [ngSwitch]=\"target.type\" layout-col flex>\n    <app-wd-handler-table-definition *ngSwitchCase=\"'table'\" [handler]=\"target\"></app-wd-handler-table-definition>\n    <app-wd-handler-table-definition *ngSwitchCase=\"'newtable'\" [handler]=\"target\"></app-wd-handler-table-definition>\n    <app-wd-handler-file-definition *ngSwitchCase=\"'newfile'\" [handler]=\"target\"></app-wd-handler-file-definition>\n  </div>\n  <div *ngIf=\"currentTab.schema\" class=\"echo-scrollbar\" [ngSwitch]=\"target.type\" layout-col flex>\n    <app-wd-handler-file-schema *ngSwitchCase=\"'newfile'\" [handler]=\"target\" layout-col flex></app-wd-handler-file-schema>\n    <app-wd-handler-schema *ngSwitchDefault [handler]=\"target\" layout-col flex></app-wd-handler-schema>\n  </div>\n  <div *ngIf=\"currentTab.rules\" class=\"echo-scrollbar\" [ngSwitch]=\"target.type\" layout-col flex>\n    <app-wd-handler-rules [handler]=\"target\"></app-wd-handler-rules>\n  </div>\n</div>\n<div mat-dialog-actions>\n  <button mat-raised-button color=\"accent\" (click)=\"close()\" [disabled]=\"!validate()\">DONE</button>\n</div>\n"
 
 /***/ }),
 
@@ -2919,6 +3190,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 
 var WalkingdataTargetEditorComponent = (function () {
     function WalkingdataTargetEditorComponent(dialogRef, data, walking) {
+        var _this = this;
         this.dialogRef = dialogRef;
         this.data = data;
         this.walking = walking;
@@ -2930,7 +3202,10 @@ var WalkingdataTargetEditorComponent = (function () {
                 title: 'SCHEMA',
                 schema: true
             }, {
-                title: 'RULES',
+                getTitle: function () {
+                    var rc = (_this.target.rules || []).length;
+                    return 'RULES' + (rc ? ' (' + rc + ')' : '');
+                },
                 rules: true
             }];
         this.currentTab = null;
@@ -2943,6 +3218,10 @@ var WalkingdataTargetEditorComponent = (function () {
     };
     WalkingdataTargetEditorComponent.prototype.openTab = function (tab) {
         this.currentTab = tab;
+    };
+    WalkingdataTargetEditorComponent.prototype.validate = function () {
+        var self = this;
+        return self.walking.validate(self.target);
     };
     WalkingdataTargetEditorComponent.prototype.close = function () {
         this.dialogRef.close();
@@ -2965,7 +3244,7 @@ var WalkingdataTargetEditorComponent = (function () {
 /***/ "../../../../../src/app/components/walkingdata-target/walkingdata-target.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"walkingdata-target\">\n  <div class=\"header\" layout-row>\n    <mat-icon>{{walking.currentSource.icon}}</mat-icon>\n    <mat-icon>trending_flat</mat-icon>\n    <mat-icon>{{target.icon}}</mat-icon>\n    <p flex>{{target.name||('New '+target.type+' target')}}</p>\n    <button mat-icon-button matTooltip=\"advanced editor active\" (click)=\"toggleAdvanced()\">\n      <mat-icon aria-label=\"advanced editor active\" [ngClass]=\"{'accent-color':target._editor!==false}\">\n        {{target._editor===false?'cast':'cast_connected'}}\n      </mat-icon>\n    </button>\n    <div class=\"divider-vertical\"></div>\n    <button mat-icon-button matTooltip=\"edit target\" (click)=\"editTarget()\">\n      <mat-icon aria-label=\"edit handler\">edit</mat-icon>\n    </button>\n    <button mat-icon-button color=\"warn\" matTooltip=\"delete target\" (click)=\"deleteTarget()\">\n      <mat-icon aria-label=\"left button\">delete</mat-icon>\n    </button>\n    <div class=\"divider-vertical\"></div>\n    <button mat-icon-button matTooltip=\"expand/collapse\"\n            [ngClass]=\"{'collapsed':target._collapsed}\" (click)=\"toggle()\">\n      <mat-icon aria-label=\"toggle state\">expand_more</mat-icon>\n    </button>\n  </div>\n  <div class=\"binding-area wd-editor\" *ngIf=\"!target._collapsed\">\n    <div class=\"field-binding\" *ngFor=\"let b of target.schema\" layout-row>\n      <div class=\"field\" layout-row>\n        <mat-icon aria-label=\"field state\">{{b.icon||'fiber_manual_record'}}</mat-icon>\n        <div class=\"field-name\">{{b.name}}</div>\n      </div>\n      <app-walkingdata-transformer [field]=\"b\" [target]=\"target\" flex></app-walkingdata-transformer>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"walkingdata-target\">\n  <div class=\"header\" layout-row>\n    <mat-icon>{{walking.currentSource.icon}}</mat-icon>\n    <mat-icon [ngClass]=\"{'accent-color':target.bulk}\">trending_flat</mat-icon>\n    <mat-icon>{{target.icon}}</mat-icon>\n    <p flex>{{target.name||('New '+target.type+' target')}} <span class=\"badge badge-accent\" *ngIf=\"target.bulk\">bulk</span> </p>\n    <button mat-icon-button matTooltip=\"advanced editor active\" (click)=\"toggleAdvanced()\">\n      <mat-icon aria-label=\"advanced editor active\" [ngClass]=\"{'accent-color':target._editor!==false}\">\n        {{target._editor===false?'cast':'cast_connected'}}\n      </mat-icon>\n    </button>\n    <div class=\"divider-vertical\"></div>\n    <button mat-icon-button matTooltip=\"edit target\" (click)=\"editTarget()\">\n      <mat-icon aria-label=\"edit handler\">edit</mat-icon>\n    </button>\n    <button mat-icon-button color=\"warn\" matTooltip=\"delete target\" (click)=\"deleteTarget()\">\n      <mat-icon aria-label=\"left button\">delete</mat-icon>\n    </button>\n    <div class=\"divider-vertical\"></div>\n    <button mat-icon-button matTooltip=\"expand/collapse\"\n            [ngClass]=\"{'collapsed':target._collapsed}\" (click)=\"toggle()\">\n      <mat-icon aria-label=\"toggle state\">expand_more</mat-icon>\n    </button>\n  </div>\n  <div class=\"binding-area wd-editor\" *ngIf=\"!target._collapsed\">\n    <div class=\"field-binding\" *ngFor=\"let b of target.schema\" layout-row>\n      <div class=\"field\" layout-row>\n        <mat-icon aria-label=\"field state\">{{b.icon||'fiber_manual_record'}}</mat-icon>\n        <div class=\"field-name\">{{b.name}}</div>\n      </div>\n      <app-walkingdata-transformer [field]=\"b\" [target]=\"target\" flex></app-walkingdata-transformer>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3078,7 +3357,7 @@ var WalkingdataTransformerComponent = (function () {
     WalkingdataTransformerComponent.prototype.include = function (items, cll, typedef) {
         if ((cll || []).length) {
             items.push(typedef);
-            cll.forEach(function (i) { return i._name = typedef.type + ':' + i.name; });
+            cll.forEach(function (i) { return i._type = typedef.type; });
             items.push.apply(items, cll);
         }
     };
@@ -3102,20 +3381,24 @@ var WalkingdataTransformerComponent = (function () {
                     name: self.field.transformer.lookup.fieldMatch,
                     typecode: self.field.transformer.lookup.fieldType
                 };
+                options.mode = 'sql';
                 options.helpKey = advanced ? 'lookup-advanced' : 'lookup';
                 options.title = advanced ? 'Lookup script' : 'Lookup filter';
                 options.description = self.u.format(targetdesc, info);
                 options.script = self.field.transformer.lookup.filter;
                 options.connection = self.field.transformer.lookup.connection;
                 options.apply = function () { return self.field.transformer.lookup.filter = options.script; };
+                options.format = function (f) { return '{=' + f._type + '[\'' + f.name + '\']}'; };
                 break;
             default:
+                options.mode = 'js';
                 options.helpKey = 'expression';
                 options.title = 'Transformer expression';
                 options.functions = (this.app.info.walking || {}).functions || [];
                 options.description = self.u.format(targetdesc, self.field);
                 options.script = self.field.transformer.expression;
                 options.apply = function () { return self.field.transformer.expression = options.script; };
+                options.format = function (f) { return f._type + '[\'' + f.name + '\']'; };
                 break;
         }
         self.editing.scriptEditor.show(options);
@@ -3198,6 +3481,48 @@ var WalkingdataTargetComponent = (function () {
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"transformer\">\r\n  <div class=\"equal\">=</div>\r\n  <textarea class=\"echo-scrollbar text-editor\" [(ngModel)]=\"field.transformer.expression\"\r\n            *ngIf=\"!field.transformer.mode || field.transformer.mode==='expression'\" (focus)=\"editTransformer()\"\r\n            placeholder=\"expression...\" matTextareaAutosize layout-fill></textarea>\r\n  <div *ngIf=\"field.transformer.mode==='lookup'\">\r\n    <div class=\"lookup-params\" layout-row>\r\n      <labelled caption=\"Connection\" flex>\r\n        <select wd-editor-input [(ngModel)]=\"field.transformer.lookup.connection\" (change)=\"loadSchema()\" placeholder=\"connection\" flex>\r\n          <option *ngFor=\"let c of connections\" [value]=\"c._id\">{{ c.name }}</option>\r\n        </select>\r\n      </labelled>\r\n      <labelled *ngIf=\"!field.transformer.lookup.advanced\" caption=\"Table Name\" flex>\r\n        <select wd-editor-input [(ngModel)]=\"field.transformer.lookup.tableName\" (change)=\"loadTable()\" placeholder=\"tablename\" flex>\r\n          <option *ngFor=\"let t of (schema||{}).tables||[]\" [value]=\"t.TABLE_NAME\">{{ t.TABLE_NAME }}</option>\r\n        </select>\r\n      </labelled>\r\n      <labelled *ngIf=\"!field.transformer.lookup.advanced\" caption=\"Source Field\" flex>\r\n        <select wd-editor-input [(ngModel)]=\"field.transformer.lookup.fieldName\" placeholder=\"source field\" flex>\r\n          <option *ngFor=\"let c of (table||{}).columns||[]\" [value]=\"c.COLUMN_NAME\">{{ c.COLUMN_NAME }}</option>\r\n        </select>\r\n      </labelled>\r\n    </div>\r\n    <div class=\"lookup-params\" *ngIf=\"!field.transformer.lookup.advanced\" layout-row>\r\n      <labelled caption=\"Match Field\" flex>\r\n        <select wd-editor-input [(ngModel)]=\"field.transformer.lookup.fieldMatch\" (change)=\"loadField()\" placeholder=\"match field\" flex>\r\n          <option *ngFor=\"let c of (table||{}).columns||[]\" [value]=\"c.COLUMN_NAME\">{{ c.COLUMN_NAME }}</option>\r\n        </select>\r\n      </labelled>\r\n      <div class=\"lookup-equal\">=</div>\r\n      <textarea class=\"echo-scrollbar text-editor\" [(ngModel)]=\"field.transformer.lookup.filter\"\r\n                (focus)=\"editTransformer()\" placeholder=\"script\" matTextareaAutosize flex></textarea>\r\n    </div>\r\n    <textarea *ngIf=\"field.transformer.lookup.advanced\" class=\"echo-scrollbar text-editor\"\r\n              [(ngModel)]=\"field.transformer.lookup.filter\" (focus)=\"editTransformer()\"\r\n              placeholder=\"script\" matTextareaAutosize layout-fill></textarea>\r\n  </div>\r\n  <button mat-icon-button class=\"transformer-menu\" matTooltip=\"trasformations menu\" [matMenuTriggerFor]=\"menu\">\r\n    <mat-icon>menu</mat-icon>\r\n  </button>\r\n  <mat-menu #menu=\"matMenu\">\r\n    <button mat-menu-item *ngFor=\"let v of transformerMenu\" (click)=\"execVoice(v)\" [ngClass]=\"{'checked':isChecked(v)}\">\r\n      <mat-icon>{{v.icon}}</mat-icon>\r\n      <span>{{v.caption}}</span>\r\n    </button>\r\n  </mat-menu>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/warnings-editor/warnings-editor.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"warnings-editor\" mat-dialog-content>\n  <!-- TITLE / DESC -->\n  <!-- WARNINGS LIST .... -->\n  <p>Warning list....</p>\n</div>\n<div mat-dialog-actions>\n  <button mat-button (click)=\"close()\">cancel</button>\n  <button mat-button cdkFocusInitial (click)=\"close(true)\">apply</button>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/warnings-editor/warnings-editor.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WarningsEditorComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var WarningsEditorComponent = (function () {
+    function WarningsEditorComponent() {
+    }
+    WarningsEditorComponent.prototype.ngOnInit = function () {
+    };
+    WarningsEditorComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-warnings-editor',
+            template: __webpack_require__("../../../../../src/app/components/warnings-editor/warnings-editor.component.html")
+        }),
+        __metadata("design:paramtypes", [])
+    ], WarningsEditorComponent);
+    return WarningsEditorComponent;
+}());
+
+
 
 /***/ }),
 
@@ -4641,7 +4966,7 @@ var SlowqueryHelpComponent = (function () {
 /***/ "../../../../../src/app/pages/help/pages/walkingdata-help.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"help-walkingdata\">\r\n  <p>todo ....</p>\r\n</div>\r\n"
+module.exports = "<div id=\"help-walkingdata\">\r\n  <p>Walking-Data è un tool semplificato di migrazione dati (ETL)</p>\r\n  <p>Nell'intestazione è possibile definire il nome, delle note e gestirne l'attivazione</p>\r\n  <img src=\"./assets/help/walking1.jpg\">\r\n  <p>Inoltre sono presenti due pulsanti per aggiungere <b>stage</b> e <b>parametri</b></p>\r\n  <p>L'esecuzione di un documento di Walking-Data prevede l'esecuzione di tutti gli elementi presenti nel primo stage\r\n    prima di passare al secondo. Ogni stage può generare errori bloccanti per lo stage o per il processo nel suo insieme.</p>\r\n  <p>Nella fascia sottostante è possibile vedere i parametri inseriti ed i pulsanti utili alle operazioni\r\n    di gestione degli stessi</p>\r\n  <img src=\"./assets/help/walking2.jpg\">\r\n  <p>Ancora sotto l'elenco degli stage che fanno parte del piano.</p>\r\n  <p>Cliccando sull'area dello stage è possibile scegliere il tipo di elemento sorgente. Se invece trasciniamo un\r\n    file in quest'area sarà scelto il tipo ottimale per il file.</p>\r\n  <img src=\"./assets/help/walking3.jpg\">\r\n  <p>Se una sorgente ha abbinati 1 o più targets, sull'icona che lo rappresenta nello stage, appare un bedge che\r\n    espone questa quantità.</p>\r\n  <p>Selezionando un elemento dello stage, nella parte inferiore, apparirà un'area con le azioni specifiche e l'elenco\r\n    dei trasformatori presenti.</p>\r\n  <img src=\"./assets/help/walking4.jpg\">\r\n  <p>i trasformatori possono essere di 3 tipi:</p>\r\n  <ol>\r\n    <li><strong>espressione</strong>: è costituito da un'espressione (javascript) che pò contenere funzioni proprietarie (+lodash) e\r\n      riferimenti a campi dello schema della sorgente, ai parametri del documento e di sistema;</li>\r\n    <li><strong>lookup semplificato</strong>: questa definizione di lookup permette di scegliere da un elenco i parametri del lookup come\r\n      la connessione, la tabella sorgente, il campo sorgente, il campo di confronto per la where. La definizione del\r\n      valore da confrontare con quest'ultimo campo è lasciata all'utente come espressione SQL che può contenere i\r\n      riferimenti prima mensionati;</li>\r\n    <li><strong>lookup avanzato</strong>: quello avanzato offre la possibilità di scrivere integralmente la query scalare di\r\n      selezione del valore.</li>\r\n  </ol>\r\n</div>\r\n<div id=\"help-walkingdata-handlers\">\r\n  <p>Ogni elemento di uno stage (sorgente) così come ogni target di questi elementi sono in generale dei gestori di risorse.</p>\r\n  <p>L'editor che li definisce è equivalente e tiene conto della tipologia del gestore.</p>\r\n  <p>come sorgenti possiamo scegliere tra:</p>\r\n  <img src=\"./assets/help/walking6.jpg\">\r\n  <p>Dove gli elementi sono:</p>\r\n  <ol>\r\n    <li><strong>Existent File</strong>: è inteso un file esistente in cartella;</li>\r\n    <li><strong>Virtual File</strong>: rappresenta un file virtuale o un path entro cui walking-data preleverà  i file;</li>\r\n    <li><strong>Database Table</strong>: rappresenta una tabella in DB;</li>\r\n    <li><strong>Query</strong>: ottiene i dati dall'esecuzione di una query esistente;</li>\r\n    <li><strong>Web request</strong>: ottiene i dati da una rchiesta http;</li>\r\n  </ol>\r\n  <p>Come target invece possiamo scegliere tra:</p>\r\n  <img src=\"./assets/help/walking7.jpg\">\r\n  <p>Dove gli elementi sono:</p>\r\n  <ol>\r\n    <li><strong>Database Table</strong>: il target è una tabella esistente in DB;</li>\r\n    <li><strong>Database Virtual Table</strong>: il target è una tabella che viene generata al volo (può essere una BULK);</li>\r\n    <li><strong>Virtual File</strong>: il target è un file generato al momento;</li>\r\n  </ol>\r\n</div>\r\n<div id=\"help-walkingdata-editor\">\r\n  <p>L'editor delle espressioni JS o SQL si apre nella partte inferiore della finestra se il check \"advanced editor active\"\r\n    è attivato.</p>\r\n  <img src=\"./assets/help/walking5.jpg\">\r\n  <p>Sulla sinistra la descrizione del dcontesto, al centro l'editor vero e proprio e a destra i tool per gli oggetti\r\n    inseribili e l'help.</p>\r\n</div>\r\n<div id=\"help-walkingdata-actions\">\r\n  <p>Azioni previste dall'editor:</p>\r\n  <img src=\"./assets/help/walking0.jpg\">\r\n  <p>\r\n    <button mat-icon-button>\r\n      <mat-icon>play_arrow</mat-icon>\r\n    </button>\r\n    Avvia l'esecuzione del piano di walking-data.\r\n  </p>\r\n  <p>\r\n    <button mat-icon-button>\r\n      <mat-icon>add_circle_outline</mat-icon>\r\n    </button>\r\n    Crea un nuovo piano di migrazione walking-data\r\n  </p>\r\n  <p>\r\n    <button mat-icon-button>\r\n      <mat-icon>save</mat-icon>\r\n    </button>\r\n    Applica le modifiche al piano corrente.\r\n  </p>\r\n  <p>\r\n    <button mat-icon-button>\r\n      <mat-icon>add_shopping_cart</mat-icon>\r\n    </button>\r\n    Aggiunge l'elemento selezionato all'elenco degli ogetti condivisibili.\r\n  </p>\r\n  <p>\r\n    <button mat-icon-button color=\"warn\">\r\n      <mat-icon>delete</mat-icon>\r\n    </button>\r\n    Elimina il documento selezionato.\r\n  </p>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -4666,6 +4991,15 @@ var WalkingdataHelpComponent = (function () {
         this.map = [{
                 id: 'help-walkingdata',
                 desc: 'Walking-data'
+            }, {
+                id: 'help-walkingdata-handlers',
+                desc: 'Gestori delle risorse'
+            }, {
+                id: 'help-walkingdata-editor',
+                desc: 'Expressions editor'
+            }, {
+                id: 'help-walkingdata-actions',
+                desc: 'Azioni possibili'
             }];
     }
     WalkingdataHelpComponent.prototype.ngOnInit = function () {
@@ -5637,7 +5971,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".starter {\r\n  height: 60%; }\r\n  .starter .mat-icon-button {\r\n    width: 100px;\r\n    height: 100px;\r\n    margin: auto; }\r\n    .starter .mat-icon-button .mat-icon {\r\n      width: 100px;\r\n      height: 100px;\r\n      font-size: 80px;\r\n      line-height: 100px; }\r\n\r\n.invaders-container.running {\r\n  background-color: black; }\r\n.invaders-container .invaders {\r\n  padding-left: calc(50% - 400px);\r\n  padding-top: 50px; }\r\n", ""]);
+exports.push([module.i, ".starter {\r\n  height: 60%; }\r\n  .starter .mat-icon-button {\r\n    width: 100px;\r\n    height: 100px;\r\n    margin: 160px auto auto; }\r\n    .starter .mat-icon-button .mat-icon {\r\n      width: 100px;\r\n      height: 100px;\r\n      font-size: 80px;\r\n      line-height: 100px; }\r\n\r\n.invaders-container.running {\r\n  background-color: black; }\r\n.invaders-container .invaders {\r\n  padding-left: calc(50% - 400px);\r\n  padding-top: 50px; }\r\n.invaders-container .invaders-header {\r\n  position: absolute;\r\n  width: 100%;\r\n  text-align: center;\r\n  opacity: .4;\r\n  padding-top: 20px; }\r\n", ""]);
 
 // exports
 
@@ -5650,7 +5984,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/slow-query/slow-query.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page-container invaders-container layout-fill\" [ngClass]=\"{'running':running}\">\n  <div class=\"starter\" *ngIf=\"!running\" layout-row>\n    <button mat-icon-button (click)=\"run()\" matTooltip=\"Run slow query manager\">\n      <mat-icon>play_circle_filled</mat-icon>\n    </button>\n  </div>\n  <div class=\"invaders\" #invaders></div>\n</div>\n"
+module.exports = "<div class=\"page-container invaders-container layout-fill\" [ngClass]=\"{'running':running}\">\n  <div class=\"starter\" *ngIf=\"!running\" layout-row>\n    <div class=\"invaders-header\">\n      <h1>SLOW QUERY MANAGEMENT</h1>\n      <p>this tool help user to manage slow queries</p>\n    </div>\n    <button mat-icon-button (click)=\"run()\" matTooltip=\"Run slow query manager\">\n      <mat-icon>play_circle_filled</mat-icon>\n    </button>\n  </div>\n  <div class=\"invaders\" #invaders></div>\n</div>\n"
 
 /***/ }),
 
@@ -5933,7 +6267,7 @@ module.exports = "<div class=\"handlers-chooser walkingdata-chooser\" mat-dialog
 /***/ "../../../../../src/app/pages/walkingdata/walkingdata.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page-container walking-data layout-fill\">\n  <app-browser></app-browser>\n  <div class=\"page-editor echo-scrollbar\" flex>\n    <app-page-header [options]=\"header\"></app-page-header>\n    <app-new-element *ngIf=\"ready\"></app-new-element>\n    <div class=\"page-cards walking-editor\" *ngIf=\"browser.current\">\n      <!-- HEADER -->\n      <mat-card>\n        <mat-card-header>\n          <mat-card-title></mat-card-title>\n          <mat-slide-toggle class=\"top-right\" [(ngModel)]=\"browser.current.active\">Active</mat-slide-toggle>\n        </mat-card-header>\n        <mat-card-content>\n          <div layout-col>\n            <div layout-row>\n              <mat-form-field layout-70>\n                <input matInput [(ngModel)]=\"browser.current.name\" placeholder=\"Name\">\n              </mat-form-field>\n            </div>\n            <mat-form-field>\n              <textarea matInput [(ngModel)]=\"browser.current.info\" rows=\"1\" matTextareaAutosize placeholder=\"Description\"></textarea>\n            </mat-form-field>\n          </div>\n          <mat-progress-spinner class=\"walking-spinner\" *ngIf=\"walking.idle\" diameter=\"40\"\n                                color=\"accent\" mode=\"indeterminate\"></mat-progress-spinner>\n        </mat-card-content>\n        <mat-card-actions layout-right>\n          <button mat-raised-button color=\"warn\" *ngIf=\"walking.current === browser.current._id && !walking.idle\"\n                  (click)=\"clearLog()\">CLEAR LOG</button>\n          <button mat-raised-button color=\"accent\" (click)=\"newStage()\">ADD STAGE</button>\n          <button mat-raised-button color=\"accent\" (click)=\"newParameter()\">ADD PARAMETER</button>\n        </mat-card-actions>\n      </mat-card>\n      <!-- PARAMETERS -->\n      <span *ngIf=\"((browser.current||{}).parameters||[]).length\">Parameters</span>\n      <div class=\"page-editor-parameters\">\n        <div class=\"page-parameter mat-elevation-z4 dark-background\" *ngFor=\"let p of browser.current.parameters\" layout-row>\n          <mat-icon aria-label=\"parameter type\" [matTooltip]=\"p.type\">{{p.icon}}</mat-icon>\n          <span class=\"name\">{{p.name}}</span>\n          <span class=\"value\"> = {{p.value}}</span>\n          <span class=\"type\">{{p.dataType}}</span>\n          <div class=\"page-parameter-toolbar\">\n            <mat-icon class=\"as-button\" (click)=\"edit(p)\" aria-label=\"command edit\">edit</mat-icon>\n            <mat-icon class=\"as-button\" (click)=\"remove(p)\" aria-label=\"command delete\" color=\"warn\">delete</mat-icon>\n          </div>\n        </div>\n      </div>\n      <!-- LOG -->\n      <div class=\"walking-log\" *ngIf=\"walking.current === browser.current._id\">\n        <ng-container *ngFor=\"let i of walking.items\">\n          <div class=\"log-item has-details\" [ngClass]=\"'log-item-type-'+i.type.toLowerCase()\" *ngIf=\"!!i.time_str\" tabindex=\"-1\">[{{i.time_str}} {{(i.type||'').toUpperCase()}}] {{i.message}}</div>\n          <div class=\"log-item log-item-string\" *ngIf=\"!i.time_str\">{{i}}</div>\n        </ng-container>\n      </div>\n      <!-- EDITOR -->\n      <ng-container *ngIf=\"!walking.idle && walking.current !== browser.current._id\">\n        <span>Stages</span>\n        <!-- PLAN -->\n        <app-walkingdata-stage *ngFor=\"let stage of browser.current.stages; let i = index\" [stage]=\"stage\" [index]=\"i\"></app-walkingdata-stage>\n        <!-- SOURCE EDITOR -->\n        <mat-card *ngIf=\"walking.currentSource\">\n          <div class=\"handler-toolbar\" layout-row>\n            <mat-icon matTooltip=\"{{walking.currentSource.type}}\">{{walking.currentSource.icon}}</mat-icon>\n            <div flex>{{walking.currentSource.name||'undefined'}}</div>\n            <button mat-icon-button matTooltip=\"edit source\" (click)=\"editSource()\">\n              <mat-icon aria-label=\"edit handler\">edit</mat-icon>\n            </button>\n            <button mat-icon-button color=\"warn\" matTooltip=\"delete source\" (click)=\"deleteSource()\">\n              <mat-icon aria-label=\"left button\">delete</mat-icon>\n            </button>\n            <div class=\"divider-vertical\"></div>\n            <button mat-icon-button matTooltip=\"add new target\" (click)=\"addSourceTarget()\">\n              <mat-icon aria-label=\"add target\">add_circle_outline</mat-icon>\n            </button>\n          </div>\n          <div class=\"handler-editor\">\n            <div *ngIf=\"!(walking.currentSource.targets||[]).length\" class=\"no-targets text-center\" layout-col>\n              <div class=\"grey-text\">no targets!</div>\n              <div class=\"as-link\" (click)=\"addSourceTarget()\">add new target</div>\n            </div>\n            <app-walkingdata-target *ngFor=\"let target of (walking.currentSource.targets||[])\" [target]=\"target\"></app-walkingdata-target>\n          </div>\n        </mat-card>\n      </ng-container>\n    </div>\n    <app-walkingdata-script-editor></app-walkingdata-script-editor>\n  </div>\n</div>\n"
+module.exports = "<div class=\"page-container walking-data layout-fill\">\n  <app-browser></app-browser>\n  <div class=\"page-editor echo-scrollbar\" flex>\n    <app-page-header [options]=\"header\"></app-page-header>\n    <app-new-element *ngIf=\"ready\"></app-new-element>\n    <div class=\"page-cards walking-editor\" *ngIf=\"browser.current\">\n      <!-- HEADER -->\n      <mat-card>\n        <mat-card-header>\n          <mat-card-title></mat-card-title>\n          <mat-slide-toggle class=\"top-right\" [(ngModel)]=\"browser.current.active\">Active</mat-slide-toggle>\n        </mat-card-header>\n        <mat-card-content>\n          <div layout-col>\n            <div layout-row>\n              <mat-form-field layout-70>\n                <input matInput [(ngModel)]=\"browser.current.name\" placeholder=\"Name\">\n              </mat-form-field>\n            </div>\n            <mat-form-field>\n              <textarea matInput [(ngModel)]=\"browser.current.info\" rows=\"1\" matTextareaAutosize placeholder=\"Description\"></textarea>\n            </mat-form-field>\n          </div>\n          <mat-progress-spinner class=\"walking-spinner\" *ngIf=\"walking.idle\" diameter=\"40\"\n                                color=\"accent\" mode=\"indeterminate\"></mat-progress-spinner>\n        </mat-card-content>\n        <mat-card-actions layout-right>\n          <button mat-raised-button color=\"warn\" *ngIf=\"walking.current === browser.current._id && !walking.idle\"\n                  (click)=\"clearLog()\">CLEAR LOG</button>\n          <button mat-raised-button color=\"accent\" (click)=\"newStage()\">ADD STAGE</button>\n          <button mat-raised-button color=\"accent\" (click)=\"newParameter()\">ADD PARAMETER</button>\n        </mat-card-actions>\n      </mat-card>\n      <!-- PARAMETERS -->\n      <span *ngIf=\"((browser.current||{}).parameters||[]).length\">Parameters</span>\n      <div class=\"page-editor-parameters\">\n        <div class=\"page-parameter mat-elevation-z4 dark-background\" *ngFor=\"let p of browser.current.parameters\" layout-row>\n          <mat-icon aria-label=\"parameter type\" [matTooltip]=\"p.type\">{{p.icon}}</mat-icon>\n          <span class=\"name\">{{p.name}}</span>\n          <span class=\"value\"> = {{p.value}}</span>\n          <span class=\"type\">{{p.dataType}}</span>\n          <div class=\"page-parameter-toolbar\">\n            <mat-icon class=\"as-button\" (click)=\"edit(p)\" aria-label=\"command edit\">edit</mat-icon>\n            <mat-icon class=\"as-button\" (click)=\"remove(p)\" aria-label=\"command delete\" color=\"warn\">delete</mat-icon>\n          </div>\n        </div>\n      </div>\n      <!-- LOG -->\n      <div class=\"walking-log\" *ngIf=\"walking.current === browser.current._id\">\n        <ng-container *ngFor=\"let i of walking.items\">\n          <div class=\"log-item has-details\" [ngClass]=\"'log-item-type-'+i.type.toLowerCase()\" *ngIf=\"!!i.time_str\" tabindex=\"-1\">[{{i.time_str}}] {{i.message}}</div>\n          <div class=\"log-item log-item-string\" *ngIf=\"!i.time_str\">{{i.message}}</div>\n        </ng-container>\n      </div>\n      <!-- EDITOR -->\n      <ng-container *ngIf=\"!walking.idle && walking.current !== browser.current._id\">\n        <span>Stages</span>\n        <!-- PLAN -->\n        <app-walkingdata-stage *ngFor=\"let stage of browser.current.stages; let i = index\" [stage]=\"stage\" [index]=\"i\"></app-walkingdata-stage>\n        <!-- SOURCE EDITOR -->\n        <mat-card *ngIf=\"walking.currentSource\">\n          <div class=\"handler-toolbar\" layout-row>\n            <mat-icon matTooltip=\"{{walking.currentSource.type}}\">{{walking.currentSource.icon}}</mat-icon>\n            <div flex>{{walking.currentSource.name||'undefined'}}</div>\n            <button mat-icon-button matTooltip=\"edit source\" (click)=\"editSource()\">\n              <mat-icon aria-label=\"edit handler\">edit</mat-icon>\n            </button>\n            <button mat-icon-button color=\"warn\" matTooltip=\"delete source\" (click)=\"deleteSource()\">\n              <mat-icon aria-label=\"left button\">delete</mat-icon>\n            </button>\n            <div class=\"divider-vertical\"></div>\n            <button mat-icon-button matTooltip=\"add new target\" (click)=\"addSourceTarget()\">\n              <mat-icon aria-label=\"add target\">add_circle_outline</mat-icon>\n            </button>\n          </div>\n          <div class=\"handler-editor\">\n            <div *ngIf=\"!(walking.currentSource.targets||[]).length\" class=\"no-targets text-center\" layout-col>\n              <div class=\"grey-text\">no targets!</div>\n              <div class=\"as-link\" (click)=\"addSourceTarget()\">add new target</div>\n            </div>\n            <app-walkingdata-target *ngFor=\"let target of (walking.currentSource.targets||[])\" [target]=\"target\"></app-walkingdata-target>\n          </div>\n        </mat-card>\n      </ng-container>\n    </div>\n    <app-walkingdata-script-editor></app-walkingdata-script-editor>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -6026,6 +6360,7 @@ var WalkingdataComponent = (function () {
                     return;
                 }
                 self.browser.current.stages = self.browser.current.stages || [];
+                self.walking.checkWalking(self.browser.current);
             },
             onLoaded: function (docs) {
                 // on loaded
@@ -6047,10 +6382,7 @@ var WalkingdataComponent = (function () {
                     icon: 'play_arrow',
                     tooltip: 'launch this walking-data',
                     visible: function () { return !!self.browser.current && !self.walking.idle; },
-                    action: function () { return self.walking.run({
-                        walking: self.browser.current,
-                        parameters: []
-                    }); }
+                    action: function () { return self.checkAndRun(); }
                 }, {
                     icon: 'stop',
                     tooltip: 'stop this walking-data',
@@ -6084,6 +6416,33 @@ var WalkingdataComponent = (function () {
                 }]
         };
     }
+    WalkingdataComponent.prototype.run = function () {
+        var self = this;
+        self.walking.run({
+            walking: self.browser.current,
+            parameters: []
+        });
+    };
+    WalkingdataComponent.prototype.checkAndRun = function () {
+        var self = this;
+        var warnings = [];
+        self.browser.current.stages.forEach(function (stage) {
+            stage.sources.forEach(function (s) {
+                s.check(warnings);
+                s.targets.forEach(function (t) {
+                    t.check(warnings);
+                });
+            });
+        });
+        self.u.compose()
+            .use(function (next) {
+            warnings.length ? self.dialogs.editWarnings(warnings, next) : next();
+        })
+            .use(function (next) {
+            (self.browser.current.parameters || []).length ? self.dialogs.editParameters(self.browser.current.parameters, next) : next();
+        })
+            .run(function () { return self.run(); });
+    };
     WalkingdataComponent.prototype.ngOnInit = function () {
         this.ready = true;
     };
@@ -6232,7 +6591,6 @@ var AppPagesService = (function () {
                 path: '/*',
                 icon: 'swap_vertical_circle',
                 help: true
-                // hidden: true
             },
             {
                 tooltip: 'previews',
@@ -6691,10 +7049,12 @@ var CartService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_service__ = __webpack_require__("../../../../../src/app/services/utils.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_parameter_editor_parameter_editor_component__ = __webpack_require__("../../../../../src/app/components/parameter-editor/parameter-editor.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_value_editor_value_editor_component__ = __webpack_require__("../../../../../src/app/components/value-editor/value-editor.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_parameter_values_parameter_values_component__ = __webpack_require__("../../../../../src/app/components/parameter-values/parameter-values.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_value_editor_value_editor_component__ = __webpack_require__("../../../../../src/app/components/value-editor/value-editor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_warnings_editor_warnings_editor_component__ = __webpack_require__("../../../../../src/app/components/warnings-editor/warnings-editor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_lodash__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -6704,6 +7064,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
+
 
 
 
@@ -6725,22 +7087,45 @@ var DialogsService = (function () {
             }
         });
         pe.afterClosed().subscribe(function (op) {
-            __WEBPACK_IMPORTED_MODULE_5_lodash___default.a.extend(p, op || {});
+            __WEBPACK_IMPORTED_MODULE_7_lodash___default.a.extend(p, op || {});
             p.icon = _this.u.getParameterIcon(p);
         });
     };
+    DialogsService.prototype.editParameters = function (cll, cb) {
+        var self = this;
+        var pe = self.dialog.open(__WEBPACK_IMPORTED_MODULE_3__components_parameter_values_parameter_values_component__["a" /* ParameterValuesComponent */], {
+            width: '500px',
+            data: {
+                parameters: cll
+            }
+        });
+        pe.afterClosed().subscribe(function (resp) { return resp ? cb() : __WEBPACK_IMPORTED_MODULE_7_lodash___default.a.noop(); });
+    };
     DialogsService.prototype.editValue = function (v) {
         var self = this;
-        var pe = self.dialog.open(__WEBPACK_IMPORTED_MODULE_3__components_value_editor_value_editor_component__["a" /* ValueEditorComponent */], {
+        var pe = self.dialog.open(__WEBPACK_IMPORTED_MODULE_4__components_value_editor_value_editor_component__["a" /* ValueEditorComponent */], {
             width: '500px',
             data: { value: self.u.clone(v) }
         });
-        pe.afterClosed().subscribe(function (ov) { return __WEBPACK_IMPORTED_MODULE_5_lodash___default.a.extend(v, ov || {}); });
+        pe.afterClosed().subscribe(function (ov) { return __WEBPACK_IMPORTED_MODULE_7_lodash___default.a.extend(v, ov || {}); });
+    };
+    DialogsService.prototype.editWarnings = function (warnings, cb) {
+        var self = this;
+        var pe = self.dialog.open(__WEBPACK_IMPORTED_MODULE_5__components_warnings_editor_warnings_editor_component__["a" /* WarningsEditorComponent */], {
+            width: '700px',
+            data: warnings
+        });
+        pe.afterClosed().subscribe(function (resp) {
+            if (resp) {
+                warnings.forEach(function (oi) { return oi.resolve(); });
+                cb();
+            }
+        });
     };
     DialogsService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__utils_service__["a" /* UtilsService */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_material__["g" /* MatDialog */]])
+            __WEBPACK_IMPORTED_MODULE_6__angular_material__["g" /* MatDialog */]])
     ], DialogsService);
     return DialogsService;
 }());
@@ -6824,8 +7209,10 @@ var InteractionService = (function () {
     InteractionService.prototype.getScenarios = function () {
         return this.http.get(this.user.getUrl('api/scenario'));
     };
-    InteractionService.prototype.getDocuments = function () {
-        return this.http.get(this.user.getUrl('api/scenario/documents'));
+    InteractionService.prototype.getDocuments = function (type) {
+        if (type === void 0) { type = null; }
+        var url = type ? 'api/scenario/documents/' + type : 'api/scenario/documents';
+        return this.http.get(this.user.getUrl(url));
     };
     InteractionService.prototype.getDocument = function (o) {
         var id = __WEBPACK_IMPORTED_MODULE_4_lodash___default.a.isString(o) ? o : (o.id || o._id);
@@ -6916,15 +7303,15 @@ var InteractionService = (function () {
         self.http.post(self.user.getUrl('api/scenario/upload'), data)
             .subscribe(function (r) {
             self.u.snack('Scenario uploaded!');
-            cb();
+            cb(null, r);
         }, InteractionService_1._err(cb));
     };
     InteractionService.prototype.uploadFile = function (data, cb) {
         var self = this;
-        self.http.post(self.user.getUrl('api/walking/upload'), data)
+        self.http.post(self.user.getUrl('api/data/walking/upload'), data)
             .subscribe(function (r) {
             self.u.snack('File uploaded!');
-            cb();
+            cb(null, r);
         }, InteractionService_1._err(cb));
     };
     InteractionService.prototype.getSystemParameters = function () {
@@ -7566,6 +7953,7 @@ var UserSettingsService = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* unused harmony export Composer */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UtilsService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
@@ -7593,6 +7981,52 @@ var TYPES = {
     boolean: 'bool',
     object: 'object'
 };
+var Composer = (function () {
+    function Composer(execFnName) {
+        if (execFnName === void 0) { execFnName = 'exec'; }
+        this.exec = 'exec';
+        this.stack = [];
+        this.step = 0;
+        this.exit = false;
+        this.exec = execFnName;
+        this.stack = [];
+        this.step = 0;
+        this.exit = false;
+    }
+    Composer.prototype._getStep = function () {
+        var self = this;
+        var step = self.step < self.stack.length ? self.stack[self.step] : null;
+        self.step++;
+        return step;
+    };
+    Composer.prototype.use = function (step) {
+        var self = this;
+        self.stack.push(step);
+        return self;
+    };
+    Composer.prototype.run = function (cb) {
+        cb = cb || __WEBPACK_IMPORTED_MODULE_3_lodash___default.a.noop;
+        var self = this;
+        self.step = 0;
+        if (self.stack.length <= 0) {
+            return cb(self);
+        }
+        (function next() {
+            var step = self._getStep();
+            if (self.exit || !step) {
+                cb(self);
+            }
+            else if (__WEBPACK_IMPORTED_MODULE_3_lodash___default.a.isFunction(step)) {
+                step.call(self, next, self);
+            }
+            else if (__WEBPACK_IMPORTED_MODULE_3_lodash___default.a.isFunction(step[self.exec])) {
+                step[self.exec](next, self);
+            }
+        })();
+    };
+    return Composer;
+}());
+
 var UtilsService = (function () {
     function UtilsService(dialog, snackBar) {
         this.dialog = dialog;
@@ -7887,6 +8321,10 @@ var UtilsService = (function () {
     UtilsService.prototype.getHtmlId = function (id) {
         return (id || '').toLowerCase().replace(/[\\\/\s:\*\?"<>\|]/gi, '_');
     };
+    UtilsService.prototype.compose = function (execFnName) {
+        if (execFnName === void 0) { execFnName = null; }
+        return new Composer(execFnName);
+    };
     UtilsService = UtilsService_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialog */],
@@ -7900,19 +8338,12 @@ var UtilsService = (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/services/walkingdata.service.ts":
+/***/ "../../../../../src/app/services/walkingdata-warnings.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WalkingdataService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WalkingdataWarningsService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__interaction_service__ = __webpack_require__("../../../../../src/app/services/interaction.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_settings_service__ = __webpack_require__("../../../../../src/app/services/user-settings.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_service__ = __webpack_require__("../../../../../src/app/services/utils.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_socket_io_client__ = __webpack_require__("../../../../socket.io-client/lib/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_socket_io_client__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_lodash__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7922,6 +8353,50 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
+var WalkingdataWarningsService = (function () {
+    function WalkingdataWarningsService() {
+    }
+    WalkingdataWarningsService.prototype.check = function (handler, warnings) {
+        // TODO: secondo il tipo di handler aggiunge ed esegue i valutatori
+    };
+    WalkingdataWarningsService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [])
+    ], WalkingdataWarningsService);
+    return WalkingdataWarningsService;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/walkingdata.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export WalkingdataWarning */
+/* unused harmony export WalkingdataSourceEvent */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WalkingdataService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__interaction_service__ = __webpack_require__("../../../../../src/app/services/interaction.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_settings_service__ = __webpack_require__("../../../../../src/app/services/user-settings.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_service__ = __webpack_require__("../../../../../src/app/services/utils.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__walkingdata_warnings_service__ = __webpack_require__("../../../../../src/app/services/walkingdata-warnings.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_socket_io_client__ = __webpack_require__("../../../../socket.io-client/lib/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_socket_io_client__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_lodash__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 
 
@@ -7977,33 +8452,82 @@ var RULES = [{
         caption: 'Row text filter (rgx)',
         type: 'filter',
         icon: 'filter_list',
-        contexts: ['source']
+        targets: ['file'],
+        contexts: ['source'],
+        help: 'Definire un\'espressione rgx per validare le righe da acquisire. Ogni riga che non valida il filtro sarà scartata.<br>' +
+            'In presenza di più filtri di questo tipo saranno valutati con clausola <b>OR</b>.<br>' +
+            'Riferimenti ed esempi: <a class="code-color" target="_blank" href="https://regex101.com/">regex101</a>'
+    }, {
+        caption: 'Row filter (expression)',
+        type: 'filter_exp',
+        icon: 'filter_list',
+        targets: ['table', 'query'],
+        contexts: ['source'],
+        help: 'Definire un\'espressione di validazione del record da acquisire. Ogni record che non valida il filtro sarà scartato.<br>' +
+            'esempio: se il record contiene un campo "<b>valore</b>" è possibile scrivere un\'espressione del tipo:<br>' +
+            '<p class="code code-color">f[\'valore\'] > 23.543</p>In tal modo saranno considerati validi solo i record la cui proprietà' +
+            '"<b>valore</b>" abbia un valore maggiore di quello impostato.<br>' +
+            'In presenza di più filtri di questo tipo saranno valutati con clausola <b>OR</b>.<br>'
     }, {
         caption: 'File name filter (rgx)',
         type: 'filename',
         icon: 'check_box',
-        targets: ['file'],
-        contexts: ['source']
+        targets: ['newfile'],
+        contexts: ['source'],
+        help: 'Definire un\'espressione rgx per validare il nome del file da acquisire.<br>' +
+            'riferimenti ed esempi: <a class="code-color" target="_blank" href="https://regex101.com/">regex101</a>'
     }, {
-        caption: 'Text section hunter',
+        caption: 'Text section hunter (rgx)',
         type: 'section',
         icon: 'receipt',
         targets: ['file'],
-        contexts: ['source']
+        contexts: ['source'],
+        help: 'Definire le espressioni rgx per individuare la sezione di testo da acquisire:<br>' +
+            '<b>sections filter</b>: definisce la logica di individuazione del separatore di sezioni;<br>' +
+            '<b>section</b>: individua la sezione scelta per questa acquisizione<br>' +
+            'riferimenti ed esempi: <a class="code-color" target="_blank" href="https://regex101.com/">regex101</a>'
     }, {
         caption: 'Post execution rename',
         type: 'post_rename',
         icon: 'border_color',
         targets: ['file'],
-        contexts: ['source']
+        contexts: ['source'],
+        unique: true,
+        help: 'Rinomina il file acquisito.<br>Utilizzare il bookmark <b>[original]</b> per utilizzare il nome originale.'
     }, {
         caption: 'Post execution delete',
         type: 'post_delete',
         icon: 'delete',
         targets: ['file'],
-        contexts: ['source']
+        contexts: ['source'],
+        unique: true,
+        help: 'Elimina il file una volta acquisito.'
+    }, {
+        caption: 'Existent file policy',
+        type: 'check_exists',
+        icon: 'file_copy',
+        targets: ['newfile'],
+        contexts: ['target'],
+        unique: true,
+        help: 'Definisce l\'azione nel caso il target file esista già.'
+    }, {
+        caption: 'Existent table policy',
+        type: 'check_exists',
+        icon: 'filter_none',
+        targets: ['newtable'],
+        contexts: ['target'],
+        unique: true,
+        help: 'Definisce l\'azione nel caso la tabella target esista già.'
     }];
-var DATATYPES = ['string', 'number', 'date', 'bool', 'object'];
+var DATATYPES = ['string', 'number', 'integer', 'date', 'bool', 'object'];
+var HANDLER_TYPES = {
+    file: 'file',
+    newfile: 'newfile',
+    table: 'table',
+    newtable: 'newtable',
+    query: 'query',
+    web: 'web'
+};
 var DEFAULTS = {
     textMode: 'separator',
     textDelimiter: '"',
@@ -8019,15 +8543,42 @@ var TEXTTYPES = {
     fixed: 'fixed',
     separator: 'separator'
 };
+var NEWELEMENTPOLICY = {
+    error: 'error',
+    overwrite: 'overwrite',
+    append: 'append',
+    rename: 'rename' // ne crea uno con nome diverso
+};
+var WalkingdataWarning = (function () {
+    function WalkingdataWarning() {
+        this.message = '';
+    }
+    WalkingdataWarning.prototype.resolve = function () {
+        // TODO: risolve lo warning proposto
+    };
+    return WalkingdataWarning;
+}());
+
+var WalkingdataSourceEvent = (function () {
+    function WalkingdataSourceEvent(source) {
+        this.source = null;
+        this.source = source;
+    }
+    return WalkingdataSourceEvent;
+}());
+
 var WalkingdataService = (function () {
-    function WalkingdataService(user, interaction, u) {
+    function WalkingdataService(user, interaction, wmanager, u) {
         this.user = user;
         this.interaction = interaction;
+        this.wmanager = wmanager;
         this.u = u;
         this._socket = null;
+        this.onSource = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.idle = false;
         this.current = null;
         this.currentSource = null;
+        this.currentStage = null;
         this.currentTarget = null;
         this.items = [];
         this.targets = TARGETS;
@@ -8035,6 +8586,19 @@ var WalkingdataService = (function () {
         this.rules = RULES;
         this.types = DATATYPES;
         this.defaults = DEFAULTS;
+        this.newPolicies = [{
+                code: NEWELEMENTPOLICY.error,
+                desc: 'Throw an error'
+            }, {
+                code: NEWELEMENTPOLICY.append,
+                desc: 'Append results in existent'
+            }, {
+                code: NEWELEMENTPOLICY.overwrite,
+                desc: 'Overwrite'
+            }, {
+                code: NEWELEMENTPOLICY.rename,
+                desc: 'Write with other name'
+            }];
         this.textTypes = [{
                 name: TEXTTYPES.xml,
                 desc: 'Xml file',
@@ -8067,7 +8631,7 @@ var WalkingdataService = (function () {
                         }
                     });
                     // ritorna vero se le righe valide sono più di 2 e almeno la metà hanno la stessa lunghezza
-                    if (num > 2 && !!__WEBPACK_IMPORTED_MODULE_5_lodash___default.a.find(__WEBPACK_IMPORTED_MODULE_5_lodash___default.a.keys(resp), function (k) { return resp[k] >= (num / 2); })) {
+                    if (num > 2 && !!__WEBPACK_IMPORTED_MODULE_6_lodash___default.a.find(__WEBPACK_IMPORTED_MODULE_6_lodash___default.a.keys(resp), function (k) { return resp[k] >= (num / 2); })) {
                         h.textMode = TEXTTYPES.fixed;
                         return true;
                     }
@@ -8087,7 +8651,7 @@ var WalkingdataService = (function () {
                                 lnresp_1[m]++;
                             });
                             var maxc_1 = { c: '', n: 0 };
-                            __WEBPACK_IMPORTED_MODULE_5_lodash___default.a.keys(lnresp_1).forEach(function (k) {
+                            __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.keys(lnresp_1).forEach(function (k) {
                                 if (lnresp_1[k] > maxc_1.n) {
                                     maxc_1.n = lnresp_1[k];
                                     maxc_1.c = k;
@@ -8102,7 +8666,7 @@ var WalkingdataService = (function () {
                     });
                     // ritorna vero se le righe valide sono più di 2 e almeno la metà utilizzano lo stesso separatore
                     if (num > 2) {
-                        var sep = __WEBPACK_IMPORTED_MODULE_5_lodash___default.a.find(__WEBPACK_IMPORTED_MODULE_5_lodash___default.a.keys(resp), function (k) { return resp[k] >= (num / 2); });
+                        var sep = __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.find(__WEBPACK_IMPORTED_MODULE_6_lodash___default.a.keys(resp), function (k) { return resp[k] >= (num / 2); });
                         if (sep) {
                             h.separator = sep;
                             h.textMode = TEXTTYPES.separator;
@@ -8115,8 +8679,8 @@ var WalkingdataService = (function () {
     }
     WalkingdataService.prototype.checkState = function () {
         var self = this;
-        var started = __WEBPACK_IMPORTED_MODULE_5_lodash___default.a.find(self.items, function (i) { return i.type === 'start'; });
-        var ended = __WEBPACK_IMPORTED_MODULE_5_lodash___default.a.find(self.items, function (i) { return i.type === 'end'; });
+        var started = __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.find(self.items, function (i) { return i.type === 'start'; });
+        var ended = __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.find(self.items, function (i) { return i.type === 'end'; });
         self.current = self.current || (started || {}).message;
         self.idle = !!started && !ended;
     };
@@ -8129,7 +8693,7 @@ var WalkingdataService = (function () {
                 }
                 var url = self.user.settings['host'];
                 self.items.push.apply(self.items, states);
-                self._socket = __WEBPACK_IMPORTED_MODULE_4_socket_io_client__(url);
+                self._socket = __WEBPACK_IMPORTED_MODULE_5_socket_io_client__(url);
                 self._socket.on('walkingdata', function (state) {
                     self.items.push(state);
                     self.checkState();
@@ -8145,9 +8709,18 @@ var WalkingdataService = (function () {
             this._socket = null;
         }
     };
+    WalkingdataService.prototype.check = function (warnings) {
+        // this.wmanager.check(this, warnings);
+    };
+    WalkingdataService.prototype.setCurrentSource = function (walking, source) {
+        this.currentSource = source;
+        this.currentStage = __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.find(walking.stages, function (s) { return s.sources.indexOf(source) > -1; });
+        this.onSource.emit(new WalkingdataSourceEvent(source));
+    };
     WalkingdataService.prototype.reset = function () {
         this.currentTarget = null;
         this.currentSource = null;
+        this.currentStage = null;
     };
     WalkingdataService.prototype.run = function (o) {
         var self = this;
@@ -8195,6 +8768,8 @@ var WalkingdataService = (function () {
         T.start = 0;
         T.textMode = DEFAULTS.textMode;
         T.schema = [];
+        T.check = self.check;
+        T.bulk = false;
         if (source) {
             (source.schema || []).forEach(function (sf) {
                 var tf = self.getNewField(target, sf);
@@ -8213,60 +8788,147 @@ var WalkingdataService = (function () {
         S.separator = DEFAULTS.separator;
         S.textDelimiter = DEFAULTS.textDelimiter;
         S.targets = [];
+        S.check = self.check;
         return S;
+    };
+    WalkingdataService.prototype._convert = function (st, tt) {
+        switch (st) {
+            case 'string':
+                switch (tt) {
+                    // case 'string': return '{0}';
+                    case 'date': return 'convert({0}, \'date\')'; // string to date
+                    case 'number': return 'convert({0}, \'number\')'; // string to number
+                    case 'bool': return 'convert({0}, \'bool\')'; // string to bool
+                    default: return '{0}'; // string to *
+                }
+            case 'date':
+                switch (tt) {
+                    case 'string': return 'convert({0}, \'date\', \'yyyy-MM-dd\')'; // date to string
+                    // case 'date': return '{0}';   // date to date
+                    case 'number': return 'convert({0})'; //  date to number
+                    // case 'bool': return '{0}';   // date to bool
+                    default: return ''; // date to *
+                }
+            case 'number':
+                switch (tt) {
+                    case 'string': return 'convert({0}, \'string\')'; // number to string
+                    case 'date': return 'convert({0}, \'date\')'; // number to date
+                    // case 'number': return '{0}';   // number to number
+                    case 'bool': return 'convert({0}, \'bool\')'; // number to bool
+                    default: return '{0}'; // number to *
+                }
+            case 'bool':
+                switch (tt) {
+                    case 'string': return 'convert({0}, \'string\')'; // bool to string
+                    case 'date': return ''; // bool to date
+                    case 'number': return 'convert({0}, \'number\')'; // bool to number
+                    // case 'bool': return '{0}';   // bool to bool
+                    default: return '{0}'; // bool to *
+                }
+            default:
+                switch (tt) {
+                    // case 'string': return '{0}';    // * to *
+                    // case 'date': return '{0}';    // * to *
+                    // case 'number': return '{0}';    // * to *
+                    // case 'bool': return '{0}';    // * to *
+                    default: return '{0}'; // * to *
+                }
+        }
+    };
+    WalkingdataService.prototype._buildFieldExp = function (sf, tft) {
+        sf = sf || {};
+        if (!sf.name) {
+            return '';
+        }
+        var convert_str = this._convert(sf.typecode, tft);
+        return convert_str.replace(/\{0\}/g, 'f[\'' + sf.name + '\']');
+    };
+    WalkingdataService.prototype.isTextHandler = function (h) {
+        return h.type === 'file' || h.type === 'newfile';
     };
     WalkingdataService.prototype.getNewField = function (handler, sf) {
         var self = this;
+        // target type code
+        var ttc = self.isTextHandler(handler) ? 'string' : ((sf || {}).typecode || 'string');
         var f = {
             name: self.u.getNewName(handler.schema, (sf || {}).name || 'New Field'),
-            type: (sf || {}).type || 'string',
-            typecode: (sf || {}).typecode || 'string',
+            type: self.isTextHandler(handler) ? 'string' : ((sf || {}).type || 'string'),
+            typecode: ttc,
             transformer: {
-                expression: ((sf || {}).name ? '{f:' + sf.name + '}' : '')
+                expression: self._buildFieldExp(sf, ttc)
             }
         };
         self.checkField(f);
         return f;
     };
-    WalkingdataService.prototype.loadFile = function (handler, file) {
+    WalkingdataService.prototype.loadFile = function (handler, file, cb) {
         var self = this;
-        var reader = new FileReader();
-        handler.error = null;
-        if (file) {
-            handler._file = file;
-            reader.onload = function () {
-                console.log('FILE: ', handler._file);
-                handler.path = handler._file.name;
-                handler.name = handler._file.name;
-                handler.lines = [];
-                // prime 20 righe
-                var text = '' + (reader.result || '');
-                var rows = text.split('\n');
-                var i = 0;
-                while (handler.lines.length < 20 && i < rows.length) {
-                    var row = (rows[i++] || '').replace(/\r/g, '');
-                    if (row) {
-                        handler.lines.push(row);
-                    }
-                }
-                handler.text50 = ((text.substr(0, 500) || '') + '').trim();
-                self.decodeText(handler);
-            };
-            reader.onerror = function (err) {
+        self.interaction.uploadFile(file, function (err, res) {
+            if (err) {
                 handler.error = self.u.getErrorMessage(err);
                 console.error(err);
-            };
-            reader.readAsText(handler._file);
-        }
+                cb(err);
+            }
+            else {
+                handler._file = file;
+                handler.path = res.path;
+                handler.name = file.name;
+                handler.lines = ((res || {}).partial || {}).lines || [];
+                handler.text50 = ((res || {}).partial || {}).text || '';
+                self.decodeText(handler);
+                cb(null, res);
+            }
+        });
+        // const reader = new FileReader();
+        // handler.error = null;
+        // if (file) {
+        //   handler._file = file;
+        //   reader.onload = () => {
+        //     console.log('FILE: ', handler._file);
+        //     handler.path = handler._file.name;
+        //     handler.name = handler._file.name;
+        //     handler.lines = [];
+        //     // prime 20 righe
+        //     const text = '' + (reader.result || '');
+        //     const rows = text.split('\n');
+        //     let i = 0;
+        //     while (handler.lines.length < 20 && i < rows.length) {
+        //       const row = (rows[i++] || '').replace(/\r/g, '');
+        //       if (row) {
+        //         handler.lines.push(row);
+        //       }
+        //     }
+        //     handler.text50 = ((text.substr(0, 500) || '') + '').trim();
+        //     self.decodeText(handler);
+        //   };
+        //   reader.onerror = (err) => {
+        //     handler.error = self.u.getErrorMessage(err);
+        //     console.error(err);
+        //   };
+        //   reader.readAsText(handler._file);
+        // }
     };
     WalkingdataService.prototype.addRule = function (handler, rule) {
         handler.rules = handler.rules || [];
-        handler.rules.push(__WEBPACK_IMPORTED_MODULE_5_lodash___default.a.clone(rule));
+        return (rule.unique && !!__WEBPACK_IMPORTED_MODULE_6_lodash___default.a.find(handler.rules, function (r) { return r.type === rule.type; })) ?
+            this.u.snack('This rule can only be added once!') :
+            handler.rules.push(__WEBPACK_IMPORTED_MODULE_6_lodash___default.a.clone(rule));
+    };
+    WalkingdataService.prototype.checkWalking = function (walking) {
+        var self = this;
+        walking.stages.forEach(function (stage) {
+            stage.sources.forEach(function (s) {
+                self.checkHandler(s);
+                s.targets.forEach(function (t) {
+                    self.checkHandler(t);
+                });
+            });
+        });
     };
     WalkingdataService.prototype.checkTransformer = function (t) {
         t.mode = t.mode || 'expression';
         t.lookup = t.lookup || {};
-        if (!__WEBPACK_IMPORTED_MODULE_5_lodash___default.a.isBoolean(t.lookup.advanced)) {
+        if (!__WEBPACK_IMPORTED_MODULE_6_lodash___default.a.isBoolean(t.lookup.advanced)) {
             t.lookup.advanced = false;
         }
     };
@@ -8285,6 +8947,7 @@ var WalkingdataService = (function () {
         h.textDelimiter = h.textDelimiter || DEFAULTS.textDelimiter;
         h.separator = h.separator || DEFAULTS.separator;
         h.start = h.start || 0;
+        h.check = self.check;
     };
     WalkingdataService.prototype.isType = function (handler, types) {
         return (types.indexOf(handler.type) > -1);
@@ -8297,7 +8960,7 @@ var WalkingdataService = (function () {
         if (!h.text50) {
             return console.warn('No available text on handler:', h);
         }
-        var tt = __WEBPACK_IMPORTED_MODULE_5_lodash___default.a.find(this.textTypes, function (type) { return type.check(h); });
+        var tt = __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.find(this.textTypes, function (type) { return type.check(h); });
         if (!tt) {
             return console.warn('Unrecognized text for handler:', h);
         }
@@ -8327,13 +8990,13 @@ var WalkingdataService = (function () {
         }
     };
     WalkingdataService.prototype.getSelectedText = function () {
-        if (__WEBPACK_IMPORTED_MODULE_5_lodash___default.a.isFunction(window.getSelection)) {
+        if (__WEBPACK_IMPORTED_MODULE_6_lodash___default.a.isFunction(window.getSelection)) {
             return window.getSelection().toString();
         }
-        else if (__WEBPACK_IMPORTED_MODULE_5_lodash___default.a.isFunction(document.getSelection)) {
+        else if (__WEBPACK_IMPORTED_MODULE_6_lodash___default.a.isFunction(document.getSelection)) {
             return document.getSelection().toString();
         }
-        else if (__WEBPACK_IMPORTED_MODULE_5_lodash___default.a.isFunction((document['selection'] || {}).createRange)) {
+        else if (__WEBPACK_IMPORTED_MODULE_6_lodash___default.a.isFunction((document['selection'] || {}).createRange)) {
             return document['selection'].createRange().text;
         }
         return '';
@@ -8346,16 +9009,42 @@ var WalkingdataService = (function () {
     WalkingdataService.prototype.loadSchema = function (h, schema) {
         var self = this;
         h.schema = h.schema || [];
-        h.schema = __WEBPACK_IMPORTED_MODULE_5_lodash___default.a.map(schema || [], function (c) {
-            var f = __WEBPACK_IMPORTED_MODULE_5_lodash___default.a.clone(c);
+        h.schema = __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.map(schema || [], function (c) {
+            var f = __WEBPACK_IMPORTED_MODULE_6_lodash___default.a.clone(c);
             self.checkField(f);
             return f;
         });
+    };
+    // validazioni nell'editor del gestore
+    WalkingdataService.prototype.validate = function (h) {
+        if (!h) {
+            return false;
+        }
+        switch (h.type) {
+            case HANDLER_TYPES.table:
+                return !!h.name && !!h.connection;
+            case HANDLER_TYPES.newtable:
+                return !!h.tableName && !!h.connection;
+            case HANDLER_TYPES.file:
+                return !!h.name;
+            case HANDLER_TYPES.newfile:
+                return !!h.name;
+            case HANDLER_TYPES.query:
+                return !!h.query;
+            case HANDLER_TYPES.web:
+                var rgx = /^http[s]?:\/\/[a-z0-9-._~\/?#@!%$&+=]+$/i;
+                return !!h.url && rgx.test(h.url) && !!h.method;
+            default: return true;
+        }
+    };
+    WalkingdataService.prototype.isBulkSource = function (h) {
+        return !!h && (h.type === HANDLER_TYPES.file || h.type === HANDLER_TYPES.newfile) && h.textMode === TEXTTYPES.separator;
     };
     WalkingdataService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__user_settings_service__["a" /* UserSettingsService */],
             __WEBPACK_IMPORTED_MODULE_1__interaction_service__["a" /* InteractionService */],
+            __WEBPACK_IMPORTED_MODULE_4__walkingdata_warnings_service__["a" /* WalkingdataWarningsService */],
             __WEBPACK_IMPORTED_MODULE_3__utils_service__["a" /* UtilsService */]])
     ], WalkingdataService);
     return WalkingdataService;
@@ -8372,9 +9061,10 @@ var WalkingdataService = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WalkingeditService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__walkingdata_service__ = __webpack_require__("../../../../../src/app/services/walkingdata.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_walkingdata_source_editor_walkingdata_source_editor_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-source-editor/walkingdata-source-editor.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_walkingdata_target_editor_walkingdata_target_editor_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-target-editor/walkingdata-target-editor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__browser_service__ = __webpack_require__("../../../../../src/app/services/browser.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_walkingdata_source_editor_walkingdata_source_editor_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-source-editor/walkingdata-source-editor.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_walkingdata_target_editor_walkingdata_target_editor_component__ = __webpack_require__("../../../../../src/app/components/walkingdata-target-editor/walkingdata-target-editor.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8389,19 +9079,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var WalkingeditService = (function () {
-    function WalkingeditService(walking, dialog) {
+    function WalkingeditService(walking, dialog, browser) {
         this.walking = walking;
         this.dialog = dialog;
+        this.browser = browser;
         this.scriptEditor = {
             show: function () { }
         };
     }
     WalkingeditService.prototype.editSource = function (source) {
         if (source) {
-            this.walking.currentSource = source;
+            this.walking.setCurrentSource(this.browser.current, source);
         }
-        this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__components_walkingdata_source_editor_walkingdata_source_editor_component__["a" /* WalkingdataSourceEditorComponent */], {
+        this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__components_walkingdata_source_editor_walkingdata_source_editor_component__["a" /* WalkingdataSourceEditorComponent */], {
             width: '800px',
             data: {}
         });
@@ -8410,7 +9102,7 @@ var WalkingeditService = (function () {
         if (target) {
             this.walking.currentTarget = target;
         }
-        this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__components_walkingdata_target_editor_walkingdata_target_editor_component__["a" /* WalkingdataTargetEditorComponent */], {
+        this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__components_walkingdata_target_editor_walkingdata_target_editor_component__["a" /* WalkingdataTargetEditorComponent */], {
             width: '800px',
             data: {}
         });
@@ -8418,7 +9110,8 @@ var WalkingeditService = (function () {
     WalkingeditService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__walkingdata_service__["a" /* WalkingdataService */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_material__["g" /* MatDialog */]])
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["g" /* MatDialog */],
+            __WEBPACK_IMPORTED_MODULE_2__browser_service__["a" /* BrowserService */]])
     ], WalkingeditService);
     return WalkingeditService;
 }());

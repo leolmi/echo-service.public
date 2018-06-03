@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 16);
+/******/ 	return __webpack_require__(__webpack_require__.s = 20);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -107,8 +107,9 @@ module.exports = require("lodash");
  */
 
 const _ = __webpack_require__(0);
-const fs = __webpack_require__(5);
+const fs = __webpack_require__(4);
 const path = __webpack_require__(3);
+const functions = __webpack_require__(12);
 const _release = typeof __webpack_require__ === "function";
 const _use =  true ? require : require;
 var noop = function() {};
@@ -201,6 +202,17 @@ var _log = function(message, err, maxLength) {
 exports.log = _log;
 
 
+exports.cllToObj = function(cll, o) {
+  const obj = {};
+  o = o || {};
+  if (_.isArray(cll)) {
+    cll.forEach(function(i){
+      obj[i[o.name||'name']] = i[o.value||'value'];
+    });
+  }
+  return obj;
+};
+
 var Composer = function(execFnName) {
   this.exec = execFnName || 'exec';
   this.stack = [];
@@ -242,15 +254,16 @@ exports.compose = function() { return new Composer(); };
  * Generate new GUID
  * @returns {string}
  */
-exports.guid = function() {
+exports.guid = function(mask) {
+  mask = mask || 'xx-x-x-x-xxx';
   function s4() {
     return Math.floor((1 + Math.random()) * 0x10000)
       .toString(16)
       .substring(1);
   }
-
-  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-    s4() + '-' + s4() + s4() + s4();
+  return mask.replace(/[x]/g, function() {
+    return s4();
+  });
 };
 
 function _toString(o) {
@@ -354,11 +367,11 @@ function _checkNumberValue(value) {
 exports.getTypedValue = function(v, type) {
   switch(type) {
     case 'number':
-      return _checkNumberValue(value);
+      return _checkNumberValue(v);
     case 'date':
-      return _checkDatetimeValue(value);
+      return _checkDatetimeValue(v);
     case 'bool':
-      return _checkBoolValue(value);
+      return _checkBoolValue(v);
     case 'string':
     default: return v?''+v:'';
   }
@@ -394,6 +407,17 @@ exports.path = function() {
 
 exports.equal = function(s1,s2) {
   return _.isString(s1) && _.isString(s2) && s1.trim().toLowerCase()===s2.trim().toLowerCase();
+};
+
+exports.pad = function(str, length, align, char) {
+  switch(align) {
+    case 'left':
+      return _.padEnd(str, length, char);
+    case 'center':
+      return _.pad(str, length, char);
+    default:
+      return _.padStart(str, length, char);
+  }
 };
 
 const TEXT = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum';
@@ -575,6 +599,58 @@ exports.io = {
   }
 };
 
+exports.spc = function(txt, indent) {
+  const bkm = { N: '\n', T: '\t', R: '\r'};
+  return (txt||'').replace(/%%([NTR])/g, function(m, type) {
+    return indent ? bkm[type] : '';
+  });
+};
+
+exports.Q = function(cb) {
+  return new Promise(cb);
+};
+
+function _checkDatePart(parts, dtn, v, label, dec) {
+  const nv = (dtn / v);
+  const n = dec ? nv : Math.trunc(nv);
+  if (n > 0) parts.push(n + label);
+  return dtn - (n * v)
+}
+
+exports.getTimeStr = function(dt) {
+  if (_.isDate(dt)) {
+    return dt.toLocaleTimeString() + '.' + _.padStart('' + dt.getMilliseconds(), 3, '0');
+  } else if (_.isNumber(dt)) {
+    const parts = [];
+    dt = _checkDatePart(parts, dt, 1000*60*60*24, 'gg');
+    dt = _checkDatePart(parts, dt, 1000*60*60, 'h');
+    dt = _checkDatePart(parts, dt, 1000*60, 'm');
+    _checkDatePart(parts, dt, 1000, 'sec', true);
+    return parts.join(' ');
+  } else {
+    return ('' + (dt || ''));
+  }
+};
+
+exports.evalExp = function(exp, scope, cb) {
+  scope = scope || {};
+  scope._ = _;
+  functions.forEach(function (f) {
+    scope[f.name] = f.exec;
+  });
+  const args = _.keys(scope);
+  const f = new Function(args, 'return ' + exp);
+  try {
+    const values = _.map(args, function (a) {
+      return scope[a];
+    });
+    const v = f.apply(f, values);
+    return cb(null, v);
+  } catch (err) {
+    return cb(err);
+  }
+};
+
 
 /***/ }),
 /* 2 */
@@ -583,9 +659,10 @@ exports.io = {
 "use strict";
 /* WEBPACK VAR INJECTION */(function(__dirname) {
 const path = __webpack_require__(3);
-const fs = __webpack_require__(5);
+const fs = __webpack_require__(4);
 const _ = __webpack_require__(0);
 const u = __webpack_require__(1);
+const functions = __webpack_require__(12);
 const root = path.normalize(__dirname + '/../../..');
 const sts_path = path.normalize(root + '/echo-service.json');
 const sts = fs.existsSync(sts_path) ? u.use('../echo-service.json') : {};
@@ -634,12 +711,16 @@ const settings = {
   storePath: _checkPath(process.env.ECHO_STORE),
   // Store path for walking-data
   walkingPath: _checkPath(process.env.ECHO_WALKING),
+  // Store path for walking-data-sessions
+  sessionsPath: _checkPath(process.env.ECHO_SESSIONS),
   // Reporting path
   reportingPath: '',
   // Token expires in minutes
   tokenExpiration: 5,
   // List of user roles
-  userRoles: ['guest', 'user', 'admin']
+  userRoles: ['guest', 'user', 'admin'],
+  // functions
+  functions: functions
 };
 
 // extends on json settings
@@ -665,13 +746,13 @@ module.exports = require("path");
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = require("express");
+module.exports = require("fs");
 
 /***/ }),
 /* 5 */
 /***/ (function(module, exports) {
 
-module.exports = require("fs");
+module.exports = require("express");
 
 /***/ }),
 /* 6 */
@@ -680,16 +761,17 @@ module.exports = require("fs");
 "use strict";
 /* WEBPACK VAR INJECTION */(function(__dirname) {
 const config = __webpack_require__(2);
-const fs = __webpack_require__(5);
+const fs = __webpack_require__(4);
 const u = __webpack_require__(1);
 const _ = __webpack_require__(0);
-const io = __webpack_require__(19);
-const Cache = __webpack_require__(20);
+const io = __webpack_require__(23);
+const Cache = __webpack_require__(24);
 const Log = __webpack_require__(7);
-const commons = __webpack_require__(21);
-const version = __webpack_require__(22);
+const commons = __webpack_require__(25);
+const version = __webpack_require__(26);
 const path = __webpack_require__(3);
-const zip = __webpack_require__(23);
+const zip = __webpack_require__(27);
+const Walking = __webpack_require__(14);
 
 const DEFAULT_SCENARIO = 'default';
 const CURRENT_JSON = 'current.json';
@@ -929,7 +1011,10 @@ exports.tags = function(req, res) {
 // altrimenti le info dell'ambiente corrente
 exports.info = function(req, res) {
   if ((req.params||{}).name) {
-    const info = {folder: req.params.name, path:path.join(io.storePath, req.params.name)};
+    const info = {
+      folder: req.params.name,
+      path: path.join(io.storePath, req.params.name)
+    };
     _loadScenario(info)(function(){
       u.ok(res, info);
     });
@@ -938,10 +1023,17 @@ exports.info = function(req, res) {
       const info = _.clone(version.infos);
       info.store = io.storePath;
       info.logServer = !!(config.log||{}).file;
+      info.walking = info.walking || {};
+      info.walking.functions = config.functions||[];
       info.mode = config.env;
       _.extend(info, current);
-      _extendScenarioInfo(info.scenario, function() {
-        u.ok(res, info);
+      Walking.onFiles(function(err, files) {
+        if (err) console.error(err);
+        info.walking.files = files||[];
+        _extendScenarioInfo(info.scenario, function() {
+          //console.log('Echo-Service scenario info', info);
+          u.ok(res, info);
+        });
       });
     });
   }
@@ -1307,11 +1399,11 @@ exports.download = function(req, res) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(__dirname) {
-const fs = __webpack_require__(5);
+const fs = __webpack_require__(4);
 const path = __webpack_require__(3);
 const u = __webpack_require__(1);
 const config = __webpack_require__(2);
-const socket = __webpack_require__(11);
+const socket = __webpack_require__(13);
 const SEPARATOR = '¶';
 const log_folder = config.logPath || (u.release ? config.serverPath : path.join(__dirname, 'data'));
 
@@ -1416,10 +1508,10 @@ exports.get = function(cb) {
 var _ = __webpack_require__(0);
 var passport = __webpack_require__(9);
 var config = __webpack_require__(2);
-var jwt = __webpack_require__(13);
-var expressJwt = __webpack_require__(39);
-var compose = __webpack_require__(40);
-var Users = __webpack_require__(14);
+var jwt = __webpack_require__(17);
+var expressJwt = __webpack_require__(54);
+var compose = __webpack_require__(55);
+var Users = __webpack_require__(18);
 var validateJwt = expressJwt({ secret: config.secrets.session });
 var Scenario = __webpack_require__(6);
 
@@ -1550,17 +1642,382 @@ module.exports = require("passport");
 
 "use strict";
 
+const manager = __webpack_require__(28);
+const u = __webpack_require__(1);
+const _ = __webpack_require__(0);
+const Log = __webpack_require__(7);
+const Scenario = __webpack_require__(6);
+const QueryParser = __webpack_require__(35);
+const SqlEditor = __webpack_require__(36);
+const SYS_PARAM_KEY = '5933a09f-d99d-4107-a11b-b0e85e1b8b78';
+var _esecution = 0;
+
+// elenco providers
+exports.providers = function(req, res) {
+  u.ok(res, manager.providers);
+};
+
+// test della connessione
+exports.testconn = function(req, res) {
+  var conn = req.body;
+  if (!conn || !conn.provider) return u.error(res, 'Undefined connection or provider!');
+  if (!conn.active) return u.error(res, 'Connection seems not active!');
+  manager.getProvider(conn.provider, function(err, provider){
+    if (err) return u.error(res, err);
+    provider.test(conn, function(err){
+      if(err) {
+        console.log('Connection error', err);
+        return u.error(res, err);
+      }
+      return u.ok(res);
+    });
+  });
+};
+
+exports.schema = function(req, res) {
+  var cnnId = req.params.id;
+  if (!cnnId) return u.error(res, 'Undefined connection!');
+  Scenario.getElement(cnnId, function (err, conn) {
+    if (err) return u.error(res, err);
+    if (!conn.active) return u.error(res, 'Connection seems not active!');
+    manager.getProvider(conn.provider, function (err, provider) {
+      if (err) return u.error(res, err);
+      provider.schema(conn, function (err, schema) {
+        if (err) return u.error(res, err);
+        schema.provider = conn.provider;
+        return u.ok(res, schema);
+      });
+    });
+  });
+};
+exports.checkData = function(req, cb) {
+  cb(null, { auth: false });
+};
+
+function _retrieveData(query, sqlstr, cb) {
+  _esecution++;
+  var esc = _esecution;
+  Scenario.getElement(query.connection, function(err, conn){
+    if (err) return cb(err);
+    if (!conn.active) return cb('Connection seems not active!');
+    manager.getProvider(conn.provider, function(err, provider){
+      if (err) return cb(err);
+      provider.retrieveData(conn, query, sqlstr, esc, cb);
+    });
+  });
+}
+exports.retrieveData = _retrieveData;
+
+function _checkQueryType(doc, cb) {
+  // console.log('CHECK QUERY TYPE - doc:', doc);
+  if (doc._type === SqlEditor.type) {
+    SqlEditor.getConnection(doc.content||doc, function(err, id){
+      doc.connection = id;
+      doc.query = SqlEditor.parse(doc.content||doc);
+      cb();
+    });
+  } else {
+    cb();
+  }
+}
+
+function _calcResult(context, doc, exparams, cb) {
+  if (!doc) return cb('Undefined query!');
+  if (doc.active === false) return cb('Query not active!');
+  const parameters = _.clone(doc.parameters);
+  // console.log('Query parameters: ', parameters);
+  (exparams || []).forEach(function (rp) {
+    var exp = _.find(parameters, function (p) {
+      return p.name === rp.name;
+    });
+    if (exp) exp.value = rp.value;
+  });
+  _checkSystemParameters(context, parameters, function() {
+    // console.log('Parameters for evaluation: ', parameters);
+    _checkQueryType(doc, function(){
+      const parser = new QueryParser(doc.query);
+      // console.log('QUERY: parser', parser);
+      const sqlstr = parser.eval(parameters);
+      // console.log('SQL: %s', sqlstr);
+      _retrieveData(doc, sqlstr, cb);
+    });
+  });
+}
+
+function _executeQuery(context, info, cb) {
+  Scenario.getElement(info, function (err, query) {
+    if (err) return cb(err);
+    console.log('prepare calc: ', query);
+    _calcResult(context, query, info.parameters || [], cb);
+  });
+}
+exports.executeQuery = _executeQuery;
+
+exports.execute = function(req, res) {
+  const info = req.body;
+  console.log('request execution: ', info);
+  const id = (info||{}).id || (info||{})._id;
+  if (!id) return u.error(res, 'Undefined query document!');
+  if (id === SYS_PARAM_KEY) {
+    const result = { rows: [{}], columns: [], query:info };
+    _systemParameters(req, function(params){
+      params.forEach(function(sp){
+        result.rows[0][sp.name] = sp.value;
+        result.columns.push({name:sp.name, type:sp.dataType});
+      });
+      u.ok(res, result);
+    });
+  } else {
+    _executeQuery(req, info, function(err, data) {
+      if (err) return Log.error(err, res);
+      return u.ok(res, data);
+    });
+  }
+};
+
+exports.test = function(req, res) {
+  // _calcResult(req, res, req.body);
+  _calcResult(req, req.body, [], function(err, data) {
+    if (err) return Log.error(err, res);
+    return u.ok(res, data);
+  });
+};
+
+function _checkSystemParameters(context, parameters, cb) {
+  _systemParameters(context, function(sysparams){
+    (parameters || []).forEach(function (p) {
+      if ((p.lookup || {}).id === SYS_PARAM_KEY) {
+        const sysp = _.find(sysparams, function (sp) {
+          return sp.name === p.lookup.fieldKey;
+        });
+        p.value = (sysp || {}).value;
+      }
+    });
+    cb();
+  });
+}
+
+
+function _calc(exp) {
+  const f = new Function('return ' + exp);
+  try {
+    return f();
+  } catch (err) {
+    return err;
+  }
+}
+
+function _systemParameters(context, cb) {
+  Scenario.current(function(current){
+    const params = [
+      {name: 'Now', id: 'system_now', value: new Date(), dataType: 'date'},
+      {name: 'User', id: 'system_user', value: (context || {}).user || 'echo', dataType: 'string'}
+    ];
+    // i parametri di sistema possono essere customizzati nel file di scenario
+    (((current.scenario||{}).settings||{}).parameters||[]).forEach(function(p){
+      if (!_.find(params, function(xp) { return xp.name === p.name || xp.id === p.id; })) {
+        const rp = _.clone(p);
+        if (_.isString(rp.value) && _.startsWith(rp.value, '=')) rp.value = _calc(rp.value.slice(1));
+        params.push(rp);
+      }
+    });
+    cb(params);
+  });
+}
+exports.systemParameters = _systemParameters;
+
+exports.system = function(req, res) {
+  _systemParameters(req, function(params){
+    u.ok(res, params);
+  });
+};
+
+function _decodeAction(action) {
+  switch(action) {
+    case 'add':
+      return 'insert';
+    case 'modify':
+      return 'update';
+    case 'remove':
+      return 'delete';
+    default:
+      return action;
+  }
+}
+
+function _replace(entry, sql, row) {
+  _.keys(row || {}).forEach(function (k) {
+    const rgx = new RegExp('{{=?' + k + '}}', 'gi');
+    const value = entry.provider.helper.getSqlTypedValue(row[k], entry.types[k]);
+    sql = sql.replace(rgx, value);
+  });
+  return sql;
+}
+
+exports.entry = function(req, res) {
+  const info = req.body;
+  if (!info) return u.error(res, 'Undefined data-entry infos!');
+  if (!info.action) return u.error(res, 'Undefined operation action!');
+  if (!info.datasourceId) return u.error(res, 'Undefined datasource identity!');
+  //console.log('[DATAENTRY] info:', info);
+  Scenario.getElement(info.datasourceId, function(err, query){
+    if (err) return u.error(res, err);
+    if (!query) return u.error(res, 'Datasource not found! '+info.datasourceId);
+    const action = _decodeAction(info.action);
+    const o = (query.dataentryOptions||{})[action];
+    if (!o) return u.error(res, 'Datasource ('+info.datasourceId+') without dataentry options for action "'+action+'"!');
+    const statement = _.isObject(o) ? o.statement : o;
+    if (_.isString(statement)) {
+      if (!info.changedRows) return u.error(res, 'No handled rows!');
+      if (!_.isArray(info.changedRows)) info.changedRows = [info.changedRows];
+      const entry = {
+        types: {},
+        result: {
+          affected: 0
+        }
+      };
+      // mappa i tipi dati per campo dello schema
+      (query.columns||query.schema||[]).forEach(function(c){
+        entry.types[c.name] = c.type;
+      });
+      // recupera connection e provider
+      const seq = u.compose()
+        .use(function(next){
+          Scenario.getElement(query.connection, function(err, conn){
+            if (err) return u.error(res, err);
+            if (!conn.active) return u.error(res, 'Connection seems not active!');
+            entry.conn = conn;
+            manager.getProvider(conn.provider, function(err, provider){
+              if (err) return u.error(res, err);
+              entry.provider = provider;
+              next();
+            });
+          });
+        });
+      // per ogni record modificato genera ed esegue lo script
+      info.changedRows.forEach(function(row){
+        seq.use(function(next){
+          const sqlstr = _replace(entry, statement, row);
+          _esecution++;
+          entry.provider.retrieveData(entry.conn, query, sqlstr, _esecution, function(err, data){
+            if (err) {
+              seq.exit = true;
+              entry.error = err;
+            } else {
+              console.log('[DATA-ENTRY] execution data:', data||{});
+              entry.result.affected++;
+            }
+            next();
+          });
+        });
+      });
+      // notifica i risultati
+      seq.run(function() {
+        entry.error ? u.error(res, entry.error) : u.ok(res, entry.result);
+      });
+    } else {
+      console.log('[DATA-ENTRY] corrupted options:', o);
+      u.error(res, 'Unrecognized data-entry options for action "'+action+'" on datasource '+info.datasourceId+'!');
+    }
+  });
+};
+
+function _templatize(info, cb) {
+  if (!info) return cb('Undefined template infos!');
+  if (!info.action) return cb('Undefined template operation action!');
+  if (!info.connection) return cb('Undefined connection identity!');
+  if (!info.columns) return cb('Undefined fields collection!');
+
+  info.tablename = info.tablename||'{TABLE_NAME}';
+  info.template = false;
+  if (!info.datarow) {
+    info.template = true;
+    info.datarow = {};
+  }
+  info.indent = true;
+  info.columns.forEach(function(c) {
+    c.COLUMN_NAME = c.COLUMN_NAME||c.name;
+    c.DATA_TYPE = c.DATA_TYPE||c.type||'string';
+    if (info.template) info.datarow[c.COLUMN_NAME] = '{{'+c.COLUMN_NAME+'}}';
+  });
+
+  if (!info.key && !info.ignoreKey) {
+    const keyc = _.filter(info.columns, function(c){
+      return !!c.identity;
+    });
+    if (keyc.length) {
+      info.key = {};
+      keyc.forEach(function(k) {
+        info.key[k.COLUMN_NAME] = '{{'+k.COLUMN_NAME+'}}';
+      });
+    } else {
+      info.columns.push({COLUMN_NAME:'KEY_FIELD'});
+      info.key = {'KEY_FIELD':'{{KEY_FIELD}}'};
+    }
+  } else if (_.isString(info.key)) {
+    const key = {};
+    info.key.split(',').forEach(function (k) {
+      key[k] = '{{' + k + '}}';
+    });
+    info.key = key;
+  }
+
+  Scenario.getElement(info.connection, function(err, conn) {
+    if (err) return cb(err);
+    manager.getProvider(conn.provider, function (err, provider) {
+      if (err) return cb(err);
+      const action = _decodeAction(info.action);
+      console.log('TEMPLATIZE on provider: %s', conn.provider);
+      const tmpl = _.isFunction(provider.templatize) ? provider.templatize(action, info) : '';
+      cb(null, {template: tmpl, provider: provider, connection: conn});
+    });
+  });
+}
+
+exports.template = function(req, res) {
+  const info = req.body;
+  _templatize(info, function(err, result){
+    err ? u.error(res, err) : u.ok(res, {template:result.template});
+  });
+};
+
+exports.execAction = function(options, cb) {
+  if (!options.action) return cb('Undefined template operation action!');
+  if (!options.connection) return cb('Undefined connection identity!');
+
+  _templatize(options, function(err, info){
+    if (err) return cb(err);
+    if (!(info||{}).template) return cb('Provider doesn\'t implement action "'+options.action+'"!');
+    _esecution++;
+    const esc = _esecution;
+    info.provider.retrieveData(info.connection, {
+      name: options.name||'DATA-EXECUTION',
+      connection: options.connection
+    }, info.template, esc, cb);
+  });
+};
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 var _ = __webpack_require__(0);
 var u = __webpack_require__(1);
 
 
 var _standardTypes = {
   number:'number',
+  numeric:'numeric',
   integer:'integer',
   text:'text',
   string:'string',
   datetime:'datetime',
-  boolean:'boolean'
+  date:'date',
+  boolean:'boolean',
+  bool:'bool'
 };
 exports.standardTypes = _standardTypes;
 
@@ -1610,19 +2067,24 @@ function _getName(schema) {
 function _getType(c) {
   switch(c.type) {
     case _standardTypes.text:
-      return (c.unicode?'n':'')+'text';
+      return (c.unicode ? 'n' : '') + 'text';
     case _standardTypes.integer:
       return 'int';
+    case _standardTypes.number:
     case _standardTypes.numeric:
       return 'float';
+    case _standardTypes.date:
     case _standardTypes.datetime:
       return 'datetime';
+    case _standardTypes.bool:
     case _standardTypes.boolean:
       return 'bit';
     case _standardTypes.string:
-    default: return (c.unicode?'n':'')+'varchar('+(c.length>0?c.length:'MAX')+')';
+    default:
+      return (c.unicode ? 'n' : '') + 'varchar(' + (c.length > 0 ? c.length : 'MAX') + ')';
   }
 }
+exports.decodeType = _getType;
 
 exports.validateCreateTable = function(res, schema) {
   if (!schema.name) {
@@ -1666,7 +2128,180 @@ exports.getDropSql = function(schema, getName) {
 
 
 /***/ }),
-/* 11 */
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+const _ = __webpack_require__(0);
+
+function _isEmpty(data) {
+  return _.isNull(data)||_.isUndefined(data)||_.isNaN(data);
+}
+
+function _dateFormat(format) {
+  function __toDate(data) {
+    const self = this;
+    const e = {y:0, M:0, d:0, H:0, m:0, s:0, f:0, x:0};
+    const m = self.rgx.exec(data||'');
+    m.forEach(function(mi, idx){
+      if (idx>0) {
+        const v = parseInt(mi);
+        const type = self.mask[idx-1][0];
+        if (v && type && v > e[type]) e[type] = v;
+      }
+    });
+    return new Date(e.y, e.M-1, e.d, e.H, e.m, e.s);
+  }
+  function __toString(data) {
+    const self = this;
+    const e = {y:data.getFullYear(), M:data.getMonth()+1, d:data.getDate(), H:data.getHours(), m:data.getMinutes(), s:data.getSeconds(), f:data.getMilliseconds()};
+    var str = format;
+    self.sort_mask.forEach(function(mi){
+      const rr = new RegExp(mi, 'g');
+      const v = ''+(e[mi[0]]||'');
+      const rv = v ? (mi.length > v.length ? _.padStart(v, mi.length, '0') : v) : ''; //v.substr(v.length-mi.length);
+      str = str.replace(rr, rv);
+    });
+    return str;
+  }
+  const rgx_frm = /y{1,4}|M{1,2}|d{1,2}|H{1,2}|m{1,2}|s{1,2}|f{1,3}|x{1,100}/g;
+  const mask = format.match(rgx_frm);
+  const sort_mask = _.sortBy(mask, [function(mi) { return mi.length; }]).reverse();
+  const rgx = new RegExp('^' + _.map(mask, function(mi) {
+    return '(\\d{1,'+mi.length+'})';
+  }).join('.*?'), 'g');
+  return {
+    mask: mask,
+    sort_mask: sort_mask,
+    rgx: rgx,
+    toDate: __toDate,
+    toString: __toString
+  }
+}
+
+function _numberToString(data, format) {
+  // TODO: ......
+  // #0,.
+
+
+
+  return ''+(data||'');
+}
+
+function _stringToDate(data, format) {
+  const f = _dateFormat(format);
+  return f.toDate(data);
+}
+
+function _dateToString(data, format) {
+  const f = _dateFormat(format);
+  return f.toString(data);
+}
+
+function _options(format) {
+  if (_.isString(format)) return {format:format};
+  return format||{};
+}
+
+function _toString(data, format) {
+  const o = _options(format);
+  if (_isEmpty(data)) return '';
+  if (_.isDate(data)) {
+    return o.format ? _dateToString(data, o.format) : data.toLocaleString();
+  } else if (_.isNumber(data)) {
+    return o.format ? _numberToString(data, o.format) : '' + data;
+  } else {
+    return _.toString(data);
+  }
+}
+
+function _toBool(data, format) {
+  const o = _options(format);
+  return !!data;
+}
+
+function _toNumber(data, format) {
+  const o = _options(format);
+  if (_.isDate(data)) {
+    return data.getTime();
+  } else {
+    return _.toNumber(data);
+  }
+}
+
+function _toDate(data, format) {
+  const o = _options(format);
+  if (_.isDate(data)) {
+    return data;
+  } else if (_.isNumber(data)) {
+    const dt = new Date(data);
+    return _.isNaN(dt.getTime()) ? null : dt;
+  } else if (_.isString(data)) {
+    return o.format ? _stringToDate(data, o.format) : new Date(Date.parse(data));
+  } else {
+    return null;
+  }
+}
+
+const _converters = {
+  string: _toString,
+  text: _toString,
+  bool: _toBool,
+  boolean: _toBool,
+  number: _toNumber,
+  integer: _toNumber,
+  numeric: _toNumber,
+  date: _toDate,
+  time: _toDate
+};
+
+function _convert(data, type, format, options) {
+  const converter = _converters[type];
+  if (!converter) throw 'Unrecognized target type "' + type + '"!';
+  return converter(data, format, options);
+}
+
+
+module.exports = [{
+  name: 'isEmpty',
+  template: 'isEmpty({data})',
+  help: {
+    name: 'isEmpty',
+    desc: 'check if data is null or empty',
+    args: [{
+      name: 'data',
+      desc: 'data to evaluate',
+      type: 'any'
+    }]
+  },
+  exec: _isEmpty
+}, {
+  name: 'convert',
+  template: 'convert({data},{type},{format})',
+  help: {
+    desc: 'converts data into other type',
+    args: [{
+      name: 'data',
+      desc: 'data to convert',
+      type: 'any'
+    }, {
+      name: 'type',
+      desc: 'target type',
+      type: 'string'
+    }, {
+      name: 'format',
+      desc: 'output format (optional)',
+      optional: true,
+      type: 'string|object'
+    }]
+  },
+  exec: _convert
+}];
+
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1685,14 +2320,626 @@ exports.events = _events;
 exports.register = function(socket) {
   _events.onLog = function(log) {
     socket.emit('log', log);
-    console.log('SOCKET EMIT log', log);
+    //console.log('SOCKET EMIT log', log);
   };
   console.log('Registered events (%s)', _events._time);
 };
 
 
 /***/ }),
-/* 12 */
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(__dirname) {
+const Scenario = __webpack_require__(6);
+const Session = __webpack_require__(15);
+const Data = __webpack_require__(10);
+const Handler = __webpack_require__(37);
+const _ = __webpack_require__(0);
+const u = __webpack_require__(1);
+const socket = __webpack_require__(16);
+const path = __webpack_require__(3);
+const fs = __webpack_require__(4);
+const config = __webpack_require__(2);
+const walking_path = config.walkingPath || (u.release ? path.join(config.serverPath, 'walking') : path.join(__dirname, 'walking'));
+var _session = null;
+
+
+function __test(message, cb) {
+  const delay = u.random(2000, 5000);
+  setTimeout(function () {
+    if (_session.stopped) return;
+    _session.log({message: message});
+    if (cb) cb();
+  }, delay);
+}
+
+const TRANSFORMER_MODE = {
+  expression: 'expression',
+  lookup: 'lookup'
+};
+
+function _parse(text, scope, o) {
+  o = o || {};
+  return (text || '').replace(/{(\w):(.*?)}/gi, function (g, type, name) {
+    return o.jsexp ? type + '.' + name : (scope[type] || {})[name] || 'null';
+  });
+}
+
+function _transform_err(ctx, error, next) {
+  ctx.sequence.exit = true;
+  ctx.error = error;
+  next();
+}
+
+function _transform_val(ctx, pn, next) {
+  return function(err, v){
+    //console.log('TRANSFORMATION: result=%s', v);
+    if (err) {
+      _transform_err(ctx, err, next);
+    } else {
+      ctx.wrow[pn] = v;
+      next();
+    }
+  }
+}
+
+function _eval_sql(cnn, sqlstr, cb) {
+  // esegue lo script sql sulla connessione passata per calcolare value
+  // quindi esegue cb(err, value)
+  Data.retrieveData({
+    name: 'WALKING-DATA-ESECUTION',
+    connection: cnn
+  }, sqlstr, function(err, result) {
+    if (err) return cb(err);
+    if ((result.rows||{}).length) {
+      const res = result.rows[0];
+      const v = (_.isObject(res)) ? res[_.keys(res)[0]||'_undefined_'] : res;
+      cb(null, v);
+    } else {
+      cb('No result from query execution!');
+    }
+  });
+}
+
+function _transform(o, row, handler, cb) {
+  const ctx = {
+    wrow: {},
+    sequence: u.compose(),
+    scope: {
+      f: row,
+      p: u.cllToObj((o.walking||{}).parameters)
+    },
+    error: null
+  };
+  // console.log('DEBUG: _transform ctx:', ctx);
+  _.keys(row||{}).forEach(function(pn){
+    const tf = _.find(handler.schema, function(sf) {
+      return sf.name === pn;
+    });
+    if (tf) {
+      ctx.sequence.use(function (next) {
+        // console.log('DEBUG: _transform tf:', tf);
+        if ((tf || {}).transformer) {
+          switch (tf.transformer.mode) {
+            case TRANSFORMER_MODE.expression:
+              console.log('TRANSFORMATION: %s', tf.transformer.expression);
+              u.evalExp(tf.transformer.expression, ctx.scope, _transform_val(ctx, pn, next));
+              break;
+            case TRANSFORMER_MODE.lookup:
+              if ((tf.transformer.lookup || {}).advanced) {
+                const query = _parse(tf.transformer.lookup.filter, ctx.scope);
+                _eval_sql(tf.transformer.lookup.connection, query, _transform_val(ctx, pn, next));
+              } else {
+                const sc = {
+                  q: {
+                    filter: _parse(tf.transformer.lookup.filter, ctx.scope),
+                    fieldName: tf.transformer.lookup.fieldName,
+                    tableName: tf.transformer.lookup.tableName,
+                    fieldMatch: tf.transformer.lookup.fieldMatch
+                  }
+                };
+                const sql = _parse('SELECT {q:fieldName} FROM {q:tableName} WHERE {q:fieldMatch} = {q:filter}', sc);
+                _eval_sql(tf.transformer.lookup.connection, sql, _transform_val(ctx, pn, next));
+              }
+              break;
+            default:
+              _transform_err(ctx, 'Unknown transformer mode', next);
+              break;
+          }
+        } else {
+          _transform_err(ctx, 'Undefined transformer', next);
+        }
+      });
+    }
+  });
+  ctx.sequence.run(function() {
+    cb(ctx.error, ctx.wrow);
+  });
+}
+
+function _write(o, row, handler) {
+  return function (next) {
+    if (!_.isFunction(handler._write))
+      return _session.log({
+        message: 'Undefined writer for handler "' + handler.name + '"',
+        type: 'error'
+      }, next);
+    // TRASFORMAZIONE: modifica i dati come previsto dalle trasformazioni
+    _transform(o, row, handler, function (err, wrow) {
+      // SCRITTURA: scrive il record modificato nel target
+      if (err) {
+        // TODO: aggiunge scarto (row)
+        _session.log({message: err, type: 'error'}, next);
+      } else {
+        console.log('AFTER TRANSFORM row:',wrow);
+        handler._write(o, wrow, next);
+      }
+    });
+  }
+}
+
+function _bulk(o, sh, th) {
+  return function(next) {
+    th._file = sh._fileName;
+    th._bulk(o, next);
+  }
+}
+
+function _exitOnError(sequence, cb) {
+  return function(err){
+    if (err) {
+      sequence.exit = true;
+      _session.log({message: err, type: 'error'}, cb);
+    } else {
+      cb();
+    }
+  }
+}
+
+function _execSource(source, o) {
+  return function(cb) {
+    if (_session.stopped) return cb();
+    _session.log({message: 'running source ' + source.name});
+
+    // console.log('OPTIONS:', o);
+    // console.log('SOURCE:', source);
+
+    const sh = Handler.get(source);
+    if (!_.isFunction(sh._read)) return _session.log({message: 'unknown source type "'+source.type+'"', type: 'warning'}, cb);
+    if (!(sh.targets||[]).length) return _session.log({message: 'no targets defined for source "'+source.name+'"', type: 'warning'}, cb);
+
+    // ESECUZIONE
+    const exe = u.compose();
+    // inizializza l'handler origine
+    exe.use(function(next) {
+      sh._begin(_exitOnError(exe, next));
+    });
+    // inizializza gli  n handler sorgenti
+    sh.targets.forEach(function(th) {
+      exe.use(function(next) {
+        th._begin(_exitOnError(exe, next));
+      });
+    });
+
+    exe
+      // divide i tipi di target
+      .use(function(next) {
+        sh._targets = {
+          bulks: [],
+          standards: []
+        };
+        sh.targets.forEach(function(th) {
+          if (th.bulk) {
+            sh._targets.bulks.push(th);
+          } else {
+            sh._targets.standards.push(th);
+          }
+        });
+        next();
+      })
+      // effettua le bulk se presenti
+      .use(function(next){
+        if (sh._targets.bulks.length <= 0) return next();
+        const seq = u.compose();
+        sh._targets.bulks.forEach(function (th) {
+          seq.use(_bulk(o, sh, th));
+        });
+        seq.run(next);
+      })
+      // carica i dati dell'hanlder origine e per ogni record esegue gli n handler target
+      .use(function(next) {
+        if (sh._targets.standards.length <= 0) return next();
+        // LETTURA: carica i record
+        sh._read(o, function (err, row, next_row) {
+          // esegue questo metodo per ogni record (row)
+          // console.log('READ OK', err, row);
+          // SCRITTURA: per ogni target scrive il record modificato
+          const seq = u.compose();
+          sh._targets.standards.forEach(function (th) {
+            seq.use(_write(o, row, th));
+          });
+          seq.run(next_row);
+        }, function (err) {
+          if (err) {
+            console.log('READ FAIL END', err);
+            _session.log({message: err, type: 'error'}, next);
+          } else {
+            next();
+          }
+        });
+      });
+    // termina gli handler target
+    sh.targets.forEach(function(th) {
+      exe.use(th._end);
+    });
+    // termina l'handler origine e termina l'esecuzione
+    exe
+      .use(sh._end)
+      .run(function() {
+        cb();
+      });
+  }
+}
+
+function _execStage(stage, o) {
+  return function(cb) {
+    if (_session.stopped) return cb();
+    const index = o.walking.stages.indexOf(stage);
+    _session.log({message: 'starting stage n°'+(index+1)});
+    if ((stage.sources||[]).length) {
+      const seq = u.compose();
+      stage.sources.forEach(function(source){
+        seq.use(_execSource(source, o));
+      });
+      seq.run(function() {
+        _session.log({message: 'done stage n°'+(index+1)});
+        cb();
+      });
+    } else {
+      _session.log({message: 'empty stage', type: 'warning'});
+      cb();
+    }
+  }
+}
+
+
+
+// restituisce lo stato attuale:
+exports.state = function(req, res) {
+  u.ok(res, (_session||{}).logItems);
+};
+
+// restituisce le info disponibili per gli walking-data:
+// - file uploadati
+// - templates
+exports.info = function(req, res) {
+  return u.error(res, 'Not implemented yet');
+};
+
+// avvia un piano di walking-data
+exports.run = function(req, res) {
+  const options = req.body;
+  if (_session && !_session.endTime) return u.error(res, '"' + _session.title + '" just walking!');
+  if (!options || !options.walking) return u.error(res, 'Undefined walking options!');
+  if (!options.walking._id) return u.error(res, 'Undefined walking-data object!');
+  if (!(options.walking.stages||[]).length) return u.error(res, 'Empty walking-data document!');
+  // console.log('WALKING: ', JSON.stringify(options.walking));
+
+  u.ok(res);
+  if (_session) _session.dispose();
+  _session = Session.session({
+    title: options.walking.name,
+    walking: options.walking._id,
+    user: req.user,
+    onLog: function (o) {
+      socket.events.onState(o);
+    }
+  });
+  Handler.context.session = _session;
+  _session.log({type: Session.logType.start, message: options.walking._id});
+  _session.log({message: 'Walking-data "' + options.walking.name + '" started...'});
+  const seq = u.compose();
+  options.walking.stages.forEach(function(stage){
+    seq.use(_execStage(stage, options));
+  });
+  seq.run(function() {
+    _session.end();
+  });
+};
+
+// interrompe un piano di walking-data
+exports.stop = function(req, res) {
+  _session.stop();
+  u.ok(res);
+};
+
+function _decodeFileName(fn) {
+  const parts = path.parse(fn);
+  return (parts.name||'').replace(/[._,]+/g, ' ');
+}
+
+function _validateNewFileName(name, cb) {
+  var exists = false;
+  const original = path.parse(name);
+  name = original.name + original.ext;
+  var i = 0;
+  var fn = '';
+  do {
+    fn = path.join(walking_path, original.dir, name);
+    exists = fs.existsSync(fn);
+    if (exists) name = original.name + '_' + (++i) + original.ext;
+  } while(exists);
+  cb({
+    name: _decodeFileName(name),
+    path: name,
+    fn: fn
+  });
+}
+
+function _calcPartials(data, o) {
+  o = o || {};
+  const partial = {
+    lines: [],
+    text: ''
+  };
+  try {
+    const text = data.toString('utf8') || '';
+    const rows = text.split('\n');
+    var i = 0;
+    // (prime 20 righe)
+    const maxLines = o.maxLines || 20;
+    while (partial.lines.length < maxLines && i < rows.length) {
+      const row = (rows[i++] || '').replace(/\r/g, '');
+      if (row) partial.lines.push(row);
+    }
+    // (primi 500 caratteri)
+    partial.text = ((text.substr(0, o.maxChars || 500) || '') + '').trim();
+  } catch (err) {
+    console.error(err);
+  }
+  return partial;
+}
+
+
+// carica documenti per gli walking-data
+exports.upload = function(req, res) {
+  const result = {
+    path: u.guid('xxx') + '.res',
+    partial: {}
+  };
+  var data = new Buffer('');
+  req.on('data', function(chunk) {
+    data = Buffer.concat([data, chunk]);
+  });
+  req.on('end', function() {
+    _validateNewFileName(result.path, function(o) {
+      result.path = o.path;
+      result.partial = _calcPartials(data);
+      fs.writeFile(o.fn, data, function(err) {
+        if (err) return u.error(res, err);
+        // console.log('UPLOAD RESULT:', result);
+        u.ok(res, result);
+      });
+    });
+  });
+  req.on('error', function(err) {
+    u.error(res, err);
+  });
+};
+
+
+exports.browse = function(req, res) {
+  const options = req.body || {};
+  options.path = options.path || walking_path;
+  switch (options.verb) {
+    case 'back':
+      options.path = path.normalize(path.join(options.path, '..'));
+      break;
+  }
+  fs.readdir(options.path, function (err, files) {
+    const result = {folders:[], files:[]};
+    files.forEach(function(f){
+      const fp = path.join(options.path, f);
+      const stats = fs.statSync(fp);
+      if (stats.isDirectory()) {
+        result.folders.push({
+          name: fp,
+          type: 'folder'
+        });
+      } else if (stats.isFile()) {
+        result.files.push({
+          name: fp,
+          type: 'file',
+          size: stats.size,
+          last: stats.mtime
+        });
+      }
+    });
+    u.ok(res, result);
+  });
+};
+
+exports.onFiles = function(cb) {
+  fs.readdir(walking_path, function (err, files) {
+    if (err) return cb(err);
+    cb(null, files);
+  });
+};
+
+/* WEBPACK VAR INJECTION */}.call(exports, "server\\api\\data"))
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(__dirname) {
+const _ = __webpack_require__(0);
+const u = __webpack_require__(1);
+const path = __webpack_require__(3);
+const fs = __webpack_require__(4);
+const config = __webpack_require__(2);
+const session_path = config.sessionsPath || (u.release ? path.join(config.serverPath, 'sessions') : path.join(__dirname, 'sessions'));
+const SEPARATOR = '----------------------------------------------------------------------';
+const STATES = {
+  error: 'error',
+  discard: 'discard',
+  success: 'success'
+};
+const TYPES = {
+  info: 'info',
+  start: 'start',
+  end: 'end',
+  error: 'error',
+  warning: 'warning',
+  report: 'report',
+  separator: 'separator'
+};
+const _save_state = {
+  queue: [],
+  check: function() {
+    const last = _.last(this.queue);
+    if (last && !last.saving) last.save();
+  },
+  save: function(ssn) {
+    const item = {
+      file: ssn.file,
+      content: JSON.stringify(ssn),
+      saving: false,
+      save: function() {
+        const self = this;
+        self.saving = true;
+        fs.writeFile(self.file, self.content, function (err) {
+          if (err) console.error(err);
+          _.pull(_save_state.queue, self);
+          _save_state.check();
+        });
+      }
+    };
+    this.queue.push(item);
+    this.check();
+  }
+};
+
+function _init(ssn) {
+  _.keys(STATES).forEach(function(s){
+    ssn.state[s] = [];
+  });
+  _save_state.save(ssn);
+}
+
+const Session = function(o) {
+  o = o || {};
+  this.id = Date.now();
+  this.title = o.title||'new walking-data';
+  this.walking = o.walking;
+  // nome file:  {ID-DOCUMENTO}@{DATA-SESSIONE}_{NOME-DOCUMENTO}.json
+  const fn = u.io.getFileName(this.walking + '@' + this.id + '_' + this.title + '.json');
+  this.file = path.join(session_path, fn);
+  this.startTime = this.id;
+  this.endTime = null;
+  this.logItems = [];
+  this.state = {};
+  this.stopped = false;
+  this.onLog = o.onLog || _.noop;
+  this.lastTime = null;
+  this.disposed = false;
+  _init(this);
+};
+Session.prototype = {
+  log: function(o, cb) {
+    o = o  || {};
+    cb = cb || _.noop;
+    const self = this;
+    if (self.disposed) return cb();
+    const now = new Date();
+    if (self.lastTime) o.elapsed = now.getTime() - self.lastTime;
+    self.lastTime = now.getTime();
+    o.time = self.lastTime;
+    o.time_str = ([TYPES.separator, TYPES.report].indexOf(o.type)<0) ? u.getTimeStr(now) : null;
+    o.type = o.type || TYPES.info;
+    o.message = (o.type === TYPES.separator) ? SEPARATOR : (o.message || '');
+    o.verb = o.verb || '';
+    this.logItems.push(o);
+    this.onLog(o);
+    cb();
+    _save_state.save(this);
+  },
+  acq: function(state) {
+    const self = this;
+    if (self.disposed) return;
+    state.type = state.type || STATES.success;
+    self.state[state.type] = self.state[state.type] || [];
+    self.state[state.type].push(state);
+    _save_state.save(self);
+  },
+  getReport: function() {
+    const self = this;
+    const sdate = new Date(self.startTime);
+    const edate = self.endTime ? new Date(self.endTime) : null;
+    var report = 'WALKING DATA\n';
+    report += _.padEnd('document:', 16) + self.title + '\n';
+    report += _.padEnd('started at:', 16) + sdate.toLocaleString() + '\n\n';
+    const types = _.map(_.keys(self.state), function (k) {
+      return '  > ' + _.padEnd(k + ':', 16) + self.state[k].length;
+    });
+    report += types.join('\n') + '\n\n';
+    if (self.stopped) report += 'STOPPED\n';
+    if (edate) {
+      report += _.padEnd('ended at:', 16) + edate.toLocaleString() + '\n';
+      report += _.padEnd('elapsed:', 16) + u.getTimeStr(edate - sdate);
+    }
+    return report;
+  },
+  rollback: function() {
+    // TODO????
+  },
+  stop: function() {
+    const self = this;
+    if (self.endTime || self.disposed) return;
+    self.stopped = true;
+    self.log({type: TYPES.info, message:'STOPPED'});
+    self.end();
+  },
+  end: function() {
+    const self = this;
+    if (self.endTime || self.disposed) return;
+    self.endTime = Date.now();
+    self.log({type: TYPES.end, message: 'the end'});
+    self.log({type: TYPES.separator});
+    const report = self.getReport();
+    self.log({type: TYPES.report, message: report});
+  },
+  dispose: function() {
+    this.onLog = _.noop;
+    this.disposed = true;
+    this.logItems.splice(0);
+    this.state = {};
+  }
+};
+
+exports.session = function(o) {
+  return new Session(o);
+};
+
+exports.state = function(o) {
+  return {
+    state: o.state || STATES.success,
+    data: {},
+    reason: null
+  }
+};
+
+
+exports.states = STATES;
+exports.logType = TYPES;
+
+/* WEBPACK VAR INJECTION */}.call(exports, "server\\api\\data"))
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1710,32 +2957,32 @@ exports.events = _events;
 exports.register = function(socket) {
   _events.onState = function(state) {
     socket.emit('walkingdata', state);
-    console.log('SOCKET EMIT walkingdata state', state);
+    // console.log('SOCKET EMIT walkingdata state', state);
   };
   console.log('Registered events (%s)', _events._time);
 };
 
 
 /***/ }),
-/* 13 */
+/* 17 */
 /***/ (function(module, exports) {
 
 module.exports = require("jsonwebtoken");
 
 /***/ }),
-/* 14 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(__dirname) {
-const jwt = __webpack_require__(13);
-const crypto = __webpack_require__(41);
+const jwt = __webpack_require__(17);
+const crypto = __webpack_require__(56);
 const config = __webpack_require__(2);
 const u = __webpack_require__(1);
 const _ = __webpack_require__(0);
 const path = __webpack_require__(3);
 const USERS_STORE = 'users.json';
-const store = __webpack_require__(42);
+const store = __webpack_require__(57);
 
 const users_store_path = path.join((u.release ? config.serverPath : __dirname), USERS_STORE);
 //
@@ -1902,7 +3149,7 @@ if (_toUpdate) {_update();}
 /* WEBPACK VAR INJECTION */}.call(exports, "server\\api\\user"))
 
 /***/ }),
-/* 15 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1911,9 +3158,9 @@ if (_toUpdate) {_update();}
 const _ = __webpack_require__(0);
 // const Log = require('../log/log.controller');
 const u = __webpack_require__(1);
-const URL = __webpack_require__(57);
+const URL = __webpack_require__(61);
 const Scenario = __webpack_require__(6);
-const fs = __webpack_require__(5);
+const fs = __webpack_require__(4);
 const path = __webpack_require__(3);
 
 function _parseUrl(req) {
@@ -2063,26 +3310,26 @@ module.exports = function(req, res) {
 
 
 /***/ }),
-/* 16 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 console.log('-----------------------------------------------\nECHO-SERVICE starting...');
-const express = __webpack_require__(4);
+const express = __webpack_require__(5);
 const config = __webpack_require__(2);
 // Setup server
 const app = express();
-const server = __webpack_require__(17).createServer(app);
-const socketio = __webpack_require__(18)(server, {
+const server = __webpack_require__(21).createServer(app);
+const socketio = __webpack_require__(22)(server, {
   serveClient: (config.env !== 'production'),
   path: '/socket.io'
 });
 const Scenario = __webpack_require__(6);
 
-__webpack_require__(24)(socketio);
-__webpack_require__(25)(app);
-__webpack_require__(34)(app);
+__webpack_require__(39)(socketio);
+__webpack_require__(40)(app);
+__webpack_require__(49)(app);
 
 Scenario.startup();
 
@@ -2096,24 +3343,24 @@ exports = module.exports = app;
 
 
 /***/ }),
-/* 17 */
+/* 21 */
 /***/ (function(module, exports) {
 
 module.exports = require("http");
 
 /***/ }),
-/* 18 */
+/* 22 */
 /***/ (function(module, exports) {
 
 module.exports = require("socket.io");
 
 /***/ }),
-/* 19 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(__dirname) {
-const fs = __webpack_require__(5);
+const fs = __webpack_require__(4);
 const path = __webpack_require__(3);
 const _ = __webpack_require__(0);
 const u = __webpack_require__(1);
@@ -2231,7 +3478,7 @@ exports.deleteFile = function(filename, cb) {
 /* WEBPACK VAR INJECTION */}.call(exports, "server\\api\\scenario"))
 
 /***/ }),
-/* 20 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2304,7 +3551,7 @@ exports.update = function(doc, action) {
 
 
 /***/ }),
-/* 21 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2354,7 +3601,7 @@ exports.validate = function(doc, filename) {
 
 
 /***/ }),
-/* 22 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2395,732 +3642,13 @@ exports.infos = {
 
 
 /***/ }),
-/* 23 */
+/* 27 */
 /***/ (function(module, exports) {
 
 module.exports = require("jszip");
 
 /***/ }),
-/* 24 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-function _log(message) {
-  const now = new Date();
-  return {
-    time: now,
-    time_str: now.toLocaleTimeString(),
-    type: 'info',
-    message: message
-  };
-}
-
-// When the user disconnects.. perform this
-function onDisconnect(socket) {
-  socket.emit('log', _log('"'+socket.address+'" leave echo!'));
-}
-
-// When the user connects.. perform this
-function onConnect(socket) {
-  // When the client emits 'info', this listens and executes
-  socket.on('info', function (data) {
-    console.info('[%s] %s (by socket)', socket.address, JSON.stringify(data, null, 2));
-  });
-
-  // Insert sockets below
-  __webpack_require__(11).register(socket);
-  __webpack_require__(12).register(socket);
-
-  socket.emit('log', _log('Wellcome "'+socket.address+'" to echo!'));
-}
-
-module.exports = function (socketio) {
-  // socket.io (v1.x.x) is powered by debug.
-  // In order to see all the debug output, set DEBUG (in server/config/local.env.js) to including the desired scope.
-  //
-  // ex: DEBUG: "http*,socket.io:socket"
-
-  // We can authenticate socket.io users and access their token through socket.handshake.decoded_token
-  //
-  // 1. You will need to send the token in `client/components/socket/socket.service.js`
-  //
-  // 2. Require authentication here:
-  // socketio.use(require('socketio-jwt').authorize({
-  //   secret: config.secrets.session,
-  //   handshake: true
-  // }));
-
-  socketio.on('connection', function (socket) {
-    const hs = socket.handshake.address||{};
-    socket.address = hs.address ? hs.address + ':' + hs.port : hs;
-    //console.log('handshake:', socket.handshake);
-
-    socket.connectedAt = new Date();
-    // Call onDisconnect.
-    socket.on('disconnect', function () {
-      onDisconnect(socket);
-      console.info('[SOCKET.IO on %s] DISCONNECTED', socket.address);
-    });
-
-    // Call onConnect.
-    onConnect(socket);
-    console.info('[SOCKET.IO on %s] CONNECTED', socket.address);
-  });
-
-  socketio.on('error', function (err) {
-    console.error(err);
-  });
-};
-
-
-
-/***/ }),
-/* 25 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-const express = __webpack_require__(4);
-const favicon = __webpack_require__(26);
-const morgan = __webpack_require__(27);
-const compression = __webpack_require__(28);
-const bodyParser = __webpack_require__(29);
-const methodOverride = __webpack_require__(30);
-const cookieParser = __webpack_require__(31);
-const errorHandler = __webpack_require__(32);
-const path = __webpack_require__(3);
-const config = __webpack_require__(2);
-const client_path = config.clientPath||'client';
-
-var _counter = 0;
-
-//CORS middleware
-var allowCrossDomain = function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
-};
-
-//LOG middleware
-var serverLog = function(req, res, next) {
-  _counter++;
-  console.log('Echo-Service request n°%s [%s %s]',_counter, req.method, req.url);
-  next();
-};
-
-module.exports = function(app) {
-  var env = app.get('env');
-
-  app.set('views', path.join(config.serverPath, 'views'));
-  app.engine('html', __webpack_require__(33).renderFile);
-  app.set('view engine', 'html');
-  app.use(compression());
-
-  app.use(bodyParser.json({limit: '100mb'}));
-  app.use(bodyParser.urlencoded({limit: '100mb', extended: true}));
-
-  app.use(methodOverride());
-  app.use(allowCrossDomain);
-  app.use(cookieParser());
-  app.use(serverLog);
-
-  app.use(express.static(path.join(config.root, client_path)));
-  app.set('appPath', client_path);
-
-  app.use(morgan('dev'));
-  app.use(errorHandler()); // Error handler - has to be last
-};
-
-
-/***/ }),
-/* 26 */
-/***/ (function(module, exports) {
-
-module.exports = require("serve-favicon");
-
-/***/ }),
-/* 27 */
-/***/ (function(module, exports) {
-
-module.exports = require("morgan");
-
-/***/ }),
 /* 28 */
-/***/ (function(module, exports) {
-
-module.exports = require("compression");
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports) {
-
-module.exports = require("body-parser");
-
-/***/ }),
-/* 30 */
-/***/ (function(module, exports) {
-
-module.exports = require("method-override");
-
-/***/ }),
-/* 31 */
-/***/ (function(module, exports) {
-
-module.exports = require("cookie-parser");
-
-/***/ }),
-/* 32 */
-/***/ (function(module, exports) {
-
-module.exports = require("errorhandler");
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports) {
-
-module.exports = require("ejs");
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var errors = __webpack_require__(35);
-
-module.exports = function(app) {
-  app.use('/api', __webpack_require__(36));
-  app.use('/api/scenario', __webpack_require__(38));
-  app.use('/api/data', __webpack_require__(43));
-  app.use('/api/reporting', __webpack_require__(55));
-  app.use(function(req, res, next) {
-    var m = /.*\/api\/test\/((.*)[\?]\??(.*)?|(.*))/.exec(req.url);
-    m ? __webpack_require__(15)(req, res) : next();
-  });
-  app.use('/api/test', __webpack_require__(15));
-  app.use('/auth', __webpack_require__(58));
-  // All undefined asset or api routes should return a 404
-  app.route('/:url(api|auth|components|app|bower_components|assets)/*')
-   .get(errors[404]);
-};
-
-
-/***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * Error responses
- */
-
-
-
-module.exports[404] = function pageNotFound(req, res) {
-  var viewFilePath = '404';
-  var statusCode = 404;
-  var result = {
-    status: statusCode
-  };
-
-  res.status(result.status);
-  res.render(viewFilePath, function (err) {
-    if (err) { return res.json(result, result.status); }
-
-    res.render(viewFilePath);
-  });
-};
-
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-const api = __webpack_require__(37);
-const u = __webpack_require__(1);
-const express = __webpack_require__(4);
-const Log = __webpack_require__(7);
-
-var router = express.Router();
-
-
-router.get('/', function(req, res){
-  return u.ok(res, api);
-});
-
-router.get('/log', function(req, res) {
-  Log.get(function(err, items){
-    if (err) {return u.error(res, err);}
-    u.ok(res, items);
-  });
-});
-
-module.exports = router;
-
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports) {
-
-module.exports = [{"description":"Scenari","baseRoute":"api/scenario","routes":[{"verb":"get","route":"api/scenario","description":"Elenco degli scenari disponibili","response":{"type":"object","object":{"folder":{"type":"string","description":"Nome del folder server dove risiedono i file dello scenario"},"name":{"type":"string","description":"Nome dello scenario"},"auth":{"type":"boolean","description":"Identifica uno scenario con la sicurezza attiva"},"{type}":{"type":"array","description":"Per ogni tipo di documento esiste un array che ne enumera gli identificativi"}}}},{"verb":"get","route":"api/scenario/current","description":"Info dello scenario corrente","response":{"type":"object","object":{"folder":{"type":"string","description":"Nome del folder server dove risiedono i file dello scenario"},"name":{"type":"string","description":"Nome dello scenario"},"auth":{"type":"boolean","description":"Identifica uno scenario con la sicurezza attiva"},"{type}":{"type":"array","description":"Per ogni tipo di documento esiste un array che ne enumera gli identificativi"}}}},{"verb":"get","route":"api/scenario/info/:name","description":"Info dello scenario","body":{"name":{"type":"string","description":"Folder dello scenario richiesto"}},"response":{"type":"object","object":{"folder":{"type":"string","description":"Nome del folder server dove risiedono i file dello scenario"},"name":{"type":"string","description":"Nome dello scenario"},"auth":{"type":"boolean","description":"Identifica uno scenario con la sicurezza attiva"},"{type}":{"type":"array","description":"Per ogni tipo di documento esiste un array che ne enumera gli identificativi"}}}},{"verb":"get","route":"api/scenario/download/:folder","description":"Download scenario","body":{"folder":{"type":"string","description":"Nome del folder dello scenario da scaricare"}},"response":{"type":"file","description":"File compresso dello scenario ({FOLDER-NAME}.zip)"}},{"verb":"post","route":"api/scenario/push","description":"Inserisce documenti in uno scenario","auth":true,"body":{"source":{"type":"array","description":"elenco dei documenti da inserire nello scenario"},"target":{"type":"object","description":"info di scenario target (deve avere almeno la property folder)"}},"response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"post","route":"api/scenario/apply","description":"Applica uno scenario","body":"Se passato il folder applica lo scenario, altrimenti, se è un oggetto, ne crea uno nuovo","response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"post","route":"api/scenario/update","description":"Applica le modifiche allo scenario","body":"Scenario con le modifiche apportate","response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"post","route":"api/scenario/settings","description":"Applica le modifiche alle impostazioni dello scenario","body":"Impostazioni con le modifiche apportate","response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"post","route":"api/scenario/upload","description":"Carica uno scenario sul server","body":"File compresso con i documenti dello scenario (xxx.zip)","response":"Niente se ha successo, altrimenti l'errore rilevato"}]},{"description":"Documenti","baseRoute":"api/scenario","routes":[{"verb":"get","route":"api/scenario/documents/:type*?","description":"Elenco dei documenti dello scenario corrente","body":{"type":{"type":"string","description":"Se definito filtra i documenti per tipologia restituendo il contenuto integralmente"}},"response":{"type":"array","object":{"id":{"type":"string","description":"Identificativo del documento"},"name":{"type":"string","description":"Nome del documento"},"title":{"type":"string","description":"Titolo del documento"},"description":{"type":"string","description":"Descrizione del documento"},"modifiedAt":{"type":"date","description":"Data dell'ultima modifica"},"modifiedBy":{"type":"date","description":"Autore dell'ultima modifica"},"_id":{"type":"string","description":"Identificativo del documento (interno)"},"_type":{"type":"string","description":"Tipologia del documento (interno)"},"_tid":{"type":"string","description":"Identificativo con tipo del documento (interno)"}}}},{"verb":"get","route":"api/scenario/tags","description":"Elenco dei tag sui documenti dello scenario corrente","response":{"type":"array","description":"Elenco dei tag"}},{"verb":"get","route":"api/scenario/document/:id/:type*?","description":"Il singolo documento per id e (opzionale) tipo","body":{"id":{"type":"string","description":"Identificativo del documento"},"type":{"type":"string","description":"(opzionale) Tipologia del documento"}},"response":{"type":"object","description":"Contenuto del documento in formato json"}},{"verb":"post","route":"api/scenario/save","description":"Salva un documento","auth":true,"body":"Documento da salvare","response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"delete","route":"api/scenario/:id/:type*?","description":"Elimina un documento","auth":true,"body":{"id":{"type":"string","description":"Identificativo del documento"},"type":{"type":"string","description":"(opzionale) Tipologia del documento"}},"response":"Niente se ha successo, altrimenti l'errore rilevato"}]},{"description":"Dati","baseRoute":"api/data","routes":[{"verb":"get","route":"api/data/providers","description":"Elenco dei providers disponibili","response":{"type":"array","object":{"active":{"type":"bool","description":"Descrive lo stato di attività della connessione"},"enabled":{"type":"bool","description":"Se vero è possibile utilizzare questo provider"},"library":{"type":"string","description":"Nome della libreria"},"name":{"type":"string","description":"Nome del provider"},"code":{"type":"string","description":"Codifica del nome"},"instance":{"type":"object","description":"logic"},"defaultPort":{"type":"number","description":"Porta predefinita"}}}},{"verb":"get","route":"api/data/schema/:id","auth":true,"description":"Schema relativo alla connessione indicata","body":{"id":{"type":"string","description":"Identificativo della connessione"}},"response":{"type":"object","description":"ANSI standard information_schema"}},{"verb":"get","route":"api/data/system","auth":true,"description":"Elenco dei parametri di sistema","response":{"type":"array","object":{"name":{"type":"string","description":"Nome del parametro"},"id":{"type":"string","description":"Identificativo"},"value":{"type":"any","description":"Valore del parametro di sistema"},"dataType":{"type":"string","description":"Tipo dato"}}}},{"verb":"post","route":"api/data/execute","auth":true,"description":"Esecuzione di una query","body":{"id":{"type":"string","description":"Identificativo della query da eseguire"},"parameters":{"type":"array","description":"Elenco dei parametri per l'esecuzione"}},"response":{"type":"object","object":{"rows":{"type":"array","description":"Elenco dei records"},"columns":{"type":"array","description":"Schema dati"},"sql":{"type":"string","description":"SQL eseguito dal provider"},"query":{"type":"object","description":"Documento query eseguita"}}}},{"verb":"post","route":"api/data/test/conn","description":"Test della connessione","body":"Documento connection da eseguire","response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"post","route":"api/data/test/exec","description":"Test della query","body":"Documento query da eseguire","response":{"type":"object","object":{"rows":{"type":"array","description":"Elenco dei records"},"columns":{"type":"array","description":"Schema dati"},"sql":{"type":"string","description":"SQL eseguito dal provider"},"query":{"type":"object","description":"Documento query eseguita"}}}},{"verb":"post","route":"api/data/entry","description":"Operazioni di data-entry","body":{"action":{"type":"string","description":"Azione dell'operazione di data-entry"},"datasourceId":{"type":"string","description":"Identificativo della sorgente dati"},"changedFields":{"type":"array","description":"Elenco dei field modificati"},"changedRows":{"type":"array","description":"Elenco dei row modificati"},"originalRows":{"type":"array","description":"Elenco dei row originali"}},"response":{"type":"object","object":{"affected":{"type":"number","description":"Numero degli elementi modificati"},"error":{"type":"string","description":"Errore nell'esecuzione del comando di data-entry"}}}},{"verb":"post","route":"api/data/template","description":"Restituisce il template sql per l'operazione richiesta","body":{"action":{"type":"string","description":"Azione dell'operazione di data-entry"},"connection":{"type":"string","description":"Identificativo della connessione utilizzata"},"columns":{"type":"array","description":"Elenco dei campi"}},"response":{"type":"object","object":{"template":{"type":"string","description":"Il template richiesto"}}}}]},{"description":"Utenti","baseRoute":"api/user","routes":[{"verb":"get","route":"api/user","description":"Elenco degli utenti (solo per ruoli 'admin')","response":{"type":"array","description":"Elenco degli utenti"}},{"verb":"get","route":"api/user/me","description":"Info sull'utente correntemente loggato","response":{"type":"object","description":"Utente corrente"}},{"verb":"get","route":"api/user/:id","description":"Info sull'utente","body":{"id":{"type":"string","description":"Identificativo dell'utente"}},"response":{"type":"string","description":"Profilo dell'utente"}},{"verb":"post","route":"api/user","description":"Crea un nuovo utente (solo per ruoli 'admin')","body":{"name":{"type":"string","description":"Nome dell'utente"},"password":{"type":"string","description":"Password dell'utente"}},"response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"delete","route":"api/user/:id","description":"Elimina un utente (solo per ruoli 'admin')","body":{"id":{"type":"string","description":"Identificativo dell'utente"}},"response":"Niente se ha successo, altrimenti l'errore rilevato"}]},{"description":"Auth","baseRoute":"auth","routes":[{"verb":"post","route":"auth/local","description":"Autenticazione","response":{"type":"object","description":"Restituisce un oggetto contenente il token se autenticato altrimenti l'errore relativo"}}]},{"description":"LOG","baseRoute":"api/log","routes":[{"verb":"get","route":"api/log","description":"Elenco delle righe di log inserite dall'avvio del servizio nel periodo definito nella configurazione","response":{"type":"array","description":"Elenco delle righe di log"}}]},{"description":"API","baseRoute":"api","routes":[{"verb":"get","route":"api","description":"Elenco delle api di echo-service","response":{"type":"object","description":"Questo documento!"}}]}]
-
-/***/ }),
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var express = __webpack_require__(4);
-var controller = __webpack_require__(6);
-var auth = __webpack_require__(8);
-
-var router = express.Router();
-
-// elenco deli scenari
-router.get('/', controller.index);
-// elenco dei tags sui documenti
-router.get('/tags', controller.tags);
-// restituisce l'elenco dei documenti (solo info) dello scenario corrente
-// se è specificato il type restituisce l'elenco dei documenti (full) di quel tipo
-router.get('/documents/:type*?', auth.needAuthentication(controller.checkInfo), controller.docs);
-// restituisce le info dello scenario corrente (OK)
-router.get('/current', auth.needAuthentication(controller.checkInfo), controller.info);
-// restituisce il singolo documento
-router.get('/document/:id/:type*?', auth.needAuthentication(controller.checkRead), controller.read);
-// restituisce le info di scenario
-router.get('/info/:name', auth.needAuthentication(controller.checkInfo), controller.info);
-// scarica lo scenario
-router.get('/download/:folder', controller.download);
-
-// salva il documento
-router.post('/save', auth.needAuthentication(controller.checkSaveDoc), controller.saveDoc);
-// applica uno scenario
-router.post('/apply', controller.apply);
-// applica le modifiche ad uno scenario
-router.post('/update', controller.update);
-// salva i documenti nello scenario
-router.post('/push', auth.needAuthentication(controller.checkWrite), controller.push);
-// salva le info di scenario
-router.post('/settings', auth.hasRole('admin'), controller.settings);
-// carica uno scenario
-router.post('/upload', controller.upload);
-
-
-// elimina un documento
-router.delete('/:id/:type*?', auth.needAuthentication(controller.checkDelete), controller.delete);
-
-module.exports = router;
-
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports) {
-
-module.exports = require("express-jwt");
-
-/***/ }),
-/* 40 */
-/***/ (function(module, exports) {
-
-module.exports = require("composable-middleware");
-
-/***/ }),
-/* 41 */
-/***/ (function(module, exports) {
-
-module.exports = require("crypto");
-
-/***/ }),
-/* 42 */
-/***/ (function(module, exports) {
-
-module.exports = [{"name":"admin","role":"admin","_id":"352bd835-07be-44f1-96e4-c482dc818d6f","salt":"FrVqgAnK5xtotktXoLEqZA==","hashedPassword":"tSH8BOyNI7jaHFN11nEl5z2PfGeQ48p9MQbzbGNXYn28kQ6lI6wKiGwawIi4zt7vB1MY47MYeF6wwpC5j5ukdw=="},{"name":"user","role":"user","_id":"183a62a9-09b8-4fb1-8be4-e5798827c1f6","salt":"7D9F3Q0I7Bw+KbYTzOXHvw==","hashedPassword":"Vv05fT6xuKqtkhRzlaIYnnJTCUzsMgBUCIlCJh9rx8PTuIxvaJR4PJDRPsIG0erWJ4TLIypFEsd2fMOY/aSvsQ=="},{"name":"guest","role":"guest","_id":"24abbdc5-0aa6-4bb5-bdf1-8ab0d0e4bb47","salt":"w/AA+dsIv2qRA20C9B8j7A==","hashedPassword":"ty3o7SYAzZZtkSXhYXW5jKzQRBu/gRtmVK/T5GbAHGAVtBiWKACrfCiqopi3aQTzDbSpZNiRYvhu31k+Pi4EWQ=="}]
-
-/***/ }),
-/* 43 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var express = __webpack_require__(4);
-var controller = __webpack_require__(44);
-var walking = __webpack_require__(54);
-var auth = __webpack_require__(8);
-
-var router = express.Router();
-
-// elenco dei providers
-router.get('/providers', controller.providers);
-// restituisce lo schema db
-router.get('/schema/:id', auth.needAuthentication(controller.checkData), controller.schema);
-// restituisce i parametri di sistema
-router.get('/system', auth.needAuthentication(controller.checkData), controller.system);
-// walking run
-router.get('/walking/state', walking.state);
-// walking-data context
-router.get('/walking/info', walking.info);
-
-// restituisce i dati
-router.post('/execute', auth.needAuthentication(controller.checkData), controller.execute);
-// test connessione
-router.post('/test/conn', controller.testconn);
-// test di esecuzione
-router.post('/test/exec', controller.test);
-// data-entry
-router.post('/entry', controller.entry);
-// template
-router.post('/template', controller.template);
-// walking run
-router.post('/walking/run', walking.run);
-// walking stop
-router.post('/walking/stop', walking.stop);
-// walking upload
-router.post('/walking/upload', walking.upload);
-// walking stop
-router.post('/walking/browse', walking.browse);
-
-module.exports = router;
-
-
-
-
-
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-const manager = __webpack_require__(45);
-const u = __webpack_require__(1);
-const _ = __webpack_require__(0);
-const Log = __webpack_require__(7);
-const Scenario = __webpack_require__(6);
-const QueryParser = __webpack_require__(52);
-const SqlEditor = __webpack_require__(53);
-const SYS_PARAM_KEY = '5933a09f-d99d-4107-a11b-b0e85e1b8b78';
-var _esecution = 0;
-
-// elenco providers
-exports.providers = function(req, res) {
-  u.ok(res, manager.providers);
-};
-
-// test della connessione
-exports.testconn = function(req, res) {
-  var conn = req.body;
-  if (!conn || !conn.provider) return u.error(res, 'Undefined connection or provider!');
-  if (!conn.active) return u.error(res, 'Connection seems not active!');
-  manager.getProvider(conn.provider, function(err, provider){
-    if (err) return u.error(res, err);
-    provider.test(conn, function(err){
-      if(err) {
-        console.log('Connection error', err);
-        return u.error(res, err);
-      }
-      return u.ok(res);
-    });
-  });
-};
-
-exports.schema = function(req, res) {
-  var cnnId = req.params.id;
-  if (!cnnId) return u.error(res, 'Undefined connection!');
-  Scenario.getElement(cnnId, function (err, conn) {
-    if (err) return u.error(res, err);
-    if (!conn.active) return u.error(res, 'Connection seems not active!');
-    manager.getProvider(conn.provider, function (err, provider) {
-      if (err) return u.error(res, err);
-      provider.schema(conn, function (err, schema) {
-        if (err) return u.error(res, err);
-        schema.provider = conn.provider;
-        return u.ok(res, schema);
-      });
-    });
-  });
-};
-exports.checkData = function(req, cb) {
-  cb(null, { auth: false });
-};
-
-function _retrieveData(query, sqlstr, cb) {
-  _esecution++;
-  var esc = _esecution;
-  Scenario.getElement(query.connection, function(err, conn){
-    if (err) return cb(err);
-    if (!conn.active) return cb('Connection seems not active!');
-    manager.getProvider(conn.provider, function(err, provider){
-      if (err) return cb(err);
-      provider.retrieveData(conn, query, sqlstr, esc, cb);
-    });
-  });
-}
-
-function _checkQueryType(doc, cb) {
-  // console.log('CHECK QUERY TYPE - doc:', doc);
-  if (doc._type === SqlEditor.type) {
-    SqlEditor.getConnection(doc.content||doc, function(err, id){
-      doc.connection = id;
-      doc.query = SqlEditor.parse(doc.content||doc);
-      cb();
-    });
-  } else {
-    cb();
-  }
-}
-
-function _calcResult(req, res, doc, exparams) {
-  if (!doc) return u.error(res, 'Undefined query!');
-  if (doc.active === false) return u.error(res, 'Query not active!');
-  const parameters = _.clone(doc.parameters);
-  // console.log('Query parameters: ', parameters);
-  (exparams || []).forEach(function (rp) {
-    var exp = _.find(parameters, function (p) {
-      return p.name === rp.name;
-    });
-    if (exp) exp.value = rp.value;
-  });
-  _checkSystemParameters(req, parameters, function() {
-    // console.log('Parameters for evaluation: ', parameters);
-    _checkQueryType(doc, function(){
-      const parser = new QueryParser(doc.query);
-      // console.log('QUERY: parser', parser);
-      const sqlstr = parser.eval(parameters);
-      // console.log('SQL: %s', sqlstr);
-      _retrieveData(doc, sqlstr, function (err, data) {
-        if (err) return Log.error(err, res);
-        return u.ok(res, data);
-      });
-    });
-  });
-}
-
-exports.execute = function(req, res) {
-  const info = req.body;
-  console.log('request execution: ', info);
-  const id = (info||{}).id || (info||{})._id;
-  if (!id) return u.error(res, 'Undefined query document!');
-  if (id === SYS_PARAM_KEY) {
-    const result = { rows: [{}], columns: [], query:info };
-    _systemParameters(req, function(params){
-      params.forEach(function(sp){
-        result.rows[0][sp.name] = sp.value;
-        result.columns.push({name:sp.name, type:sp.dataType});
-      });
-      u.ok(res, result);
-    });
-  } else {
-    Scenario.getElement(info, function (err, query) {
-      if (err) return u.error(res, err);
-      console.log('prepare calc: ', query);
-      _calcResult(req, res, query, info.parameters || []);
-    });
-  }
-};
-
-exports.test = function(req, res) {
-  _calcResult(req, res, req.body);
-};
-
-function _checkSystemParameters(context, parameters, cb) {
-  _systemParameters(context, function(sysparams){
-    (parameters || []).forEach(function (p) {
-      if ((p.lookup || {}).id === SYS_PARAM_KEY) {
-        const sysp = _.find(sysparams, function (sp) {
-          return sp.name === p.lookup.fieldKey;
-        });
-        p.value = (sysp || {}).value;
-      }
-    });
-    cb();
-  });
-}
-
-function _calc(exp) {
-  const f = new Function('return ' + exp);
-  try {
-    return f();
-  } catch (err) {
-    return err;
-  }
-}
-
-function _systemParameters(context, cb) {
-  Scenario.current(function(current){
-    const params = [
-      {name: 'Now', id: 'system_now', value: new Date(), dataType: 'date'},
-      {name: 'User', id: 'system_user', value: (context || {}).user || 'echo', dataType: 'string'}
-    ];
-    // i parametri di sistema possono essere customizzati nel file di scenario
-    (((current.scenario||{}).settings||{}).parameters||[]).forEach(function(p){
-      if (!_.find(params, function(xp) { return xp.name === p.name || xp.id === p.id; })) {
-        const rp = _.clone(p);
-        if (_.isString(rp.value) && _.startsWith(rp.value, '=')) rp.value = _calc(rp.value.slice(1));
-        params.push(rp);
-      }
-    });
-    cb(params);
-  });
-}
-exports.systemParameters = _systemParameters;
-
-exports.system = function(req, res) {
-  _systemParameters(req, function(params){
-    u.ok(res, params);
-  });
-};
-
-function _decodeAction(action) {
-  switch(action) {
-    case 'add':
-    case 'create':
-      return 'insert';
-    case 'modify':
-      return 'update';
-    case 'remove':
-      return 'delete';
-    default: return action;
-  }
-}
-
-function _replace(entry, sql, row) {
-  _.keys(row || {}).forEach(function (k) {
-    const rgx = new RegExp('{{=?' + k + '}}', 'gi');
-    const value = entry.provider.helper.getSqlTypedValue(row[k], entry.types[k]);
-    sql = sql.replace(rgx, value);
-  });
-  return sql;
-}
-
-exports.entry = function(req, res) {
-  const info = req.body;
-  if (!info) return u.error(res, 'Undefined data-entry infos!');
-  if (!info.action) return u.error(res, 'Undefined operation action!');
-  if (!info.datasourceId) return u.error(res, 'Undefined datasource identity!');
-  //console.log('[DATAENTRY] info:', info);
-  Scenario.getElement(info.datasourceId, function(err, query){
-    if (err) return u.error(res, err);
-    if (!query) return u.error(res, 'Datasource not found! '+info.datasourceId);
-    const action = _decodeAction(info.action);
-    const o = (query.dataentryOptions||{})[action];
-    if (!o) return u.error(res, 'Datasource ('+info.datasourceId+') without dataentry options for action "'+action+'"!');
-    const statement = _.isObject(o) ? o.statement : o;
-    if (_.isString(statement)) {
-      if (!info.changedRows) return u.error(res, 'No handled rows!');
-      if (!_.isArray(info.changedRows)) info.changedRows = [info.changedRows];
-      const entry = {
-        types: {},
-        result: {
-          affected: 0
-        }
-      };
-      // mappa i tipi dati per campo dello schema
-      (query.columns||query.schema||[]).forEach(function(c){
-        entry.types[c.name] = c.type;
-      });
-      // recupera connection e provider
-      const seq = u.compose()
-        .use(function(next){
-          Scenario.getElement(query.connection, function(err, conn){
-            if (err) return u.error(res, err);
-            if (!conn.active) return u.error(res, 'Connection seems not active!');
-            entry.conn = conn;
-            manager.getProvider(conn.provider, function(err, provider){
-              if (err) return u.error(res, err);
-              entry.provider = provider;
-              next();
-            });
-          });
-        });
-      // per ogni record modificato genera ed esegue lo script
-      info.changedRows.forEach(function(row){
-        seq.use(function(next){
-          const sqlstr = _replace(entry, statement, row);
-          _esecution++;
-          entry.provider.retrieveData(entry.conn, query, sqlstr, _esecution, function(err, data){
-            if (err) {
-              seq.exit = true;
-              entry.error = err;
-            } else {
-              console.log('[DATA-ENTRY] execution data:', data||{});
-              entry.result.affected++;
-            }
-            next();
-          });
-        });
-      });
-      // notifica i risultati
-      seq.run(function() {
-        entry.error ? u.error(res, entry.error) : u.ok(res, entry.result);
-      });
-    } else {
-      console.log('[DATA-ENTRY] corrupted options:', o);
-      u.error(res, 'Unrecognized data-entry options for action "'+action+'" on datasource '+info.datasourceId+'!');
-    }
-  });
-};
-
-
-exports.template = function(req, res) {
-  const info = req.body;
-  if (!info) return u.error(res, 'Undefined template infos!');
-  if (!info.action) return u.error(res, 'Undefined template operation action!');
-  if (!info.connection) return u.error(res, 'Undefined connection identity!');
-  if (!info.columns) return u.error(res, 'Undefined fields collection!');
-
-  info.tablename = info.tablename||'{TABLE_NAME}';
-  info.datarow = {};
-  info.indent = true;
-  info.columns.forEach(function(c) {
-    c.COLUMN_NAME = c.COLUMN_NAME||c.name;
-    c.DATA_TYPE = c.DATA_TYPE||c.type||'string';
-    info.datarow[c.COLUMN_NAME] = '{{'+c.COLUMN_NAME+'}}';
-  });
-
-  if (!info.key) {
-    const keyc = _.filter(info.columns, function(c){
-      return !!c.identity;
-    });
-    if (keyc.length) {
-      info.key = {};
-      keyc.forEach(function(k) {
-        info.key[k.COLUMN_NAME] = '{{'+k.COLUMN_NAME+'}}';
-      });
-    } else {
-      info.columns.push({COLUMN_NAME:'KEY_FIELD'});
-      info.key = {'KEY_FIELD':'{{KEY_FIELD}}'};
-    }
-  } else if (_.isString(info.key)) {
-    const key = {};
-    info.key.split(',').forEach(function (k) {
-      key[k] = '{{' + k + '}}';
-    });
-    info.key = key;
-  }
-
-  Scenario.getElement(info.connection, function(err, conn) {
-    if (err) return u.error(res, err);
-    manager.getProvider(conn.provider, function (err, provider) {
-      if (err) return u.error(res, err);
-      const action = _decodeAction(info.action);
-      console.log('TEMPLATIZE on provider: %s', conn.provider);
-      const tmpl = _.isFunction(provider.templatize) ? provider.templatize(action, info) : '';
-      u.ok(res, {template: tmpl});
-    });
-  });
-};
-
-
-/***/ }),
-/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3132,19 +3660,21 @@ const _providers = {
   mssql: {
     active: true,
     enabled: u.use.resolve('mssql'),
+    bulk: true,
     library: 'mssql',
     name: 'SQL Server',
     code: 'sqlserver',
-    instance: __webpack_require__(46),
+    instance: __webpack_require__(29),
     defaultPort: 1433
   },
   mysql: {
     active: true,
     enabled: u.use.resolve('mysql'),
+    bulk: true,
     library: 'mysql',
     name: 'MySQL',
     code: 'mysql',
-    instance: __webpack_require__(48),
+    instance: __webpack_require__(31),
     defaultPort: 3306
   },
   oracle: {
@@ -3153,7 +3683,7 @@ const _providers = {
     library: 'oracledb',
     name: 'Oracle',
     code: 'oracle',
-    instance: __webpack_require__(50),
+    instance: __webpack_require__(33),
     defaultPort: 1521
   // },
   // sqlite: {
@@ -3208,12 +3738,12 @@ exports.getProvider = function(name, cb) {
 
 
 /***/ }),
-/* 46 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var helper = __webpack_require__(47);
+var helper = __webpack_require__(30);
 var _ = __webpack_require__(0);
 var u = __webpack_require__(1);
 var mssql = u.use.resolve('mssql') ? u.use('mssql') : {};
@@ -3489,10 +4019,8 @@ function _update_sql(options, schema, template) {
       if (sql_value) sql_set.push('['+ c.COLUMN_NAME+']='+sql_value);
     }
   });
-
-  return options.indent ?
-    'UPDATE\n\t[' + options.tablename + ']\nSET\n\t' + sql_set.join(',\n\t') + '\nWHERE\n\t' + sql_where.join(' AND\n\t') :
-    'UPDATE [' + options.tablename + '] SET ' + sql_set.join(',') + ' WHERE ' + sql_where.join(' AND ');
+  const SQL = 'UPDATE %%N%%T[' + options.tablename + '] %%NSET %%N%%T' + sql_set.join(', %%N%%T') + ' %%NWHERE %%N%%T' + sql_where.join(' AND %%N%%T');
+  return u.spc(SQL, options.indent);
 }
 
 exports.update = function(options, res) {
@@ -3507,6 +4035,24 @@ exports.update = function(options, res) {
     });
   });
 };
+
+
+function _create_sql(options, schema, template) {
+  const sql_columns = [];
+
+  schema.columns.forEach(function(c) {
+    c.primaryKey = _.has(options.key, c.COLUMN_NAME);
+    var col_str = '[' + c.COLUMN_NAME + ']';
+    col_str += ' ' + helper.decodeType(c);
+    if (c.notNull) col_str += ' NOT NULL';
+    if (c.unique) col_str += ' UNIQUE';
+    if (c.primaryKey) col_str += ' PRIMARY KEY';
+    if (c.default) col_str += ' DEFAULT ' + c.default;
+    sql_columns.push(col_str);
+  });
+  const SQL = 'CREATE TABLE [' + options.tablename + '] %%N(%%N%%T' + sql_columns.join(', %%N%%T') + ')';
+  return u.spc(SQL, options.indent);
+}
 
 exports.create = function(options, res) {
   const title = LOG_DATAENTRY_PREFIX + '.[create] ';
@@ -3530,6 +4076,11 @@ exports.create = function(options, res) {
   });
 };
 
+
+function _drop_sql(options, schema, template) {
+  return 'DROP TABLE [' + options.tablename + ']';
+}
+
 exports.drop = function(options, res) {
   const title = LOG_DATAENTRY_PREFIX + '.[drop] ';
   const SQL = helper.getDropSql(options.schema);
@@ -3544,25 +4095,43 @@ exports.drop = function(options, res) {
   });
 };
 
+function _bulk_sql(options, schema, template) {
+  if (!options || !options.tablename || !options.file) return '';
+  options.format = options.format || 'CSV';
+  const sql_base = 'BULK INSERT %%N%%T[' + options.tablename + '] %%NFROM %%N%%T\'' + options.file + '\'';
+  const sql_options = [];
+  //if (options.format) sql_options.push('FORMAT = \'' + options.format + '\'');
+  if (options.separator) sql_options.push('FIELDTERMINATOR = \'' + options.separator + '\'');
+  if (options.lineSeparator) sql_options.push('ROWTERMINATOR = \'' + options.format + '\'');
+  var SQL = sql_base;
+  if (sql_options.length) SQL = SQL + ' %%NWITH (%%N%%T' + sql_options.join(', %%N%%T') + '%%N)';
+  return u.spc(SQL, options.indent);
+}
+
+
 exports.templatize = function(verb, options) {
   const schema = helper.getTableSchema(options.tablename, options.columns);
   //console.log('Schema recuperato verb=%s', verb, options);
   const o = {
     insert: _insert_sql,
     update: _update_sql,
-    delete: _delete_sql
+    delete: _delete_sql,
+    drop: _drop_sql,
+    create: _create_sql,
+    bulk: _bulk_sql
   };
-  return o[verb](options, schema, true);
+  if (!_.isFunction(o[verb])) return null;
+  return o[verb](options, schema, options.template);
 };
 
 
 /***/ }),
-/* 47 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var helper = __webpack_require__(10);
+var helper = __webpack_require__(11);
 var _ = __webpack_require__(0);
 
 
@@ -3621,8 +4190,10 @@ exports.typemap = {
   "bigint": "numeric",
   "bit": "numeric",
   "decimal": "numeric",
+  "integer": "numeric",
   "int": "numeric",
   "money": "numeric",
+  "number": "numeric",
   "numeric": "numeric",
   "smallint": "numeric",
   "smallmoney": "numeric",
@@ -3670,7 +4241,8 @@ exports.getSqlValue = function(datatype, value, template, notnull) {
   const type = (datatype || "string").toLowerCase();
   template = !!template;
   if (!template && (_.isNull(value) || _.isUndefined(value))) return null;
-  switch (this.typemap[type]) {
+  const typecode = this.typemap[type]||type;
+  switch (typecode) {
     case 'numeric':
       return template ?
         (notnull ? value : 'CASE WHEN \''+value+'\' = \'null\' THEN NULL ELSE '+value+' END') :
@@ -3688,7 +4260,7 @@ exports.getSqlValue = function(datatype, value, template, notnull) {
         (notnull ?
           'CONVERT(datetime, \''+value+'\', 126)' :
           'CASE WHEN \''+value+'\' = \'null\' THEN NULL ELSE CONVERT(datetime, \''+value+'\', 126) END') :
-        (_.isDate(value) ? 'CONVERT(datetime, ' + (template ? value : _get126DateString(value)) + ', 126)' : 'NULL');
+        (_.isDate(value) ? 'CONVERT(datetime, \'' + (template ? value : _get126DateString(value)) + '\', 126)' : 'NULL');
     case 'object':
       return template ?
         (notnull ? '0x' + value : 'CASE WHEN \''+value+'\' = \'null\' THEN NULL ELSE 0x' + value + ' END') :
@@ -3702,6 +4274,10 @@ function _getName(schema) {
   var name = _.isString(schema) ?  schema : schema.name;
   return '['+name+']';
 }
+
+exports.decodeType = function(info) {
+  return helper.decodeType(info);
+};
 
 exports.validateCreateTable = helper.validateCreateTable;
 exports.getCreateTableSql = function(schema) {
@@ -3727,12 +4303,12 @@ exports.getSqlTypedValue = function(v, type) {
 
 
 /***/ }),
-/* 48 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var helper = __webpack_require__(49);
+var helper = __webpack_require__(32);
 var _ = __webpack_require__(0);
 var u = __webpack_require__(1);
 var mysql = u.use.resolve('mysql') ? u.use('mysql') : {};
@@ -3998,6 +4574,22 @@ exports.update = function(options, res) {
   });
 };
 
+function _create_sql(options, schema, template) {
+  const sql_columns = [];
+
+  schema.columns.forEach(function(c) {
+    c.primaryKey = _.has(options.key, c.COLUMN_NAME);
+    var col_str = '[' + c.COLUMN_NAME + ']';
+    if (c.notNull) col_str += ' NOT NULL';
+    if (c.unique) col_str += ' UNIQUE';
+    if (c.primaryKey) col_str += ' PRIMARY KEY';
+    if (c.default) col_str += ' DEFAULT ' + c.default;
+    sql_columns.push(col_str);
+  });
+
+  const SQL = 'CREATE TABLE ' + options.tablename + ' %%N(%%N%%T' + sql_columns.join(', %%N%%T') + ')';
+  return u.spc(SQL, options.indent);
+}
 
 exports.create = function(options, res) {
   const title = LOG_DATAENTRY_PREFIX + '.[drop] ';
@@ -4019,6 +4611,11 @@ exports.create = function(options, res) {
   });
 };
 
+
+function _drop_sql(options, schema, template) {
+  return 'DROP TABLE ' + options.tablename;
+}
+
 exports.drop = function(options, res) {
   const title = LOG_DATAENTRY_PREFIX + '.[drop] ';
   const SQL = helper.getDropSql(options.schema);
@@ -4032,25 +4629,41 @@ exports.drop = function(options, res) {
   });
 };
 
+function _bulk_sql(options, schema, template) {
+  if (!options || !options.tablename || !options.file) return '';
+  const sql_base = 'LOAD DATA INFILE \'' + options.file + '\' %%N%%TINTO TABLE ' + options.tablename;
+  const sql_options = [];
+  if (options.separator) sql_options.push('FIELDS TERMINATED BY \''+options.separator+'\'');
+  if (options.lineSeparator) sql_options.push('LINES TERMINATED BY \''+options.lineSeparator+'\'');
+  var SQL = sql_base;
+  if (sql_options.length) SQL = SQL + ' %%N%%T' + sql_options.join(' %%N%%T');
+  return u.spc(SQL, options.indent);
+}
+
+
 exports.templatize = function(verb, options) {
   const schema = helper.getTableSchema(options.tablename, options.columns);
   const o = {
     insert: _insert_sql,
     update: _update_sql,
-    delete: _delete_sql
+    delete: _delete_sql,
+    drop: _drop_sql,
+    create: _create_sql,
+    bulk: _bulk_sql
   };
-  return o[verb](options, schema, true);
+  if (!_.isFunction(o[verb])) return null;
+  return o[verb](options, schema, options.template);
 };
 
 
 /***/ }),
-/* 49 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var helper = __webpack_require__(10);
+var helper = __webpack_require__(11);
 var _ = __webpack_require__(0);
 
 function _getDateString(date) {
@@ -4233,12 +4846,12 @@ exports.getSqlTypedValue = function(v, type) {
 
 
 /***/ }),
-/* 50 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-const helper = __webpack_require__(51);
+const helper = __webpack_require__(34);
 const _ = __webpack_require__(0);
 const u = __webpack_require__(1);
 var oracle = u.use.resolve('oracledb') ? u.use('oracledb') : {};
@@ -4586,6 +5199,26 @@ exports.update = function(options, res) {
   });
 };
 
+
+function _create_sql(options, schema, template) {
+  const sql_columns = [];
+  const sql_others = [];
+
+  schema.columns.forEach(function(c) {
+    c.primaryKey = _.has(options.key, c.COLUMN_NAME);
+    var col_str = c.COLUMN_NAME;
+    if (c.notNull) col_str += ' NOT NULL';
+    if (c.unique) sql_others.push('UNIQUE ('+c.name+')');
+    if (c.primaryKey) sql_others.push('PRIMARY KEY ('+c.name+')');
+    if (c.default) col_str += ' DEFAULT ' + c.default;
+    sql_columns.push(col_str);
+  });
+  sql_columns.push.apply(sql_columns, sql_others);
+
+  const SQL = 'CREATE TABLE ' + options.tablename + ' %%N(%%N%%T' + sql_columns.join(', %%N%%T') + ')';
+  return u.spc(SQL, options.indent);
+}
+
 exports.create = function(options, res) {
   const title = LOG_DATAENTRY_PREFIX + '.[create] ';
   const type = options.schema.type.toUpperCase();
@@ -4608,6 +5241,11 @@ exports.create = function(options, res) {
   });
 };
 
+
+function _drop_sql(options, schema, template) {
+  return 'DROP TABLE ' + options.tablename;
+}
+
 exports.drop = function(options, res) {
   const title = LOG_DATAENTRY_PREFIX + '.[drop] ';
   const SQL = helper.getDropSql(options.schema);
@@ -4628,20 +5266,23 @@ exports.templatize = function(verb, options) {
   const o = {
     insert: _insert_sql,
     update: _update_sql,
-    delete: _delete_sql
+    delete: _delete_sql,
+    drop: _drop_sql,
+    create: _create_sql
   };
-  return o[verb](options, schema, true);
+  if (!_.isFunction(o[verb])) return null;
+  return o[verb](options, schema, options.template);
 };
 
 
 /***/ }),
-/* 51 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var helper = __webpack_require__(10);
+var helper = __webpack_require__(11);
 var _ = __webpack_require__(0);
 
 function _getDateString(date) {
@@ -4859,7 +5500,7 @@ exports.getSqlTypedValue = function(v, type) {
 
 
 /***/ }),
-/* 52 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5080,7 +5721,7 @@ module.exports = QueryParser;
 
 
 /***/ }),
-/* 53 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5154,208 +5795,1092 @@ exports.parse = function(doc) {
 
 
 /***/ }),
-/* 54 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(__dirname) {
-const Scenario = __webpack_require__(6);
+/**
+ *      HANDLERS
+ *
+ *      gestiscono le varie tipologie di lettori / scrittori
+ *
+ */
+
 const _ = __webpack_require__(0);
 const u = __webpack_require__(1);
-const socket = __webpack_require__(12);
+const Session = __webpack_require__(15);
+const fs = __webpack_require__(4);
 const path = __webpack_require__(3);
-const fs = __webpack_require__(5);
+const Data = __webpack_require__(10);
+const translators = __webpack_require__(38);
 const config = __webpack_require__(2);
-const walking_path = config.walkingPath || (u.release ? path.join(config.serverPath, 'walking') : path.join(__dirname, 'walking'));
-const _state = [];
-var _stop = false;
-var _time = null;
-
-function _insert(o) {
-  if (_stop) return;
-  o = o  || {};
-  const now = new Date();
-  if (_time) o.elapsed = now.getTime() - _time;
-  _time = now.getTime();
-  o.time = _time;
-  o.time_str = now.toLocaleTimeString();
-  o.message = o.message || '';
-  o.type = o.type || 'info';
-  o.verb = o.verb || '';
-  if (o.type === 'end') {
-    const first = _.first(_state) || {};
-    o.total = _time - (first.time || 0);
+const walking_path = config.walkingPath || (u.release ? config.serverPath : path.join(__dirname, 'walking'));
+const RULES = [{
+  caption: 'Row text filter (rgx)',
+  type: 'filter',
+  icon: 'filter_list',
+  contexts: ['source']
+}, {
+  caption: 'File name filter (rgx)',
+  type: 'filename',
+  icon: 'check_box',
+  targets: ['file'],
+  contexts: ['source']
+}, {
+  caption: 'Text section hunter',
+  type: 'section',
+  icon: 'receipt',
+  targets: ['file'],
+  contexts: ['source']
+}, {
+  caption: 'Post execution rename',
+  type: 'post_rename',
+  icon: 'border_color',
+  targets: ['file'],
+  contexts: ['source'],
+  unique: true
+}, {
+  caption: 'Post execution delete',
+  type: 'post_delete',
+  icon: 'delete',
+  targets: ['file'],
+  contexts: ['source'],
+  unique: true
+}, {
+  caption: 'Existent file policy',
+  type: 'check_exists',
+  icon: 'file_copy',
+  targets: ['newfile', 'newtable'],
+  contexts: ['target'],
+  unique: true
+}];
+const CONSTANTS = {
+  rules: {
+    filter: 'filter',
+    filter_exp: 'filter_exp',
+    filename: 'filename',
+    section: 'section',
+    post_rename: 'post_rename',
+    post_delete: 'post_delete',
+    check_exists: 'check_exists'
+  },
+  newPolicy: {
+    error: 'error',           // mostra errore
+    overwrite: 'overwrite',   // sovrascrive quello presente
+    append: 'append',         // accoda il risultato
+    rename: 'rename'          // ne crea uno con nome diverso
+  },
+  mode: {
+    target: 'target',
+    source: 'source'
   }
-  socket.events.onState(o);
-  // TODO: inserire in log l'item
-  _state.push(o);
+};
+const _context = {};
+const _noop = function(cb) { if (_.isFunction(cb)) cb(); };
+const _noop_args = function(o, a, cb) { if (_.isFunction(cb)) cb(); };
+
+const _handler_base = {
+  _read: _noop_args,
+  _write: _noop_args,
+  _bulk: _noop_args,
+  _begin: _noop,
+  _end: _noop
+};
+
+function _filter_exp_check(row) {
+  const self = this; // <- the rule
+  const scope = {f: row};
+  var success = true;
+  u.evalExp(self.filter, scope, function(err, v) {
+    if (err) {
+      __error(err);
+      success = false;
+    } else {
+      success = !!v;
+    }
+    console.log('>>>>>>>>>>>>>>>> EVAL EXP:  %s = %s', self.filter, success);
+  });
+  return success;
+}
+
+function _filter_rgx_check(text) {
+  const self = this; // <- the rule
+  const rgx = self.filter ? new RegExp(self.filter, 'gi') : null;
+  if (!rgx) return true;
+  return rgx.test(text);
+}
+
+function _RULE_CHECK_DEFAULT() {return true;}
+
+const _rule_check = {
+  filter: _filter_rgx_check,
+  filter_exp: _filter_exp_check
+};
+
+function _extendRules(rules) {
+  if (!_.isArray(rules) && _.isObject(rules)) rules = [rules];
+  (rules||[]).forEach(function(r){
+    r._check = _rule_check[r.type]||_RULE_CHECK_DEFAULT;
+  });
+}
+
+function _checkRules() {
+  const args = Array.prototype.slice.call(arguments);
+  const rules = args.shift()||[];
+  const cb = args.pop();
+  const fail = _.find(rules, function (r) {
+    return r._check(args[0]) === false;
+  });
+  const msg = (!!fail) ? (fail.message || 'rule "' + fail.caption + '" not passed!') : null;
+  cb(msg);
 }
 
 
-function __test(message, cb) {
-  const delay = u.random(2000, 5000);
-  setTimeout(function () {
-    if (_stop) return;
-    _insert({message: message});
-    if (cb) cb();
-  }, delay);
+
+function _getNewFileName(fn) {
+  const original = path.parse(fn);
+  var index = 0;
+  while (fs.existsSync(fn)) {
+    const name = original.name + '_' + (++index) + original.ext;
+    fn = path.join(original.dir, name);
+  }
+  return fn;
 }
 
-function _execSource(source, o) {
-  return function(cb) {
-    if (_stop) return cb();
-    _insert({message: 'running source ' + source.name});
+function _log(o, cb) {
+  if (_context.session) _context.session.log(o, cb);
+}
 
-    // TODO: esegue la source....
-    // 1. carica i record o apre un cursore
-    // 2. per ogni record esegue i targets
-
-
-    //////////////////////////////////////////////////////
-    // TEST >>>>>>>>>>>>>>>>>>>>>
-    __test('source "' + source.name + '" done!', cb);
-    // <<<<<<<<<<<<<<<<<<<<<<<<<<
-    //////////////////////////////////////////////////////
+function _checkFileExists(o, cb) {
+  var fp = path.join(walking_path, o.file);
+  if (fs.existsSync(fp)) {
+    if (o.mode === CONSTANTS.mode.target && !!o.virtual) {
+      switch (o.policy) {
+        case CONSTANTS.newPolicy.append:
+          return cb(null, fp);
+        case CONSTANTS.newPolicy.overwrite:
+          fs.unlink(fp, function(err) {
+            if (err) return cb(err);
+            _log({message: 'deleted file "' + o.file + '"'});
+            cb(null, fp);
+          });
+          break;
+        case CONSTANTS.newPolicy.rename:
+          fp = _getNewFileName(fp);
+          return cb(null, fp);
+        case CONSTANTS.newPolicy.error:
+        default:
+          return cb('File "' + o.file + '" already exists!');
+      }
+    } else {
+      cb(null, fp);
+    }
+  } else if (o.mode === CONSTANTS.mode.target && !!o.virtual) {
+    fs.appendFile(fp, '', function (err) {
+      if (err) return cb(err);
+      cb(null, fp);
+    });
+  } else {
+    cb('File "' + o.file + '" not found!');
   }
 }
 
-function _execStage(stage, o) {
-  return function(cb) {
-    if (_stop) return cb();
-    const index = o.walking.stages.indexOf(stage);
-    _insert({message: 'starting stage n°'+(index+1)});
-    if ((stage.sources||[]).length) {
-      const seq = u.compose();
-      stage.sources.forEach(function(source){
-        seq.use(_execSource(source, o));
+function _checkTableExists(h, cb, o) {
+  o = o || {};
+  if (o.asNew || o.create) {
+    const info = {
+      action: 'create',
+      connection: h.connection,
+      tablename: h.tableName,
+      ignoreKey: true,
+      columns: h._schema,
+      datarow: {}
+    };
+    console.log(' >>>>>>>>>>>>> ACTION CREATE TABLE: ', info);
+    Data.execAction(info, function (err) {
+      cb(err, h.tableName);
+    });
+  } else {
+    const SQL = 'SELECT * FROM ' + h.tableName;
+    Data.retrieveData({
+      name: 'WALKING-DATA-ESECUTION',
+      connection: h.connection
+    }, SQL, function (err, results) {
+      if (err) return cb(err);
+      cb(null, h.tableName);
+    });
+  }
+}
+
+function __acq(o) {
+  if (_context.session) {
+    _context.session.acq(o);
+  } else {
+    console.warning('No session acq:', o);
+  }
+}
+
+function __discard(data, reason) {
+  __acq({type:Session.states.discard, data: data, reason: reason});
+}
+
+function __success(data, cb) {
+  cb = cb || _.noop;
+  __acq({type:Session.states.success, data: data});
+  return cb();
+}
+
+function __error(err, cb) {
+  cb = cb || _.noop;
+  __acq({type:Session.states.error, data: err});
+  return cb(err);
+}
+
+
+function __discard_cb(data, cb) {
+  return function(err) {
+    __discard(data, err);
+    return err ? cb(err) : cb();
+  }
+}
+
+
+// GESTORE FILE ESISTENTI
+const _fileHandler = {
+  _begin: function(cb) {
+    const self = this;  // <- handler
+    const r = _getRule(self, CONSTANTS.rules.check_exists);
+    const o = {
+      file: self.path,
+      policy: r.filter || CONSTANTS.newPolicy.error,
+      mode: self.mode
+    };
+    _checkFileExists(o, function (err, fn) {
+      if (err) return cb(err);
+      self._fileName = fn;
+      _log({message: self.mode + ' file for handler "' + self.name + '" > "' + fn + '"'});
+      cb();
+    });
+  },
+  // legge il contenuto del file
+  _read: function (o, hrow, cb) {
+    const self = this;  // <- handler
+    fs.readFile(self._fileName, function (err, buffer) {
+      if (err) return cb(err);
+      var text = buffer.toString(self.encoding||'utf8');
+      // TODO: (WARNING) la ricerca del separatore potrebbe non dare risultati corretti!
+      self._line_sep = self.lineSeparator || ((text.indexOf('\r\n') > -1) ? '\r\n' : '\n');
+      text = translators.encode(text, self);
+      const lines = text.split(self._line_sep);
+      const rules = _getRules(self, CONSTANTS.rules.filter);
+      var headers_checked = false;
+      const sequence = u.compose();
+      lines.forEach(function (line) {
+        // le linee vuote sono scartate senza log
+        if ((line||'').trim()!=='') {
+          // verifica la presenza degli headers (se previsto)
+          if (self.headers && !headers_checked) {
+            headers_checked = true;
+          } else {
+            // verifiche sulla riga con le regole definite
+            _checkRules(rules, line, function (err) {
+              if (err) {
+                __discard(line, err);
+              } else {
+                sequence.use(function (next) {
+                  self._translate(line, function (err, row) {
+                    if (err) return __discard_cb(row, next)(err);
+                    hrow(null, row, next);
+                  });
+                });
+              }
+            });
+          }
+        }
       });
-      seq.run(function() {
-        _insert({message: 'done stage n°'+(index+1)});
+      sequence.run(function() {
         cb();
       });
-    } else {
-      _insert({message: 'empty stage', type: 'warning'});
-      cb();
-    }
+    });
+  },
+  // scrive appendendo le righe al file esistente
+  _write: function (o, row, cb) {
+    const self = this;  // <- handler
+    // TODO: validazioni sulla row
+    self._translate(row, function (err, text) {
+      if (err) return __discard_cb(text, cb)(err);
+      fs.appendFile(self._fileName, text,  function (err) {
+        if (err) return __discard_cb(text, cb)(err);
+        __success(text, cb);
+      });
+    });
   }
+};
+
+// GESTORE FILE DINAMICI (NUOVI) (solo scrittura)
+const _newFileHandler = {
+  _begin: function(cb) {
+    const self = this;  // <- handler
+    const r = _getRule(self, CONSTANTS.rules.check_exists);
+    const o = {
+      file: self.path || self.name,
+      policy: r.filter || CONSTANTS.newPolicy.error,
+      virtual: self.virtual,
+      mode: self.mode
+    };
+    _checkFileExists(o, function (err, fn) {
+      if (err) return cb(err);
+      self._fileName = fn;
+      _log({message: self.mode + ' file for handler "' + self.name + '" > "' + fn + '"'});
+      cb();
+    });
+  },
+  _write: _fileHandler._write
+};
+
+function _keepSchema(h) {
+  h._schema = _.map(h.schema, function (c) {
+    const sc = _.clone(c);
+    sc.type = sc.typecode || sc.type;
+    return sc;
+  });
+}
+
+// GESTORE TABELLE ESISTENTI
+const _tableHandler = {
+  _begin: function(cb) {
+    const self = this;  // <- handler
+    self._tableName = self.tableName;
+    _keepSchema(self);
+    cb();
+  },
+  _read: function (o, hrow, cb) {
+    const self = this;  // <- handler
+    const SQL = 'SELECT * FROM ' + self.tableName;
+    Data.retrieveData({
+      name: 'WALKING-DATA-ESECUTION',
+      connection: self.connection
+    }, SQL, function (err, results) {
+      if (err) return __error(err, cb);
+      if (!(results.rows || []).length) return __error('no records found!', cb);
+      const sequence = u.compose();
+      const rules = _getRules(self, CONSTANTS.rules.filter_exp);
+      results.rows.forEach(function (row) {
+        // verifiche sul record con le regole definite
+        _checkRules(rules, row, function(err) {
+          if (err) {
+            __discard(row, err);
+          } else {
+            sequence.use(function (next) {
+              hrow(null, row, next)
+            });
+          }
+        });
+      });
+      sequence.run(function() {
+        cb();
+      });
+    });
+  },
+  _write: function (o, row, cb) {
+    const self = this;  // <- handler
+    const info = {
+      action: 'insert',
+      connection: self.connection,
+      tablename: self._tableName,
+      columns: self._schema,
+      datarow: row,
+      ignoreKey: true
+    };
+    console.log(' >>>>>>>>>>>>> SCHEMA: ', self.schema);
+    console.log(' >>>>>>>>>>>>> ACTION INSERT: ', info);
+    Data.execAction(info, function(err){
+      if (err) return __discard_cb(row, cb)(err);
+      __success(row, cb);
+    });
+  }
+};
+
+// GESTORE TABELLE DINAMICHE (solo scrittura)
+const _newTableHandler = {
+  _begin: function(cb) {
+    // crea la tabella
+    const self = this;  // <- handler
+    _keepSchema(self);
+    _checkTableExists(self, function (err, tn) {
+      if (err) return __error(err, cb);
+      self._tableName = tn;
+      _log({message: self.mode + ' table for handler "' + self.name + '" > "' + tn + '"'});
+      cb();
+    }, {asNew: true});
+  },
+  _write: _tableHandler._write,
+  _bulk: function(o, cb) {
+    const self = this;  // <- handler
+    const bulk = {
+      action: 'bulk',
+      connection: self.connection,
+      tablename: self._tableName,
+      file: self._file,
+      separator: self.separator,
+      lineSeparator: self.lineSeparator,
+      columns: [],
+      format: 'CSV'
+    };
+    // console.log('>>>>>>>>>>>>> BULK:', bulk);
+    Data.execAction(bulk, function(err){
+      if (err) return __discard_cb(bulk, cb)(err);
+      __success(bulk, cb);
+    });
+  }
+};
+
+// GESTORE QUERY (solo lettura)
+const _queryHandler = {
+  _read: function (o, hrow, cb) {
+    const self = this;  // <- handler
+    Data.executeQuery(_context.session, {id: self.query}, function(err, data){
+      if (err) return cb(err);
+      if (!((data||{}).rows || []).length) return __error('no records found!', cb);
+      const sequence = u.compose();
+      const rules = _getRules(self, CONSTANTS.rules.filter);
+      data.rows.forEach(function (row) {
+        // verifiche sul record con le regole definite
+        _checkRules(rules, row, function(err) {
+          if (err) {
+            __discard(row, err);
+          } else {
+            sequence.use(function (next) {
+              hrow(null, row, next)
+            });
+          }
+        });
+      });
+      sequence.run(function() {
+        cb();
+      });
+    });
+  }
+};
+
+// GESTORE RICHIESTE WEB
+const _webHandler = {
+  _read: function (o, hrow, cb) {
+    console.log('WEB HANDLER READ', hrow);
+    cb('Not implemented yet!');
+  },
+  _write: function (o, row, cb) {
+    console.log('WEB HANDLER WRITE');
+    cb('Not implemented yet!');
+  }
+};
+
+
+
+const handlers = {
+  file: _fileHandler,
+  newfile: _newFileHandler,
+  table: _tableHandler,
+  newtable: _newTableHandler,
+  query: _queryHandler,
+  web: _webHandler
+};
+
+
+function _extend(h) {
+  _.extend(h, _handler_base);
+  _.extend(h, handlers[h.type]);
+  h._translate = translators.get(h);
 }
 
 
-
-// restituisce lo stato attuale:
-exports.state = function(req, res) {
-  u.ok(res, _state);
+exports.get = function(h) {
+  if (!h) return {};
+  _extend(h);
+  (h.targets || []).forEach(_extend);
+  return h;
 };
 
-// restituisce le info disponibili per gli walking-data:
-// - file uploadati
-// - templates
-exports.info = function(req, res) {
-  return u.error(res, 'Not implemented yet');
-};
+function _getRule(h, type) {
+  const rule = _.find(h.rules, function(r) {
+    return r.type === type;
+  }) || {};
+  _extendRules(rule);
+  return rule;
+}
+exports.getRule = _getRule;
 
-// avvia un piano di walking-data
-exports.run = function(req, res) {
-  const options = req.body;
-  const end = _.find(_state, function(s) { return s.type === 'end'; });
-  if (_state.length && !end) return u.error(res, 'Just walking!');
-  if (!options || !options.walking) return u.error(res, 'Undefined walking options!');
-  if (!options.walking._id) return u.error(res, 'Undefined walking-data object!');
-  if (!(options.walking.stages||[]).length) return u.error(res, 'Empty walking-data document!');
-  _time = null;
-  options.result = {};
-  // console.log('WALKING: ', JSON.stringify(options.walking));
+function _getRules(h, type) {
+  const rules = _.filter(h.rules, function(r) {
+    return r.type === type;
+  });
+  _extendRules(rules);
+  return rules;
+}
+exports.getRules = _getRules;
 
-  u.ok(res);
-  _stop = false;
-  _state.splice(0);
-  _insert({
-    type:'start',
-    message:options.walking._id
-  });
-  _insert({message: 'Walking-data "' + options.walking.name + '" started...'});
-  const seq = u.compose();
-  options.walking.stages.forEach(function(stage){
-    seq.use(_execStage(stage, options));
-  });
-  seq.run(function() {
-    _insert({type: 'end', result: options.result});
-  });
-};
-
-// interrompe un piano di walking-data
-exports.stop = function(req, res) {
-  if (!_stop) {
-    const end = _.find(_state, function (s) {return s.type === 'end';});
-    if (!end) _insert({type: 'end', message: 'stopped'});
-    _stop = true;
-  }
-  u.ok(200);
-};
-
-// carica documenti per gli walking-data
-exports.upload = function(req, res) {
-  console.log('[WALKING-DATA] upload files', req.files);
-  console.log('[WALKING-DATA] target: %s', walking_path);
-  return u.error(res, 'Not implemented yet');
-
-  /*
-  var data = new Buffer('');
-  req.on('data', function(chunk) {
-    data = Buffer.concat([data, chunk]);
-  });
-  req.on('end', function() {
-    ///
-  });
-  req.on('error', function(err) {
-    u.error(res, err);
-  });
-  */
-};
-
-
-exports.browse = function(req, res) {
-  const options = req.body || {};
-  options.path = options.path || walking_path;
-  switch (options.verb) {
-    case 'back':
-      options.path = path.normalize(path.join(options.path, '..'));
-      break;
-  }
-  fs.readdir(options.path, function (err, files) {
-    const result = {folders:[], files:[]};
-    files.forEach(function(f){
-      const fp = path.join(options.path, f);
-      const stats = fs.statSync(fp);
-      if (stats.isDirectory()) {
-        result.folders.push({
-          name: fp,
-          type: 'folder'
-        });
-      } else if (stats.isFile()) {
-        result.files.push({
-          name: fp,
-          type: 'file',
-          size: stats.size,
-          last: stats.mtime
-        });
-      }
-    });
-    u.ok(200, result);
-  });
-};
+exports.context = _context;
 
 /* WEBPACK VAR INJECTION */}.call(exports, "server\\api\\data"))
 
 /***/ }),
-/* 55 */
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ *      TRANSLATORS
+ *
+ *      si occupano di convertire il dato da un reader ad un writer
+ *
+ */
+
+const _ = __webpack_require__(0);
+const u = __webpack_require__(1);
+const ECHO_BOOKMARKS = {
+  field_sep: '__EBFS__',
+  line_sep: '__EBLS__'
+};
+
+function _NOT_IMPLEMENTED(data, cb) {
+  cb('Not implemented yet!');
+}
+
+// compone la prte di stringa fixed corrispondente al campo
+function _build_fixed(value, field) {
+  if (field.length < 1) field.length = 1;
+  const str = '' + value;
+  if (str.length > field.length) {
+    return str.substr(0, field.length);
+  } else if (str.length < field.length) {
+    return u.pad(str, field.length, field.align, ' ');
+  } else {
+    return str;
+  }
+}
+
+// inserisce dei bookmarks nel testo interno per i caratteri speciali
+// di a capo e separatori di campo in modo che non siano considerati come
+// reali separatori di linea o di campo
+function _encode_separators(text, h) {
+  if (h.textDelimiter) {
+    const rgx = new RegExp(h.textDelimiter + '.*?' + h.textDelimiter, 'gm');
+    text = text.replace(rgx, function(m) {
+      if (h.separator) {
+        const rgx = new RegExp(h.separator, 'gm');
+        m = m.replace(rgx, ECHO_BOOKMARKS.field_sep);
+      }
+      if (h._line_sep) {
+        const rgx = new RegExp(h._line_sep, 'gm');
+        m = m.replace(rgx, ECHO_BOOKMARKS.line_sep);
+      }
+      return m;
+    });
+  }
+  return text;
+}
+exports.encode = _encode_separators;
+
+// ripristina i separatori originali
+function _decode_separators(text, h) {
+  if (h.separator) {
+    const rgx = new RegExp(ECHO_BOOKMARKS.field_sep, 'gm');
+    text = text.replace(rgx, h.separator);
+  }
+  h._line_sep = h._line_sep || '\r\n';
+  if (h._line_sep) {
+    const rgx = new RegExp(ECHO_BOOKMARKS.line_sep, 'gm');
+    text = text.replace(rgx, h._line_sep);
+  }
+  return text;
+}
+exports.decode = _decode_separators;
+
+
+
+
+// trasforma la row nel separator-text corrispondente
+function _row_to_separator(row, cb) {
+  const self = this;
+  // TODO: VALIDAZIONI DELLA RIGA
+  const line_row = _.map(self.schema, function(field) {
+    const txtv = '' + row[field.name];
+    return _decode_separators(txtv, self);
+  });
+  var line = line_row.join(self.separator);
+  line += self.lineSeparator||'\n';
+  cb(null, line);
+}
+
+// trasforma la row nel fixed-text corrispondente
+function _row_to_fixed(row, cb) {
+  const self = this;
+  var line = '';
+  // TODO: VALIDAZIONI DELLA RIGA
+  self.schema.forEach(function(field){
+    const txtv = '' + row[field.name];
+    const value = _decode_separators(txtv, self);
+    line += _build_fixed(value, field);
+  });
+  line += self.lineSeparator||'\n';
+  cb(null, line);
+}
+
+// trasforma il separator-text di una riga nel row tipizzato corrispondente
+function _separator_to_row(text, cb) {
+  const self = this;
+  const row = {};
+  var index = 0;
+  // TODO: VALIDAZIONI DELLA RIGA
+  (text||'').split(self.separator).forEach(function(txt) {
+    const field = self.schema[index++];
+    if (field) row[field.name] = u.getTypedValue(txt, field.typecode||field.type);
+  });
+  cb(null, row);
+}
+
+// trasforma il fixed-text di una riga nel row tipizzato corrispondente
+function _fixed_to_row(text, cb) {
+  const self = this;
+  const row = {};
+  var pre;
+  // TODO: VALIDAZIONI DELLA RIGA
+  self.schema.forEach(function(field){
+    field._start_at = (pre) ? pre._start_at + pre.length : 0;
+    const txt = text.substr(field._start_at, field.length);
+    row[field.name] = u.getTypedValue(txt, field.typecode||field.type);
+    pre = field;
+  });
+  cb(null, row);
+}
+
+
+
+const translators = {
+  source: {
+    xml: _NOT_IMPLEMENTED,
+    json: _NOT_IMPLEMENTED,
+    fixed: _fixed_to_row,
+    separator: _separator_to_row
+  },
+  target: {
+    xml: _NOT_IMPLEMENTED,
+    json: _NOT_IMPLEMENTED,
+    fixed: _row_to_fixed,
+    separator: _row_to_separator
+  }
+};
+
+
+exports.get = function(handler) {
+  return translators[handler.mode][handler.textMode];
+};
+
+
+/***/ }),
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var express = __webpack_require__(4);
-var controller = __webpack_require__(56);
+function _log(message) {
+  const now = new Date();
+  return {
+    time: now,
+    time_str: now.toLocaleTimeString(),
+    type: 'info',
+    message: message
+  };
+}
+
+// When the user disconnects.. perform this
+function onDisconnect(socket) {
+  socket.emit('log', _log('"'+socket.address+'" leave echo!'));
+}
+
+// When the user connects.. perform this
+function onConnect(socket) {
+  // When the client emits 'info', this listens and executes
+  socket.on('info', function (data) {
+    console.info('[%s] %s (by socket)', socket.address, JSON.stringify(data, null, 2));
+  });
+
+  // Insert sockets below
+  __webpack_require__(13).register(socket);
+  __webpack_require__(16).register(socket);
+
+  socket.emit('log', _log('Wellcome "'+socket.address+'" to echo!'));
+}
+
+module.exports = function (socketio) {
+  // socket.io (v1.x.x) is powered by debug.
+  // In order to see all the debug output, set DEBUG (in server/config/local.env.js) to including the desired scope.
+  //
+  // ex: DEBUG: "http*,socket.io:socket"
+
+  // We can authenticate socket.io users and access their token through socket.handshake.decoded_token
+  //
+  // 1. You will need to send the token in `client/components/socket/socket.service.js`
+  //
+  // 2. Require authentication here:
+  // socketio.use(require('socketio-jwt').authorize({
+  //   secret: config.secrets.session,
+  //   handshake: true
+  // }));
+
+  socketio.on('connection', function (socket) {
+    const hs = socket.handshake.address||{};
+    socket.address = hs.address ? hs.address + ':' + hs.port : hs;
+    //console.log('handshake:', socket.handshake);
+
+    socket.connectedAt = new Date();
+    // Call onDisconnect.
+    socket.on('disconnect', function () {
+      onDisconnect(socket);
+      console.info('[SOCKET.IO on %s] DISCONNECTED', socket.address);
+    });
+
+    // Call onConnect.
+    onConnect(socket);
+    console.info('[SOCKET.IO on %s] CONNECTED', socket.address);
+  });
+
+  socketio.on('error', function (err) {
+    console.error(err);
+  });
+};
+
+
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+const express = __webpack_require__(5);
+const favicon = __webpack_require__(41);
+const morgan = __webpack_require__(42);
+const compression = __webpack_require__(43);
+const bodyParser = __webpack_require__(44);
+const methodOverride = __webpack_require__(45);
+const cookieParser = __webpack_require__(46);
+const errorHandler = __webpack_require__(47);
+const path = __webpack_require__(3);
+const config = __webpack_require__(2);
+const client_path = config.clientPath||'client';
+
+var _counter = 0;
+
+//CORS middleware
+var allowCrossDomain = function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+};
+
+//LOG middleware
+var serverLog = function(req, res, next) {
+  _counter++;
+  console.log('Echo-Service request n°%s [%s %s]',_counter, req.method, req.url);
+  next();
+};
+
+module.exports = function(app) {
+  var env = app.get('env');
+
+  app.set('views', path.join(config.serverPath, 'views'));
+  app.engine('html', __webpack_require__(48).renderFile);
+  app.set('view engine', 'html');
+  app.use(compression());
+
+  app.use(bodyParser.json({limit: '100mb'}));
+  app.use(bodyParser.urlencoded({limit: '100mb', extended: true}));
+
+  app.use(methodOverride());
+  app.use(allowCrossDomain);
+  app.use(cookieParser());
+  app.use(serverLog);
+
+  app.use(express.static(path.join(config.root, client_path)));
+  app.set('appPath', client_path);
+
+  app.use(morgan('dev'));
+  app.use(errorHandler()); // Error handler - has to be last
+};
+
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports) {
+
+module.exports = require("serve-favicon");
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports) {
+
+module.exports = require("morgan");
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports) {
+
+module.exports = require("compression");
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports) {
+
+module.exports = require("body-parser");
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports) {
+
+module.exports = require("method-override");
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports) {
+
+module.exports = require("cookie-parser");
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports) {
+
+module.exports = require("errorhandler");
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports) {
+
+module.exports = require("ejs");
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var errors = __webpack_require__(50);
+
+module.exports = function(app) {
+  app.use('/api', __webpack_require__(51));
+  app.use('/api/scenario', __webpack_require__(53));
+  app.use('/api/data', __webpack_require__(58));
+  app.use('/api/reporting', __webpack_require__(59));
+  app.use(function(req, res, next) {
+    var m = /.*\/api\/test\/((.*)[\?]\??(.*)?|(.*))/.exec(req.url);
+    m ? __webpack_require__(19)(req, res) : next();
+  });
+  app.use('/api/test', __webpack_require__(19));
+  app.use('/auth', __webpack_require__(62));
+  // All undefined asset or api routes should return a 404
+  app.route('/:url(api|auth|components|app|bower_components|assets)/*')
+   .get(errors[404]);
+};
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/**
+ * Error responses
+ */
+
+
+
+module.exports[404] = function pageNotFound(req, res) {
+  var viewFilePath = '404';
+  var statusCode = 404;
+  var result = {
+    status: statusCode
+  };
+
+  res.status(result.status);
+  res.render(viewFilePath, function (err) {
+    if (err) { return res.json(result, result.status); }
+
+    res.render(viewFilePath);
+  });
+};
+
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+const api = __webpack_require__(52);
+const u = __webpack_require__(1);
+const express = __webpack_require__(5);
+const Log = __webpack_require__(7);
+
+var router = express.Router();
+
+
+router.get('/', function(req, res){
+  return u.ok(res, api);
+});
+
+router.get('/log', function(req, res) {
+  Log.get(function(err, items){
+    if (err) {return u.error(res, err);}
+    u.ok(res, items);
+  });
+});
+
+module.exports = router;
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports) {
+
+module.exports = [{"description":"Scenari","baseRoute":"api/scenario","routes":[{"verb":"get","route":"api/scenario","description":"Elenco degli scenari disponibili","response":{"type":"object","object":{"folder":{"type":"string","description":"Nome del folder server dove risiedono i file dello scenario"},"name":{"type":"string","description":"Nome dello scenario"},"auth":{"type":"boolean","description":"Identifica uno scenario con la sicurezza attiva"},"{type}":{"type":"array","description":"Per ogni tipo di documento esiste un array che ne enumera gli identificativi"}}}},{"verb":"get","route":"api/scenario/current","description":"Info dello scenario corrente","response":{"type":"object","object":{"folder":{"type":"string","description":"Nome del folder server dove risiedono i file dello scenario"},"name":{"type":"string","description":"Nome dello scenario"},"auth":{"type":"boolean","description":"Identifica uno scenario con la sicurezza attiva"},"{type}":{"type":"array","description":"Per ogni tipo di documento esiste un array che ne enumera gli identificativi"}}}},{"verb":"get","route":"api/scenario/info/:name","description":"Info dello scenario","body":{"name":{"type":"string","description":"Folder dello scenario richiesto"}},"response":{"type":"object","object":{"folder":{"type":"string","description":"Nome del folder server dove risiedono i file dello scenario"},"name":{"type":"string","description":"Nome dello scenario"},"auth":{"type":"boolean","description":"Identifica uno scenario con la sicurezza attiva"},"{type}":{"type":"array","description":"Per ogni tipo di documento esiste un array che ne enumera gli identificativi"}}}},{"verb":"get","route":"api/scenario/download/:folder","description":"Download scenario","body":{"folder":{"type":"string","description":"Nome del folder dello scenario da scaricare"}},"response":{"type":"file","description":"File compresso dello scenario ({FOLDER-NAME}.zip)"}},{"verb":"post","route":"api/scenario/push","description":"Inserisce documenti in uno scenario","auth":true,"body":{"source":{"type":"array","description":"elenco dei documenti da inserire nello scenario"},"target":{"type":"object","description":"info di scenario target (deve avere almeno la property folder)"}},"response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"post","route":"api/scenario/apply","description":"Applica uno scenario","body":"Se passato il folder applica lo scenario, altrimenti, se è un oggetto, ne crea uno nuovo","response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"post","route":"api/scenario/update","description":"Applica le modifiche allo scenario","body":"Scenario con le modifiche apportate","response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"post","route":"api/scenario/settings","description":"Applica le modifiche alle impostazioni dello scenario","body":"Impostazioni con le modifiche apportate","response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"post","route":"api/scenario/upload","description":"Carica uno scenario sul server","body":"File compresso con i documenti dello scenario (xxx.zip)","response":"Niente se ha successo, altrimenti l'errore rilevato"}]},{"description":"Documenti","baseRoute":"api/scenario","routes":[{"verb":"get","route":"api/scenario/documents/:type*?","description":"Elenco dei documenti dello scenario corrente","body":{"type":{"type":"string","description":"Se definito filtra i documenti per tipologia restituendo il contenuto integralmente"}},"response":{"type":"array","object":{"id":{"type":"string","description":"Identificativo del documento"},"name":{"type":"string","description":"Nome del documento"},"title":{"type":"string","description":"Titolo del documento"},"description":{"type":"string","description":"Descrizione del documento"},"modifiedAt":{"type":"date","description":"Data dell'ultima modifica"},"modifiedBy":{"type":"date","description":"Autore dell'ultima modifica"},"_id":{"type":"string","description":"Identificativo del documento (interno)"},"_type":{"type":"string","description":"Tipologia del documento (interno)"},"_tid":{"type":"string","description":"Identificativo con tipo del documento (interno)"}}}},{"verb":"get","route":"api/scenario/tags","description":"Elenco dei tag sui documenti dello scenario corrente","response":{"type":"array","description":"Elenco dei tag"}},{"verb":"get","route":"api/scenario/document/:id/:type*?","description":"Il singolo documento per id e (opzionale) tipo","body":{"id":{"type":"string","description":"Identificativo del documento"},"type":{"type":"string","description":"(opzionale) Tipologia del documento"}},"response":{"type":"object","description":"Contenuto del documento in formato json"}},{"verb":"post","route":"api/scenario/save","description":"Salva un documento","auth":true,"body":"Documento da salvare","response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"delete","route":"api/scenario/:id/:type*?","description":"Elimina un documento","auth":true,"body":{"id":{"type":"string","description":"Identificativo del documento"},"type":{"type":"string","description":"(opzionale) Tipologia del documento"}},"response":"Niente se ha successo, altrimenti l'errore rilevato"}]},{"description":"Dati","baseRoute":"api/data","routes":[{"verb":"get","route":"api/data/providers","description":"Elenco dei providers disponibili","response":{"type":"array","object":{"active":{"type":"bool","description":"Descrive lo stato di attività della connessione"},"enabled":{"type":"bool","description":"Se vero è possibile utilizzare questo provider"},"library":{"type":"string","description":"Nome della libreria"},"name":{"type":"string","description":"Nome del provider"},"code":{"type":"string","description":"Codifica del nome"},"instance":{"type":"object","description":"logic"},"defaultPort":{"type":"number","description":"Porta predefinita"}}}},{"verb":"get","route":"api/data/schema/:id","auth":true,"description":"Schema relativo alla connessione indicata","body":{"id":{"type":"string","description":"Identificativo della connessione"}},"response":{"type":"object","description":"ANSI standard information_schema"}},{"verb":"get","route":"api/data/system","auth":true,"description":"Elenco dei parametri di sistema","response":{"type":"array","object":{"name":{"type":"string","description":"Nome del parametro"},"id":{"type":"string","description":"Identificativo"},"value":{"type":"any","description":"Valore del parametro di sistema"},"dataType":{"type":"string","description":"Tipo dato"}}}},{"verb":"post","route":"api/data/execute","auth":true,"description":"Esecuzione di una query","body":{"id":{"type":"string","description":"Identificativo della query da eseguire"},"parameters":{"type":"array","description":"Elenco dei parametri per l'esecuzione"}},"response":{"type":"object","object":{"rows":{"type":"array","description":"Elenco dei records"},"columns":{"type":"array","description":"Schema dati"},"sql":{"type":"string","description":"SQL eseguito dal provider"},"query":{"type":"object","description":"Documento query eseguita"}}}},{"verb":"post","route":"api/data/test/conn","description":"Test della connessione","body":"Documento connection da eseguire","response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"post","route":"api/data/test/exec","description":"Test della query","body":"Documento query da eseguire","response":{"type":"object","object":{"rows":{"type":"array","description":"Elenco dei records"},"columns":{"type":"array","description":"Schema dati"},"sql":{"type":"string","description":"SQL eseguito dal provider"},"query":{"type":"object","description":"Documento query eseguita"}}}},{"verb":"post","route":"api/data/entry","description":"Operazioni di data-entry","body":{"action":{"type":"string","description":"Azione dell'operazione di data-entry"},"datasourceId":{"type":"string","description":"Identificativo della sorgente dati"},"changedFields":{"type":"array","description":"Elenco dei field modificati"},"changedRows":{"type":"array","description":"Elenco dei row modificati"},"originalRows":{"type":"array","description":"Elenco dei row originali"}},"response":{"type":"object","object":{"affected":{"type":"number","description":"Numero degli elementi modificati"},"error":{"type":"string","description":"Errore nell'esecuzione del comando di data-entry"}}}},{"verb":"post","route":"api/data/template","description":"Restituisce il template sql per l'operazione richiesta","body":{"action":{"type":"string","description":"Azione dell'operazione di data-entry"},"connection":{"type":"string","description":"Identificativo della connessione utilizzata"},"columns":{"type":"array","description":"Elenco dei campi"}},"response":{"type":"object","object":{"template":{"type":"string","description":"Il template richiesto"}}}}]},{"description":"Utenti","baseRoute":"api/user","routes":[{"verb":"get","route":"api/user","description":"Elenco degli utenti (solo per ruoli 'admin')","response":{"type":"array","description":"Elenco degli utenti"}},{"verb":"get","route":"api/user/me","description":"Info sull'utente correntemente loggato","response":{"type":"object","description":"Utente corrente"}},{"verb":"get","route":"api/user/:id","description":"Info sull'utente","body":{"id":{"type":"string","description":"Identificativo dell'utente"}},"response":{"type":"string","description":"Profilo dell'utente"}},{"verb":"post","route":"api/user","description":"Crea un nuovo utente (solo per ruoli 'admin')","body":{"name":{"type":"string","description":"Nome dell'utente"},"password":{"type":"string","description":"Password dell'utente"}},"response":"Niente se ha successo, altrimenti l'errore rilevato"},{"verb":"delete","route":"api/user/:id","description":"Elimina un utente (solo per ruoli 'admin')","body":{"id":{"type":"string","description":"Identificativo dell'utente"}},"response":"Niente se ha successo, altrimenti l'errore rilevato"}]},{"description":"Auth","baseRoute":"auth","routes":[{"verb":"post","route":"auth/local","description":"Autenticazione","response":{"type":"object","description":"Restituisce un oggetto contenente il token se autenticato altrimenti l'errore relativo"}}]},{"description":"LOG","baseRoute":"api/log","routes":[{"verb":"get","route":"api/log","description":"Elenco delle righe di log inserite dall'avvio del servizio nel periodo definito nella configurazione","response":{"type":"array","description":"Elenco delle righe di log"}}]},{"description":"API","baseRoute":"api","routes":[{"verb":"get","route":"api","description":"Elenco delle api di echo-service","response":{"type":"object","description":"Questo documento!"}}]}]
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var express = __webpack_require__(5);
+var controller = __webpack_require__(6);
+var auth = __webpack_require__(8);
+
+var router = express.Router();
+
+// elenco deli scenari
+router.get('/', controller.index);
+// elenco dei tags sui documenti
+router.get('/tags', controller.tags);
+// restituisce l'elenco dei documenti (solo info) dello scenario corrente
+// se è specificato il type restituisce l'elenco dei documenti (full) di quel tipo
+router.get('/documents/:type*?', auth.needAuthentication(controller.checkInfo), controller.docs);
+// restituisce le info dello scenario corrente (OK)
+router.get('/current', auth.needAuthentication(controller.checkInfo), controller.info);
+// restituisce il singolo documento
+router.get('/document/:id/:type*?', auth.needAuthentication(controller.checkRead), controller.read);
+// restituisce le info di scenario
+router.get('/info/:name', auth.needAuthentication(controller.checkInfo), controller.info);
+// scarica lo scenario
+router.get('/download/:folder', controller.download);
+
+// salva il documento
+router.post('/save', auth.needAuthentication(controller.checkSaveDoc), controller.saveDoc);
+// applica uno scenario
+router.post('/apply', controller.apply);
+// applica le modifiche ad uno scenario
+router.post('/update', controller.update);
+// salva i documenti nello scenario
+router.post('/push', auth.needAuthentication(controller.checkWrite), controller.push);
+// salva le info di scenario
+router.post('/settings', auth.hasRole('admin'), controller.settings);
+// carica uno scenario
+router.post('/upload', controller.upload);
+
+
+// elimina un documento
+router.delete('/:id/:type*?', auth.needAuthentication(controller.checkDelete), controller.delete);
+
+module.exports = router;
+
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports) {
+
+module.exports = require("express-jwt");
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports) {
+
+module.exports = require("composable-middleware");
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports) {
+
+module.exports = require("crypto");
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports) {
+
+module.exports = [{"name":"admin","role":"admin","_id":"352bd835-07be-44f1-96e4-c482dc818d6f","salt":"FrVqgAnK5xtotktXoLEqZA==","hashedPassword":"tSH8BOyNI7jaHFN11nEl5z2PfGeQ48p9MQbzbGNXYn28kQ6lI6wKiGwawIi4zt7vB1MY47MYeF6wwpC5j5ukdw=="},{"name":"user","role":"user","_id":"183a62a9-09b8-4fb1-8be4-e5798827c1f6","salt":"7D9F3Q0I7Bw+KbYTzOXHvw==","hashedPassword":"Vv05fT6xuKqtkhRzlaIYnnJTCUzsMgBUCIlCJh9rx8PTuIxvaJR4PJDRPsIG0erWJ4TLIypFEsd2fMOY/aSvsQ=="},{"name":"guest","role":"guest","_id":"24abbdc5-0aa6-4bb5-bdf1-8ab0d0e4bb47","salt":"w/AA+dsIv2qRA20C9B8j7A==","hashedPassword":"ty3o7SYAzZZtkSXhYXW5jKzQRBu/gRtmVK/T5GbAHGAVtBiWKACrfCiqopi3aQTzDbSpZNiRYvhu31k+Pi4EWQ=="}]
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var express = __webpack_require__(5);
+var controller = __webpack_require__(10);
+var walking = __webpack_require__(14);
+var auth = __webpack_require__(8);
+
+var router = express.Router();
+
+// elenco dei providers
+router.get('/providers', controller.providers);
+// restituisce lo schema db
+router.get('/schema/:id', auth.needAuthentication(controller.checkData), controller.schema);
+// restituisce i parametri di sistema
+router.get('/system', auth.needAuthentication(controller.checkData), controller.system);
+// walking run
+router.get('/walking/state', walking.state);
+// walking-data context
+router.get('/walking/info', walking.info);
+
+// restituisce i dati
+router.post('/execute', auth.needAuthentication(controller.checkData), controller.execute);
+// test connessione
+router.post('/test/conn', controller.testconn);
+// test di esecuzione
+router.post('/test/exec', controller.test);
+// data-entry
+router.post('/entry', controller.entry);
+// template
+router.post('/template', controller.template);
+// walking run
+router.post('/walking/run', walking.run);
+// walking stop
+router.post('/walking/stop', walking.stop);
+// walking upload
+router.post('/walking/upload', walking.upload);
+// walking stop
+router.post('/walking/browse', walking.browse);
+
+module.exports = router;
+
+
+
+
+
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var express = __webpack_require__(5);
+var controller = __webpack_require__(60);
 var auth = __webpack_require__(8);
 
 var router = express.Router();
@@ -5375,7 +6900,7 @@ module.exports = router;
 
 
 /***/ }),
-/* 56 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5383,7 +6908,7 @@ module.exports = router;
 
 const _ = __webpack_require__(0);
 var u = __webpack_require__(1);
-var fs = __webpack_require__(5);
+var fs = __webpack_require__(4);
 var path = __webpack_require__(3);
 const config = __webpack_require__(2);
 const reporting_path = config.reportingPath || (u.release ? config.serverPath : __dirname);
@@ -5465,39 +6990,39 @@ exports.saveDocument = function(req, res) {
 /* WEBPACK VAR INJECTION */}.call(exports, "server\\api\\reporting"))
 
 /***/ }),
-/* 57 */
+/* 61 */
 /***/ (function(module, exports) {
 
 module.exports = require("url");
 
 /***/ }),
-/* 58 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var express = __webpack_require__(4);
+var express = __webpack_require__(5);
 var passport = __webpack_require__(9);
 var config = __webpack_require__(2);
-var User = __webpack_require__(14);
+var User = __webpack_require__(18);
 
 // Passport Configuration
-__webpack_require__(59).setup(User, config);
+__webpack_require__(63).setup(User, config);
 
 var router = express.Router();
 
-router.use('/local', __webpack_require__(61));
+router.use('/local', __webpack_require__(65));
 
 module.exports = router;
 
 
 /***/ }),
-/* 59 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var passport = __webpack_require__(9);
-var LocalStrategy = __webpack_require__(60).Strategy;
+var LocalStrategy = __webpack_require__(64).Strategy;
 
 exports.setup = function (User, config) {
   passport.use(new LocalStrategy({
@@ -5524,19 +7049,19 @@ exports.setup = function (User, config) {
 
 
 /***/ }),
-/* 60 */
+/* 64 */
 /***/ (function(module, exports) {
 
 module.exports = require("passport-local");
 
 /***/ }),
-/* 61 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var express = __webpack_require__(4);
+var express = __webpack_require__(5);
 var passport = __webpack_require__(9);
 var auth = __webpack_require__(8);
 
