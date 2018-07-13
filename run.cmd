@@ -1,1 +1,1 @@
-node server/echo-service.js
+CALL npm start
